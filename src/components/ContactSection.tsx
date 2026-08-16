@@ -1,6 +1,17 @@
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { z } from 'zod';
+import { useLocation } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+
+const enquirySchema = z.object({
+  name: z.string().trim().min(1, { message: 'Please enter your name' }).max(100, { message: 'Name must be less than 100 characters' }),
+  email: z.string().trim().email({ message: 'Please enter a valid email address' }).max(255, { message: 'Email must be less than 255 characters' }),
+  phone: z.string().trim().max(40, { message: 'Phone number must be less than 40 characters' }).optional().or(z.literal('')),
+  message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
+});
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -10,10 +21,42 @@ const ContactSection = () => {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const location = useLocation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    const parsed = enquirySchema.safeParse(formData);
+    if (!parsed.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of parsed.error.issues) {
+        const key = String(issue.path[0]);
+        if (!fieldErrors[key]) fieldErrors[key] = issue.message;
+      }
+      setErrors(fieldErrors);
+      toast.error('Please check the highlighted fields');
+      return;
+    }
+
+    setErrors({});
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.from('enquiries').insert({
+        name: parsed.data.name,
+        email: parsed.data.email,
+        phone: parsed.data.phone ? parsed.data.phone : null,
+        message: parsed.data.message,
+        source_page: location.pathname,
+      });
+      if (error) throw error;
+      toast.success("Thank you — we've received your enquiry and will be in touch shortly.");
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch {
+      toast.error('Sorry, something went wrong. Please call us or try again in a moment.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -97,7 +140,9 @@ const ContactSection = () => {
                   required
                   className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
                   placeholder="John Smith"
+                  maxLength={100}
                 />
+                {errors.name && <p className="mt-1 font-body text-sm text-accent">{errors.name}</p>}
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
@@ -113,7 +158,9 @@ const ContactSection = () => {
                     required
                     className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
                     placeholder="john@example.com"
+                    maxLength={255}
                   />
+                  {errors.email && <p className="mt-1 font-body text-sm text-accent">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
@@ -127,7 +174,9 @@ const ContactSection = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
                     placeholder="01234 567890"
+                    maxLength={40}
                   />
+                  {errors.phone && <p className="mt-1 font-body text-sm text-accent">{errors.phone}</p>}
                 </div>
               </div>
               <div>
@@ -143,11 +192,17 @@ const ContactSection = () => {
                   rows={5}
                   className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors resize-none"
                   placeholder="Tell us about your garden project..."
+                  maxLength={2000}
                 />
+                {errors.message && <p className="mt-1 font-body text-sm text-accent">{errors.message}</p>}
               </div>
-              <Button variant="accent" size="xl" className="w-full group">
-                Send Message
-                <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button type="submit" variant="accent" size="xl" className="w-full group" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending…' : 'Send Message'}
+                {isSubmitting ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                )}
               </Button>
             </form>
           </div>
