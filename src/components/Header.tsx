@@ -50,14 +50,12 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`font-body text-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${
-                isScrolled ? 'text-foreground' : 'text-primary-foreground/90'
-              }`}
+              className="font-body text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:text-accent"
             >
               {link.label}
             </a>
           ))}
-          <Button variant={isScrolled ? 'elegant' : 'heroOutline'} size="lg">
+          <Button variant="elegant" size="lg">
             <Phone className="h-4 w-4" />
             Get in Touch
           </Button>
