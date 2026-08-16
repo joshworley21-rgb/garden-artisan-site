@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/jw-logo.png.asset.json';
+import gardenersGuildLogo from '@/assets/gardeners-guild-logo.png.asset.json';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -65,9 +66,19 @@ const Footer = () => {
             © {currentYear} JW Garden Services. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="font-body text-sm text-background/50">
-              Member of the Chartered Institute of Horticulture
-            </span>
+            <div className="flex items-center gap-3">
+              <img
+                src={gardenersGuildLogo.url}
+                alt="The Gardeners Guild member logo"
+                width={2354}
+                height={1517}
+                loading="lazy"
+                className="h-10 w-auto object-contain"
+              />
+              <span className="font-body text-sm text-background/50">
+                Member of The Gardeners Guild
+              </span>
+            </div>
           </div>
         </div>
       </div>
