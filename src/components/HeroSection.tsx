@@ -1,41 +1,54 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import heroAsset from '@/assets/jw-hero.jpg.asset.json';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src={heroAsset.url}
-          alt="Beautifully maintained garden in Aylesbury by JW Garden Services"
+          alt="Beautiful English garden landscape"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />
       </div>
 
+      {/* Content */}
       <div className="relative z-10 container-wide text-center px-6 py-32">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-4 animate-fade-up">
-            Transforming gardens with passion and expertise across
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-up">
+            <MapPin className="h-4 w-4 text-hero-accent" />
+            <span className="text-primary-foreground/90 text-sm font-body tracking-wide">
+              Based in Bierton, Aylesbury • Covering Beds, Bucks & Herts
+            </span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground font-semibold leading-tight mb-6 animate-fade-up animation-delay-200">
+            Transforming Gardens
+            <span className="block italic font-normal text-hero-accent">with Passion & Expertise</span>
           </h1>
-          <p className="font-heading text-2xl md:text-3xl lg:text-4xl text-hero-accent tracking-wide mb-8 animate-fade-up animation-delay-200">
-            BUCKS, BEDS AND HERTS.
+
+          {/* Subheading */}
+          <p className="font-body text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animation-delay-400">
+            At JW Garden Services, we create vibrant landscapes with precision and passion. 
+            Your garden should be a space you love—we make that possible.
           </p>
 
-          <p className="font-body text-base md:text-lg text-primary-foreground/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animation-delay-400">
-            At JW Garden Services, we create vibrant landscapes with precision and knowledge. Your
-            garden should be a space you love—we make that possible. Let's bring your outdoor vision
-            to life! We are your local Gardening experts.
-          </p>
-
-          <div className="flex justify-center animate-fade-up animation-delay-600">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-600">
             <Button variant="hero" size="xl" className="group" asChild>
               <Link to="/contact">
-                Get a Quote
+                Get in Touch
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
+            </Button>
+            <Button variant="heroOutline" size="xl" asChild>
+              <Link to="/services">View Our Services</Link>
             </Button>
           </div>
         </div>

@@ -1,52 +1,85 @@
-import aboutImage from '@/assets/jw-about-main.jpg.asset.json';
+import { Award, Shield, Leaf, Users } from 'lucide-react';
 
-const points = [
-  'Professional and Insured Service.',
-  'Tailored Solutions for Every Garden.',
-  'Passionate About Helping Outdoor Spaces Flourish.',
-  'Fully qualified Horticulturist.',
-  'Proud members of the Chartered Institute of Horticulture and Gardeners Guild.',
+const credentials = [
+  {
+    icon: Award,
+    title: 'Fully Qualified Horticulturist',
+    description: 'City & Guilds certified expertise',
+  },
+  {
+    icon: Shield,
+    title: 'Professional & Insured',
+    description: 'Complete peace of mind',
+  },
+  {
+    icon: Leaf,
+    title: 'Tailored Solutions',
+    description: 'Bespoke care for every garden',
+  },
+  {
+    icon: Users,
+    title: 'Chartered Institute Member',
+    description: 'Gardeners Guild & CIH member',
+  },
 ];
 
 const AboutSection = () => {
   return (
     <section id="about" className="section-padding bg-secondary/30">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
           <div>
-            <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-4">
-              About us
+            <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+              About Us
+            </span>
+            <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-6 leading-tight">
+              Passionate About Helping
+              <span className="block text-primary italic">Outdoor Spaces Flourish</span>
             </h2>
-            <p className="font-body text-lg text-primary font-medium mb-6">
-              Your garden, our expertise. Professional care you can trust.
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
+              At JW Garden Services, we believe your garden should be a sanctuary—a place where 
+              you can relax, entertain, and connect with nature. With years of experience and a 
+              genuine passion for horticulture, we bring expertise and dedication to every project.
             </p>
             <p className="font-body text-muted-foreground leading-relaxed mb-8">
-              At JW Garden Services, we create and maintain stunning outdoor spaces with expert
-              craftsmanship and attention to detail. Whether you need routine garden maintenance,
-              bespoke landscaping, or specialist horticultural care, we&rsquo;re here to bring your
-              vision to life.
+              Whether you need routine maintenance, specialist horticultural care, or a complete 
+              garden transformation, we're here to bring your vision to life with attention to 
+              detail and professional craftsmanship.
             </p>
 
-            <ul className="space-y-3 mb-8">
-              {points.map((point) => (
-                <li key={point} className="flex items-start gap-3 font-body text-foreground">
-                  <span className="text-primary font-semibold leading-6">&#10004;</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="font-body text-lg text-foreground font-medium">
-              Let&rsquo;s transform your garden &ndash; Get in touch today!
-            </p>
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-soft">
+                <span className="text-accent text-lg">✓</span>
+                <span className="font-body text-sm text-foreground">Registered Waste Carrier</span>
+              </div>
+              <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-soft">
+                <span className="text-accent text-lg">✓</span>
+                <span className="font-body text-sm text-foreground">Free Consultations</span>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-lg overflow-hidden shadow-elevated">
-            <img
-              src={aboutImage.url}
-              alt="Landscaped garden with lawn and planted borders"
-              className="w-full h-full object-cover"
-            />
+          {/* Credentials Grid */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {credentials.map((credential, index) => (
+              <div
+                key={credential.title}
+                className="bg-background p-6 rounded-lg shadow-soft hover:shadow-elevated transition-all duration-300 group"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <credential.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg text-foreground font-semibold mb-2">
+                  {credential.title}
+                </h3>
+                <p className="font-body text-sm text-muted-foreground">
+                  {credential.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
