@@ -6,7 +6,7 @@ import heroVideo from '@/assets/jw-hero-video.mp4.asset.json';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <img
