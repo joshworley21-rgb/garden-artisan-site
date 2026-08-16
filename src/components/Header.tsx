@@ -40,8 +40,8 @@ const Header = () => {
           <img
             src={logo.url}
             alt="JW Garden Services logo"
-            width={320}
-            height={96}
+            width={255}
+            height={102}
             className={`block object-contain object-left transition-all duration-300 ${
               isScrolled
                 ? 'h-8 sm:h-9 md:h-10 lg:h-11'
