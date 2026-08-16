@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import maintenanceAsset from '@/assets/jw-maintenance.jpg.asset.json';
 import landscapingAsset from '@/assets/jw-landscaping.jpg.asset.json';
 import commercialAsset from '@/assets/jw-commercial.jpg.asset.json';
@@ -71,21 +69,9 @@ const ServicesSection = () => {
                 <h3 className="font-heading text-2xl leading-snug text-foreground font-semibold mb-4 transition-colors duration-300 group-hover:text-primary">
                   {service.title}
                 </h3>
-                <p className="font-body text-muted-foreground leading-relaxed mb-6 flex-1">
+                <p className="font-body text-muted-foreground leading-relaxed mb-2 flex-1">
                   {service.description}
                 </p>
-
-                {/* Underline-reveal link */}
-                <Link
-                  to="/services"
-                  className="group/link inline-flex items-center gap-2 self-start font-body text-sm font-medium text-primary"
-                >
-                  Find Out More
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                  <span className="relative block h-0.5 w-16 overflow-hidden bg-primary/20">
-                    <span className="absolute inset-0 -translate-x-full bg-accent transition-transform duration-500 ease-out group-hover/link:translate-x-0" />
-                  </span>
-                </Link>
               </div>
             </article>
           ))}

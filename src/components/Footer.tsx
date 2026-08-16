@@ -5,13 +5,6 @@ import logo from '@/assets/jw-logo.png.asset.json';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const serviceLinks = [
-    'Garden Maintenance',
-    'Garden Design',
-    'Hard Landscaping',
-    'Commercial Maintenance',
-  ];
-
   const quickLinks = [
     { to: '/about', label: 'About Us' },
     { to: '/our-work', label: 'Our Work' },
@@ -51,22 +44,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((label) => (
-                <li key={label}>
-                  <Link to="/services" className="font-body text-background/70 hover:text-accent transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Quick Links */}
-          <div>
+          <div className="md:col-span-2">
             <h4 className="font-heading text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
