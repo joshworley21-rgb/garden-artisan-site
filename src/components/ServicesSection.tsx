@@ -1,27 +1,24 @@
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Leaf } from 'lucide-react';
-import maintenance from '@/assets/jw-maintenance.jpg.asset.json';
-import landscaping from '@/assets/jw-landscaping.jpg.asset.json';
-import commercial from '@/assets/jw-commercial.jpg.asset.json';
+import maintenanceAsset from '@/assets/jw-maintenance.jpg.asset.json';
+import landscapingAsset from '@/assets/jw-landscaping.jpg.asset.json';
+import commercialAsset from '@/assets/jw-commercial.jpg.asset.json';
 
 const services = [
   {
-    title: 'General Maintenance',
-    description:
-      'Let us take the stress out of gardening, working closely with you to improve and develop your garden into somewhere you can relax and enjoy with our year-round maintenance and expertise.',
-    image: maintenance.url,
+    title: 'Garden Maintenance',
+    description: 'Let us take the stress out of gardening, working closely with you to improve and develop your garden into somewhere you can relax and enjoy with our year-round maintenance and expertise.',
+    image: maintenanceAsset.url,
   },
   {
-    title: 'Garden design and Hard landscaping',
-    description:
-      'We can create an outdoor space you can be proud of, whether you need a new outdoor entertaining space, a border redesign/ refresh, or even a whole garden makeover. We can help.',
-    image: landscaping.url,
+    title: 'Garden Design & Hard Landscaping',
+    description: 'We can create an outdoor space you can be proud of, whether you need a new patio, a border redesign, or even a whole garden makeover.',
+    image: landscapingAsset.url,
   },
   {
-    title: 'Commercial grounds maintenance',
-    description:
-      'We offer flexible plans tailored to your specific needs and budget. Our expertise can enhance your property\u2019s appeal and keep your business premises looking professional and welcoming.',
-    image: commercial.url,
+    title: 'Commercial Maintenance',
+    description: 'We offer flexible plans tailored to your specific needs and budget. Our expertise can enhance your property\'s appeal and keep your business premises looking professional and welcoming.',
+    image: commercialAsset.url,
   },
 ];
 
@@ -29,49 +26,67 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-background">
       <div className="container-wide">
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-6">
-            Our Services
+          <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
+            What We Offer
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-semibold mb-6">
+            Your Garden, Our Expertise
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            Complete care for your outdoor space. From weekly mowing to full landscape design. Your
-            garden our expertise&ndash;professional care you can trust.
+            Professional care you can trust. We create and maintain stunning outdoor spaces 
+            with expert craftsmanship and attention to detail.
           </p>
         </div>
 
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <article
               key={service.title}
-              className="group flex flex-col bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-elevated border border-border hover:border-accent/40 transition-all duration-500 hover:-translate-y-2"
+              className="group relative flex flex-col bg-card rounded-lg overflow-hidden shadow-soft border border-border/60 hover:border-accent/40 hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 ease-out"
             >
-              <div className="relative overflow-hidden">
+              {/* Image */}
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-52 object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-              </div>
-              <div className="p-8 flex flex-col flex-1">
-                <span className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center mb-5">
-                  <Leaf className="h-5 w-5 text-primary" />
+                {/* Persistent subtle gradient for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent" />
+                {/* Gold accent bar that grows on hover */}
+                <div className="absolute left-0 bottom-0 h-1 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
+
+                {/* Index badge */}
+                <span className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/90 backdrop-blur-sm font-heading text-sm font-semibold text-primary shadow-soft">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="font-heading text-2xl text-foreground font-semibold mb-4">
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-1 flex-col p-8">
+                <h3 className="font-heading text-2xl leading-snug text-foreground font-semibold mb-4 transition-colors duration-300 group-hover:text-primary">
                   {service.title}
                 </h3>
-                <p className="font-body text-muted-foreground leading-relaxed mb-6">
+                <p className="font-body text-muted-foreground leading-relaxed mb-6 flex-1">
                   {service.description}
                 </p>
+
+                {/* Underline-reveal link */}
                 <Link
-                  to="/contact"
-                  className="mt-auto inline-flex items-center gap-2 font-body text-sm uppercase tracking-widest text-primary group/link"
+                  to="/services"
+                  className="group/link inline-flex items-center gap-2 self-start font-body text-sm font-medium text-primary"
                 >
-                  Learn more
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  Find Out More
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  <span className="relative block h-0.5 w-16 overflow-hidden bg-primary/20">
+                    <span className="absolute inset-0 -translate-x-full bg-accent transition-transform duration-500 ease-out group-hover/link:translate-x-0" />
+                  </span>
                 </Link>
               </div>
-              <span className="block h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
             </article>
           ))}
         </div>
