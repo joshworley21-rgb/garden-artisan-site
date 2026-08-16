@@ -40,11 +40,7 @@ const Header = () => {
             alt="JW Garden Services logo"
             width={255}
             height={102}
-            className={`block object-contain object-left transition-all duration-300 ${
-              isScrolled
-                ? 'h-8 sm:h-9 md:h-10 lg:h-11'
-                : 'h-9 sm:h-11 md:h-12 lg:h-14 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'
-            } w-auto max-w-[45vw] sm:max-w-[240px] lg:max-w-[280px]`}
+            className="block object-contain object-left transition-all duration-300 h-9 sm:h-10 md:h-11 lg:h-12 w-auto max-w-[45vw] sm:max-w-[240px] lg:max-w-[280px]"
           />
         </a>
 
