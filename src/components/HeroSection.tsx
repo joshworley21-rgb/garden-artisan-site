@@ -2,16 +2,28 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import heroAsset from '@/assets/jw-hero.jpg.asset.json';
+import heroVideo from '@/assets/jw-hero-video.mp4.asset.json';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <img
           src={heroAsset.url}
           alt="Beautiful English garden landscape"
           className="w-full h-full object-cover"
+        />
+        <video
+          src={heroVideo.url}
+          poster={heroAsset.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />
       </div>
