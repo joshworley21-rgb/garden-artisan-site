@@ -6,7 +6,7 @@ import heroVideo from '@/assets/jw-hero-video.mp4.asset.json';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
+    <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <img
@@ -29,7 +29,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-wide text-center px-6 py-32">
+      <div className="relative z-10 container-wide text-center py-16 sm:py-20">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-up">
@@ -40,13 +40,13 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground font-semibold leading-tight mb-6 animate-fade-up animation-delay-200">
+          <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
             Transforming Gardens
             <span className="block italic font-normal text-hero-accent">with Passion & Expertise</span>
           </h1>
 
           {/* Subheading */}
-          <p className="font-body text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up animation-delay-400">
+          <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
             At JW Garden Services, we create vibrant landscapes with precision and passion. 
             Your garden should be a space you love—we make that possible.
           </p>
