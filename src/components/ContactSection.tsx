@@ -13,7 +13,7 @@ const enquirySchema = z.object({
   message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
 });
 
-const ContactSection = () => {
+const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
