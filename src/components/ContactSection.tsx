@@ -4,12 +4,23 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { toast } from 'sonner';
 
-const enquirySchema = z.object({
-  name: z.string().trim().min(1, { message: 'Please enter your name' }).max(100, { message: 'Name must be less than 100 characters' }),
-  email: z.string().trim().email({ message: 'Please enter a valid email address' }).max(255, { message: 'Email must be less than 255 characters' }),
-  phone: z.string().trim().max(40, { message: 'Phone number must be less than 40 characters' }).optional().or(z.literal('')),
-  message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
-});
+// zod and the backend client are only needed once someone actually submits the
+// form, so they are loaded on demand instead of shipping in the landing bundle.
+const loadEnquiryDeps = async () => {
+  const [{ z }, { supabase }] = await Promise.all([
+    import('zod'),
+    import('@/integrations/supabase/client'),
+  ]);
+
+  const schema = z.object({
+    name: z.string().trim().min(1, { message: 'Please enter your name' }).max(100, { message: 'Name must be less than 100 characters' }),
+    email: z.string().trim().email({ message: 'Please enter a valid email address' }).max(255, { message: 'Email must be less than 255 characters' }),
+    phone: z.string().trim().max(40, { message: 'Phone number must be less than 40 characters' }).optional().or(z.literal('')),
+    message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
+  });
+
+  return { schema, supabase };
+};
 
 const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: boolean; flushTop?: boolean }) => {
   const [formData, setFormData] = useState({
@@ -25,21 +36,22 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const parsed = enquirySchema.safeParse(formData);
-    if (!parsed.success) {
-      const fieldErrors: Record<string, string> = {};
-      for (const issue of parsed.error.issues) {
-        const key = String(issue.path[0]);
-        if (!fieldErrors[key]) fieldErrors[key] = issue.message;
-      }
-      setErrors(fieldErrors);
-      toast.error('Please check the highlighted fields');
-      return;
-    }
-
-    setErrors({});
     setIsSubmitting(true);
     try {
+      const { schema, supabase } = await loadEnquiryDeps();
+      const parsed = schema.safeParse(formData);
+      if (!parsed.success) {
+        const fieldErrors: Record<string, string> = {};
+        for (const issue of parsed.error.issues) {
+          const key = String(issue.path[0]);
+          if (!fieldErrors[key]) fieldErrors[key] = issue.message;
+        }
+        setErrors(fieldErrors);
+        toast.error('Please check the highlighted fields');
+        return;
+      }
+
+      setErrors({});
       const { error } = await supabase.from('enquiries').insert({
         name: parsed.data.name,
         email: parsed.data.email,
