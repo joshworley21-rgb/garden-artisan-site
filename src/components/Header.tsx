@@ -32,13 +32,21 @@ const Header = () => {
     >
       <div className="container-wide flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3" aria-label="JW Garden Services home">
+        <a
+          href="#"
+          className="flex items-center shrink-0 overflow-hidden"
+          aria-label="JW Garden Services home"
+        >
           <img
             src={logo.url}
             alt="JW Garden Services logo"
-            className={`h-10 md:h-12 w-auto transition-all duration-300 ${
-              isScrolled ? '' : 'brightness-0 invert'
-            }`}
+            width={320}
+            height={96}
+            className={`block object-contain object-left transition-all duration-300 ${
+              isScrolled
+                ? 'h-8 sm:h-9 md:h-10 lg:h-11'
+                : 'h-9 sm:h-11 md:h-12 lg:h-14 brightness-0 invert'
+            } w-auto max-w-[45vw] sm:max-w-[240px] lg:max-w-[280px]`}
           />
         </a>
 

@@ -13,7 +13,9 @@ const Footer = () => {
             <img
               src={logo.url}
               alt="JW Garden Services logo"
-              className="h-12 w-auto mb-4 brightness-0 invert"
+              width={320}
+              height={96}
+              className="block h-10 sm:h-12 lg:h-14 w-auto max-w-[240px] object-contain object-left mb-4 brightness-0 invert"
             />
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
               Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
