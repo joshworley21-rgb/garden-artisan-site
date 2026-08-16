@@ -1,9 +1,11 @@
 import Seo from '@/components/Seo';
 import PageLayout from '@/components/PageLayout';
 import ContactSection from '@/components/ContactSection';
-import about1 from '@/assets/jw-about-1.jpg.asset.json';
-import about2 from '@/assets/jw-about-2.jpg.asset.json';
-import about3 from '@/assets/jw-about-3.png.asset.json';
+import { images } from '@/lib/images';
+
+const about1 = images['jw-about-1'];
+const about2 = images['jw-about-2'];
+const about3 = images['jw-about-3'];
 
 const About = () => (
   <>
@@ -42,21 +44,36 @@ const About = () => (
 
         <div className="grid grid-cols-2 gap-4">
           <img
-            src={about1.url}
+            src={about1.src}
+            srcSet={about1.srcSet}
+            sizes="(max-width: 1024px) 50vw, 25vw"
+            width={about1.width}
+            height={about1.height}
             alt="Josh working on a garden project"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-lg shadow-soft"
           />
           <img
-            src={about2.url}
+            src={about2.src}
+            srcSet={about2.srcSet}
+            sizes="(max-width: 1024px) 50vw, 25vw"
+            width={about2.width}
+            height={about2.height}
             alt="Freshly maintained garden border"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-lg shadow-soft row-span-2"
           />
           <img
-            src={about3.url}
+            src={about3.src}
+            srcSet={about3.srcSet}
+            sizes="(max-width: 1024px) 50vw, 25vw"
+            width={about3.width}
+            height={about3.height}
             alt="Completed landscaping project by JW Garden Services"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-lg shadow-soft"
           />
         </div>
