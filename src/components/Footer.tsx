@@ -75,7 +75,7 @@ const Footer = () => {
                 width={160}
                 height={80}
                 loading="lazy"
-                className="h-14 w-auto object-contain object-left bg-background/90 rounded-md p-2 transition-transform group-hover:scale-105"
+                className="h-14 w-auto object-contain object-left bg-background rounded-sm p-1 transition-transform group-hover:scale-105"
               />
               <span className="font-body text-sm text-background/70 group-hover:text-hero-accent transition-colors">
                 Proud to follow The Gardeners Guild standards for professional gardening
