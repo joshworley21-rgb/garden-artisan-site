@@ -60,13 +60,13 @@ const AreasSection = () => {
               need is met, whatever the season.
             </p>
 
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-4">
+            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
               {areas.map((area) => (
                 <li key={area} className="flex items-center gap-3 font-body text-foreground">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
                     <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
                   </span>
-                  <span className="text-base">{area}</span>
+                  <span className="text-sm sm:text-base">{area}</span>
                 </li>
               ))}
             </ul>
@@ -79,16 +79,21 @@ const AreasSection = () => {
           </div>
 
           {/* Map */}
-          <div className="rounded-lg overflow-hidden shadow-elevated aspect-square lg:aspect-[4/5]">
-            <iframe
-              title="Map showing the areas JW Garden Services covers around Aylesbury"
-              src="https://www.google.com/maps?q=Bierton,+Aylesbury,+Buckinghamshire,+UK&z=10&output=embed"
-              width="100%"
-              height="100%"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="border-0 h-full w-full"
-            />
+          <div
+            ref={mapRef}
+            className="rounded-lg overflow-hidden shadow-elevated bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
+          >
+            {showMap && (
+              <iframe
+                title="Map showing the areas JW Garden Services covers around Aylesbury"
+                src="https://www.google.com/maps?q=Bierton,+Aylesbury,+Buckinghamshire,+UK&z=10&output=embed"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="border-0 h-full w-full"
+              />
+            )}
           </div>
         </div>
       </div>
