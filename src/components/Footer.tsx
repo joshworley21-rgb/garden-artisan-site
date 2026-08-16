@@ -1,8 +1,23 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/jw-logo.png.asset.json';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const serviceLinks = [
+    'Garden Maintenance',
+    'Garden Design',
+    'Hard Landscaping',
+    'Commercial Maintenance',
+  ];
+
+  const quickLinks = [
+    { to: '/about', label: 'About Us' },
+    { to: '/our-work', label: 'Our Work' },
+    { to: '/contact', label: 'Contact' },
+    { to: '/privacy', label: 'Privacy Policy' },
+  ];
 
   return (
     <footer className="bg-foreground text-background py-16">
@@ -10,13 +25,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <img
+            <Link to="/" aria-label="JW Garden Services home" className="inline-block">
+              <img
               src={logo.url}
               alt="JW Garden Services logo"
               width={255}
               height={102}
               className="block h-10 sm:h-12 lg:h-14 w-auto max-w-[240px] object-contain object-left mb-4 brightness-0 invert"
-            />
+              />
+            </Link>
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
               Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
               serving Bedfordshire, Buckinghamshire, and Hertfordshire.
@@ -38,26 +55,13 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="#services" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Garden Maintenance
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Garden Design
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Hard Landscaping
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Commercial Maintenance
-                </a>
-              </li>
+              {serviceLinks.map((label) => (
+                <li key={label}>
+                  <Link to="/services" className="font-body text-background/70 hover:text-accent transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -65,26 +69,13 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="#about" className="font-body text-background/70 hover:text-accent transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#work" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Our Work
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="font-body text-background/70 hover:text-accent transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="font-body text-background/70 hover:text-accent transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
