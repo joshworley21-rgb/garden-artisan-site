@@ -74,7 +74,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 <span className="text-hero-accent font-body text-sm uppercase tracking-widest mb-4 block">
                   Contact Us
                 </span>
-                <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-6 leading-tight">
+                <h2 className="font-heading heading-section font-semibold mb-6">
                   Let's Transform
                   <span className="block italic font-normal">Your Garden</span>
                 </h2>
