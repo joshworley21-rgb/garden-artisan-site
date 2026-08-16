@@ -1,9 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
-import { z } from 'zod';
 import { useLocation } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
 const enquirySchema = z.object({
