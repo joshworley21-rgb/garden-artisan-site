@@ -1,5 +1,4 @@
 import { Award, Shield, Leaf, Users } from 'lucide-react';
-import gardenersGuildLogo from '@/assets/gardeners-guild-logo.png.asset.json';
 
 const credentials = [
   {
@@ -19,8 +18,8 @@ const credentials = [
   },
   {
     icon: Users,
-    title: 'The Gardeners Guild Member',
-    description: 'Accredited member of The Gardeners Guild',
+    title: 'Personal Service',
+    description: 'Dedicated care for your garden',
   },
 ];
 
@@ -49,33 +48,6 @@ const AboutSection = () => {
               detail and professional craftsmanship.
             </p>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-soft">
-                <span className="text-accent text-lg">✓</span>
-                <span className="font-body text-sm text-foreground">Registered Waste Carrier</span>
-              </div>
-              <div className="flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-soft">
-                <span className="text-accent text-lg">✓</span>
-                <span className="font-body text-sm text-foreground">Free Consultations</span>
-              </div>
-            </div>
-
-            {/* Gardeners Guild Accreditation */}
-            <div className="mt-8 flex items-center gap-4">
-              <img
-                src={gardenersGuildLogo.url}
-                alt="The Gardeners Guild member logo"
-                width={2354}
-                height={1517}
-                loading="lazy"
-                className="h-16 w-auto object-contain"
-              />
-              <p className="font-body text-sm text-muted-foreground max-w-[16rem]">
-                Proud member of The Gardeners Guild, the mark of professional,
-                vetted garden care.
-              </p>
-            </div>
           </div>
 
           {/* Credentials Grid */}
