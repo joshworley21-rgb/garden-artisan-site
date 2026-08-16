@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import maintenanceAsset from '@/assets/jw-maintenance.jpg.asset.json';
 import landscapingAsset from '@/assets/jw-landscaping.jpg.asset.json';
@@ -43,35 +42,48 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <article
               key={service.title}
-              className="group relative bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="group relative flex flex-col bg-card rounded-lg overflow-hidden shadow-soft border border-border/60 hover:border-accent/40 hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 ease-out"
             >
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Persistent subtle gradient for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent" />
+                {/* Gold accent bar that grows on hover */}
+                <div className="absolute left-0 bottom-0 h-1 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
+
+                {/* Index badge */}
+                <span className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/90 backdrop-blur-sm font-heading text-sm font-semibold text-primary shadow-soft">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
               </div>
 
               {/* Content */}
-              <div className="p-8">
-                <h3 className="font-heading text-2xl text-foreground font-semibold mb-4">
+              <div className="flex flex-1 flex-col p-8">
+                <h3 className="font-heading text-2xl text-foreground font-semibold mb-4 transition-colors duration-300 group-hover:text-primary">
                   {service.title}
                 </h3>
-                <p className="font-body text-muted-foreground leading-relaxed mb-6">
+                <p className="font-body text-muted-foreground leading-relaxed mb-6 flex-1">
                   {service.description}
                 </p>
-                <Button variant="elegant" size="sm" className="group/btn">
+
+                {/* Underline-reveal link */}
+                <span className="group/link inline-flex items-center gap-2 self-start font-body text-sm font-medium text-primary">
                   Find Out More
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                </Button>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  <span className="relative block h-0.5 w-16 overflow-hidden bg-primary/20">
+                    <span className="absolute inset-0 -translate-x-full bg-accent transition-transform duration-500 ease-out group-hover/link:translate-x-0" />
+                  </span>
+                </span>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
