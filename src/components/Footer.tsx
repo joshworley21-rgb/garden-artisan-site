@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/jw-logo.png.asset.json';
+
 import guildLogo from '@/assets/gardeners-guild-logo.png.asset.json';
 
 const Footer = () => {
@@ -19,14 +19,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" aria-label="JW Garden Services home" className="inline-block">
-              <img
-              src={logo.url}
-              alt="JW Garden Services logo"
-              width={255}
-              height={102}
-              className="block h-10 sm:h-12 lg:h-14 w-auto max-w-[240px] object-contain object-left mb-4 brightness-0 invert"
-              />
+            <Link to="/" aria-label="JW Garden Services home" className="inline-block mb-4">
+              <span className="font-heading text-2xl font-semibold text-background">JW Garden Services</span>
             </Link>
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
               Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
