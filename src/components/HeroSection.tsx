@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin } from 'lucide-react';
-import heroImage from '@/assets/hero-garden.jpg';
+import heroAsset from '@/assets/jw-hero.jpg.asset.json';
 
 const HeroSection = () => {
   return (
@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src={heroAsset.url}
           alt="Beautiful English garden landscape"
           className="w-full h-full object-cover"
         />

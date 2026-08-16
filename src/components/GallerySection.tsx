@@ -1,11 +1,14 @@
-const galleryImages = [
-  'https://static.wixstatic.com/media/2bb60f_565b682ee1664f2ca49b2285fe899c4e~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_565b682ee1664f2ca49b2285fe899c4e~mv2.jpg',
-  'https://static.wixstatic.com/media/2bb60f_b2715d0b81ec4cf99b66b5f216973919~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_b2715d0b81ec4cf99b66b5f216973919~mv2.jpg',
-  'https://static.wixstatic.com/media/2bb60f_2ead3dd0113b4af0a38b45e30837954b~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_2ead3dd0113b4af0a38b45e30837954b~mv2.jpg',
-  'https://static.wixstatic.com/media/2bb60f_3e332a74a9d74c5b99c869748c422344~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_3e332a74a9d74c5b99c869748c422344~mv2.jpg',
-  'https://static.wixstatic.com/media/2bb60f_290961b5c56f4a07b580df96a48b869f~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_290961b5c56f4a07b580df96a48b869f~mv2.jpg',
-  'https://static.wixstatic.com/media/2bb60f_3ceb276f6afb42748fb9c9bffd5095f4~mv2.jpg/v1/fill/w_400,h_400,q_90,enc_avif,quality_auto/2bb60f_3ceb276f6afb42748fb9c9bffd5095f4~mv2.jpg',
-];
+import g1 from '@/assets/jw-g1.jpg.asset.json';
+import g2 from '@/assets/jw-g2.jpg.asset.json';
+import g3 from '@/assets/jw-g3.jpg.asset.json';
+import g4 from '@/assets/jw-g4.jpg.asset.json';
+import g5 from '@/assets/jw-g5.jpg.asset.json';
+import g6 from '@/assets/jw-g6.jpg.asset.json';
+import g7 from '@/assets/jw-g7.jpg.asset.json';
+import g8 from '@/assets/jw-g8.jpg.asset.json';
+import g9 from '@/assets/jw-g9.jpg.asset.json';
+
+const galleryImages = [g1, g2, g3, g4, g5, g6, g7, g8, g9].map((a) => a.url);
 
 const GallerySection = () => {
   return (
