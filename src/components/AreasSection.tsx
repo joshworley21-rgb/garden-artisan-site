@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Check, MapPin } from 'lucide-react';
 
 const areas = [
@@ -16,6 +17,30 @@ const areas = [
 ];
 
 const AreasSection = () => {
+  // The Google Maps embed is heavy, so it only mounts once it scrolls into view.
+  const mapRef = useRef<HTMLDivElement>(null);
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    const node = mapRef.current;
+    if (!node || showMap) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setShowMap(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [showMap]);
+
   return (
     <section id="areas" className="section-padding bg-secondary/30">
       <div className="container-wide">
