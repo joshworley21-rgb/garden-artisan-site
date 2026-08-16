@@ -13,7 +13,7 @@ const enquirySchema = z.object({
   message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
 });
 
-const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
+const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: boolean; flushTop?: boolean }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -64,7 +64,7 @@ const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-primary text-primary-foreground">
+    <section id="contact" className={`section-padding bg-primary text-primary-foreground ${flushTop ? '!pt-8 md:!pt-10' : ''}`}>
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
