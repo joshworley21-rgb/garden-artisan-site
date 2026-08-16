@@ -31,7 +31,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-all duration-500 ${
-        isScrolled ? 'py-3' : 'py-4'
+        isScrolled ? 'py-2' : 'py-3'
       }`}
     >
       <div className="container-wide flex items-center justify-between">
@@ -46,7 +46,7 @@ const Header = () => {
             alt="JW Garden Services logo"
             width={255}
             height={102}
-            className="block object-contain object-left transition-all duration-300 h-11 sm:h-12 md:h-[52px] lg:h-14 w-auto max-w-[55vw] sm:max-w-[280px] lg:max-w-[320px]"
+            className="block object-contain object-left transition-all duration-300 h-14 sm:h-16 md:h-[68px] lg:h-20 w-auto max-w-[70vw] sm:max-w-[340px] lg:max-w-[400px]"
           />
         </Link>
 
