@@ -20,7 +20,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 animate-fade-up">
-            <MapPin className="h-4 w-4 text-accent" />
+            <MapPin className="h-4 w-4 text-hero-accent" />
             <span className="text-primary-foreground/90 text-sm font-body tracking-wide">
               Based in Bierton, Aylesbury • Covering Beds, Bucks & Herts
             </span>
@@ -29,7 +29,7 @@ const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-primary-foreground font-semibold leading-tight mb-6 animate-fade-up animation-delay-200">
             Transforming Gardens
-            <span className="block italic font-normal text-accent">with Passion & Expertise</span>
+            <span className="block italic font-normal text-hero-accent">with Passion & Expertise</span>
           </h1>
 
           {/* Subheading */}

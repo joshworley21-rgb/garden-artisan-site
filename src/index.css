@@ -32,6 +32,9 @@
     --accent: 38 65% 50%;
     --accent-foreground: 150 25% 10%;
 
+    /* Bright leaf green for hero text over dark overlay */
+    --hero-accent: 95 55% 58%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
