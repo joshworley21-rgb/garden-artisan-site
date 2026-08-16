@@ -44,11 +44,16 @@ const ServicesSection = () => {
               className="group relative flex flex-col bg-card rounded-lg overflow-hidden shadow-soft border border-border/60 hover:border-accent/40 hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 ease-out"
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-52 sm:h-60 lg:h-64 overflow-hidden">
                 <img
-                  src={service.image}
+                  src={service.image.src}
+                  srcSet={service.image.srcSet}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  width={service.image.width}
+                  height={service.image.height}
                   alt={service.title}
-                  loading="lazy"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 {/* Persistent subtle gradient for legibility */}
