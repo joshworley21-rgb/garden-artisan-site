@@ -1,7 +1,14 @@
+import Seo from '@/components/Seo';
 import PageLayout from '@/components/PageLayout';
 
 const Privacy = () => (
-  <PageLayout eyebrow="Legal" title="Privacy Policy">
+  <>
+    <Seo
+      title="Privacy Policy | JW Garden Services"
+      description="How JW Garden Services collects, uses and protects the information you send through our enquiry form."
+      path="/privacy"
+    />
+    <PageLayout eyebrow="Legal" title="Privacy Policy">
     <section className="section-padding bg-background">
       <div className="container-wide max-w-3xl font-body text-muted-foreground leading-relaxed space-y-6">
         <p>
@@ -39,6 +46,7 @@ const Privacy = () => (
       </div>
     </section>
   </PageLayout>
+  </>
 );
 
 export default Privacy;
