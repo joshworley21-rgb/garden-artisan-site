@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
+import logo from '@/assets/jw-logo.png.asset.json';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,12 +32,14 @@ const Header = () => {
     >
       <div className="container-wide flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
-          <span className={`font-heading text-2xl md:text-3xl font-semibold tracking-tight transition-colors duration-300 ${
-            isScrolled ? 'text-primary' : 'text-primary-foreground'
-          }`}>
-            JW Garden Services
-          </span>
+        <a href="#" className="flex items-center gap-3" aria-label="JW Garden Services home">
+          <img
+            src={logo.url}
+            alt="JW Garden Services logo"
+            className={`h-10 md:h-12 w-auto transition-all duration-300 ${
+              isScrolled ? '' : 'brightness-0 invert'
+            }`}
+          />
         </a>
 
         {/* Desktop Navigation */}

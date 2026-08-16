@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import logo from '@/assets/jw-logo.png.asset.json';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,9 +10,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="font-heading text-2xl font-semibold mb-4">
-              JW Garden Services
-            </h3>
+            <img
+              src={logo.url}
+              alt="JW Garden Services logo"
+              className="h-12 w-auto mb-4 brightness-0 invert"
+            />
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
               Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
               serving Bedfordshire, Buckinghamshire, and Hertfordshire.
