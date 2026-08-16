@@ -64,7 +64,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
   };
 
   return (
-    <section id="contact" className="section-padding bg-primary text-primary-foreground">
+    <section id="contact" className={`section-padding bg-primary text-primary-foreground ${flushTop ? '!pt-8 md:!pt-10' : ''}`}>
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
