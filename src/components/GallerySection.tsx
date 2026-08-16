@@ -7,8 +7,16 @@ import g6 from '@/assets/jw-g6.jpg.asset.json';
 import g7 from '@/assets/jw-g7.jpg.asset.json';
 import g8 from '@/assets/jw-g8.jpg.asset.json';
 import g9 from '@/assets/jw-g9.jpg.asset.json';
+import w1 from '@/assets/jw-work-20250507_134138.jpg.asset.json';
+import w2 from '@/assets/jw-work-20230526_090054.jpg.asset.json';
+import w3 from '@/assets/jw-work-20250529_160433.jpg.asset.json';
+import w4 from '@/assets/jw-work-20240419_161952.jpg.asset.json';
 
 const galleryImages = [
+  { url: w1.url, alt: 'Ceanothus in full bloom beside a stone wall with countryside views, garden maintained near Aylesbury' },
+  { url: w2.url, alt: 'Long hedge freshly trimmed to a crisp line in a Buckinghamshire garden' },
+  { url: w3.url, alt: 'Indian sandstone patio cleaned and repointed with potted campanula in flower' },
+  { url: w4.url, alt: 'New border being planted out with grasses and perennials on a brick-edged driveway bed' },
   { url: g1.url, alt: 'Freshly mown lawn with shaped borders in an Aylesbury garden' },
   { url: g2.url, alt: 'Neatly cut hedge and planted border after garden maintenance in Buckinghamshire' },
   { url: g3.url, alt: 'New patio and paving laid as part of a hard landscaping project near Aylesbury' },
