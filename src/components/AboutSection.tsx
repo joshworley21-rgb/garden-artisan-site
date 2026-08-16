@@ -27,13 +27,13 @@ const AboutSection = () => {
   return (
     <section id="about" className="section-padding bg-secondary/30">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div>
             <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
               About Us
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-6 leading-tight">
+            <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
               Passionate About Helping
               <span className="block text-primary italic">Outdoor Spaces Flourish</span>
             </h2>
@@ -51,7 +51,7 @@ const AboutSection = () => {
           </div>
 
           {/* Credentials Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
             {credentials.map((credential, index) => (
               <div
                 key={credential.title}

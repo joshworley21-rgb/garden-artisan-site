@@ -47,23 +47,23 @@ const Header = () => {
             alt="JW Garden Services logo"
             width={255}
             height={102}
-            className="block object-contain object-left transition-all duration-300 h-14 sm:h-16 md:h-[68px] lg:h-20 w-auto max-w-[70vw] sm:max-w-[340px] lg:max-w-[400px]"
+            className="block object-contain object-left transition-all duration-300 h-12 sm:h-14 md:h-16 lg:h-[68px] xl:h-20 w-auto max-w-[58vw] sm:max-w-[280px] lg:max-w-[300px] xl:max-w-[400px]"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              className="font-body text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:text-primary"
+              className="font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
               activeClassName="text-primary font-semibold"
             >
               {link.label}
             </NavLink>
           ))}
-          <Button variant="elegant" size="lg" asChild>
+          <Button variant="elegant" size="lg" className="whitespace-nowrap" asChild>
             <Link to="/contact">
               <Phone className="h-4 w-4" />
               Get in Touch
@@ -74,7 +74,9 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 text-foreground transition-colors"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          className="lg:hidden -mr-2 p-2 text-foreground transition-colors"
         >
           {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>

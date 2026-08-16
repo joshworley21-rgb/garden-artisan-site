@@ -19,13 +19,13 @@ const AreasSection = () => {
   return (
     <section id="areas" className="section-padding bg-secondary/30">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Copy */}
           <div>
             <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
               Service Area
             </span>
-            <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-6">
+            <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
               Areas We Cover
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">

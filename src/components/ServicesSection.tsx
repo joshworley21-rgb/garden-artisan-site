@@ -29,7 +29,7 @@ const ServicesSection = () => {
           <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
             What We Offer
           </span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-semibold mb-6">
+          <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
             Your Garden, Our Expertise
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
@@ -39,7 +39,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <article
               key={service.title}
