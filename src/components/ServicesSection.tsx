@@ -1,22 +1,20 @@
-import maintenanceAsset from '@/assets/jw-maintenance.jpg.asset.json';
-import landscapingAsset from '@/assets/jw-landscaping.jpg.asset.json';
-import commercialAsset from '@/assets/jw-commercial.jpg.asset.json';
+import { images } from '@/lib/images';
 
 const services = [
   {
     title: 'Garden Maintenance',
     description: 'Let us take the stress out of gardening, working closely with you to improve and develop your garden into somewhere you can relax and enjoy with our year-round maintenance and expertise.',
-    image: maintenanceAsset.url,
+    image: images['jw-maintenance'],
   },
   {
     title: 'Garden Design & Hard Landscaping',
     description: 'We can create an outdoor space you can be proud of, whether you need a new patio, a border redesign, or even a whole garden makeover.',
-    image: landscapingAsset.url,
+    image: images['jw-landscaping'],
   },
   {
     title: 'Commercial Maintenance',
     description: 'We offer flexible plans tailored to your specific needs and budget. Our expertise can enhance your property\'s appeal and keep your business premises looking professional and welcoming.',
-    image: commercialAsset.url,
+    image: images['jw-commercial'],
   },
 ];
 
