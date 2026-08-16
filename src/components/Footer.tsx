@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/jw-logo.png.asset.json';
+import gardenersGuildLogo from '@/assets/gardeners-guild-logo.png.asset.json';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
