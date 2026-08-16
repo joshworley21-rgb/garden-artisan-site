@@ -24,10 +24,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-soft py-4'
-          : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-all duration-500 ${
+        isScrolled ? 'py-4' : 'py-5'
       }`}
     >
       <div className="container-wide flex items-center justify-between">
@@ -42,11 +40,7 @@ const Header = () => {
             alt="JW Garden Services logo"
             width={255}
             height={102}
-            className={`block object-contain object-left transition-all duration-300 ${
-              isScrolled
-                ? 'h-8 sm:h-9 md:h-10 lg:h-11'
-                : 'h-9 sm:h-11 md:h-12 lg:h-14 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]'
-            } w-auto max-w-[45vw] sm:max-w-[240px] lg:max-w-[280px]`}
+            className="block object-contain object-left transition-all duration-300 h-9 sm:h-10 md:h-11 lg:h-12 w-auto max-w-[45vw] sm:max-w-[240px] lg:max-w-[280px]"
           />
         </a>
 
@@ -56,14 +50,12 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`font-body text-sm uppercase tracking-widest transition-colors duration-300 hover:text-accent ${
-                isScrolled ? 'text-foreground' : 'text-primary-foreground/90'
-              }`}
+              className="font-body text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:text-accent"
             >
               {link.label}
             </a>
           ))}
-          <Button variant={isScrolled ? 'elegant' : 'heroOutline'} size="lg">
+          <Button variant="elegant" size="lg">
             <Phone className="h-4 w-4" />
             Get in Touch
           </Button>
@@ -72,9 +64,7 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`lg:hidden p-2 transition-colors ${
-            isScrolled ? 'text-foreground' : 'text-primary-foreground'
-          }`}
+          className="lg:hidden p-2 text-foreground transition-colors"
         >
           {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
