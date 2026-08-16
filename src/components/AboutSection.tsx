@@ -18,8 +18,8 @@ const credentials = [
   },
   {
     icon: Users,
-    title: 'Personal Service',
-    description: 'Dedicated care for your garden',
+    title: 'Gardeners Guild Member',
+    description: 'Qualified, accredited professional',
   },
 ];
 
