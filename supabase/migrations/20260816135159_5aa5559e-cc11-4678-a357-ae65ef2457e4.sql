@@ -1,0 +1,1 @@
+DELETE FROM public.enquiries WHERE email = 'sandbox@example.com' AND name = 'Sandbox Test';
