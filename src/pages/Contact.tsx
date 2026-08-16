@@ -14,7 +14,7 @@ const Contact = () => (
     title="Contact Us"
     intro="Tell us about your garden and we'll get back to you with friendly, practical advice and a clear quote."
   >
-    <ContactSection showIntro={false} />
+    <ContactSection showIntro={false} flushTop />
   </PageLayout>
   </>
 );
