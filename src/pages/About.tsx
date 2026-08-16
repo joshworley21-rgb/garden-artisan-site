@@ -1,3 +1,4 @@
+import Seo from '@/components/Seo';
 import PageLayout from '@/components/PageLayout';
 import ContactSection from '@/components/ContactSection';
 import about1 from '@/assets/jw-about-1.jpg.asset.json';
@@ -5,7 +6,13 @@ import about2 from '@/assets/jw-about-2.jpg.asset.json';
 import about3 from '@/assets/jw-about-3.png.asset.json';
 
 const About = () => (
-  <PageLayout
+  <>
+    <Seo
+      title="About Josh | JW Garden Services, Aylesbury"
+      description="Meet Josh Worley, BCA-trained horticulturist and founder of JW Garden Services in Bierton, Aylesbury, caring for gardens across Bucks, Beds and Herts."
+      path="/about"
+    />
+    <PageLayout
     eyebrow="Our story"
     title="Your Garden, Our Passion"
   >
@@ -57,6 +64,7 @@ const About = () => (
     </section>
     <ContactSection />
   </PageLayout>
+  </>
 );
 
 export default About;
