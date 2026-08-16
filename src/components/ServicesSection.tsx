@@ -68,10 +68,10 @@ const ServicesSection = () => {
 
               {/* Content */}
               <div className="flex flex-1 flex-col p-8">
-                <h3 className="font-heading text-2xl text-foreground font-semibold mb-4 transition-colors duration-300 group-hover:text-primary">
+                <h3 className="font-heading text-2xl leading-snug text-foreground font-semibold mb-4 min-h-[3.5rem] flex items-start transition-colors duration-300 group-hover:text-primary">
                   {service.title}
                 </h3>
-                <p className="font-body text-muted-foreground leading-relaxed mb-6 flex-1">
+                <p className="font-body text-muted-foreground leading-relaxed mb-6 flex-1 min-h-[10.5rem] sm:min-h-[9rem] lg:min-h-[10.5rem]">
                   {service.description}
                 </p>
 
