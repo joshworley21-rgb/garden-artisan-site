@@ -13,7 +13,7 @@ const enquirySchema = z.object({
   message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
 });
 
-const ContactSection = () => {
+const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,17 +69,21 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div>
-            <span className="text-hero-accent font-body text-sm uppercase tracking-widest mb-4 block">
-              Contact Us
-            </span>
-            <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-6 leading-tight">
-              Let's Transform
-              <span className="block italic font-normal">Your Garden</span>
-            </h2>
-            <p className="font-body text-lg text-primary-foreground/80 leading-relaxed mb-10">
-              Ready to create the outdoor space you've always dreamed of? Get in touch today 
-              for a free consultation. We'd love to hear about your project.
-            </p>
+            {showIntro && (
+              <>
+                <span className="text-hero-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                  Contact Us
+                </span>
+                <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-6 leading-tight">
+                  Let's Transform
+                  <span className="block italic font-normal">Your Garden</span>
+                </h2>
+                <p className="font-body text-lg text-primary-foreground/80 leading-relaxed mb-10">
+                  Ready to create the outdoor space you've always dreamed of? Get in touch today 
+                  for a free consultation. We'd love to hear about your project.
+                </p>
+              </>
+            )}
 
             {/* Contact Details */}
             <div className="space-y-6">
