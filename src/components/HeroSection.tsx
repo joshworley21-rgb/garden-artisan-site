@@ -40,12 +40,14 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-600">
-            <Button variant="hero" size="xl" className="group">
-              Get in Touch
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button variant="hero" size="xl" className="group" asChild>
+              <Link to="/contact">
+                Get in Touch
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
-            <Button variant="heroOutline" size="xl">
-              View Our Services
+            <Button variant="heroOutline" size="xl" asChild>
+              <Link to="/services">View Our Services</Link>
             </Button>
           </div>
         </div>
