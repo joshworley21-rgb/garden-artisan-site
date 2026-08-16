@@ -69,7 +69,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div>
-            <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-hero-accent font-body text-sm uppercase tracking-widest mb-4 block">
               Contact Us
             </span>
             <h2 className="font-heading text-4xl md:text-5xl font-semibold mb-6 leading-tight">
@@ -85,7 +85,7 @@ const ContactSection = () => {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-accent" />
+                  <MapPin className="h-5 w-5 text-hero-accent" />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Location</h3>
@@ -98,7 +98,7 @@ const ContactSection = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-accent" />
+                  <Phone className="h-5 w-5 text-hero-accent" />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Phone</h3>
@@ -110,7 +110,7 @@ const ContactSection = () => {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-5 w-5 text-accent" />
+                  <Clock className="h-5 w-5 text-hero-accent" />
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Hours</h3>
@@ -138,11 +138,11 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
                   placeholder="John Smith"
                   maxLength={100}
                 />
-                {errors.name && <p className="mt-1 font-body text-sm text-accent">{errors.name}</p>}
+                {errors.name && <p className="mt-1 font-body text-sm text-hero-accent">{errors.name}</p>}
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
@@ -156,11 +156,11 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
                     placeholder="john@example.com"
                     maxLength={255}
                   />
-                  {errors.email && <p className="mt-1 font-body text-sm text-accent">{errors.email}</p>}
+                  {errors.email && <p className="mt-1 font-body text-sm text-hero-accent">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
@@ -172,11 +172,11 @@ const ContactSection = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
                     placeholder="01234 567890"
                     maxLength={40}
                   />
-                  {errors.phone && <p className="mt-1 font-body text-sm text-accent">{errors.phone}</p>}
+                  {errors.phone && <p className="mt-1 font-body text-sm text-hero-accent">{errors.phone}</p>}
                 </div>
               </div>
               <div>
@@ -190,11 +190,11 @@ const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors resize-none"
                   placeholder="Tell us about your garden project..."
                   maxLength={2000}
                 />
-                {errors.message && <p className="mt-1 font-body text-sm text-accent">{errors.message}</p>}
+                {errors.message && <p className="mt-1 font-body text-sm text-hero-accent">{errors.message}</p>}
               </div>
               <Button type="submit" variant="accent" size="xl" className="w-full group" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending…' : 'Send Message'}

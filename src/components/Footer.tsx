@@ -32,13 +32,13 @@ const Footer = () => {
               serving Bedfordshire, Buckinghamshire, and Hertfordshire.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors group">
+              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
                 <Facebook className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors group">
+              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
                 <Instagram className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors group">
+              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
                 <Linkedin className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
             </div>
@@ -50,7 +50,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="font-body text-background/70 hover:text-accent transition-colors">
+                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>

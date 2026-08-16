@@ -30,7 +30,7 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
               About Us
             </span>
             <h2 className="font-heading text-4xl md:text-5xl text-foreground font-semibold mb-6 leading-tight">

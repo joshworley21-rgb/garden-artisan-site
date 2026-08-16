@@ -57,7 +57,7 @@ const Header = () => {
             <NavLink
               key={link.to}
               to={link.to}
-              className="font-body text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:text-accent"
+              className="font-body text-sm uppercase tracking-widest text-foreground transition-colors duration-300 hover:text-primary"
               activeClassName="text-primary font-semibold"
             >
               {link.label}

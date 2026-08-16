@@ -16,7 +16,7 @@ const GallerySection = () => {
       <div className="container-wide">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-accent font-body text-sm uppercase tracking-widest mb-4 block">
+          <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
             Portfolio
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-semibold mb-6">
