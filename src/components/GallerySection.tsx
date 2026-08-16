@@ -13,7 +13,7 @@ import w3 from '@/assets/jw-work-20250529_160433.jpg.asset.json';
 import w5 from '@/assets/jw-work-20210327_145115.jpg.asset.json';
 import w6 from '@/assets/jw-work-20210721_144520.jpg.asset.json';
 
-const galleryImages = [
+const sourceImages = [
   { url: w6.url, alt: 'Colourful herbaceous border in full summer flower beside a striped, freshly mown lawn' },
   { url: w5.url, alt: 'Large border cleared and prepared for replanting in a countryside garden' },
   { url: w1.url, alt: 'Ceanothus in full bloom beside a stone wall with countryside views, garden maintained near Aylesbury' },
@@ -29,6 +29,13 @@ const galleryImages = [
   { url: g8.url, alt: 'Landscaped garden with lawn, borders and seating area in Hertfordshire' },
   { url: g9.url, alt: 'Established cottage-style border maintained by JW Garden Services' },
 ];
+
+// Fisher–Yates shuffle — runs once per page load so the order is random each visit.
+const galleryImages = [...sourceImages];
+for (let i = galleryImages.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [galleryImages[i], galleryImages[j]] = [galleryImages[j], galleryImages[i]];
+}
 
 const GallerySection = () => {
   return (
