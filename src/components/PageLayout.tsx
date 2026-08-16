@@ -14,7 +14,7 @@ const PageLayout = ({ eyebrow, title, intro, children }: PageLayoutProps) => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
-        <section className="bg-primary text-primary-foreground pt-32 pb-16 md:pt-40 md:pb-20">
+        <section className="bg-primary text-primary-foreground pt-32 pb-8 md:pt-40 md:pb-10">
           <div className="container-wide max-w-3xl">
             {eyebrow && (
               <span className="font-body text-sm uppercase tracking-widest text-primary-foreground/70 mb-4 block">
