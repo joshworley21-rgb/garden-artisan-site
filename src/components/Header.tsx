@@ -47,6 +47,8 @@ const Header = () => {
             alt="JW Garden Services logo"
             width={255}
             height={102}
+            fetchPriority="high"
+            decoding="async"
             className="block object-contain object-left transition-all duration-300 h-12 sm:h-14 md:h-16 lg:h-[68px] xl:h-20 w-auto max-w-[58vw] sm:max-w-[280px] lg:max-w-[300px] xl:max-w-[400px]"
           />
         </Link>

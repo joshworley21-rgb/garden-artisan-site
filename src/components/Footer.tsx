@@ -1,7 +1,9 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import guildLogo from '@/assets/gardeners-guild-logo.png.asset.json';
+import { images } from '@/lib/images';
+
+const guildLogo = images['gardeners-guild-logo'];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -64,11 +66,12 @@ const Footer = () => {
               aria-label="The Gardeners Guild — professional gardening association"
             >
               <img
-                src={guildLogo.url}
+                src={guildLogo.src}
                 alt="The Gardeners Guild logo"
-                width={160}
-                height={80}
+                width={guildLogo.width}
+                height={guildLogo.height}
                 loading="lazy"
+                decoding="async"
                 className="h-14 w-auto object-contain object-left bg-background rounded-sm p-1 transition-transform group-hover:scale-105"
               />
               <span className="font-body text-sm text-background/70 group-hover:text-hero-accent transition-colors">
