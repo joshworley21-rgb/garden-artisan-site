@@ -6,17 +6,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const serviceLinks = [
-    'Garden Maintenance',
-    'Garden Design',
-    'Hard Landscaping',
-    'Commercial Maintenance',
+    'General Maintenance',
+    'Garden design and Hard landscaping',
+    'Commercial grounds maintenance',
   ];
 
   const quickLinks = [
-    { to: '/about', label: 'About Us' },
-    { to: '/our-work', label: 'Our Work' },
-    { to: '/contact', label: 'Contact' },
-    { to: '/privacy', label: 'Privacy Policy' },
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Request a Quote' },
   ];
 
   return (
@@ -57,7 +55,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {serviceLinks.map((label) => (
                 <li key={label}>
-                  <Link to="/services" className="font-body text-background/70 hover:text-accent transition-colors">
+                  <Link to="/contact" className="font-body text-background/70 hover:text-accent transition-colors">
                     {label}
                   </Link>
                 </li>

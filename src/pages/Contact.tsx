@@ -3,9 +3,8 @@ import ContactSection from '@/components/ContactSection';
 
 const Contact = () => (
   <PageLayout
-    eyebrow="Get in Touch"
-    title="Contact Us"
-    intro="Tell us about your garden and we'll get back to you with friendly, practical advice and a clear quote."
+    title="Request a Free Quote"
+    intro="Please fill out the contact form below and JW Garden Services will be in contact as soon as possible. Alternatively feel free to give us a call to discuss your requirements."
   >
     <ContactSection />
   </PageLayout>
