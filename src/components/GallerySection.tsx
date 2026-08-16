@@ -10,8 +10,12 @@ import g9 from '@/assets/jw-g9.jpg.asset.json';
 import w1 from '@/assets/jw-work-20250507_134138.jpg.asset.json';
 import w2 from '@/assets/jw-work-20230526_090054.jpg.asset.json';
 import w3 from '@/assets/jw-work-20250529_160433.jpg.asset.json';
+import w5 from '@/assets/jw-work-20210327_145115.jpg.asset.json';
+import w6 from '@/assets/jw-work-20210721_144520.jpg.asset.json';
 
 const galleryImages = [
+  { url: w6.url, alt: 'Colourful herbaceous border in full summer flower beside a striped, freshly mown lawn' },
+  { url: w5.url, alt: 'Large border cleared and prepared for replanting in a countryside garden' },
   { url: w1.url, alt: 'Ceanothus in full bloom beside a stone wall with countryside views, garden maintained near Aylesbury' },
   { url: w2.url, alt: 'Long hedge freshly trimmed to a crisp line in a Buckinghamshire garden' },
   { url: w3.url, alt: 'Indian sandstone patio cleaned and repointed with potted campanula in flower' },
