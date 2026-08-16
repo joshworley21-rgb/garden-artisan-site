@@ -6,13 +6,17 @@
     <title>JW Garden Services | Gardeners in Aylesbury, Bucks</title>
     <meta name="description" content="Garden maintenance, design and hard landscaping in Aylesbury, Bierton, Buckingham, Tring, Wing, Haddenham, Leighton Buzzard, Chesham and Amersham." />
     <meta name="author" content="JW Garden Services" />
-    <link rel="canonical" href="/" />
     <link rel="icon" href="/favicon.png" type="image/png" />
 
     <meta property="og:title" content="JW Garden Services | Gardeners in Aylesbury, Bucks" />
     <meta property="og:description" content="Garden maintenance, design and hard landscaping across Aylesbury, Buckinghamshire, Bedfordshire and Hertfordshire." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="/" />
+    <meta property="og:url" content="https://garden-artisan-site.lovable.app/" />
+    <meta property="og:site_name" content="JW Garden Services" />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="geo.region" content="GB-BKM" />
+    <meta name="geo.placename" content="Bierton, Aylesbury" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JW Garden Services | Gardeners in Aylesbury, Bucks" />
@@ -21,30 +25,70 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "JW Garden Services",
-        "description": "Garden maintenance, garden design and hard landscaping in Aylesbury and the surrounding areas of Buckinghamshire, Bedfordshire and Hertfordshire.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bierton, Aylesbury",
-          "addressRegion": "Buckinghamshire",
-          "addressCountry": "GB"
-        },
-        "areaServed": [
-          { "@type": "City", "name": "Aylesbury" },
-          { "@type": "City", "name": "Bierton" },
-          { "@type": "City", "name": "Buckingham" },
-          { "@type": "City", "name": "Tring" },
-          { "@type": "City", "name": "Waddesdon" },
-          { "@type": "City", "name": "Stone" },
-          { "@type": "City", "name": "Wing" },
-          { "@type": "City", "name": "Haddenham" },
-          { "@type": "City", "name": "Leighton Buzzard" },
-          { "@type": "City", "name": "Chesham" },
-          { "@type": "City", "name": "Amersham" },
-          { "@type": "City", "name": "Great Missenden" }
-        ],
-        "knowsAbout": ["Garden maintenance", "Garden design", "Hard landscaping"]
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://garden-artisan-site.lovable.app/#website",
+            "url": "https://garden-artisan-site.lovable.app/",
+            "name": "JW Garden Services",
+            "inLanguage": "en-GB",
+            "publisher": { "@id": "https://garden-artisan-site.lovable.app/#business" }
+          },
+          {
+            "@type": ["LocalBusiness", "LandscapingBusiness"],
+            "@id": "https://garden-artisan-site.lovable.app/#business",
+            "name": "JW Garden Services",
+            "url": "https://garden-artisan-site.lovable.app/",
+            "description": "Garden maintenance, garden design and hard landscaping in Aylesbury and the surrounding areas of Buckinghamshire, Bedfordshire and Hertfordshire.",
+            "email": "Jw_gardenservices@yahoo.com",
+            "priceRange": "££",
+            "currenciesAccepted": "GBP",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bierton, Aylesbury",
+              "addressRegion": "Buckinghamshire",
+              "addressCountry": "GB"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 51.8339, "longitude": -0.7869 },
+            "areaServed": [
+              { "@type": "City", "name": "Aylesbury" },
+              { "@type": "City", "name": "Bierton" },
+              { "@type": "City", "name": "Buckingham" },
+              { "@type": "City", "name": "Tring" },
+              { "@type": "City", "name": "Waddesdon" },
+              { "@type": "City", "name": "Stone" },
+              { "@type": "City", "name": "Wing" },
+              { "@type": "City", "name": "Haddenham" },
+              { "@type": "City", "name": "Leighton Buzzard" },
+              { "@type": "City", "name": "Chesham" },
+              { "@type": "City", "name": "Amersham" },
+              { "@type": "City", "name": "Great Missenden" }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "description": "By appointment"
+              }
+            ],
+            "knowsAbout": ["Garden maintenance", "Garden design", "Hard landscaping"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Garden services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garden maintenance", "description": "Regular mowing, hedge cutting, pruning, weeding and seasonal borders." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garden design and planting", "description": "Planting plans and garden redesign tailored to your space." } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hard landscaping", "description": "Patios, paths, fencing, decking and turfing." } }
+              ]
+            }
+          }
+        ]
       }
     </script>
   </head>
