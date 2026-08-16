@@ -78,7 +78,7 @@ const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
                   Let's Transform
                   <span className="block italic font-normal">Your Garden</span>
                 </h2>
-                <p className="font-body text-lg text-primary-foreground/80 leading-relaxed mb-10">
+                <p className="font-body text-lg text-primary-foreground/80 leading-relaxed mb-6">
                   Ready to create the outdoor space you've always dreamed of? Get in touch today 
                   for a free consultation. We'd love to hear about your project.
                 </p>
@@ -107,7 +107,20 @@ const ContactSection = ({ showIntro = true }: { showIntro?: boolean }) => {
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Phone</h3>
                   <p className="font-body text-primary-foreground/70">
+                    <a href="tel:07950636954" className="hover:text-hero-accent transition-colors">07950 636954</a><br />
                     Call us for a free quote
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-5 w-5 text-hero-accent" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-semibold mb-1">Email</h3>
+                  <p className="font-body text-primary-foreground/70">
+                    <a href="mailto:Jw_gardenservices@yahoo.com" className="hover:text-hero-accent transition-colors break-all">Jw_gardenservices@yahoo.com</a>
                   </p>
                 </div>
               </div>
