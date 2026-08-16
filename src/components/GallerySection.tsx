@@ -37,7 +37,7 @@ const GallerySection = () => {
           <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
             Portfolio
           </span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-semibold mb-6">
+          <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
             Our Recent Work
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
@@ -47,7 +47,7 @@ const GallerySection = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
           {galleryImages.map((image, index) => (
             <div
               key={image.url}
