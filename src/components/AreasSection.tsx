@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Check, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { areas as areaPages } from '@/lib/areas';
 
 const areas = [
   'Aylesbury',
@@ -15,6 +17,8 @@ const areas = [
   'Amersham',
   'Great Missenden',
 ];
+
+const areaPageBySlugTown = new Map(areaPages.map((a) => [a.town, a.slug]));
 
 const AreasSection = () => {
   // The Google Maps embed is heavy, so it only mounts once it scrolls into view.
@@ -61,14 +65,26 @@ const AreasSection = () => {
             </p>
 
             <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
-              {areas.map((area) => (
-                <li key={area} className="flex items-center gap-3 font-body text-foreground">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
-                  </span>
-                  <span className="text-sm sm:text-base">{area}</span>
-                </li>
-              ))}
+              {areas.map((area) => {
+                const slug = areaPageBySlugTown.get(area);
+                return (
+                  <li key={area} className="flex items-center gap-3 font-body text-foreground">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
+                    </span>
+                    {slug ? (
+                      <Link
+                        to={`/${slug}`}
+                        className="text-sm sm:text-base underline underline-offset-4 decoration-primary/30 hover:text-primary transition-colors"
+                      >
+                        {area}
+                      </Link>
+                    ) : (
+                      <span className="text-sm sm:text-base">{area}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
 
             <p className="font-body text-sm text-muted-foreground mt-8 flex items-start gap-2">
