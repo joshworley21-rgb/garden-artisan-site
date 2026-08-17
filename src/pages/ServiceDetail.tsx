@@ -16,6 +16,7 @@ const ServiceDetail = () => {
   if (!service) return <NotFound />;
 
   const url = `${SITE}/services/${service.slug}`;
+  const shareImage = `/assets/og/services-${service.slug}.jpg`;
   const others = services.filter((s) => s.slug !== service.slug);
 
   const jsonLd = {
@@ -28,6 +29,7 @@ const ServiceDetail = () => {
         description: service.seoDescription,
         serviceType: service.navLabel,
         url,
+        image: `${SITE}${shareImage}`,
         provider: { '@id': `${SITE}/#business` },
         areaServed: [
           'Aylesbury',
@@ -78,6 +80,8 @@ const ServiceDetail = () => {
         title={service.seoTitle}
         description={service.seoDescription}
         path={`/services/${service.slug}`}
+        image={shareImage}
+        imageAlt={`${service.navLabel} by JW Garden Services in the Aylesbury area`}
         jsonLd={jsonLd}
       />
       <PageLayout eyebrow={service.eyebrow} title={service.h1} intro={service.intro}>

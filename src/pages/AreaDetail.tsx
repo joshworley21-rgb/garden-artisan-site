@@ -17,6 +17,7 @@ const AreaDetail = () => {
   if (!area) return <NotFound />;
 
   const url = `${SITE}/${area.slug}`;
+  const shareImage = `/assets/og/${area.slug}.jpg`;
   const others = areas.filter((a) => a.slug !== area.slug);
 
   const jsonLd = {
@@ -29,6 +30,7 @@ const AreaDetail = () => {
         description: area.seoDescription,
         serviceType: 'Garden maintenance',
         url,
+        image: `${SITE}${shareImage}`,
         provider: { '@id': `${SITE}/#business` },
         areaServed: {
           '@type': 'City',
@@ -63,7 +65,14 @@ const AreaDetail = () => {
 
   return (
     <>
-      <Seo title={area.seoTitle} description={area.seoDescription} path={`/${area.slug}`} jsonLd={jsonLd} />
+      <Seo
+        title={area.seoTitle}
+        description={area.seoDescription}
+        path={`/${area.slug}`}
+        image={shareImage}
+        imageAlt={`Garden maintained by JW Garden Services in ${area.town}, Buckinghamshire`}
+        jsonLd={jsonLd}
+      />
       <PageLayout eyebrow={area.eyebrow} title={area.h1} intro={area.intro}>
         {/* Copy + local facts */}
         <section className="section-padding bg-background">
