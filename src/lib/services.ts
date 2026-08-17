@@ -21,10 +21,10 @@ export const services: ServiceContent[] = [
     slug: 'garden-maintenance',
     navLabel: 'Garden Maintenance',
     h1: 'Garden Maintenance in Aylesbury',
-    eyebrow: 'Regular garden care',
-    seoTitle: 'Garden Maintenance Aylesbury | JW Garden Services',
+    eyebrow: 'Weekly garden care',
+    seoTitle: 'Weekly Garden Maintenance Aylesbury | JW Garden Services',
     seoDescription:
-      'Regular garden maintenance in Aylesbury and across Bucks, Beds and Herts. Mowing, hedge cutting, pruning, weeding and seasonal borders. Free quotes.',
+      'Weekly garden maintenance in Aylesbury and across Bucks, Beds and Herts — keeping lawns, hedges and borders immaculate all year. Trained, reliable, free quotes.',
     intro:
       'Weekly garden maintenance that keeps your Aylesbury garden looking immaculate all year round — the most popular choice for clients who want their lawn, borders and hedges cared for every single week without lifting a spade.',
     image: images['jw-maintenance'],
