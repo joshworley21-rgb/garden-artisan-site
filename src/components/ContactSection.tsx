@@ -4,22 +4,23 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { toast } from 'sonner';
 
-// zod and the backend client are only needed once someone actually submits the
-// form, so they are loaded on demand instead of shipping in the landing bundle.
-const loadEnquiryDeps = async () => {
-  const [{ z }, { supabase }] = await Promise.all([
-    import('zod'),
-    import('@/integrations/supabase/client'),
-  ]);
+// Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
+// which emails the enquiry to Jw_gardenservices@yahoo.com. No backend database
+// is required — works on any shared hosting (Hostinger, Fasthosts, etc.).
+const validate = (formData: { name: string; email: string; phone: string; message: string }) => {
+  const errors: Record<string, string> = {};
+  const name = formData.name.trim();
+  const email = formData.email.trim();
+  const phone = formData.phone.trim();
+  const message = formData.message.trim();
 
-  const schema = z.object({
-    name: z.string().trim().min(1, { message: 'Please enter your name' }).max(100, { message: 'Name must be less than 100 characters' }),
-    email: z.string().trim().email({ message: 'Please enter a valid email address' }).max(255, { message: 'Email must be less than 255 characters' }),
-    phone: z.string().trim().max(40, { message: 'Phone number must be less than 40 characters' }).optional().or(z.literal('')),
-    message: z.string().trim().min(1, { message: 'Please tell us about your project' }).max(2000, { message: 'Message must be less than 2000 characters' }),
-  });
+  if (!name || name.length > 100) errors.name = 'Please enter your name';
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255)
+    errors.email = 'Please enter a valid email address';
+  if (phone && phone.length > 40) errors.phone = 'Phone number must be less than 40 characters';
+  if (!message || message.length > 2000) errors.message = 'Please tell us about your project';
 
-  return { schema, supabase };
+  return errors;
 };
 
 const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: boolean; flushTop?: boolean }) => {
