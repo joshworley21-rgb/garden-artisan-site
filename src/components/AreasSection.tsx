@@ -6,11 +6,12 @@ import { areas as areaPages } from '@/lib/areas';
 const areas = [
   'Aylesbury',
   'Bierton',
+  'Wendover',
+  'Wing',
   'Buckingham',
   'Tring',
   'Waddesdon',
   'Stone',
-  'Wing',
   'Haddenham',
   'Leighton Buzzard',
   'Chesham',
