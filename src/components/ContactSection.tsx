@@ -39,30 +39,32 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const { schema, supabase } = await loadEnquiryDeps();
-      const parsed = schema.safeParse(formData);
-      if (!parsed.success) {
-        const fieldErrors: Record<string, string> = {};
-        for (const issue of parsed.error.issues) {
-          const key = String(issue.path[0]);
-          if (!fieldErrors[key]) fieldErrors[key] = issue.message;
-        }
+      const fieldErrors = validate(formData);
+      if (Object.keys(fieldErrors).length > 0) {
         setErrors(fieldErrors);
         toast.error('Please check the highlighted fields');
         return;
       }
 
       setErrors({});
-      const { error } = await supabase.from('enquiries').insert({
-        name: parsed.data.name,
-        email: parsed.data.email,
-        phone: parsed.data.phone ? parsed.data.phone : null,
-        message: parsed.data.message,
-        source_page: location.pathname,
+      const res = await fetch('/enquiry.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+          source_page: location.pathname,
+        }),
       });
-      if (error) throw error;
-      toast.success("Thank you — we've received your enquiry and will be in touch shortly.");
-      setFormData({ name: '', email: '', phone: '', message: '' });
+
+      if (res.ok) {
+        toast.success("Thank you — we've received your enquiry and will be in touch shortly.");
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        throw new Error('submission failed');
+      }
     } catch {
       toast.error('Sorry, something went wrong. Please call us or try again in a moment.');
     } finally {
