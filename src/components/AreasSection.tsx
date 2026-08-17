@@ -3,23 +3,10 @@ import { Check, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { areas as areaPages } from '@/lib/areas';
 
-const areas = [
-  'Aylesbury',
-  'Bierton',
-  'Wendover',
-  'Wing',
-  'Buckingham',
-  'Tring',
-  'Waddesdon',
-  'Stone',
-  'Haddenham',
-  'Leighton Buzzard',
-  'Chesham',
-  'Amersham',
-  'Great Missenden',
-];
-
-const areaPageBySlugTown = new Map(areaPages.map((a) => [a.town, a.slug]));
+// Sorted by driving distance from our Bierton base, capped at 12 (a tidy 6 x 2 grid).
+const areas = [...areaPages]
+  .sort((a, b) => a.distanceMiles - b.distanceMiles)
+  .slice(0, 12);
 
 const AreasSection = () => {
   // The Google Maps embed is heavy, so it only mounts once it scrolls into view.
