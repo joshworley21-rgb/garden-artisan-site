@@ -17,6 +17,7 @@ export interface AreaContent {
   gallery: ResponsiveImage[];
   postcodes: string;
   travelTime: string;
+  distanceMiles: number;
 }
 
 export const areas: AreaContent[] = [
@@ -58,6 +59,7 @@ export const areas: AreaContent[] = [
     nearby: ['Bierton', 'Stone', 'Wing', 'Haddenham'],
     postcodes: 'HP17, HP18, HP19, HP20, HP21, HP22',
     travelTime: 'About 5 minutes from our base in Bierton',
+    distanceMiles: 2,
     faqs: [
       {
         q: 'Are you the closest gardener to me in Aylesbury?',
@@ -115,6 +117,7 @@ export const areas: AreaContent[] = [
     nearby: ['Aylesbury', 'Wing', 'Stone', 'Wendover'],
     postcodes: 'HP22',
     travelTime: 'We are in the village — same-day visits possible',
+    distanceMiles: 0,
     faqs: [
       {
         q: 'Are you actually based in Bierton?',
@@ -168,6 +171,7 @@ export const areas: AreaContent[] = [
     nearby: ['Aylesbury', 'Bierton', 'Wing', 'Tring'],
     postcodes: 'HP22',
     travelTime: 'Around 15 minutes from Bierton',
+    distanceMiles: 7,
     faqs: [
       {
         q: 'Do you work on steep or terraced gardens in Wendover?',
@@ -221,6 +225,7 @@ export const areas: AreaContent[] = [
     nearby: ['Aylesbury', 'Bierton', 'Leighton Buzzard', 'Wendover'],
     postcodes: 'LU7, HP22',
     travelTime: 'Around 15 minutes from Bierton',
+    distanceMiles: 7,
     faqs: [
       {
         q: 'Do you take on large village gardens?',
