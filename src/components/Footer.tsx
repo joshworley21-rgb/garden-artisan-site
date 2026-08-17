@@ -22,7 +22,7 @@ const Footer = () => {
     label: s.navLabel,
   }));
 
-  const areaLinks = areas.map((a) => ({ to: `/${a.slug}`, label: a.town }));
+  const areaLinks = [...areas].sort((a, b) => a.distanceMiles - b.distanceMiles).map((a) => ({ to: `/${a.slug}`, label: a.town }));
 
   return (
     <footer className="bg-foreground text-background py-16">
