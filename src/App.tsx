@@ -11,6 +11,7 @@ const Work = lazy(() => import("./pages/Work"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const AreaDetail = lazy(() => import("./pages/AreaDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/gardeners-in-:town" element={<AreaDetail />} />
           <Route path="/our-work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
