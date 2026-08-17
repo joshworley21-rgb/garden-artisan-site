@@ -201,7 +201,13 @@ export const services: ServiceContent[] = [
         a: 'It depends entirely on size and how much hard landscaping is involved. We quote in writing after visiting, and can phase larger projects to spread the cost.',
       },
     ],
-    gallery: [images['jw-g2'], images['jw-g7'], images['jw-work-20210721_144520']],
+    gallery: [
+      images['jw-design-1'],
+      images['jw-design-2'],
+      images['jw-g2'],
+      images['jw-g7'],
+      images['jw-work-20210721_144520'],
+    ],
   },
   {
     slug: 'commercial-grounds-maintenance',
