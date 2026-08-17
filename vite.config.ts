@@ -12,6 +12,12 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  build: {
+    // esbuild can't down-transform destructuring to the older browserlist
+    // baseline; es2022 is supported by all modern browsers and needs no
+    // destructuring transform.
+    target: "es2022",
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
