@@ -29,14 +29,14 @@ const Footer = () => {
               serving Bedfordshire, Buckinghamshire, and Hertfordshire.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Facebook className="h-5 w-5 text-background group-hover:text-foreground" />
+              <a href="#" aria-label="JW Garden Services on Facebook" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+                <Facebook aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Instagram className="h-5 w-5 text-background group-hover:text-foreground" />
+              <a href="#" aria-label="JW Garden Services on Instagram" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+                <Instagram aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Linkedin className="h-5 w-5 text-background group-hover:text-foreground" />
+              <a href="#" aria-label="JW Garden Services on LinkedIn" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+                <Linkedin aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
             </div>
           </div>
