@@ -26,15 +26,16 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Regular garden maintenance in Aylesbury and across Bucks, Beds and Herts. Mowing, hedge cutting, pruning, weeding and seasonal borders. Free quotes.',
     intro:
-      'Weekly, fortnightly or monthly garden maintenance for homes across Aylesbury and the surrounding villages — so your garden always looks its best without you lifting a spade.',
+      'Weekly garden maintenance that keeps your Aylesbury garden looking immaculate all year round — the most popular choice for clients who want their lawn, borders and hedges cared for every single week without lifting a spade.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
       {
-        heading: 'Year-round care, on a schedule that suits you',
+        heading: 'Weekly maintenance — the gold standard for a garden that always looks its best',
         paragraphs: [
-          'Let us take the stress out of gardening. We work closely with you to improve and develop your garden into somewhere you can relax and enjoy, with year-round maintenance and genuine horticultural expertise behind every visit.',
-          'Most clients in Aylesbury and Bierton choose a fortnightly visit through the growing season and a lighter schedule over winter. Others prefer a monthly tidy or a one-off blitz before a family event. We fit around you rather than the other way around.',
+          'A weekly visit is the surest way to keep a garden looking immaculate through every season. Lawns are mown and edged before they get scruffy, hedges are kept in shape rather than cut back hard once a year, and weeds are pulled while they are still seedlings — so the garden never slips, and the work each week is lighter than a heavier catch-up visit.',
+          'For most Aylesbury and Bierton gardens, a weekly visit through the growing season (March to October) keeps everything under control, with the option to ease to fortnightly or monthly over winter when growth slows. Larger, more formal or showcase gardens often stay weekly year-round to hold their shape and finish.',
+          'We work closely with you to improve and develop your garden into somewhere you can relax and enjoy, with year-round maintenance and genuine horticultural expertise behind every visit.',
         ],
       },
       {
