@@ -8,6 +8,8 @@ export const images: Record<string, ResponsiveImage> = {
   "jw-about-3": { src: "/assets/jw-about-3-900.webp", srcSet: "/assets/jw-about-3-560.webp 560w, /assets/jw-about-3-900.webp 900w", width: 900, height: 900 },
   "jw-about-main": { src: "/assets/jw-about-main-900.webp", srcSet: "/assets/jw-about-main-560.webp 560w, /assets/jw-about-main-900.webp 900w", width: 900, height: 675 },
   "jw-commercial": { src: "/assets/jw-commercial-560.webp", srcSet: "/assets/jw-commercial-560.webp 560w", width: 560, height: 388 },
+  "jw-design-1": { src: "/assets/jw-design-1-900.webp", srcSet: "/assets/jw-design-1-560.webp 560w, /assets/jw-design-1-900.webp 900w", width: 900, height: 506 },
+  "jw-design-2": { src: "/assets/jw-design-2-900.webp", srcSet: "/assets/jw-design-2-560.webp 560w, /assets/jw-design-2-900.webp 900w", width: 900, height: 1600 },
   "jw-g1": { src: "/assets/jw-g1-900.webp", srcSet: "/assets/jw-g1-560.webp 560w, /assets/jw-g1-900.webp 900w", width: 900, height: 675 },
   "jw-g2": { src: "/assets/jw-g2-900.webp", srcSet: "/assets/jw-g2-560.webp 560w, /assets/jw-g2-900.webp 900w", width: 900, height: 506 },
   "jw-g3": { src: "/assets/jw-g3-900.webp", srcSet: "/assets/jw-g3-560.webp 560w, /assets/jw-g3-900.webp 900w", width: 900, height: 1200 },
