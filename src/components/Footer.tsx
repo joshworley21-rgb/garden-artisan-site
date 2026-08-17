@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { images } from '@/lib/images';
+import { services } from '@/lib/services';
 
 const guildLogo = images['gardeners-guild-logo'];
 
@@ -15,10 +16,15 @@ const Footer = () => {
     { to: '/privacy', label: 'Privacy Policy' },
   ];
 
+  const serviceLinks = services.map((s) => ({
+    to: `/services/${s.slug}`,
+    label: s.navLabel,
+  }));
+
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container-wide">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" aria-label="JW Garden Services home" className="inline-block mb-4">
@@ -39,6 +45,20 @@ const Footer = () => {
                 <Linkedin aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
             </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Quick Links */}
