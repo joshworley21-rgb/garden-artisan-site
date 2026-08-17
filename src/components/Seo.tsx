@@ -8,10 +8,14 @@ interface SeoProps {
   path: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>;
+  /** Absolute-from-root path to a 1200x630 share image, e.g. /assets/og/foo.jpg */
+  image?: string;
+  imageAlt?: string;
 }
 
-const Seo = ({ title, description, path, noindex, jsonLd }: SeoProps) => {
+const Seo = ({ title, description, path, noindex, jsonLd, image, imageAlt }: SeoProps) => {
   const url = `${SITE}${path}`;
+  const imageUrl = image ? `${SITE}${image}` : undefined;
   return (
     <Helmet prioritizeSeoTags>
       <title>{title}</title>
@@ -29,6 +33,13 @@ const Seo = ({ title, description, path, noindex, jsonLd }: SeoProps) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && <meta property="og:image:secure_url" content={imageUrl} />}
+      {imageUrl && <meta property="og:image:width" content="1200" />}
+      {imageUrl && <meta property="og:image:height" content="630" />}
+      {imageUrl && <meta property="og:image:alt" content={imageAlt || title} />}
+      {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+      {imageUrl && <meta name="twitter:image:alt" content={imageAlt || title} />}
       {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
     </Helmet>
   );
