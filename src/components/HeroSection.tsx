@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { images } from '@/lib/images';
-import heroVideo from '@/assets/jw-hero-video.mp4.asset.json';
+const heroVideo = { url: '/assets/jw-hero-video.mp4' };
 
 const hero = images['jw-hero'];
 

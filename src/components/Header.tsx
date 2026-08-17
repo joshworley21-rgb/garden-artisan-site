@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
-import logo from '@/assets/jw-logo.png.asset.json';
+const logo = { url: '/assets/jw-logo.png' };
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
