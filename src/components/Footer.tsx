@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { images } from '@/lib/images';
 import { services } from '@/lib/services';
+import { areas } from '@/lib/areas';
 
 const guildLogo = images['gardeners-guild-logo'];
 
@@ -20,6 +21,8 @@ const Footer = () => {
     to: `/services/${s.slug}`,
     label: s.navLabel,
   }));
+
+  const areaLinks = areas.map((a) => ({ to: `/${a.slug}`, label: a.town }));
 
   return (
     <footer className="bg-foreground text-background py-16">
@@ -102,6 +105,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
+        <div className="pb-8 border-t border-background/10 pt-8">
+          <h4 className="font-heading text-lg font-semibold mb-4">Gardeners near you</h4>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {areaLinks.map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="font-body text-sm text-background/70 hover:text-hero-accent transition-colors">
+                  Gardeners in {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-sm text-background/50">
             © {currentYear} JW Garden Services. All rights reserved.
