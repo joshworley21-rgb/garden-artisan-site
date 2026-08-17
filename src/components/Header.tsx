@@ -23,6 +23,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
+    { to: '/#services', label: 'Services' },
     { to: '/about', label: 'About' },
     { to: '/our-work', label: 'Our Work' },
     { to: '/#areas', label: 'Areas We Cover' },
