@@ -59,7 +59,11 @@ export const services: ServiceContent[] = [
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'For most gardens in Buckinghamshire, fortnightly visits from March to October keep everything under control, dropping to monthly through the winter. Larger or more formal gardens often benefit from weekly visits in peak growing season.',
+        a: 'Weekly maintenance is our most popular option and the best way to keep a garden looking immaculate — lawns never get scruffy, hedges stay in shape and weeds are caught early. For most Aylesbury gardens a weekly visit through the growing season (March to October) is ideal, easing to fortnightly or monthly over winter. Larger or more formal gardens often stay weekly year-round.',
+      },
+      {
+        q: 'Why choose weekly rather than fortnightly maintenance?',
+        a: 'A weekly visit keeps the garden at its best every day of the week. Because the work is done little and often, each visit is quicker and gentler on the plants than a heavier catch-up cut, and the lawn, borders and hedges never have time to look untidy between visits.',
       },
       {
         q: 'Do you take the garden waste away?',
@@ -67,7 +71,7 @@ export const services: ServiceContent[] = [
       },
       {
         q: 'Do I need to be home for the visit?',
-        a: 'No. Once we know your garden, most clients simply leave access arranged and come home to a finished garden.',
+        a: 'No. Once we know your garden, most clients simply leave access arranged and come home to a finished garden — week after week.',
       },
       {
         q: 'Which areas do you cover for garden maintenance?',
