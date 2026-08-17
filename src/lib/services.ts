@@ -78,7 +78,14 @@ export const services: ServiceContent[] = [
         a: 'We work within roughly 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
       },
     ],
-    gallery: [images['jw-g1'], images['jw-g5'], images['jw-g9']],
+    gallery: [
+      images['jw-maint-1'],
+      images['jw-maint-2'],
+      images['jw-maint-3'],
+      images['jw-maint-4'],
+      images['jw-g1'],
+      images['jw-g5'],
+    ],
   },
   {
     slug: 'landscaping-and-patios',
