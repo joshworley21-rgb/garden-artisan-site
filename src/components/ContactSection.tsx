@@ -178,9 +178,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   </svg>
                   Find us on Google & read our reviews
                 </a>
-              </div>
             </div>
-          </div>
           </div>
 
           {/* Contact Form */}
