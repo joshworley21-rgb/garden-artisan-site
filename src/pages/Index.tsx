@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="Gardeners in Aylesbury | JW Garden Services"
-        description="Professional garden maintenance, planting and hard landscaping in Aylesbury, Bierton, Tring, Wing, Haddenham, Leighton Buzzard, Chesham and Amersham. Free quotes."
+        title="Gardeners in Aylesbury | Garden Maintenance & Landscaping"
+        description="Trusted gardeners in Aylesbury since 2017. Garden maintenance, landscaping, patios and planting across Bierton, Tring, Wing, Haddenham, Leighton Buzzard and Amersham. Free quotes."
         path="/"
       />
       <Header />
