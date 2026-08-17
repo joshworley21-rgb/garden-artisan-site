@@ -152,53 +152,53 @@ export const services: ServiceContent[] = [
     eyebrow: 'Design & planting',
     seoTitle: 'Garden Design Aylesbury | Planting Plans | JW Garden Services',
     seoDescription:
-      'Garden design and planting schemes in Aylesbury and Buckinghamshire. Border redesign, planting plans and full garden makeovers by a trained horticulturist.',
+      'Garden design and planting in Aylesbury and Buckinghamshire. New borders, colourful planting and full garden makeovers for homeowners, by a trained gardener.',
     intro:
-      'Planting plans, border redesigns and full garden makeovers, chosen for your soil, aspect and how you actually want to use the space.',
+      'New borders, colourful planting and full garden makeovers — designed around your soil, how much sun your garden gets, and how you and your family actually want to use it.',
     image: images['jw-g3'],
     imageAlt: 'Colourful planted border designed and planted by JW Garden Services',
     body: [
       {
-        heading: 'Planting chosen for your garden, not a catalogue',
+        heading: 'Plants chosen for your garden, not picked from a catalogue',
         paragraphs: [
-          'The right plant in the right place is the whole job. We look at your soil, how much sun each part of the garden gets, how exposed it is and how much time you want to spend looking after it — then choose plants that will thrive rather than struggle.',
-          'That might be a low-maintenance evergreen structure with seasonal highlights, a cottage-garden border with long succession of flower, or a pollinator-friendly scheme that brings the garden to life.',
+          'The secret to a garden that looks good for years is putting the right plant in the right place. We start by looking at your soil, which parts get sun or shade, how windy it is, and honestly how much time you want to spend gardening. Then we choose plants that will be happy there rather than ones that sulk and need replacing.',
+          'That might be an easy-care garden with evergreens and a bit of seasonal colour, a pretty cottage-style border that flowers from spring right through to autumn, or planting chosen to bring bees and butterflies in. We will talk you through the options in plain English — no jargon, no Latin names unless you want them.',
         ],
       },
       {
-        heading: 'From one tired border to the whole garden',
+        heading: 'From one tired border to a whole new garden',
         paragraphs: [
-          'Plenty of clients start with a single border that has stopped working and end up reshaping the whole garden. Either is fine. We can clear, improve the soil, replant and mulch a border in a day or two, or plan a phased makeover over a season so the cost is spread out.',
-          'And because we also offer regular maintenance, new planting can be looked after properly through its first few years — which is when most new schemes are won or lost.',
+          'Lots of people come to us with one border that has stopped looking nice, and end up reshaping the whole garden. Either is absolutely fine. We can clear a border, improve the soil, replant it and mulch it in a day or two — or spread a bigger makeover over a season so it is easier on your budget.',
+          'Because we also do regular garden maintenance, we can keep an eye on your new planting through its first couple of years, which is exactly when it needs watering, feeding and a little attention to really settle in.',
         ],
       },
     ],
     includes: [
-      'Planting plans and plant sourcing',
-      'Border clearance and soil improvement',
-      'Shrub, perennial and hedge planting',
-      'Tree and specimen planting',
-      'Bulb planting and seasonal bedding',
-      'Mulching and long-term weed control',
-      'Full garden redesign and makeovers',
-      'Aftercare through the establishment years',
+      'Planting ideas and all the plants sourced for you',
+      'Old borders cleared and the soil improved',
+      'Shrubs, flowers and hedges planted',
+      'Trees and larger feature plants planted',
+      'Spring bulbs and seasonal colour',
+      'Mulching to cut down on weeding and watering',
+      'Full garden makeovers, phased if you prefer',
+      'Ongoing care while your new planting settles in',
     ],
     faqs: [
       {
         q: 'When is the best time to plant a new border?',
-        a: 'Autumn and early spring are ideal in Buckinghamshire, when the soil is warm and moist and plants establish with little watering. Container-grown plants can go in at most times of year if they are watered well.',
+        a: 'Autumn and early spring are the best times around Buckinghamshire — the soil is damp and mild, so plants settle in with very little watering from you. That said, most pot-grown plants can go in at almost any time of year as long as they are watered well through their first summer.',
       },
       {
         q: 'Do you supply the plants?',
-        a: 'Yes. We source good-quality stock from trusted nurseries and pass on trade pricing where we can, so you get healthier plants for your budget.',
+        a: 'Yes. We buy from good local nurseries rather than garden centre bargain shelves, and we pass on the better prices we get — so your budget buys healthier, longer-lasting plants.',
       },
       {
-        q: 'Can you work with a garden designer\u2019s plan?',
-        a: 'Absolutely. We regularly plant up and build to existing drawings, and we are happy to flag anything on a plan that we think will struggle in your conditions.',
+        q: 'Do I need to know what I want before you visit?',
+        a: 'Not at all. Most people just know the garden is not working for them. We come and have a look, ask how you use the space, and suggest ideas from there. If you already have a plan from a designer, we are happy to plant it up for you.',
       },
       {
         q: 'How much does a garden makeover cost?',
-        a: 'It depends entirely on size and how much hard landscaping is involved. We quote in writing after visiting, and can phase larger projects to spread the cost.',
+        a: 'It really depends on the size of the garden and whether any paving or fencing is involved. We visit, talk it through and then send you a clear written quote with no obligation — and larger projects can be split into stages to spread the cost.',
       },
     ],
     gallery: [
