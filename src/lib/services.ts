@@ -26,56 +26,56 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Weekly garden maintenance in Aylesbury and across Bucks, Beds and Herts — keeping lawns, hedges and borders immaculate all year. Trained, reliable, free quotes.',
     intro:
-      'Weekly garden maintenance that keeps your Aylesbury garden looking immaculate all year round — the most popular choice for clients who want their lawn, borders and hedges cared for every single week without lifting a spade.',
+      'Weekly garden maintenance that keeps your Aylesbury garden looking lovely all year round — the easiest way to have a tidy lawn, neat hedges and cared-for borders every week, without picking up a spade yourself.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
       {
-        heading: 'Weekly maintenance — the gold standard for a garden that always looks its best',
+        heading: 'A weekly visit means your garden always looks its best',
         paragraphs: [
-          'A weekly visit is the surest way to keep a garden looking immaculate through every season. Lawns are mown and edged before they get scruffy, hedges are kept in shape rather than cut back hard once a year, and weeds are pulled while they are still seedlings — so the garden never slips, and the work each week is lighter than a heavier catch-up visit.',
-          'For most Aylesbury and Bierton gardens, a weekly visit through the growing season (March to October) keeps everything under control, with the option to ease to fortnightly or monthly over winter when growth slows. Larger, more formal or showcase gardens often stay weekly year-round to hold their shape and finish.',
-          'We work closely with you to improve and develop your garden into somewhere you can relax and enjoy, with year-round maintenance and genuine horticultural expertise behind every visit.',
+          'Coming every week means nothing ever gets away from us. The lawn is mown and edged before it looks scruffy, hedges stay in shape instead of needing one hard cut a year, and weeds are pulled while they are still tiny. You simply come home to a garden that is already done.',
+          'For most gardens around Aylesbury and Bierton, weekly visits from March to October keep everything under control, and we can drop to fortnightly or monthly over winter when growth slows down. If you would rather keep the same day every week all year, that is fine too.',
+          'We will happily suggest small improvements as we go, so the garden gradually becomes a place you actually want to sit in — not just something on your weekend to-do list.',
         ],
       },
       {
-        heading: 'Trained gardeners, not just grass cutters',
+        heading: 'Proper gardeners, not just a mow-and-go service',
         paragraphs: [
-          'There is a real difference between mowing a lawn and looking after a garden. Josh trained in horticulture at BCA and completed an apprenticeship before founding JW Garden Services in 2017, so plants are pruned at the right time of year, in the right way, for healthier growth and better flowering the following season.',
-          'We follow The Gardeners Guild standards for professional gardening, carry our own tools and equipment, and clear away all green waste at the end of every visit.',
+          'There is a big difference between cutting the grass and looking after a garden. Josh trained in horticulture at BCA and completed an apprenticeship before starting JW Garden Services in 2017, so your shrubs and roses are pruned at the right time of year — which means healthier plants and far more flower the following summer.',
+          'We are members of The Gardeners Guild, bring all our own tools, and take every bag of clippings away with us. You will not be left with green waste to deal with or a bin you cannot close.',
         ],
       },
     ],
     includes: [
-      'Weekly lawn mowing, edging and stripes',
-      'Hedge cutting and shaping kept in check weekly',
-      'Pruning of shrubs, roses and small trees',
-      'Weeding and border maintenance every visit',
-      'Seasonal planting and bedding changes',
-      'Leaf clearance and winter tidies',
-      'Lawn feeding, scarifying and aeration',
-      'Green waste removed and disposed of',
+      'Weekly lawn mowing, neat edges and stripes',
+      'Hedges trimmed and kept in shape',
+      'Shrubs, roses and small trees pruned properly',
+      'Weeding and tidying the borders every visit',
+      'Seasonal flowers and pots planted up',
+      'Leaf clearing and winter tidy-ups',
+      'Lawn feeding and treatments to thicken the grass',
+      'All clippings and garden waste taken away',
     ],
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'Weekly maintenance is our most popular option and the best way to keep a garden looking immaculate — lawns never get scruffy, hedges stay in shape and weeds are caught early. For most Aylesbury gardens a weekly visit through the growing season (March to October) is ideal, easing to fortnightly or monthly over winter. Larger or more formal gardens often stay weekly year-round.',
+        a: 'Weekly is our most popular choice and the easiest way to keep a garden looking good — the grass never gets long, hedges stay neat and weeds are caught early. For most Aylesbury gardens weekly visits from March to October work best, easing off to fortnightly or monthly over winter. Bigger gardens often stay weekly all year.',
       },
       {
         q: 'Why choose weekly rather than fortnightly maintenance?',
-        a: 'A weekly visit keeps the garden at its best every day of the week. Because the work is done little and often, each visit is quicker and gentler on the plants than a heavier catch-up cut, and the lawn, borders and hedges never have time to look untidy between visits.',
+        a: 'With weekly visits your garden looks presentable every single day, not just the day after we have been. Because we do a little at a time, each visit is quicker, kinder to the plants, and the garden never has a scruffy week in between.',
       },
       {
         q: 'Do you take the garden waste away?',
-        a: 'Yes. All green waste is cleared and disposed of responsibly as part of the visit, so you are not left with bags of clippings.',
+        a: 'Yes, always. Everything we cut is cleared up and taken away as part of the visit, so you are not left with bags of clippings or a full green bin.',
       },
       {
         q: 'Do I need to be home for the visit?',
-        a: 'No. Once we know your garden, most clients simply leave access arranged and come home to a finished garden — week after week.',
+        a: 'No. Once we know your garden, most people just leave a gate unlocked or a key safe and come home to a finished garden. We will always let you know if anything needs your say-so.',
       },
       {
         q: 'Which areas do you cover for garden maintenance?',
-        a: 'We work within roughly 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
+        a: 'We look after gardens within about 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
       },
     ],
     gallery: [
@@ -152,53 +152,53 @@ export const services: ServiceContent[] = [
     eyebrow: 'Design & planting',
     seoTitle: 'Garden Design Aylesbury | Planting Plans | JW Garden Services',
     seoDescription:
-      'Garden design and planting schemes in Aylesbury and Buckinghamshire. Border redesign, planting plans and full garden makeovers by a trained horticulturist.',
+      'Garden design and planting in Aylesbury and Buckinghamshire. New borders, colourful planting and full garden makeovers for homeowners, by a trained gardener.',
     intro:
-      'Planting plans, border redesigns and full garden makeovers, chosen for your soil, aspect and how you actually want to use the space.',
+      'New borders, colourful planting and full garden makeovers — designed around your soil, how much sun your garden gets, and how you and your family actually want to use it.',
     image: images['jw-g3'],
     imageAlt: 'Colourful planted border designed and planted by JW Garden Services',
     body: [
       {
-        heading: 'Planting chosen for your garden, not a catalogue',
+        heading: 'Plants chosen for your garden, not picked from a catalogue',
         paragraphs: [
-          'The right plant in the right place is the whole job. We look at your soil, how much sun each part of the garden gets, how exposed it is and how much time you want to spend looking after it — then choose plants that will thrive rather than struggle.',
-          'That might be a low-maintenance evergreen structure with seasonal highlights, a cottage-garden border with long succession of flower, or a pollinator-friendly scheme that brings the garden to life.',
+          'The secret to a garden that looks good for years is putting the right plant in the right place. We start by looking at your soil, which parts get sun or shade, how windy it is, and honestly how much time you want to spend gardening. Then we choose plants that will be happy there rather than ones that sulk and need replacing.',
+          'That might be an easy-care garden with evergreens and a bit of seasonal colour, a pretty cottage-style border that flowers from spring right through to autumn, or planting chosen to bring bees and butterflies in. We will talk you through the options in plain English — no jargon, no Latin names unless you want them.',
         ],
       },
       {
-        heading: 'From one tired border to the whole garden',
+        heading: 'From one tired border to a whole new garden',
         paragraphs: [
-          'Plenty of clients start with a single border that has stopped working and end up reshaping the whole garden. Either is fine. We can clear, improve the soil, replant and mulch a border in a day or two, or plan a phased makeover over a season so the cost is spread out.',
-          'And because we also offer regular maintenance, new planting can be looked after properly through its first few years — which is when most new schemes are won or lost.',
+          'Lots of people come to us with one border that has stopped looking nice, and end up reshaping the whole garden. Either is absolutely fine. We can clear a border, improve the soil, replant it and mulch it in a day or two — or spread a bigger makeover over a season so it is easier on your budget.',
+          'Because we also do regular garden maintenance, we can keep an eye on your new planting through its first couple of years, which is exactly when it needs watering, feeding and a little attention to really settle in.',
         ],
       },
     ],
     includes: [
-      'Planting plans and plant sourcing',
-      'Border clearance and soil improvement',
-      'Shrub, perennial and hedge planting',
-      'Tree and specimen planting',
-      'Bulb planting and seasonal bedding',
-      'Mulching and long-term weed control',
-      'Full garden redesign and makeovers',
-      'Aftercare through the establishment years',
+      'Planting ideas and all the plants sourced for you',
+      'Old borders cleared and the soil improved',
+      'Shrubs, flowers and hedges planted',
+      'Trees and larger feature plants planted',
+      'Spring bulbs and seasonal colour',
+      'Mulching to cut down on weeding and watering',
+      'Full garden makeovers, phased if you prefer',
+      'Ongoing care while your new planting settles in',
     ],
     faqs: [
       {
         q: 'When is the best time to plant a new border?',
-        a: 'Autumn and early spring are ideal in Buckinghamshire, when the soil is warm and moist and plants establish with little watering. Container-grown plants can go in at most times of year if they are watered well.',
+        a: 'Autumn and early spring are the best times around Buckinghamshire — the soil is damp and mild, so plants settle in with very little watering from you. That said, most pot-grown plants can go in at almost any time of year as long as they are watered well through their first summer.',
       },
       {
         q: 'Do you supply the plants?',
-        a: 'Yes. We source good-quality stock from trusted nurseries and pass on trade pricing where we can, so you get healthier plants for your budget.',
+        a: 'Yes. We buy from good local nurseries rather than garden centre bargain shelves, and we pass on the better prices we get — so your budget buys healthier, longer-lasting plants.',
       },
       {
-        q: 'Can you work with a garden designer\u2019s plan?',
-        a: 'Absolutely. We regularly plant up and build to existing drawings, and we are happy to flag anything on a plan that we think will struggle in your conditions.',
+        q: 'Do I need to know what I want before you visit?',
+        a: 'Not at all. Most people just know the garden is not working for them. We come and have a look, ask how you use the space, and suggest ideas from there. If you already have a plan from a designer, we are happy to plant it up for you.',
       },
       {
         q: 'How much does a garden makeover cost?',
-        a: 'It depends entirely on size and how much hard landscaping is involved. We quote in writing after visiting, and can phase larger projects to spread the cost.',
+        a: 'It really depends on the size of the garden and whether any paving or fencing is involved. We visit, talk it through and then send you a clear written quote with no obligation — and larger projects can be split into stages to spread the cost.',
       },
     ],
     gallery: [
