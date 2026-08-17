@@ -26,56 +26,56 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Weekly garden maintenance in Aylesbury and across Bucks, Beds and Herts — keeping lawns, hedges and borders immaculate all year. Trained, reliable, free quotes.',
     intro:
-      'Weekly garden maintenance that keeps your Aylesbury garden looking immaculate all year round — the most popular choice for clients who want their lawn, borders and hedges cared for every single week without lifting a spade.',
+      'Weekly garden maintenance that keeps your Aylesbury garden looking lovely all year round — the easiest way to have a tidy lawn, neat hedges and cared-for borders every week, without picking up a spade yourself.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
       {
-        heading: 'Weekly maintenance — the gold standard for a garden that always looks its best',
+        heading: 'A weekly visit means your garden always looks its best',
         paragraphs: [
-          'A weekly visit is the surest way to keep a garden looking immaculate through every season. Lawns are mown and edged before they get scruffy, hedges are kept in shape rather than cut back hard once a year, and weeds are pulled while they are still seedlings — so the garden never slips, and the work each week is lighter than a heavier catch-up visit.',
-          'For most Aylesbury and Bierton gardens, a weekly visit through the growing season (March to October) keeps everything under control, with the option to ease to fortnightly or monthly over winter when growth slows. Larger, more formal or showcase gardens often stay weekly year-round to hold their shape and finish.',
-          'We work closely with you to improve and develop your garden into somewhere you can relax and enjoy, with year-round maintenance and genuine horticultural expertise behind every visit.',
+          'Coming every week means nothing ever gets away from us. The lawn is mown and edged before it looks scruffy, hedges stay in shape instead of needing one hard cut a year, and weeds are pulled while they are still tiny. You simply come home to a garden that is already done.',
+          'For most gardens around Aylesbury and Bierton, weekly visits from March to October keep everything under control, and we can drop to fortnightly or monthly over winter when growth slows down. If you would rather keep the same day every week all year, that is fine too.',
+          'We will happily suggest small improvements as we go, so the garden gradually becomes a place you actually want to sit in — not just something on your weekend to-do list.',
         ],
       },
       {
-        heading: 'Trained gardeners, not just grass cutters',
+        heading: 'Proper gardeners, not just a mow-and-go service',
         paragraphs: [
-          'There is a real difference between mowing a lawn and looking after a garden. Josh trained in horticulture at BCA and completed an apprenticeship before founding JW Garden Services in 2017, so plants are pruned at the right time of year, in the right way, for healthier growth and better flowering the following season.',
-          'We follow The Gardeners Guild standards for professional gardening, carry our own tools and equipment, and clear away all green waste at the end of every visit.',
+          'There is a big difference between cutting the grass and looking after a garden. Josh trained in horticulture at BCA and completed an apprenticeship before starting JW Garden Services in 2017, so your shrubs and roses are pruned at the right time of year — which means healthier plants and far more flower the following summer.',
+          'We are members of The Gardeners Guild, bring all our own tools, and take every bag of clippings away with us. You will not be left with green waste to deal with or a bin you cannot close.',
         ],
       },
     ],
     includes: [
-      'Weekly lawn mowing, edging and stripes',
-      'Hedge cutting and shaping kept in check weekly',
-      'Pruning of shrubs, roses and small trees',
-      'Weeding and border maintenance every visit',
-      'Seasonal planting and bedding changes',
-      'Leaf clearance and winter tidies',
-      'Lawn feeding, scarifying and aeration',
-      'Green waste removed and disposed of',
+      'Weekly lawn mowing, neat edges and stripes',
+      'Hedges trimmed and kept in shape',
+      'Shrubs, roses and small trees pruned properly',
+      'Weeding and tidying the borders every visit',
+      'Seasonal flowers and pots planted up',
+      'Leaf clearing and winter tidy-ups',
+      'Lawn feeding and treatments to thicken the grass',
+      'All clippings and garden waste taken away',
     ],
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'Weekly maintenance is our most popular option and the best way to keep a garden looking immaculate — lawns never get scruffy, hedges stay in shape and weeds are caught early. For most Aylesbury gardens a weekly visit through the growing season (March to October) is ideal, easing to fortnightly or monthly over winter. Larger or more formal gardens often stay weekly year-round.',
+        a: 'Weekly is our most popular choice and the easiest way to keep a garden looking good — the grass never gets long, hedges stay neat and weeds are caught early. For most Aylesbury gardens weekly visits from March to October work best, easing off to fortnightly or monthly over winter. Bigger gardens often stay weekly all year.',
       },
       {
         q: 'Why choose weekly rather than fortnightly maintenance?',
-        a: 'A weekly visit keeps the garden at its best every day of the week. Because the work is done little and often, each visit is quicker and gentler on the plants than a heavier catch-up cut, and the lawn, borders and hedges never have time to look untidy between visits.',
+        a: 'With weekly visits your garden looks presentable every single day, not just the day after we have been. Because we do a little at a time, each visit is quicker, kinder to the plants, and the garden never has a scruffy week in between.',
       },
       {
         q: 'Do you take the garden waste away?',
-        a: 'Yes. All green waste is cleared and disposed of responsibly as part of the visit, so you are not left with bags of clippings.',
+        a: 'Yes, always. Everything we cut is cleared up and taken away as part of the visit, so you are not left with bags of clippings or a full green bin.',
       },
       {
         q: 'Do I need to be home for the visit?',
-        a: 'No. Once we know your garden, most clients simply leave access arranged and come home to a finished garden — week after week.',
+        a: 'No. Once we know your garden, most people just leave a gate unlocked or a key safe and come home to a finished garden. We will always let you know if anything needs your say-so.',
       },
       {
         q: 'Which areas do you cover for garden maintenance?',
-        a: 'We work within roughly 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
+        a: 'We look after gardens within about 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
       },
     ],
     gallery: [
