@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE = 'https://garden-artisan-site.lovable.app';
+const SITE = 'https://www.jw-gardening.com';
 
 interface SeoProps {
   title: string;
