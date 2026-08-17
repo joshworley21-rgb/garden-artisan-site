@@ -26,10 +26,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/gardeners-in-:town" element={<AreaDetail />} />
           <Route path="/our-work" element={<Work />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          {/* Local town landing pages, e.g. /gardeners-in-aylesbury */}
+          <Route path="/:slug" element={<AreaDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
