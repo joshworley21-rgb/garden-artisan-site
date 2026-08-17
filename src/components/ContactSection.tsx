@@ -150,6 +150,35 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   </p>
                 </div>
               </div>
+
+              {/* Google Business Profile + map */}
+              <div className="space-y-4 pt-2">
+                <div className="overflow-hidden rounded-lg border border-primary-foreground/10">
+                  <iframe
+                    title="JW Garden Services on Google Maps — Bierton, Aylesbury"
+                    src="https://maps.google.com/maps?q=JW%20Garden%20Services%20Bierton%20Aylesbury&z=12&output=embed"
+                    width="100%"
+                    height="220"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=JW%20Garden%20Services%20Bierton%20Aylesbury"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-hero-accent hover:underline"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 48 48" className="h-4 w-4">
+                    <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.92c-.52 2.81-2.1 5.19-4.48 6.79v5.66h7.24c4.24-3.91 6.44-9.66 6.44-16.46z"/>
+                    <path fill="#34A853" d="M24 46c6.48 0 11.93-2.15 15.9-5.81l-7.24-5.66c-2.01 1.35-4.58 2.15-8.66 2.15-6.66 0-12.31-4.5-14.33-10.55H2.23v5.83C6.18 41.07 14.46 46 24 46z"/>
+                    <path fill="#FBBC05" d="M9.67 26.13c-.51-1.56-.8-3.23-.8-4.93s.29-3.37.8-4.93V10.44H2.23A21.94 21.94 0 0 0 0 24.5c0 3.55.85 6.91 2.23 9.81l7.44-5.83z"/>
+                    <path fill="#EA4335" d="M24 9.75c3.94 0 7.48 1.36 10.27 4.02l7.69-7.69C35.93 2.18 30.48 0 24 0 14.46 0 6.18 4.93 2.23 12.19l7.44 5.83C11.69 9.75 17.34 9.75 24 9.75z"/>
+                  </svg>
+                  Find us on Google & read our reviews
+                </a>
+              </div>
             </div>
           </div>
 
