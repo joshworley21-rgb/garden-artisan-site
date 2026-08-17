@@ -47,10 +47,10 @@ export const services: ServiceContent[] = [
       },
     ],
     includes: [
-      'Lawn mowing, edging and stripes',
-      'Hedge cutting and shaping',
+      'Weekly lawn mowing, edging and stripes',
+      'Hedge cutting and shaping kept in check weekly',
       'Pruning of shrubs, roses and small trees',
-      'Weeding and border maintenance',
+      'Weeding and border maintenance every visit',
       'Seasonal planting and bedding changes',
       'Leaf clearance and winter tidies',
       'Lawn feeding, scarifying and aeration',
