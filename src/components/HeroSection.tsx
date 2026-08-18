@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
@@ -16,9 +16,9 @@ const hero = {
 };
 
 /**
- * Mobile-first: phones and data-saving / slow connections never download the
- * 5.5 MB hero video — they get the lightweight WebP poster only. Larger screens
- * load the video after first paint so it never competes with the LCP image.
+ * The poster paints first (LCP), then the video loads on all screen sizes.
+ * Only data-saver, very slow connections and reduced-motion users stay on
+ * the lightweight WebP poster.
  */
 const useHeroVideo = () => {
   const [enabled, setEnabled] = useState(false);
@@ -31,17 +31,16 @@ const useHeroVideo = () => {
     }).connection;
 
     const allowed =
-      window.matchMedia('(min-width: 768px)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
       !conn?.saveData &&
-      !/2g|slow-2g|3g/.test(conn?.effectiveType ?? '');
+      !/^(2g|slow-2g)$/.test(conn?.effectiveType ?? '');
 
     if (!allowed) return;
 
     const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number })
       .requestIdleCallback;
     const start = () => setEnabled(true);
-    const id = idle ? idle(start) : window.setTimeout(start, 1200);
+    const id = idle ? idle(start) : window.setTimeout(start, 600);
     return () => {
       if (!idle) window.clearTimeout(id as number);
     };
@@ -52,6 +51,21 @@ const useHeroVideo = () => {
 
 const HeroSection = () => {
   const showVideo = useHeroVideo();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    if (!showVideo) return;
+    const el = videoRef.current;
+    if (!el) return;
+    const attempt = () => {
+      const p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    };
+    attempt();
+    document.addEventListener('touchstart', attempt, { once: true, passive: true });
+    return () => document.removeEventListener('touchstart', attempt);
+  }, [showVideo]);
 
   return (
     <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
@@ -70,14 +84,20 @@ const HeroSection = () => {
         />
         {showVideo && (
           <video
+            ref={videoRef}
             src={heroVideo.url}
             autoPlay
             muted
+            defaultMuted
             loop
             playsInline
             preload="auto"
+            onCanPlay={() => setVideoReady(true)}
+            onPlaying={() => setVideoReady(true)}
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              videoReady ? 'opacity-100' : 'opacity-0'
+            }`}
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />
