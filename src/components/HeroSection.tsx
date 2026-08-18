@@ -88,7 +88,6 @@ const HeroSection = () => {
             src={heroVideo.url}
             autoPlay
             muted
-            defaultMuted
             loop
             playsInline
             preload="auto"
