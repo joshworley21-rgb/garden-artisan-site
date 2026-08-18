@@ -115,15 +115,15 @@ const HeroSection = () => {
 
           {/* Main Heading */}
           <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
-            Gardeners in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion &amp; expertise</span>
+            Garden Maintenance & Landscaping in Aylesbury
+            <span className="block italic font-normal text-hero-accent">Complete garden care from a local, family-run team</span>
           </h1>
 
           {/* Subheading */}
           <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
-            JW Garden Services provides garden maintenance, landscaping and planting across
-            Aylesbury, Bierton and the surrounding villages. Your garden should be a space you
-            love — we make that possible.
+            JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
+            villages looking their best — from weekly maintenance to full landscaping and
+            planting. A space you love, looked after all year round.
           </p>
 
           {/* CTA Button */}
