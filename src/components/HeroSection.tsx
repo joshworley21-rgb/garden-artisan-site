@@ -116,7 +116,7 @@ const HeroSection = () => {
           {/* Main Heading */}
           <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
             Garden Maintenance & Landscaping in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion &amp; expertise</span>
+            <span className="block italic font-normal text-hero-accent">Complete garden care from a local, family-run team</span>
           </h1>
 
           {/* Subheading */}
