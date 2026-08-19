@@ -26,6 +26,8 @@ npm run dev        # http://localhost:8080
 | --- | --- |
 | `npm run dev` | Vite dev server with HMR |
 | `npm run build` | Production build into `dist/` (checks assets first) |
+| `npm run build:deploy` | The full publish build: sitemap dates, build, prerender, prune |
+| `npm run prerender` | Render every route to static HTML (run after `build`) |
 | `npm run preview` | Serve the production build locally |
 | `npm run check:assets` | Verify every referenced image/video exists in `public/assets` |
 | `node scripts/fetch-lovable-assets.mjs` | One-off: pull the hero media Lovable kept on its CDN |
@@ -42,7 +44,7 @@ src/lib/images.ts       responsive image manifest (points at /assets/…)
 public/assets/          all images and video shipped with the site
 public/enquiry.php      contact form handler (SMTP → business inbox)
 public/.htaccess        SPA fallback, caching and security headers for Apache
-scripts/                asset migration + build-time asset check
+scripts/                asset migration, prerendering, sitemap dates, publishing
 ```
 
 ## Origins

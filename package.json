@@ -11,12 +11,13 @@
     "check:assets": "node scripts/check-assets.mjs",
     "prebuild": "node scripts/check-assets.mjs",
     "build": "vite build",
-    "build:deploy": "npm run build && node scripts/prune-unused-assets.mjs",
+    "build:deploy": "node scripts/update-sitemap.mjs && npm run build && node scripts/prerender.mjs && node scripts/prune-unused-assets.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -86,6 +87,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "jsdom": "^20.0.3",
+    "playwright": "^1.62.1",
     "postcss": "^8.5.26",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",

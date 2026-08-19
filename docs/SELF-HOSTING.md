@@ -83,7 +83,38 @@ npm run preview   # serve dist/ locally on http://localhost:4173
 Environment variables are read at **build time** (Vite inlines anything prefixed
 `VITE_`), not at runtime — see `.env` / `.env.example`. Rebuild after changing them.
 
-## 4. Deploy
+## 4. How the pages are rendered
+
+The app is client-rendered, so on its own every URL would return the same HTML
+shell — and, before this was fixed, the same homepage title and a canonical tag
+pointing at the homepage on all 21 URLs. Google runs JavaScript and got there in
+the end; Facebook, WhatsApp and LinkedIn never do, so a shared link to a service
+or town page showed the homepage's title and no image.
+
+`npm run build:deploy` therefore runs four steps:
+
+1. `scripts/update-sitemap.mjs` — stamps each sitemap URL with a `<lastmod>` taken
+   from the last commit touching the file behind that page.
+2. `vite build` — the app bundle into `dist/`.
+3. `scripts/prerender.mjs` — loads every route in headless Chromium and writes the
+   fully rendered HTML to `dist/<route>.html`. It fails the build if any page ends
+   up with a missing or duplicated canonical, description, `og:url` or `h1`.
+4. `scripts/prune-unused-assets.mjs` — drops the original uploads nothing requests.
+
+`.htaccess` serves those files directly (`RewriteCond %{REQUEST_FILENAME}.html -f`),
+so `/gardeners-in-tring` returns its own HTML with no redirect and no wait for
+JavaScript. Unknown URLs still fall through to `index.html` and the app's 404 page.
+
+Two things to keep in mind when editing:
+
+- **Never put page-level meta tags in `index.html`.** react-helmet-async appends
+  rather than replaces, so anything there (title excepted) shows up as a second,
+  wrong tag on every other page. `src/components/Seo.tsx` owns them.
+- Prerendering needs a Chromium build. `scripts/prerender.mjs` uses Playwright's
+  own browser if installed, otherwise any Chromium under `PLAYWRIGHT_BROWSERS_PATH`
+  or `CHROMIUM_EXECUTABLE`. It never downloads one.
+
+## 5. Deploy
 
 ### Hostinger (or any Apache / cPanel shared host)
 
@@ -105,7 +136,7 @@ Nothing is built on the server — you build locally and upload the result.
    Apache has to rewrite unknown paths to `index.html`. Test after uploading:
    open `https://your-domain/our-work` directly (not by clicking a link).
 
-4. **Set up the contact form** — see section 5. Until `enquiry-config.php` exists
+4. **Set up the contact form** — see section 6. Until `enquiry-config.php` exists
    on the server, submissions fall back to PHP `mail()`, which often lands in
    spam or fails silently.
 
@@ -170,14 +201,14 @@ server {
 ```
 
 PHP is only needed for the enquiry form; on nginx you either run php-fpm for
-`/enquiry.php` or swap the form to a hosted form endpoint (section 5).
+`/enquiry.php` or swap the form to a hosted form endpoint (section 6).
 
 ### Netlify / Vercel / Cloudflare Pages
 
 Build command `npm run build`, publish directory `dist`. These hosts do not run
-PHP, so the enquiry form needs a different backend — see section 5.
+PHP, so the enquiry form needs a different backend — see section 6.
 
-## 5. The enquiry form
+## 6. The enquiry form
 
 `src/components/ContactSection.tsx` POSTs JSON to `/enquiry.php`. That script
 (`public/enquiry.php`) validates the fields and emails them to the business
@@ -197,7 +228,7 @@ form endpoint (Formspree, Netlify Forms, Web3Forms) or with the CRM's
 `/api/public/enquiry` endpoint, which writes the enquiry straight into the CRM
 database.
 
-## 6. Supabase
+## 7. Supabase
 
 `src/integrations/supabase/client.ts` and `supabase/migrations/` are left over
 from when the enquiry form wrote to a Supabase table. **No page imports that
@@ -209,7 +240,7 @@ Supabase project and can be claimed, kept or dropped independently of the move.
 If it is dropped, `.env`, `src/integrations/supabase/*` and `supabase/` can go
 with it.
 
-## 7. Domain, DNS and SEO
+## 8. Domain, DNS and SEO
 
 Canonical URLs, `og:url`, `robots.txt` and `sitemap.xml` all point at
 `https://www.jw-gardening.com/`. If the site moves to a different domain, update:
@@ -222,7 +253,7 @@ Point the domain's A/CNAME record at the new host and issue a certificate
 (Let's Encrypt, or the host's one-click SSL). If the Lovable URL was ever
 indexed, keep it redirecting to the new domain for as long as the platform allows.
 
-## 8. What is no longer here
+## 9. What is no longer here
 
 - `lovable-tagger` (dev-only editor instrumentation) — removed from
   `package.json` and `vite.config.ts`.

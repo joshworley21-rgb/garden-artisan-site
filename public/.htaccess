@@ -3,12 +3,17 @@
   RewriteEngine On
   RewriteBase /
 
-  # Don't rewrite real files or directories (css, js, images, fonts, etc.)
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
+  # Real files win (assets, enquiry.php, robots.txt, …)
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Everything else -> index.html
+  # Prerendered page for this route, e.g. /gardeners-in-tring -> gardeners-in-tring.html.
+  # Serving it directly keeps the URL exactly as the canonical tag states — no
+  # redirect to a trailing slash, and no waiting on JavaScript for the content.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Anything else -> the app shell, which renders the 404 page
   RewriteRule ^ index.html [L]
 </IfModule>
 
@@ -31,7 +36,7 @@
   <FilesMatch "\.(css|js|webp|jpg|jpeg|png|svg|mp4|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "index\.html">
+  <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 
@@ -40,6 +45,9 @@
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
+
+# No directory listings — /services is a folder of prerendered pages, not a page
+Options -Indexes
 
 # --- Compression ---
 <IfModule mod_deflate.c>

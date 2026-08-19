@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE = 'https://www.jw-gardening.com';
+/** Used when a page has no share image of its own, so links posted to Facebook,
+ *  WhatsApp or LinkedIn always carry a picture rather than a bare headline. */
+const DEFAULT_SHARE_IMAGE = '/assets/og/default.jpg';
 
 interface SeoProps {
   title: string;
@@ -15,7 +18,7 @@ interface SeoProps {
 
 const Seo = ({ title, description, path, noindex, jsonLd, image, imageAlt }: SeoProps) => {
   const url = `${SITE}${path}`;
-  const imageUrl = image ? `${SITE}${image}` : undefined;
+  const imageUrl = `${SITE}${image ?? DEFAULT_SHARE_IMAGE}`;
   return (
     <Helmet prioritizeSeoTags>
       <title>{title}</title>

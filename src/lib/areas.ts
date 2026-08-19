@@ -26,7 +26,7 @@ export const areas: AreaContent[] = [
     town: 'Aylesbury',
     h1: 'Gardeners in Aylesbury',
     eyebrow: 'Local to Aylesbury',
-    seoTitle: 'Gardeners in Aylesbury | Weekly Garden Maintenance | JW Garden Services',
+    seoTitle: 'Gardeners in Aylesbury | Weekly Garden Maintenance',
     seoDescription:
       'Looking for a gardener near you in Aylesbury? JW Garden Services offers weekly garden maintenance, landscaping and planting across Aylesbury and HP19–HP22. Free quotes, all waste taken away.',
     intro:
@@ -85,7 +85,7 @@ export const areas: AreaContent[] = [
     town: 'Bierton',
     h1: 'Gardeners in Bierton',
     eyebrow: 'Our home village',
-    seoTitle: 'Gardeners in Bierton | Village Garden Maintenance | JW Garden Services',
+    seoTitle: 'Gardeners in Bierton | Village Garden Maintenance',
     seoDescription:
       'JW Garden Services is based in Bierton — your nearest local gardener for weekly maintenance, hedge cutting, patios and planting in Bierton and Broughton. Free quotes.',
     intro:
@@ -139,7 +139,7 @@ export const areas: AreaContent[] = [
     town: 'Wendover',
     h1: 'Gardeners in Wendover',
     eyebrow: 'Wendover & the Chilterns edge',
-    seoTitle: 'Gardeners in Wendover | Garden Maintenance & Landscaping | JW Garden Services',
+    seoTitle: 'Gardeners in Wendover | Garden Maintenance',
     seoDescription:
       'Gardener near you in Wendover: weekly garden maintenance, hedge cutting, patios and planting for Wendover, Halton and the Chilterns edge. Free quotes, waste removed.',
     intro:
@@ -193,7 +193,7 @@ export const areas: AreaContent[] = [
     town: 'Wing',
     h1: 'Gardeners in Wing',
     eyebrow: 'Wing & the Leighton Buzzard side',
-    seoTitle: 'Gardeners in Wing | Garden Maintenance & Hedge Cutting | JW Garden Services',
+    seoTitle: 'Gardeners in Wing | Garden Maintenance & Hedges',
     seoDescription:
       'Local gardener for Wing, Cublington and Stewkley: weekly garden maintenance, hedge cutting, lawn care, patios and planting. Free quotes, all waste removed.',
     intro:
@@ -247,7 +247,7 @@ export const areas: AreaContent[] = [
     town: 'Stone',
     h1: 'Gardeners in Stone',
     eyebrow: 'Stone, Bishopstone & Hartwell',
-    seoTitle: 'Gardeners in Stone, Aylesbury | Weekly Garden Maintenance | JW Garden Services',
+    seoTitle: 'Gardeners in Stone, Aylesbury | Garden Maintenance',
     seoDescription:
       'Gardener near you in Stone, Bishopstone and Hartwell: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes and all green waste removed.',
     intro:
@@ -301,7 +301,7 @@ export const areas: AreaContent[] = [
     town: 'Waddesdon',
     h1: 'Gardeners in Waddesdon',
     eyebrow: 'Waddesdon & the Quainton side',
-    seoTitle: 'Gardeners in Waddesdon | Garden Maintenance & Hedge Cutting | JW Garden Services',
+    seoTitle: 'Gardeners in Waddesdon | Garden Maintenance',
     seoDescription:
       'Local gardener for Waddesdon, Quainton and Whitchurch: weekly garden maintenance, hedge cutting, lawns, borders and landscaping. Free quotes, waste removed.',
     intro:
@@ -355,7 +355,7 @@ export const areas: AreaContent[] = [
     town: 'Haddenham',
     h1: 'Gardeners in Haddenham',
     eyebrow: 'Haddenham & Cuddington',
-    seoTitle: 'Gardeners in Haddenham | Weekly Garden Maintenance | JW Garden Services',
+    seoTitle: 'Gardeners in Haddenham | Weekly Garden Maintenance',
     seoDescription:
       'Gardener near you in Haddenham, Cuddington and Long Crendon: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes, all waste removed.',
     intro:
@@ -409,7 +409,7 @@ export const areas: AreaContent[] = [
     town: 'Tring',
     h1: 'Gardeners in Tring',
     eyebrow: 'Tring & the Herts border',
-    seoTitle: 'Gardeners in Tring | Garden Maintenance & Landscaping | JW Garden Services',
+    seoTitle: 'Gardeners in Tring | Garden Maintenance',
     seoDescription:
       'Gardener near you in Tring, Wilstone and Long Marston: weekly garden maintenance, hedge cutting, patios and planting. Free quotes and all green waste removed.',
     intro:
@@ -463,7 +463,7 @@ export const areas: AreaContent[] = [
     town: 'Leighton Buzzard',
     h1: 'Gardeners in Leighton Buzzard',
     eyebrow: 'Leighton Buzzard & Linslade',
-    seoTitle: 'Gardeners in Leighton Buzzard | Garden Maintenance & Hedge Cutting | JW Garden Services',
+    seoTitle: 'Gardeners in Leighton Buzzard | Garden Maintenance',
     seoDescription:
       'Local gardener for Leighton Buzzard and Linslade: weekly garden maintenance, lawn care, hedge cutting, patios and planting. Free quotes, all waste taken away.',
     intro:
@@ -517,7 +517,7 @@ export const areas: AreaContent[] = [
     town: 'Great Missenden',
     h1: 'Gardeners in Great Missenden',
     eyebrow: 'Great Missenden & the Misbourne valley',
-    seoTitle: 'Gardeners in Great Missenden | Garden Maintenance & Landscaping | JW Garden Services',
+    seoTitle: 'Gardeners in Great Missenden | Garden Maintenance',
     seoDescription:
       'Gardener near you in Great Missenden, Prestwood and Little Kingshill: weekly garden maintenance, hedge cutting, terracing and planting. Free quotes, waste removed.',
     intro:
@@ -571,7 +571,7 @@ export const areas: AreaContent[] = [
     town: 'Chesham',
     h1: 'Gardeners in Chesham',
     eyebrow: 'Chesham & the Chess valley',
-    seoTitle: 'Gardeners in Chesham | Garden Maintenance & Hedge Cutting | JW Garden Services',
+    seoTitle: 'Gardeners in Chesham | Garden Maintenance & Hedges',
     seoDescription:
       'Gardener near you in Chesham, Chesham Bois and Ashley Green: weekly garden maintenance, hedge cutting, patios and planting. Free quotes and all waste removed.',
     intro:
@@ -625,7 +625,7 @@ export const areas: AreaContent[] = [
     town: 'Amersham',
     h1: 'Gardeners in Amersham',
     eyebrow: 'Amersham & Old Amersham',
-    seoTitle: 'Gardeners in Amersham | Garden Maintenance & Landscaping | JW Garden Services',
+    seoTitle: 'Gardeners in Amersham | Garden Maintenance',
     seoDescription:
       'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly garden maintenance, hedge cutting, patios and planting. Free quotes, all green waste removed.',
     intro:

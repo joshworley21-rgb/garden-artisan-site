@@ -24,25 +24,18 @@
       imagesizes="100vw"
       fetchpriority="high"
     />
+    <!-- Per-page title, description, canonical, robots, Open Graph and Twitter
+         tags come from src/components/Seo.tsx. Do not add them here as well:
+         react-helmet-async appends rather than replaces, so a static copy shows
+         up as a second, wrong tag on every other page. The title is the one
+         exception — Helmet replaces it. -->
     <title>JW Garden Services | Gardeners in Aylesbury, Bucks</title>
-    <meta name="description" content="Garden maintenance, design and hard landscaping in Aylesbury, Bierton, Buckingham, Tring, Wing, Haddenham, Leighton Buzzard, Chesham and Amersham." />
     <meta name="author" content="JW Garden Services" />
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="canonical" href="https://www.jw-gardening.com/" />
 
-    <meta property="og:title" content="JW Garden Services | Gardeners in Aylesbury, Bucks" />
-    <meta property="og:description" content="Garden maintenance, design and hard landscaping across Aylesbury, Buckinghamshire, Bedfordshire and Hertfordshire." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.jw-gardening.com/" />
-    <meta property="og:site_name" content="JW Garden Services" />
-    <meta property="og:locale" content="en_GB" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="geo.region" content="GB-BKM" />
     <meta name="geo.placename" content="Bierton, Aylesbury" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JW Garden Services | Gardeners in Aylesbury, Bucks" />
-    <meta name="twitter:description" content="Garden maintenance, design and hard landscaping across Aylesbury, Bucks, Beds and Herts." />
 
     <script type="application/ld+json">
       {
@@ -62,6 +55,8 @@
             "name": "JW Garden Services",
             "url": "https://www.jw-gardening.com/",
             "description": "Garden maintenance, garden design and hard landscaping in Aylesbury and the surrounding areas of Buckinghamshire, Bedfordshire and Hertfordshire.",
+            "image": "https://www.jw-gardening.com/assets/og/default.jpg",
+            "logo": "https://www.jw-gardening.com/assets/jw-logo.png",
             "email": "Jw_gardenservices@yahoo.com",
             "telephone": "+447950636954",
             "priceRange": "££",

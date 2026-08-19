@@ -92,7 +92,7 @@ export const services: ServiceContent[] = [
     navLabel: 'Landscaping & Patios',
     h1: 'Landscaping and Patios in Aylesbury',
     eyebrow: 'Hard landscaping',
-    seoTitle: 'Landscaping Aylesbury | Patios, Paths & Fencing | JW Garden Services',
+    seoTitle: 'Landscaping Aylesbury | Patios, Paths & Fencing',
     seoDescription:
       'Hard landscaping in Aylesbury and Buckinghamshire: patios, paths, fencing, decking, sleeper beds and turfing. Built by a trained horticulturist. Free quotes.',
     intro:
@@ -150,7 +150,7 @@ export const services: ServiceContent[] = [
     navLabel: 'Garden Design & Planting',
     h1: 'Garden Design and Planting in Aylesbury',
     eyebrow: 'Design & planting',
-    seoTitle: 'Garden Design Aylesbury | Planting Plans | JW Garden Services',
+    seoTitle: 'Garden Design & Planting Plans in Aylesbury',
     seoDescription:
       'Garden design and planting in Aylesbury and Buckinghamshire. New borders, colourful planting and full garden makeovers for homeowners, by a trained gardener.',
     intro:
@@ -214,7 +214,7 @@ export const services: ServiceContent[] = [
     navLabel: 'Commercial Maintenance',
     h1: 'Commercial Grounds Maintenance in Buckinghamshire',
     eyebrow: 'For businesses',
-    seoTitle: 'Commercial Grounds Maintenance Aylesbury & Bucks | JW Garden Services',
+    seoTitle: 'Commercial Grounds Maintenance | Aylesbury & Bucks',
     seoDescription:
       'Commercial grounds maintenance in Aylesbury and Buckinghamshire for offices, schools, pubs and managed properties. Flexible contracts, reliable visits.',
     intro:
