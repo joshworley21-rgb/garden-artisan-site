@@ -25,10 +25,13 @@ Everything the site needs is in `public/assets/` except the newer hero media:
 | `jw-hero2-1280.webp` | hero poster (desktop) |
 | `jw-hero-video-2.mp4` | hero background video |
 
-**The site does not need them to work.** `src/lib/hero-media.ts` falls back to the
-earlier hero photo and clip, which are committed, and `vite.config.ts` repoints the
-LCP preload at whichever pair is actually present — so the build succeeds and the
-page is complete either way. `npm run build` just prints a notice.
+**The site does not need them to work.** `vite.config.ts` checks at build time
+whether they are in `public/assets/` and points the hero — image, video and LCP
+preload — at whichever set is there, so the deployed page only ever requests files
+that exist. Without them it uses the earlier hero photo and clip, which are
+committed; `npm run build` prints a notice and succeeds. (`HeroSection` also has
+runtime `onError` fallbacks, covering a file that was present at build time but
+missing on the server.)
 
 To use the newer hero, run this from a machine that can reach the Lovable app and
 commit what lands in `public/assets/`:
