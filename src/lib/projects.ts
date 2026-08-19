@@ -28,7 +28,7 @@ const groups: GroupSeed[] = [
       },
       {
         key: 'jw-work-20230526_090054',
-        title: 'A long hedge back to a straight line',
+        title: 'A long hedge neatened up',
         alt: 'Tall garden hedge freshly cut level along the top, with clippings on the lawn below',
       },
       {
