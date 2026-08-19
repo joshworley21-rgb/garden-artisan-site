@@ -28,6 +28,7 @@ npm run dev        # http://localhost:8080
 | `npm run build` | Production build into `dist/` (checks assets first) |
 | `npm run preview` | Serve the production build locally |
 | `npm run check:assets` | Verify every referenced image/video exists in `public/assets` |
+| `node scripts/fetch-lovable-assets.mjs` | One-off: pull the hero media Lovable kept on its CDN |
 | `npm run lint` | ESLint |
 | `npm test` | Vitest |
 
@@ -49,5 +50,7 @@ scripts/                asset migration + build-time asset check
 This project started on the Lovable platform. It no longer depends on it: the
 build, the assets and the contact form all run on your own hosting.
 `src/assets/*.asset.json` are inert stubs recording where Lovable stored the
-original uploads — `scripts/fetch-lovable-assets.mjs` uses them to pull anything
-that has not been copied into `public/assets/` yet.
+original uploads — `scripts/fetch-lovable-assets.mjs` uses them to pull the newer
+hero media, which is the only thing not already in `public/assets/`. The hero
+falls back to committed media until then, so the site builds and looks right
+without it.

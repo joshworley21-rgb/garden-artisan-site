@@ -2,17 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
-
-// Served from public/assets — see scripts/fetch-lovable-assets.mjs for how these
-// were pulled off the Lovable CDN, and npm run check:assets to verify they exist.
-const heroVideo = { url: '/assets/jw-hero-video-2.mp4' };
-
-const hero = {
-  src: '/assets/jw-hero2-1280.webp',
-  srcSet: '/assets/jw-hero2-720.webp 720w, /assets/jw-hero2-1280.webp 1280w',
-  width: 1280,
-  height: 720,
-};
+import {
+  heroPoster,
+  heroPosterFallback,
+  heroVideo,
+  heroVideoFallback,
+} from '@/lib/hero-media';
 
 /**
  * The poster paints first (LCP), then the video loads on all screen sizes.
@@ -52,6 +47,9 @@ const HeroSection = () => {
   const showVideo = useHeroVideo();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
+  // Swap to the committed media if the newer files were never copied across.
+  const [poster, setPoster] = useState(heroPoster);
+  const [videoSrc, setVideoSrc] = useState(heroVideo);
 
   useEffect(() => {
     if (!showVideo) return;
@@ -71,20 +69,21 @@ const HeroSection = () => {
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <img
-          src={hero.src}
-          srcSet={hero.srcSet}
+          src={poster.src}
+          srcSet={poster.srcSet}
           sizes="100vw"
-          width={hero.width}
-          height={hero.height}
+          width={poster.width}
+          height={poster.height}
           alt="Beautiful English garden landscape maintained by JW Garden Services"
           fetchPriority="high"
           decoding="async"
+          onError={() => setPoster(heroPosterFallback)}
           className="w-full h-full object-cover"
         />
         {showVideo && (
           <video
             ref={videoRef}
-            src={heroVideo.url}
+            src={videoSrc}
             autoPlay
             muted
             loop
@@ -92,6 +91,9 @@ const HeroSection = () => {
             preload="auto"
             onCanPlay={() => setVideoReady(true)}
             onPlaying={() => setVideoReady(true)}
+            onError={() => setVideoSrc((current) =>
+              current === heroVideo ? heroVideoFallback : current,
+            )}
             aria-hidden="true"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               videoReady ? 'opacity-100' : 'opacity-0'

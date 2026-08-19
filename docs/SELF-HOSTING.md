@@ -11,40 +11,36 @@ Cloudflare Pages, S3 + CloudFront…).
 
 ---
 
-## 1. One-time migration step: pull the remaining Lovable-hosted media
+## 1. Optional: pull the last Lovable-hosted media
 
-Lovable kept uploaded images and videos on its own CDN rather than in git. Each
-one left a stub behind in `src/assets/<name>.asset.json` pointing at a
-`/__l5e/assets-v1/...` URL that **only resolves while the site is served by
-Lovable**.
+Lovable kept uploaded images and videos on its own CDN rather than in git, leaving
+a stub in `src/assets/<name>.asset.json` pointing at a `/__l5e/assets-v1/...` URL
+that **only resolves while the site is served by Lovable**.
 
-Most of the site was already migrated — `public/assets/` holds the real files and
-the code references them by path. Three hero files are the exception:
+Everything the site needs is in `public/assets/` except the newer hero media:
 
 | File | Used by |
 | --- | --- |
-| `jw-hero2-720.webp` | hero poster (mobile), LCP preload in `index.html` |
+| `jw-hero2-720.webp` | hero poster (mobile) |
 | `jw-hero2-1280.webp` | hero poster (desktop) |
 | `jw-hero-video-2.mp4` | hero background video |
 
-Fetch them once, from a machine that can reach the Lovable app:
+**The site does not need them to work.** `src/lib/hero-media.ts` falls back to the
+earlier hero photo and clip, which are committed, and `vite.config.ts` repoints the
+LCP preload at whichever pair is actually present — so the build succeeds and the
+page is complete either way. `npm run build` just prints a notice.
+
+To use the newer hero, run this from a machine that can reach the Lovable app and
+commit what lands in `public/assets/`:
 
 ```sh
 node scripts/fetch-lovable-assets.mjs
-# or, to also archive every other original Lovable still holds:
+# or, to archive every original Lovable still holds:
 node scripts/fetch-lovable-assets.mjs --all
 ```
 
-Then commit what lands in `public/assets/`. After that the `src/assets/*.asset.json`
-stubs are only a record of what was stored where — the site no longer reads them.
-
-`npm run build` refuses to run until those files are present (`npm run check:assets`
-does the same check on its own), so a broken hero can't reach production by accident.
-
-**If the Lovable project is already gone** and the files are unrecoverable, point
-the hero at the older images that are already in this repo — edit
-`src/components/HeroSection.tsx` and `index.html` to use `jw-hero-720.webp` /
-`jw-hero-1400.webp` / `jw-hero-video.mp4`.
+After that the `src/assets/*.asset.json` stubs are only a record of what was
+stored where — the site does not read them.
 
 ## 2. Dependencies must come from the public npm registry
 
@@ -86,14 +82,43 @@ Environment variables are read at **build time** (Vite inlines anything prefixed
 
 ## 4. Deploy
 
-### Apache / cPanel shared hosting (Hostinger — current target)
+### Hostinger (or any Apache / cPanel shared host)
 
-1. `npm run build`
-2. Upload the **contents** of `dist/` into `public_html/` (not the folder itself).
-3. Confirm `public_html/.htaccess` arrived — it is a dotfile and some FTP clients
-   hide it. Without it, every URL except `/` returns 404, because this is a
-   single-page app and Apache has to rewrite unknown paths to `index.html`.
-4. Set up the enquiry form (section 5).
+Nothing is built on the server — you build locally and upload the result.
+
+1. **Build**
+
+   ```sh
+   npm install
+   npm run build
+   ```
+
+2. **Upload the *contents* of `dist/`** into `public_html/` (the files, not the
+   folder). hPanel → File Manager, or SFTP.
+
+3. **Check `public_html/.htaccess` actually arrived.** It is a dotfile and many
+   FTP clients hide it; in hPanel's File Manager turn on "Show hidden files".
+   Without it every URL except `/` returns 404 — this is a single-page app and
+   Apache has to rewrite unknown paths to `index.html`. Test after uploading:
+   open `https://your-domain/our-work` directly (not by clicking a link).
+
+4. **Set up the contact form** — see section 5. Until `enquiry-config.php` exists
+   on the server, submissions fall back to PHP `mail()`, which often lands in
+   spam or fails silently.
+
+5. **Point the domain and issue SSL**: hPanel → Domains for the A record,
+   SSL → install the free certificate, and force HTTPS. The site's canonical
+   URLs are all `https://www.jw-gardening.com/`, so serve it on that host and
+   redirect the apex (or bare) form to it.
+
+6. **Re-uploading later**: replace everything in `public_html/`, keeping your own
+   `enquiry-config.php`. Asset filenames are content-hashed, so stale copies of
+   old JS/CSS do no harm, but `index.html` must be the new one — it is served
+   `no-cache` by the shipped `.htaccess`.
+
+What is *not* possible on this plan: running the CRM. That one needs a Node
+process, so it belongs on a VPS or a platform like Vercel/Netlify, not on shared
+PHP hosting.
 
 ### nginx / VPS
 
