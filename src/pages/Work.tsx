@@ -35,7 +35,7 @@ const Work = () => (
     <PageLayout
       eyebrow="Portfolio"
       title="Our Work"
-      intro="Gardens we look after week to week, borders we have planted and structures we have built — photographed on the job rather than staged, with a note on what each one involved."
+      intro="Gardens we look after week to week, borders we have planted and structures we have built — photographed on the job rather than staged."
     >
       <WorkGallery />
 
@@ -50,8 +50,7 @@ const Work = () => (
             then a regular visit to stop it getting away again.
           </p>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            We cover Aylesbury and the villages around it, out into Bedfordshire and
-            Hertfordshire. Tell us what you are dealing with and we will tell you what we would do
+            We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what you are dealing with and we will tell you what we would do
             about it — quotes are free, and there is no obligation to book anything regular.
           </p>
         </div>

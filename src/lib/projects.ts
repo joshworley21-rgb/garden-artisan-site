@@ -33,7 +33,7 @@ const groups: GroupSeed[] = [
       },
       {
         key: 'jw-g1',
-        title: 'Lawn, box and alliums in May',
+        title: 'Alliums showing off in May',
         alt: 'Striped lawn with clipped box, purple alliums in flower and wisteria on the trellis behind',
       },
       {
@@ -54,8 +54,8 @@ const groups: GroupSeed[] = [
     projects: [
       {
         key: 'jw-work-20210327_145115',
-        title: 'A new bed cut into the lawn',
-        alt: 'Large curved border newly cut into a lawn and dug over ready for planting, with open countryside beyond',
+        title: 'A new wildflower area, using wildflower turf',
+        alt: 'Large curved area cut into a lawn and prepared for wildflower turf, with open countryside beyond',
       },
       {
         key: 'jw-g8',
@@ -64,13 +64,13 @@ const groups: GroupSeed[] = [
       },
       {
         key: 'jw-g6',
-        title: 'Planted up against a new fence',
-        alt: 'Newly planted border edged with granite setts beside a gravel path, with a multi-stem birch against a new fence',
+        title: 'New planting scheme for a front garden',
+        alt: 'New front garden planting scheme, edged with granite setts beside a gravel path, with a multi-stem birch against a new fence',
       },
       {
         key: 'jw-g2',
-        title: 'Cottage planting in gravel',
-        alt: 'Cottage-style border of echinacea, salvia and achillea in a gravel garden in front of a timber cart lodge',
+        title: 'Cottage planting in a cut flower garden',
+        alt: 'Cut flower garden of echinacea, salvia and achillea planted through gravel in front of a timber cart lodge',
       },
     ],
   },
