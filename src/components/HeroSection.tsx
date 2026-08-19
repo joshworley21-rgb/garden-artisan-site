@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin } from 'lucide-react';
-import heroVideoAsset from '@/assets/jw-hero-video-2.mp4.asset.json';
-import heroPoster1280 from '@/assets/jw-hero2-1280.webp.asset.json';
-import heroPoster720 from '@/assets/jw-hero2-720.webp.asset.json';
 
-const heroVideo = { url: heroVideoAsset.url };
+// Served from public/assets — see scripts/fetch-lovable-assets.mjs for how these
+// were pulled off the Lovable CDN, and npm run check:assets to verify they exist.
+const heroVideo = { url: '/assets/jw-hero-video-2.mp4' };
 
 const hero = {
-  src: heroPoster1280.url,
-  srcSet: `${heroPoster720.url} 720w, ${heroPoster1280.url} 1280w`,
+  src: '/assets/jw-hero2-1280.webp',
+  srcSet: '/assets/jw-hero2-720.webp 720w, /assets/jw-hero2-1280.webp 1280w',
   width: 1280,
   height: 720,
 };
