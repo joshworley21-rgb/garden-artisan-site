@@ -123,6 +123,27 @@ What is *not* possible on this plan: running the CRM. That one needs a Node
 process, so it belongs on a VPS or a platform like Vercel/Netlify, not on shared
 PHP hosting.
 
+### Hostinger automatic deployment (hPanel → Advanced → Git)
+
+The `deploy` branch holds the built site at its root — no source, no build step.
+Hostinger clones that branch straight into `public_html`, so nothing is compiled
+on the server and there is no framework for it to auto-detect.
+
+**One-time setup**: hPanel → Advanced → Git → connect the repository, branch
+`deploy`, directory `public_html`, then Deploy. Copy the webhook URL it shows
+into the repository's GitHub Settings → Webhooks (push events) and every push to
+`deploy` publishes itself.
+
+**Publishing a change**:
+
+```sh
+npm run build:deploy          # build, then drop unreferenced originals
+node scripts/publish-deploy.mjs   # commit dist/ to the deploy branch and push
+```
+
+The deploy branch is generated output — never edit it by hand, and never merge it
+into `main`. Its history is intentionally shallow; each publish replaces the tree.
+
 ### nginx / VPS
 
 Serve `dist/` and add the same SPA fallback:
