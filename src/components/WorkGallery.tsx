@@ -13,17 +13,14 @@ const WorkGallery = () => (
         className={`section-padding ${groupIndex % 2 === 1 ? 'bg-secondary/30' : 'bg-background'}`}
       >
         <div className="container-wide">
-          <div className="max-w-3xl mb-10 md:mb-14">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-5">
-              {group.heading}
-            </h2>
-            <p className="font-body text-lg text-muted-foreground leading-relaxed">{group.blurb}</p>
-          </div>
+          <h2 className="font-heading heading-section text-foreground font-semibold mb-10 md:mb-14">
+            {group.heading}
+          </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {group.projects.map((project, index) => (
               <figure key={project.key} className="flex flex-col">
-                <div className="overflow-hidden rounded-lg shadow-soft mb-4">
+                <div className="overflow-hidden rounded-lg shadow-soft mb-3">
                   <img
                     src={project.image.src}
                     srcSet={project.image.srcSet}
@@ -36,13 +33,8 @@ const WorkGallery = () => (
                     className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <figcaption>
-                  <h3 className="font-heading text-xl text-foreground font-semibold mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="font-body text-muted-foreground leading-relaxed">
-                    {project.caption}
-                  </p>
+                <figcaption className="font-heading text-xl text-foreground font-semibold">
+                  {project.title}
                 </figcaption>
               </figure>
             ))}
