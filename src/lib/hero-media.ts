@@ -13,10 +13,14 @@
  * is invisible.
  */
 export const heroPoster = {
-  src: '/assets/jw-hero-clip-poster-1280.webp',
-  srcSet: '/assets/jw-hero-clip-poster-720.webp 720w, /assets/jw-hero-clip-poster-1280.webp 1280w',
-  width: 1280,
-  height: 720,
+  src: '/assets/jw-hero-clip-poster-1024.webp',
+  // Four steps rather than two: a 412px phone at DPR 1.75 asks for 721px, which
+  // with only a 720/1280 pair jumps to the largest file for one pixel.
+  srcSet:
+    '/assets/jw-hero-clip-poster-480.webp 480w, /assets/jw-hero-clip-poster-768.webp 768w, ' +
+    '/assets/jw-hero-clip-poster-1024.webp 1024w, /assets/jw-hero-clip-poster-1440.webp 1440w',
+  width: 1440,
+  height: 810,
 };
 
 /** Falls back to the committed hero photo if the poster ever fails to load. */
@@ -27,12 +31,16 @@ export const heroPosterFallback = {
   height: 659,
 };
 
-const sources = {
-  small: { av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
-  large: { av1: '/assets/jw-hero-clip-1440.webm', h264: '/assets/jw-hero-clip-1440.mp4' },
-};
+const sources = [
+  { upTo: 700, av1: '/assets/jw-hero-clip-640.webm', h264: '/assets/jw-hero-clip-640.mp4' },
+  { upTo: 1100, av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
+  { upTo: Infinity, av1: '/assets/jw-hero-clip-1440.webm', h264: '/assets/jw-hero-clip-1440.mp4' },
+];
 
 const AV1 = 'video/webm; codecs="av01.0.05M.08"';
+
+/** Widest H.264 cut — used for SSR and if a chosen file fails to load. */
+export const heroVideoFallback = sources[sources.length - 1].h264;
 
 /**
  * Smallest file the browser can actually play at this size. Chosen in JS rather
@@ -40,14 +48,14 @@ const AV1 = 'video/webm; codecs="av01.0.05M.08"';
  * video sources is inconsistent, and the video is already loaded from script.
  */
 export function pickHeroVideo(): string {
-  if (typeof document === 'undefined') return sources.large.h264;
+  if (typeof document === 'undefined') return heroVideoFallback;
 
-  const cutoff = 900; // CSS px; phones and small tablets take the 854-wide cut
+  // The clip sits behind a dark scrim, so a modest upscale is invisible — and a
+  // phone on cellular should not be made to pull the desktop file.
   const width = window.innerWidth * (window.devicePixelRatio > 1.5 ? 1.5 : 1);
-  const set = width <= cutoff ? sources.small : sources.large;
+  const set = sources.find((s) => width <= s.upTo) ?? sources[sources.length - 1];
 
   const probe = document.createElement('video');
   return probe.canPlayType(AV1) ? set.av1 : set.h264;
 }
 
-export const heroVideoFallback = sources.large.h264;

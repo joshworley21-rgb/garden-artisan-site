@@ -116,6 +116,19 @@ async function launchBrowser() {
   }
 }
 
+
+/**
+ * The built stylesheet is a render-blocking request on every page. These pages
+ * are static, so fold it into the HTML instead — one round trip less before
+ * anything paints, at the cost of the file no longer being cached separately.
+ */
+async function inlineStylesheet(html) {
+  const link = html.match(/<link[^>]+rel="stylesheet"[^>]+href="(\/assets\/[^"]+\.css)"[^>]*>/);
+  if (!link) return html;
+  const css = await readFile(path.join(dist, link[1].slice(1)), 'utf8');
+  return html.replace(link[0], `<style>${css}</style>`);
+}
+
 const server = await serve();
 const browser = await launchBrowser();
 const page = await browser.newPage();
@@ -129,8 +142,10 @@ for (const route of routes) {
   // so leaving the captured one in the static markup makes a phone fetch the
   // desktop file before React swaps it. The poster image stays; the video is
   // added after load either way.
-  const html = ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
-    .replace(/<video[\s\S]*?<\/video>/g, '');
+  const html = await inlineStylesheet(
+    ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
+      .replace(/<video[\s\S]*?<\/video>/g, ''),
+  );
 
   const problems = checkHead(html, route);
   if (problems.length) {

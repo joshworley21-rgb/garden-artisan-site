@@ -52,7 +52,7 @@ const GallerySection = () => {
               <img
                 src={item.image.src}
                 srcSet={item.image.srcSet}
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 45vw, 30vw"
+                sizes="(max-width: 640px) 44vw, (max-width: 1024px) 43vw, 28vw"
                 width={item.image.width}
                 height={item.image.height}
                 alt={item.alt}

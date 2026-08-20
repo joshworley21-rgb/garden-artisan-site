@@ -33,7 +33,7 @@ const ServicesSection = () => {
                 <img
                   src={service.image.src}
                   srcSet={service.image.srcSet}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 46vw, 23vw"
                   width={service.image.width}
                   height={service.image.height}
                   alt={service.imageAlt}

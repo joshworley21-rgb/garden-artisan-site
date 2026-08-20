@@ -24,7 +24,7 @@ const WorkGallery = () => (
                   <img
                     src={project.image.src}
                     srcSet={project.image.srcSet}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 46vw, 31vw"
                     width={project.image.width}
                     height={project.image.height}
                     alt={project.alt}
