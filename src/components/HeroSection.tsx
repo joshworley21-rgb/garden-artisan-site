@@ -123,8 +123,8 @@ const HeroSection = () => {
           {/* Subheading */}
           <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
             JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
-            villages looking their best — from weekly maintenance to full landscaping and
-            planting. A space you love, looked after all year round.
+            villages looking their best — from weekly maintenance to a full garden redesign.
+            Let us develop a space you can love, all year round.
           </p>
 
           {/* CTA Button */}
