@@ -5,8 +5,8 @@ import { ArrowRight, MapPin } from 'lucide-react';
 import {
   heroPoster,
   heroPosterFallback,
-  heroVideo,
   heroVideoFallback,
+  pickHeroVideo,
 } from '@/lib/hero-media';
 
 /**
@@ -47,9 +47,9 @@ const HeroSection = () => {
   const showVideo = useHeroVideo();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
-  // Swap to the committed media if the newer files were never copied across.
   const [poster, setPoster] = useState(heroPoster);
-  const [videoSrc, setVideoSrc] = useState(heroVideo);
+  // Resolved on the client: the file depends on screen size and codec support.
+  const [videoSrc, setVideoSrc] = useState(pickHeroVideo);
 
   useEffect(() => {
     if (!showVideo) return;
@@ -92,7 +92,7 @@ const HeroSection = () => {
             onCanPlay={() => setVideoReady(true)}
             onPlaying={() => setVideoReady(true)}
             onError={() => setVideoSrc((current) =>
-              current === heroVideo ? heroVideoFallback : current,
+              current === heroVideoFallback ? current : heroVideoFallback,
             )}
             aria-hidden="true"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${

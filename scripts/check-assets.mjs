@@ -3,10 +3,7 @@
  * Fails the build if the site references an image or video that is not in
  * public/assets/. Cheap insurance against a half-finished asset migration
  * shipping a page full of broken images.
- *
- * The hero media Lovable kept on its CDN is listed as optional: src/lib/hero-media.ts
- * falls back to the committed hero, so the page is still complete without it.
- * Missing optional files are reported as a notice, not a failure.
+
  */
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -15,8 +12,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const assetRef = /\/assets\/([\w.-]+\.(?:webp|jpg|jpeg|png|svg|mp4|webm))/g;
 
-/** Referenced, but src/lib/hero-media.ts has a committed fallback for each. */
-const optional = new Set(['jw-hero2-720.webp', 'jw-hero2-1280.webp', 'jw-hero-video-2.mp4']);
+/** Nothing is optional any more: every hero file is committed. */
+const optional = new Set();
 
 async function walk(dir) {
   const out = [];

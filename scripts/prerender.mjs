@@ -125,7 +125,12 @@ let failures = 0;
 for (const route of routes) {
   await page.goto(`http://127.0.0.1:${PORT}${route}`, { waitUntil: 'networkidle' });
   await page.waitForSelector('h1', { timeout: 15000 });
-  const html = '<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML));
+  // The hero <video> is chosen on the client from screen size and codec support,
+  // so leaving the captured one in the static markup makes a phone fetch the
+  // desktop file before React swaps it. The poster image stays; the video is
+  // added after load either way.
+  const html = ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
+    .replace(/<video[\s\S]*?<\/video>/g, '');
 
   const problems = checkHead(html, route);
   if (problems.length) {
