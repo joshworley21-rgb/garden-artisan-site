@@ -100,7 +100,7 @@ const HeroSection = () => {
             }`}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
       </div>
 
       {/* Content */}

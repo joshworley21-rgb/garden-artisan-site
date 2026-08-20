@@ -1,20 +1,20 @@
 /**
  * Hero poster and video.
  *
- * The clip is 1280x720, so it is already being upscaled on a wide screen —
- * pushing past that adds weight without adding detail. What it does get is a
- * denoise-and-sharpen pass before encoding, AV1 for browsers that take it, and
- * a smaller cut for phones, which is where the data actually costs something.
+ * Encoded from a 1080p source, denoised and lightly sharpened, then cut two
+ * ways: 1440 wide for desktops (1:1 on a common laptop, and far past the old
+ * 720p on anything bigger) and 854 for phones, where the data actually costs
+ * something. AV1 where the browser takes it, H.264 everywhere else.
  *
- *   desktop  AV1 3.7 MB · H.264 4.2 MB
- *   phone    AV1 2.4 MB · H.264 2.6 MB      (previously 5.3 MB for everyone)
+ *   desktop  AV1 4.8 MB · H.264 5.4 MB
+ *   phone    AV1 2.2 MB · H.264 2.2 MB
  *
  * The poster is the video's own first frame, so the swap from image to video
  * is invisible.
  */
 export const heroPoster = {
-  src: '/assets/jw-hero-poster-1280.webp',
-  srcSet: '/assets/jw-hero-poster-720.webp 720w, /assets/jw-hero-poster-1280.webp 1280w',
+  src: '/assets/jw-hero-clip-poster-1280.webp',
+  srcSet: '/assets/jw-hero-clip-poster-720.webp 720w, /assets/jw-hero-clip-poster-1280.webp 1280w',
   width: 1280,
   height: 720,
 };
@@ -28,8 +28,8 @@ export const heroPosterFallback = {
 };
 
 const sources = {
-  small: { av1: '/assets/jw-hero-video-854.webm', h264: '/assets/jw-hero-video-854.mp4' },
-  large: { av1: '/assets/jw-hero-video-1280.webm', h264: '/assets/jw-hero-video-1280.mp4' },
+  small: { av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
+  large: { av1: '/assets/jw-hero-clip-1440.webm', h264: '/assets/jw-hero-clip-1440.mp4' },
 };
 
 const AV1 = 'video/webm; codecs="av01.0.05M.08"';
