@@ -102,7 +102,7 @@ const Header = () => {
                 <NavLink
                   to="/#services"
                   onClick={() => setIsServicesOpen(false)}
-                  className="block px-5 py-3 font-body text-sm uppercase tracking-widest text-foreground border-b border-border/60 hover:bg-secondary/40 hover:text-primary transition-colors"
+                  className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40"
                 >
                   All Services
                 </NavLink>
