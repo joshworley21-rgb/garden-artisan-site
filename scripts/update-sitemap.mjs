@@ -29,7 +29,13 @@ const lastCommit = (files) => {
   return dates.at(-1)?.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
 };
 
-/** Which source file decides a page's content. */
+/**
+ * Files that change every page's markup — the head component, the shell and the
+ * template. A canonical or meta change is a change to the page, so it counts.
+ */
+const shared = ['src/components/Seo.tsx', 'src/components/PageLayout.tsx', 'index.html'];
+
+/** Which source files decide a page's content. */
 function sourcesFor(pathname) {
   if (pathname === '/') return ['src/pages/Index.tsx', 'src/components/HeroSection.tsx', 'src/components/ServicesSection.tsx', 'src/components/AboutSection.tsx', 'src/components/GallerySection.tsx', 'src/components/AreasSection.tsx'];
   if (pathname.startsWith('/services/')) return ['src/lib/services.ts', 'src/pages/ServiceDetail.tsx'];
@@ -43,7 +49,7 @@ function sourcesFor(pathname) {
 const original = await readFile(sitemapPath, 'utf8');
 let updated = original.replace(/\s*<lastmod>[^<]*<\/lastmod>/g, '');
 updated = updated.replace(/(<loc>([^<]+)<\/loc>)/g, (_m, loc, url) => {
-  const stamp = lastCommit(sourcesFor(new URL(url).pathname));
+  const stamp = lastCommit([...sourcesFor(new URL(url).pathname), ...shared]);
   return `${loc}\n    <lastmod>${stamp}</lastmod>`;
 });
 
