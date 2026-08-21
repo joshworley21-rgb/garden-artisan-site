@@ -9,13 +9,13 @@ return [
     'to'          => 'Jw_gardenservices@yahoo.com',
 
     // Must be a real mailbox on your own domain
-    'from_email'  => 'enquires@jw-gardenservices.co.uk',
+    'from_email'  => 'info@jw-gardenservices.co.uk',
     'from_name'   => 'JW Garden Services Website',
 
     // Hostinger SMTP (see hPanel > Emails > Configuration settings)
     'smtp_host'   => 'smtp.hostinger.com',
     'smtp_port'   => 465,
     'smtp_secure' => 'ssl',           // 'ssl' for 465, 'tls' for 587
-    'smtp_user'   => 'enquires@jw-gardenservices.co.uk',
+    'smtp_user'   => 'info@jw-gardenservices.co.uk',
     'smtp_pass'   => 'YOUR-MAILBOX-PASSWORD',
 ];
