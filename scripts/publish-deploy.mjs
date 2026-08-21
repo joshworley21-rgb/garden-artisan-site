@@ -25,6 +25,13 @@ if (!existsSync(path.join(dist, '.htaccess'))) {
   console.error('dist/.htaccess is missing — without it every route but / returns 404.');
   process.exit(1);
 }
+if (existsSync(path.join(dist, 'enquiry-config.php'))) {
+  console.error(
+    'dist/enquiry-config.php exists. That file holds the mailbox password and this branch is public —\n' +
+      'delete it from public/ and create it directly on the server instead.',
+  );
+  process.exit(1);
+}
 
 const env = { GIT_INDEX_FILE: indexFile };
 git(['--work-tree', dist, 'add', '-A', '-f', '.'], env);

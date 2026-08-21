@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Holds the mailbox password — lives only on the server, never in this repo
+public/enquiry-config.php
