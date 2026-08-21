@@ -8,7 +8,7 @@
  * the sending server is not authorised to use. To fix it properly:
  *
  *  1. Create a real mailbox on your own domain in Hostinger hPanel, e.g.
- *     website@jw-gardenservices.co.uk
+ *     enquires@jw-gardenservices.co.uk
  *  2. Copy public/enquiry-config.sample.php to enquiry-config.php next to this
  *     file and fill in the SMTP host / username / password. When present, this
  *     script authenticates over SMTP instead of using mail() — this is what
@@ -64,7 +64,7 @@ $email = $clean($email);
 // --- Config ---
 $config = [
     'to'          => 'Jw_gardenservices@yahoo.com',
-    'from_email'  => 'website@jw-gardenservices.co.uk',
+    'from_email'  => 'enquires@jw-gardenservices.co.uk',
     'from_name'   => 'JW Garden Services Website',
     'smtp_host'   => '',
     'smtp_port'   => 465,
