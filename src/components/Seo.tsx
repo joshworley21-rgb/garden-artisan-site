@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE = 'https://www.jw-gardening.com';
+const SITE = 'https://jw-gardenservices.co.uk';
 /** Used when a page has no share image of its own, so links posted to Facebook,
  *  WhatsApp or LinkedIn always carry a picture rather than a bare headline. */
 const DEFAULT_SHARE_IMAGE = '/assets/og/default.jpg';

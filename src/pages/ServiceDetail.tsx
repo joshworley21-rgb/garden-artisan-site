@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import NotFound from '@/pages/NotFound';
 import { getService, services } from '@/lib/services';
 
-const SITE = 'https://www.jw-gardening.com';
+const SITE = 'https://jw-gardenservices.co.uk';
 
 const ServiceDetail = () => {
   const { slug } = useParams();

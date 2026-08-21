@@ -82,7 +82,7 @@ function checkHead(html, route) {
   if (count(/<title>/g) !== 1) problems.push('title is not unique');
 
   const canonical = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/)?.[1] ?? '';
-  const expected = `https://www.jw-gardening.com${route === '/' ? '/' : route}`;
+  const expected = `https://jw-gardenservices.co.uk${route === '/' ? '/' : route}`;
   if (canonical !== expected) problems.push(`canonical is ${canonical || '(none)'}, expected ${expected}`);
   if (!/<h1/.test(html)) problems.push('no h1 in the rendered markup');
   return problems;

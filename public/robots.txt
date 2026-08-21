@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.jw-gardening.com/sitemap.xml
+Sitemap: https://jw-gardenservices.co.uk/sitemap.xml

@@ -3,6 +3,13 @@
   RewriteEngine On
   RewriteBase /
 
+  # Canonical host in a single hop: http, www, and the old jw-gardening.com all
+  # land directly on https://jw-gardenservices.co.uk rather than chaining
+  # redirects, which the speed test counts against the page.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^jw-gardenservices\.co\.uk$ [NC]
+  RewriteRule ^ https://jw-gardenservices.co.uk%{REQUEST_URI} [R=301,L]
+
   # Real files win (assets, enquiry.php, robots.txt, …)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]

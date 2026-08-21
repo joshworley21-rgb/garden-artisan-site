@@ -142,7 +142,7 @@ Nothing is built on the server — you build locally and upload the result.
 
 5. **Point the domain and issue SSL**: hPanel → Domains for the A record,
    SSL → install the free certificate, and force HTTPS. The site's canonical
-   URLs are all `https://www.jw-gardening.com/`, so serve it on that host and
+   URLs are all `https://jw-gardenservices.co.uk/`, so serve it on that host and
    redirect the apex (or bare) form to it.
 
 6. **Re-uploading later**: replace everything in `public_html/`, keeping your own
@@ -182,8 +182,8 @@ Serve `dist/` and add the same SPA fallback:
 ```nginx
 server {
     listen 443 ssl;
-    server_name www.jw-gardening.com;
-    root /var/www/jw-gardening/dist;
+    server_name jw-gardenservices.co.uk;
+    root /var/www/jw-gardenservices/dist;
 
     location / {
         try_files $uri $uri/ /index.html;
@@ -216,7 +216,7 @@ address, over authenticated SMTP when configured and via PHP `mail()` otherwise.
 
 On the live host:
 
-1. Create a real mailbox on the domain (e.g. `website@jw-gardening.com`).
+1. Create a real mailbox on the domain (e.g. `website@jw-gardenservices.co.uk`).
 2. Copy `public/enquiry-config.sample.php` to `enquiry-config.php` **next to
    `enquiry.php` on the server** and fill in the SMTP host, user and password.
    Do not commit the filled-in file — it holds a password.
@@ -243,7 +243,7 @@ with it.
 ## 8. Domain, DNS and SEO
 
 Canonical URLs, `og:url`, `robots.txt` and `sitemap.xml` all point at
-`https://www.jw-gardening.com/`. If the site moves to a different domain, update:
+`https://jw-gardenservices.co.uk/`. If the site moves to a different domain, update:
 
 - `index.html` — `<link rel="canonical">`, `og:url`, the JSON-LD `@id`/`url` fields
 - `src/components/Seo.tsx`

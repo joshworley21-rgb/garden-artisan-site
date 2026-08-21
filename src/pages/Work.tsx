@@ -4,7 +4,7 @@ import WorkGallery from '@/components/WorkGallery';
 import ContactSection from '@/components/ContactSection';
 import { allProjects } from '@/lib/projects';
 
-const SITE = 'https://www.jw-gardening.com';
+const SITE = 'https://jw-gardenservices.co.uk';
 
 const jsonLd = {
   '@context': 'https://schema.org',

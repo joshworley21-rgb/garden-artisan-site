@@ -8,7 +8,7 @@ import NotFound from '@/pages/NotFound';
 import { getArea, areas } from '@/lib/areas';
 import { services } from '@/lib/services';
 
-const SITE = 'https://www.jw-gardening.com';
+const SITE = 'https://jw-gardenservices.co.uk';
 
 const AreaDetail = () => {
   const { slug } = useParams();

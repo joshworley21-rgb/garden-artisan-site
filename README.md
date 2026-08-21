@@ -4,7 +4,7 @@ Marketing site for JW Garden Services (garden maintenance, design and hard
 landscaping in Aylesbury and the surrounding Buckinghamshire, Bedfordshire and
 Hertfordshire villages).
 
-**Live**: https://www.jw-gardening.com/
+**Live**: https://jw-gardenservices.co.uk/
 
 Built with Vite, React, TypeScript, Tailwind CSS and shadcn/ui. It compiles to
 static files plus one PHP script for the enquiry form, and is self-hosted — see

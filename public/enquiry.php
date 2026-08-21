@@ -8,12 +8,12 @@
  * the sending server is not authorised to use. To fix it properly:
  *
  *  1. Create a real mailbox on your own domain in Hostinger hPanel, e.g.
- *     website@jw-gardening.com
+ *     website@jw-gardenservices.co.uk
  *  2. Copy public/enquiry-config.sample.php to enquiry-config.php next to this
  *     file and fill in the SMTP host / username / password. When present, this
  *     script authenticates over SMTP instead of using mail() — this is what
  *     stops messages being flagged as spam.
- *  3. Make sure your DNS has SPF, DKIM and DMARC records for jw-gardening.com
+ *  3. Make sure your DNS has SPF, DKIM and DMARC records for jw-gardenservices.co.uk
  *     (Hostinger adds SPF + DKIM automatically for its own mail service).
  */
 
@@ -64,7 +64,7 @@ $email = $clean($email);
 // --- Config ---
 $config = [
     'to'          => 'Jw_gardenservices@yahoo.com',
-    'from_email'  => 'website@jw-gardening.com',
+    'from_email'  => 'website@jw-gardenservices.co.uk',
     'from_name'   => 'JW Garden Services Website',
     'smtp_host'   => '',
     'smtp_port'   => 465,
@@ -77,7 +77,7 @@ if (is_file(__DIR__ . '/enquiry-config.php')) {
     if (is_array($override)) { $config = array_merge($config, $override); }
 }
 
-$domain  = preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'jw-gardening.com');
+$domain  = preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'jw-gardenservices.co.uk');
 $subject = 'Website enquiry from ' . $name;
 $body    = "New enquiry from your website\n\n"
          . "Name:    {$name}\n"
