@@ -66,7 +66,7 @@ const HeroSection = () => {
   }, [showVideo]);
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[100svh] max-h-[860px] pt-[4.5rem] lg:pt-[8.8rem]">
+    <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <picture>
@@ -116,7 +116,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-wide text-center py-16 sm:py-20 [@media(max-height:780px)]:py-8">
+      <div className="relative z-10 container-wide text-center py-16 sm:py-20">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-3 py-2 sm:px-4 mb-6 sm:mb-8 animate-fade-up">

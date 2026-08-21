@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
@@ -9,9 +9,9 @@ const logo = { url: '/assets/jw-logo.png' };
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // Mobile keeps an expandable Services section; desktop lists them in the bar.
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -26,12 +26,25 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close desktop dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const navLinks = [
     { to: '/about', label: 'About' },
     { to: '/our-work', label: 'Our Work' },
     { to: '/#areas', label: 'Areas We Cover' },
     { to: '/contact', label: 'Contact' },
   ];
+
+  const isServicesActive = location.pathname.startsWith('/services');
 
   return (
     <header
@@ -59,6 +72,54 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
+          {/* Services dropdown */}
+          <div
+            ref={dropdownRef}
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setIsServicesOpen((v) => !v)}
+              aria-expanded={isServicesOpen}
+              aria-haspopup="true"
+              className={`font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap flex items-center gap-1 transition-colors duration-300 hover:text-primary ${
+                isServicesActive ? 'text-primary font-semibold' : 'text-foreground'
+              }`}
+            >
+              Services
+              <ChevronDown
+                className={`h-3.5 w-3.5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            <div
+              className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 ${
+                isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
+              }`}
+            >
+              <div className="min-w-[260px] rounded-lg border border-border/60 bg-background shadow-elevated overflow-hidden">
+                <NavLink
+                  to="/#services"
+                  onClick={() => setIsServicesOpen(false)}
+                  className="block px-5 py-3 font-body text-sm uppercase tracking-widest text-foreground border-b border-border/60 hover:bg-secondary/40 hover:text-primary transition-colors"
+                >
+                  All Services
+                </NavLink>
+                {services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    to={`/services/${service.slug}`}
+                    onClick={() => setIsServicesOpen(false)}
+                    className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40 last:border-0"
+                  >
+                    {service.navLabel}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -86,31 +147,6 @@ const Header = () => {
         >
           {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
-      </div>
-
-      {/* Services listed rather than folded away: on a desktop there is room to
-          show what the business actually does without asking for a hover. */}
-      <div className="hidden lg:block container-wide border-t border-border/50 mt-2.5 pt-2.5">
-        <nav aria-label="Services" className="flex items-center justify-center gap-7 xl:gap-9">
-          <NavLink
-            to="/#services"
-            className="font-body text-[0.7rem] xl:text-xs uppercase tracking-[0.16em] whitespace-nowrap text-muted-foreground transition-colors duration-300 hover:text-primary"
-            activeClassName="text-primary"
-          >
-            All Services
-          </NavLink>
-          <span aria-hidden="true" className="h-3 w-px bg-border" />
-          {services.map((service) => (
-            <NavLink
-              key={service.slug}
-              to={`/services/${service.slug}`}
-              className="font-body text-[0.7rem] xl:text-xs uppercase tracking-[0.16em] whitespace-nowrap text-foreground/80 transition-colors duration-300 hover:text-primary"
-              activeClassName="text-primary font-semibold"
-            >
-              {service.navLabel}
-            </NavLink>
-          ))}
-        </nav>
       </div>
 
       {/* Mobile Menu */}
