@@ -5,6 +5,7 @@ import { ArrowRight, MapPin } from 'lucide-react';
 import {
   heroPoster,
   heroPosterFallback,
+  heroPosterPortrait,
   heroVideoFallback,
   pickHeroVideo,
 } from '@/lib/hero-media';
@@ -68,18 +69,29 @@ const HeroSection = () => {
     <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
-        <img
-          src={poster.src}
-          srcSet={poster.srcSet}
-          sizes="100vw"
-          width={poster.width}
-          height={poster.height}
-          alt="Beautiful English garden landscape maintained by JW Garden Services"
-          fetchPriority="high"
-          decoding="async"
-          onError={() => setPoster(heroPosterFallback)}
-          className="w-full h-full object-cover"
-        />
+        <picture>
+          {/* Upright phones crop the landscape still to nothing but its middle,
+              so give them a frame cropped to shape instead. */}
+          {poster === heroPoster && (
+            <source
+              media={heroPosterPortrait.media}
+              srcSet={heroPosterPortrait.srcSet}
+              sizes="100vw"
+            />
+          )}
+          <img
+            src={poster.src}
+            srcSet={poster.srcSet}
+            sizes="100vw"
+            width={poster.width}
+            height={poster.height}
+            alt="Beautiful English garden landscape maintained by JW Garden Services"
+            fetchPriority="high"
+            decoding="async"
+            onError={() => setPoster(heroPosterFallback)}
+            className="w-full h-full object-cover"
+          />
+        </picture>
         {showVideo && (
           <video
             ref={videoRef}

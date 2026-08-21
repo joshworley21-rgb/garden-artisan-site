@@ -31,16 +31,27 @@ export const heroPosterFallback = {
   height: 659,
 };
 
-const sources = [
-  { upTo: 700, av1: '/assets/jw-hero-clip-640.webm', h264: '/assets/jw-hero-clip-640.mp4' },
-  { upTo: 1100, av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
+const portrait = {
+  av1: '/assets/jw-hero-clip-portrait.webm',
+  h264: '/assets/jw-hero-clip-portrait.mp4',
+};
+
+const landscape = [
+  { upTo: 700, av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
   { upTo: Infinity, av1: '/assets/jw-hero-clip-1440.webm', h264: '/assets/jw-hero-clip-1440.mp4' },
 ];
+
+/** Poster for an upright phone, cropped to match the portrait clip. */
+export const heroPosterPortrait = {
+  srcSet:
+    '/assets/jw-hero-clip-portrait-456.webp 456w, /assets/jw-hero-clip-portrait-608.webp 608w',
+  media: '(orientation: portrait) and (max-width: 700px)',
+};
 
 const AV1 = 'video/webm; codecs="av01.0.05M.08"';
 
 /** Widest H.264 cut — used for SSR and if a chosen file fails to load. */
-export const heroVideoFallback = sources[sources.length - 1].h264;
+export const heroVideoFallback = landscape[landscape.length - 1].h264;
 
 /**
  * Smallest file the browser can actually play at this size. Chosen in JS rather
@@ -50,12 +61,18 @@ export const heroVideoFallback = sources[sources.length - 1].h264;
 export function pickHeroVideo(): string {
   if (typeof document === 'undefined') return heroVideoFallback;
 
-  // The clip sits behind a dark scrim, so a modest upscale is invisible — and a
-  // phone on cellular should not be made to pull the desktop file.
-  const width = window.innerWidth * (window.devicePixelRatio > 1.5 ? 1.5 : 1);
-  const set = sources.find((s) => width <= s.upTo) ?? sources[sources.length - 1];
-
   const probe = document.createElement('video');
-  return probe.canPlayType(AV1) ? set.av1 : set.h264;
+  const pick = (set: { av1: string; h264: string }) =>
+    probe.canPlayType(AV1) ? set.av1 : set.h264;
+
+  // Upright and phone-narrow: the portrait crop wins. A tablet is wide enough
+  // that the landscape file, cropped, still resolves better than the 608-wide
+  // portrait one stretched across it.
+  if (window.innerHeight > window.innerWidth && window.innerWidth <= 700) {
+    return pick(portrait);
+  }
+
+  const set = landscape.find((s) => window.innerWidth <= s.upTo) ?? landscape[landscape.length - 1];
+  return pick(set);
 }
 
