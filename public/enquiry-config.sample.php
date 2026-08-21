@@ -5,8 +5,12 @@
  * Do NOT commit the filled-in version anywhere public.
  */
 return [
-    // Where enquiries are delivered
-    'to'          => 'Jw_gardenservices@yahoo.com',
+    // Where enquiries are delivered. One address, or a list for several —
+    // each one receives its own copy.
+    'to'          => [
+        'info@jw-gardenservices.co.uk',
+        'Jw_gardenservices@yahoo.com',
+    ],
 
     // Must be a real mailbox on your own domain
     'from_email'  => 'info@jw-gardenservices.co.uk',

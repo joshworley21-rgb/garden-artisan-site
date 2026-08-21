@@ -63,7 +63,8 @@ $email = $clean($email);
 
 // --- Config ---
 $config = [
-    'to'          => 'Jw_gardenservices@yahoo.com',
+    // One address, or several — every one of them gets a copy.
+    'to'          => ['info@jw-gardenservices.co.uk', 'Jw_gardenservices@yahoo.com'],
     'from_email'  => 'info@jw-gardenservices.co.uk',
     'from_name'   => 'JW Garden Services Website',
     'smtp_host'   => '',
@@ -99,7 +100,7 @@ $headers = [
 ];
 
 /** Minimal authenticated SMTP sender (no external dependencies). */
-function smtp_send(array $c, string $to, string $subject, string $body, array $headers): bool
+function smtp_send(array $c, array $to, string $subject, string $body, array $headers): bool
 {
     $transport = $c['smtp_secure'] === 'ssl' ? 'ssl://' : 'tcp://';
     $fp = @stream_socket_client($transport . $c['smtp_host'] . ':' . $c['smtp_port'], $eno, $estr, 15);
@@ -131,12 +132,16 @@ function smtp_send(array $c, string $to, string $subject, string $body, array $h
         && $cmd('AUTH LOGIN', '334')
         && $cmd(base64_encode($c['smtp_user']), '334')
         && $cmd(base64_encode($c['smtp_pass']), '235')
-        && $cmd('MAIL FROM:<' . $c['from_email'] . '>', '250')
-        && $cmd('RCPT TO:<' . $to . '>', '250')
-        && $cmd('DATA', '354');
+        && $cmd('MAIL FROM:<' . $c['from_email'] . '>', '250');
+
+    // One RCPT TO per recipient, before DATA — that is what puts a copy in each inbox.
+    foreach ($to as $recipient) {
+        $ok = $ok && $cmd('RCPT TO:<' . $recipient . '>', '250');
+    }
+    $ok = $ok && $cmd('DATA', '354');
 
     if ($ok) {
-        $lines = ["To: {$to}", "Subject: {$subject}"];
+        $lines = ['To: ' . implode(', ', $to), "Subject: {$subject}"];
         foreach ($headers as $k => $v) { $lines[] = "{$k}: {$v}"; }
         $data = implode("\r\n", $lines) . "\r\n\r\n"
               . preg_replace('/^\./m', '..', str_replace("\n", "\r\n", $body));
@@ -148,16 +153,24 @@ function smtp_send(array $c, string $to, string $subject, string $body, array $h
     return $ok;
 }
 
+// Accept either a single address or a list, so an older config keeps working.
+$recipients = array_values(array_filter(array_map('trim', (array) $config['to'])));
+if (!$recipients) {
+    http_response_code(500);
+    echo json_encode(['error' => 'no_recipient']);
+    exit;
+}
+
 $sent = false;
 if ($config['smtp_host'] !== '' && $config['smtp_user'] !== '') {
-    $sent = smtp_send($config, $config['to'], $subject, $body, $headers);
+    $sent = smtp_send($config, $recipients, $subject, $body, $headers);
 }
 
 if (!$sent) {
     // Fallback: mail() with a matching envelope sender (-f) so SPF can pass.
     $hdr = '';
     foreach ($headers as $k => $v) { $hdr .= "{$k}: {$v}\r\n"; }
-    $sent = @mail($config['to'], $subject, $body, $hdr, '-f' . $config['from_email']);
+    $sent = @mail(implode(', ', $recipients), $subject, $body, $hdr, '-f' . $config['from_email']);
 }
 
 if ($sent) {
