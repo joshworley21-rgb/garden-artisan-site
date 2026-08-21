@@ -41,7 +41,6 @@ const Header = () => {
     { to: '/about', label: 'About' },
     { to: '/our-work', label: 'Our Work' },
     { to: '/#areas', label: 'Areas We Cover' },
-    { to: '/contact', label: 'Contact' },
   ];
 
   const isServicesActive = location.pathname.startsWith('/services');
@@ -130,7 +129,7 @@ const Header = () => {
               {link.label}
             </NavLink>
           ))}
-          <Button variant="elegant" size="lg" className="whitespace-nowrap" asChild>
+          <Button variant="hero" size="lg" className="whitespace-nowrap" asChild>
             <Link to="/contact">
               <Phone className="h-4 w-4" />
               Get in Touch
