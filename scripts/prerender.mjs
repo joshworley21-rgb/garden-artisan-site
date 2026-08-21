@@ -129,6 +129,24 @@ async function inlineStylesheet(html) {
   return html.replace(link[0], `<style>${css}</style>`);
 }
 
+/**
+ * Vite injects <link rel="modulepreload"> at runtime for chunks it loads, so a
+ * capture taken after the app has settled bakes in preloads for lazily-loaded
+ * code — which is exactly the code that was deferred on purpose. Keep only the
+ * preloads the build itself put in the template.
+ */
+const template = await readFile(path.join(dist, 'index.html'), 'utf8');
+const buildPreloads = new Set(
+  [...template.matchAll(/<link[^>]+rel="modulepreload"[^>]+href="([^"]+)"/g)].map((m) => m[1]),
+);
+
+function stripRuntimePreloads(html) {
+  return html.replace(/<link[^>]+rel="modulepreload"[^>]*>/g, (tag) => {
+    const href = tag.match(/href="([^"]+)"/)?.[1];
+    return href && buildPreloads.has(href) ? tag : '';
+  });
+}
+
 const server = await serve();
 const browser = await launchBrowser();
 const page = await browser.newPage();
@@ -143,8 +161,10 @@ for (const route of routes) {
   // desktop file before React swaps it. The poster image stays; the video is
   // added after load either way.
   const html = await inlineStylesheet(
-    ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
-      .replace(/<video[\s\S]*?<\/video>/g, ''),
+    stripRuntimePreloads(
+      ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
+        .replace(/<video[\s\S]*?<\/video>/g, ''),
+    ),
   );
 
   const problems = checkHead(html, route);

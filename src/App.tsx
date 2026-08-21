@@ -1,7 +1,6 @@
 import { Suspense, lazy } from "react";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DeferredToaster from "./components/DeferredToaster";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -14,11 +13,9 @@ const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const AreaDetail = lazy(() => import("./pages/AreaDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
-
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <Sonner />
+  <>
+    <DeferredToaster />
     <BrowserRouter>
       <ScrollToTop />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
@@ -36,7 +33,7 @@ const App = () => (
         </Routes>
       </Suspense>
     </BrowserRouter>
-  </QueryClientProvider>
+  </>
 );
 
 export default App;

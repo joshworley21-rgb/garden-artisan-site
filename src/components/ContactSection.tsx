@@ -2,7 +2,6 @@ import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { toast } from 'sonner';
 
 // Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
 // which emails the enquiry to Jw_gardenservices@yahoo.com. No backend database
@@ -21,6 +20,12 @@ const validate = (formData: { name: string; email: string; phone: string; messag
   if (!message || message.length > 2000) errors.message = 'Please tell us about your project';
 
   return errors;
+};
+
+/** Loaded on demand so the toast library stays out of the initial bundle. */
+const notify = async (kind: 'success' | 'error', message: string) => {
+  const { toast } = await import('sonner');
+  toast[kind](message);
 };
 
 const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: boolean; flushTop?: boolean }) => {
@@ -42,7 +47,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
       const fieldErrors = validate(formData);
       if (Object.keys(fieldErrors).length > 0) {
         setErrors(fieldErrors);
-        toast.error('Please check the highlighted fields');
+        void notify('error', 'Please check the highlighted fields');
         return;
       }
 
@@ -60,13 +65,13 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
       });
 
       if (res.ok) {
-        toast.success("Thank you — we've received your enquiry and will be in touch shortly.");
+        void notify('success', "Thank you — we've received your enquiry and will be in touch shortly.");
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         throw new Error('submission failed');
       }
     } catch {
-      toast.error('Sorry, something went wrong. Please call us or try again in a moment.');
+      void notify('error', 'Sorry, something went wrong. Please call us or try again in a moment.');
     } finally {
       setIsSubmitting(false);
     }
