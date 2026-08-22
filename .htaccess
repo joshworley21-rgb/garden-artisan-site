@@ -1,0 +1,62 @@
+# --- SPA fallback: send all non-file requests to index.html so client-side routes work ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Canonical host in a single hop: http, www, and the old jw-gardening.com all
+  # land directly on https://jw-gardenservices.co.uk rather than chaining
+  # redirects, which the speed test counts against the page.
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^jw-gardenservices\.co\.uk$ [NC]
+  RewriteRule ^ https://jw-gardenservices.co.uk%{REQUEST_URI} [R=301,L]
+
+  # Real files win (assets, enquiry.php, robots.txt, …)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Prerendered page for this route, e.g. /gardeners-in-tring -> gardeners-in-tring.html.
+  # Serving it directly keeps the URL exactly as the canonical tag states — no
+  # redirect to a trailing slash, and no waiting on JavaScript for the content.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Anything else -> the app shell, which renders the 404 page
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# --- Caching: long-lived for hashed assets, short for index.html ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Hashed filenames make this safe
+  <FilesMatch "\.(css|js|webp|jpg|jpeg|png|svg|mp4|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Basic security headers
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# No directory listings — /services is a folder of prerendered pages, not a page
+Options -Indexes
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
