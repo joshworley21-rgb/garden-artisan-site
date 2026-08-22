@@ -13,6 +13,13 @@ export default {
       },
     },
     extend: {
+      screens: {
+        // The desktop nav needs ~940px to sit beside the logo without colliding.
+        // Tailwind's lg (1024px) cuts it off above the 980px layout width that
+        // Chrome's "Desktop site" mode uses on phones, so the header fell back
+        // to the hamburger there.
+        nav: '960px',
+      },
       fontFamily: {
         heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
