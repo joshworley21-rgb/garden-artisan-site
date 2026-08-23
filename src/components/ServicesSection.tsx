@@ -64,8 +64,10 @@ const ServicesSection = () => {
                   to={`/services/${service.slug}`}
                   className="mt-6 inline-flex items-center gap-2 font-body text-sm uppercase tracking-widest text-primary"
                 >
-                  Find out more
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <span className="cta-move inline-flex items-center gap-2">
+                    Find out more
+                    <ArrowRight className="cta-arrow h-4 w-4" />
+                  </span>
                   <span className="absolute inset-0" aria-hidden="true" />
                   <span className="sr-only"> about {service.navLabel.toLowerCase()}</span>
                 </Link>

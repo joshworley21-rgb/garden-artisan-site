@@ -137,6 +137,67 @@
     padding-left: clamp(1.25rem, 4vw, 2.5rem);
     padding-right: clamp(1.25rem, 4vw, 2.5rem);
   }
+
+  /* "Find out more" affordance. Nudging the arrow alone was too small to read
+     as interactive, so the whole label glides right and an underline sweeps
+     in when the card is hovered or the link is focused.
+
+     The transform lives on this inner span, never on the <a>: the service
+     cards stretch their link over the card with an absolutely positioned
+     overlay, and a transform on the anchor would make it the containing
+     block and collapse that click target on hover. */
+  .cta-move {
+    position: relative;
+    transition: transform 300ms ease-out;
+  }
+
+  .cta-move::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease-out;
+  }
+
+  .cta-move .cta-arrow {
+    transition: transform 300ms ease-out;
+  }
+
+  .group:hover .cta-move,
+  a:focus-visible .cta-move {
+    transform: translateX(6px);
+  }
+
+  .group:hover .cta-move::after,
+  a:focus-visible .cta-move::after {
+    transform: scaleX(1);
+  }
+
+  /* The arrow travels a little further than the words, so the row stretches. */
+  .group:hover .cta-move .cta-arrow,
+  a:focus-visible .cta-move .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-move,
+    .cta-move::after,
+    .cta-move .cta-arrow {
+      transition: none;
+    }
+
+    .group:hover .cta-move,
+    a:focus-visible .cta-move,
+    .group:hover .cta-move .cta-arrow,
+    a:focus-visible .cta-move .cta-arrow {
+      transform: none;
+    }
+  }
 }
 
 @layer utilities {

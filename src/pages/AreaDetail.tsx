@@ -192,9 +192,9 @@ const AreaDetail = () => {
                     {s.navLabel}
                   </h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{s.intro}</p>
-                  <span className="font-body text-sm text-primary inline-flex items-center gap-2">
+                  <span className="cta-move font-body text-sm text-primary inline-flex items-center gap-2">
                     Find out more
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="cta-arrow h-4 w-4" />
                   </span>
                 </Link>
               ))}
