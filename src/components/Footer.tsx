@@ -6,6 +6,7 @@ import { services } from '@/lib/services';
 import { areas } from '@/lib/areas';
 
 const guildLogo = images['gardeners-guild-logo'];
+const logo = { url: '/assets/jw-logo.png' };
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,8 +31,22 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" aria-label="JW Garden Services home" className="inline-block mb-4">
-              <span className="font-heading text-2xl font-semibold text-background">JW Garden Services</span>
+            {/* The logo's ink is almost entirely dark, so it needs a light plaque
+                to stay legible against the near-black footer. */}
+            <Link
+              to="/"
+              aria-label="JW Garden Services home"
+              className="inline-block mb-4 rounded-lg bg-background px-4 py-3"
+            >
+              <img
+                src={logo.url}
+                alt="JW Garden Services"
+                width={255}
+                height={102}
+                loading="lazy"
+                decoding="async"
+                className="block h-14 w-auto"
+              />
             </Link>
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
               Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
