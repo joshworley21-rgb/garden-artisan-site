@@ -26,56 +26,56 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Weekly garden maintenance in Aylesbury and across Bucks, Beds and Herts — keeping lawns, hedges and borders immaculate all year. Trained, reliable, free quotes.',
     intro:
-      'Weekly garden maintenance that keeps your Aylesbury garden looking lovely all year round — the easiest way to have a tidy lawn, neat hedges and cared-for borders every week, without picking up a spade yourself.',
+      'Regular garden maintenance around Aylesbury. We keep the lawn cut, the hedges neat and the borders weeded, so you come home to a garden that is already done.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
       {
-        heading: 'A weekly visit means your garden always looks its best',
+        heading: 'What a weekly visit looks like',
         paragraphs: [
-          'Coming every week means nothing ever gets away from us. The lawn is mown and edged before it looks scruffy, hedges stay in shape instead of needing one hard cut a year, and weeds are pulled while they are still tiny. You simply come home to a garden that is already done.',
-          'For most gardens around Aylesbury and Bierton, weekly visits from March to October keep everything under control, and we can drop to fortnightly or monthly over winter when growth slows down. If you would rather keep the same day every week all year, that is fine too.',
-          'We will happily suggest small improvements as we go, so the garden gradually becomes a place you actually want to sit in — not just something on your weekend to-do list.',
+          'Coming every week means nothing gets out of hand. The grass is cut before it starts looking long, hedges get trimmed little and often instead of one hard cut a year, and weeds come out while they are still small.',
+          'Most gardens round here want us weekly from March to October. Over winter we can drop to fortnightly or monthly, or keep the same day all year if you would rather. Whatever suits you.',
+          'If we spot something worth doing, we will mention it. No pressure either way.',
         ],
       },
       {
-        heading: 'Proper gardeners, not just a mow-and-go service',
+        heading: 'We are gardeners, not a mow and go',
         paragraphs: [
-          'There is a big difference between cutting the grass and looking after a garden. Josh trained in horticulture at BCA and completed an apprenticeship before starting JW Garden Services in 2017, so your shrubs and roses are pruned at the right time of year — which means healthier plants and far more flower the following summer.',
-          'We are members of The Gardeners Guild, bring all our own tools, and take every bag of clippings away with us. You will not be left with green waste to deal with or a bin you cannot close.',
+          'Cutting grass and looking after a garden are not the same job. I trained in horticulture at BCA and did an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
+          'We are members of The Gardeners Guild. We bring our own tools and take every bag of clippings away with us, so you are not left with a green bin you cannot shut.',
         ],
       },
     ],
     includes: [
-      'Weekly lawn mowing, neat edges and stripes',
+      'Mowing, edging and stripes',
       'Hedges trimmed and kept in shape',
-      'Shrubs, roses and small trees pruned properly',
-      'Weeding and tidying the borders every visit',
-      'Seasonal flowers and pots planted up',
-      'Leaf clearing and winter tidy-ups',
-      'Lawn feeding and treatments to thicken the grass',
-      'All clippings and garden waste taken away',
+      'Shrubs, roses and small trees pruned',
+      'Borders weeded every visit',
+      'Pots and seasonal flowers planted up',
+      'Leaf clearing and winter tidies',
+      'Lawn feeds to thicken the grass',
+      'All clippings taken away',
     ],
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'Weekly is our most popular choice and the easiest way to keep a garden looking good — the grass never gets long, hedges stay neat and weeds are caught early. For most Aylesbury gardens weekly visits from March to October work best, easing off to fortnightly or monthly over winter. Bigger gardens often stay weekly all year.',
+        a: 'Weekly suits most gardens. The grass never gets long and the weeds do not get a chance. March to October is the busy stretch, then fortnightly or monthly through winter. Bigger gardens usually stay weekly all year.',
       },
       {
         q: 'Why choose weekly rather than fortnightly maintenance?',
-        a: 'With weekly visits your garden looks presentable every single day, not just the day after we have been. Because we do a little at a time, each visit is quicker, kinder to the plants, and the garden never has a scruffy week in between.',
+        a: 'Your garden looks right every day, not just the day after we have been. Each visit is quicker too, because there is less to catch up on.',
       },
       {
         q: 'Do you take the garden waste away?',
-        a: 'Yes, always. Everything we cut is cleared up and taken away as part of the visit, so you are not left with bags of clippings or a full green bin.',
+        a: 'Yes, every time. It is part of the visit. You will not be left with bags of clippings or a full bin.',
       },
       {
         q: 'Do I need to be home for the visit?',
-        a: 'No. Once we know your garden, most people just leave a gate unlocked or a key safe and come home to a finished garden. We will always let you know if anything needs your say-so.',
+        a: 'No. Most people leave a gate unlocked or a key safe and come home to a finished garden. If anything needs your say so, I will give you a ring.',
       },
       {
         q: 'Which areas do you cover for garden maintenance?',
-        a: 'We look after gardens within about 25 miles of Bierton, Aylesbury — including Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
+        a: 'About 25 miles around Bierton and Aylesbury. That takes in Buckingham, Tring, Waddesdon, Stone, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and Great Missenden.',
       },
     ],
     gallery: [
@@ -96,51 +96,51 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Hard landscaping in Aylesbury and Buckinghamshire: patios, paths, fencing, decking, sleeper beds and turfing. Built by a trained horticulturist. Free quotes.',
     intro:
-      'Patios, paths, fencing, decking and turfing built to last — creating outdoor spaces across Aylesbury and Buckinghamshire that you can be proud of.',
+      'Patios, paths, fencing, decking and new lawns across Aylesbury and Buckinghamshire. Built properly, so they are still right in ten years.',
     image: images['jw-landscaping'],
     imageAlt: 'New paved patio and planted borders built in a Buckinghamshire garden',
     body: [
       {
-        heading: 'Built properly, from the ground down',
+        heading: 'It is the bit underneath that matters',
         paragraphs: [
-          'A patio is only as good as what sits underneath it. We excavate to the right depth, lay a compacted sub-base, and bed and point every slab correctly so your paving stays level and weed-free for decades rather than settling and lifting after a couple of winters.',
-          'Whether you need a new patio, a set of steps, a path through the garden, a fence line replaced or a whole garden makeover, we handle the build from first dig to final sweep.',
+          'A patio is only as good as what sits under it. We dig out to the right depth, put in a properly compacted sub base, then bed and point every slab. That is why paving stays flat and weed free for years instead of sinking after a couple of winters.',
+          'A new patio, some steps, a path down the garden, a fence line, or the whole thing at once. We do the lot, from the first dig to sweeping up at the end.',
         ],
       },
       {
-        heading: 'Landscaping designed with the planting in mind',
+        heading: 'We think about the planting too',
         paragraphs: [
-          'Because we are gardeners first, the hard landscaping and the planting are planned together. Borders are sized for the plants that will fill them, drainage is thought through, and levels are set so the finished garden works as one space rather than a patio with some plants around the edge.',
-          'We can work to your own design, to a designer\u2019s drawings, or develop the layout with you on site.',
+          'Because we are gardeners first, the hard landscaping and the planting get planned together. Borders end up the right size for what is going in them, the drainage is sorted out, and the levels work across the whole garden rather than just the patio.',
+          'Bring us your own idea, a drawing from a designer, or we can work the layout out with you stood in the garden.',
         ],
       },
     ],
     includes: [
       'Patios and paving in natural stone or porcelain',
-      'Garden paths, steps and edging',
+      'Paths, steps and edging',
       'Fencing, gates and trellis',
       'Decking and raised platforms',
       'Sleeper beds and retaining walls',
       'Turfing and new lawns from seed',
-      'Border clearance and redesign',
-      'Drainage and levelling works',
+      'Borders cleared and reshaped',
+      'Drainage and levelling',
     ],
     faqs: [
       {
         q: 'How long does a new patio take?',
-        a: 'A typical domestic patio takes around one to two weeks depending on size, access and groundworks. We give you a realistic timescale with your quote before any work starts.',
+        a: 'Usually one to two weeks, depending on the size, the access and how much digging out is needed. You get a realistic timescale with your quote, before anything starts.',
       },
       {
         q: 'Can you replace a patio that has sunk or cracked?',
-        a: 'Yes. Sunken or cracked paving is almost always a sub-base or drainage problem, so we lift the existing surface, correct what is underneath and relay it so the same fault does not return.',
+        a: 'Yes. Nine times out of ten it is the sub base or the drainage at fault. We lift the old surface, put right what is underneath and relay it, so it does not go the same way again.',
       },
       {
         q: 'Do you provide a written quote?',
-        a: 'Always. We visit the garden, discuss what you want and send a written, itemised quote with no obligation.',
+        a: 'Always. I come and look at the garden, we talk through what you want, then I send a written quote with the costs broken down. No obligation.',
       },
       {
         q: 'Where do you carry out landscaping work?',
-        a: 'Across Aylesbury, Bierton, Buckingham, Tring, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and the surrounding parts of Bucks, Beds and Herts.',
+        a: 'Aylesbury, Bierton, Buckingham, Tring, Wing, Haddenham, Leighton Buzzard, Chesham, Amersham and the surrounding parts of Bucks, Beds and Herts.',
       },
     ],
     gallery: [images['jw-work-20250529_160433'], images['jw-g4'], images['jw-work-20230526_090054']],
@@ -154,22 +154,22 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Garden design and planting in Aylesbury and Buckinghamshire. New borders, colourful planting and full garden makeovers for homeowners, by a trained gardener.',
     intro:
-      'New borders, colourful planting and full garden makeovers — designed around your soil, how much sun your garden gets, and how you and your family actually want to use it.',
+      'New borders, better planting, or a whole new garden. Chosen to suit your soil, how much sun you get, and how much time you want to spend out there.',
     image: images['jw-g3'],
     imageAlt: 'Colourful planted border designed and planted by JW Garden Services',
     body: [
       {
-        heading: 'Plants chosen for your garden, not picked from a catalogue',
+        heading: 'Right plant, right place',
         paragraphs: [
-          'The secret to a garden that looks good for years is putting the right plant in the right place. We start by looking at your soil, which parts get sun or shade, how windy it is, and honestly how much time you want to spend gardening. Then we choose plants that will be happy there rather than ones that sulk and need replacing.',
-          'That might be an easy-care garden with evergreens and a bit of seasonal colour, a pretty cottage-style border that flowers from spring right through to autumn, or planting chosen to bring bees and butterflies in. We will talk you through the options in plain English — no jargon, no Latin names unless you want them.',
+          'A garden that still looks good in five years comes down to putting the right plant in the right spot. We look at your soil, which bits get sun and which stay shady, how exposed it is, and how much gardening you actually want to do. Then we pick plants that will be happy there.',
+          'That might be low maintenance evergreens with a bit of colour through the year, a cottage border that flowers from spring to autumn, or planting to bring in the bees and butterflies. We will talk it through in normal words. No Latin names unless you are interested.',
         ],
       },
       {
-        heading: 'From one tired border to a whole new garden',
+        heading: 'One border or the whole garden',
         paragraphs: [
-          'Lots of people come to us with one border that has stopped looking nice, and end up reshaping the whole garden. Either is absolutely fine. We can clear a border, improve the soil, replant it and mulch it in a day or two — or spread a bigger makeover over a season so it is easier on your budget.',
-          'Because we also do regular garden maintenance, we can keep an eye on your new planting through its first couple of years, which is exactly when it needs watering, feeding and a little attention to really settle in.',
+          'Plenty of people ring up about one tired border and end up redoing the lot. Either is fine by us. A border can be cleared, the soil improved, replanted and mulched in a day or two. A bigger job can be split over a season to spread the cost.',
+          'We do the regular maintenance as well, so we can keep an eye on new planting through its first couple of years. That is when it needs the watering and feeding to get properly established.',
         ],
       },
     ],
@@ -177,28 +177,28 @@ export const services: ServiceContent[] = [
       'Planting ideas and all the plants sourced for you',
       'Old borders cleared and the soil improved',
       'Shrubs, flowers and hedges planted',
-      'Trees and larger feature plants planted',
+      'Trees and bigger feature plants',
       'Spring bulbs and seasonal colour',
-      'Mulching to cut down on weeding and watering',
-      'Full garden makeovers, phased if you prefer',
-      'Ongoing care while your new planting settles in',
+      'Mulching, to cut down the weeding and watering',
+      'Full makeovers, in stages if you prefer',
+      'Looking after the new planting while it settles in',
     ],
     faqs: [
       {
         q: 'When is the best time to plant a new border?',
-        a: 'Autumn and early spring are the best times around Buckinghamshire — the soil is damp and mild, so plants settle in with very little watering from you. That said, most pot-grown plants can go in at almost any time of year as long as they are watered well through their first summer.',
+        a: 'Autumn or early spring round here. The soil is damp and mild, so plants settle in without much watering from you. Pot grown plants can go in most of the year though, as long as they get watered through their first summer.',
       },
       {
         q: 'Do you supply the plants?',
-        a: 'Yes. We buy from good local nurseries rather than garden centre bargain shelves, and we pass on the better prices we get — so your budget buys healthier, longer-lasting plants.',
+        a: 'Yes. We buy from good local nurseries rather than the reduced shelf at the garden centre, and we pass on the better price we get. Your money buys healthier plants that last.',
       },
       {
         q: 'Do I need to know what I want before you visit?',
-        a: 'Not at all. Most people just know the garden is not working for them. We come and have a look, ask how you use the space, and suggest ideas from there. If you already have a plan from a designer, we are happy to plant it up for you.',
+        a: 'No. Most people just know the garden is not working for them. I come and have a look, ask how you use the space, and we go from there. If you already have a plan from a designer, we are happy to plant it up.',
       },
       {
         q: 'How much does a garden makeover cost?',
-        a: 'It really depends on the size of the garden and whether any paving or fencing is involved. We visit, talk it through and then send you a clear written quote with no obligation — and larger projects can be split into stages to spread the cost.',
+        a: 'It depends on the size of the garden and whether there is any paving or fencing involved. I come and look, then send you a written quote. Bigger jobs can be done in stages if that is easier on the budget.',
       },
     ],
     gallery: [
@@ -218,51 +218,51 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Commercial grounds maintenance in Aylesbury and Buckinghamshire for offices, schools, pubs and managed properties. Flexible contracts, reliable visits.',
     intro:
-      'Reliable grounds maintenance for offices, schools, pubs, care homes and managed properties across Aylesbury and Buckinghamshire — with flexible plans built around your budget.',
+      'Grounds maintenance for offices, schools, pubs, care homes and managed properties around Aylesbury and Buckinghamshire, on a plan that fits your budget.',
     image: images['jw-commercial'],
     imageAlt: 'Well-kept commercial grounds and planting outside a business premises',
     body: [
       {
-        heading: 'First impressions, kept sharp',
+        heading: 'Your grounds are the first thing people see',
         paragraphs: [
-          'Your grounds are the first thing clients, staff and visitors see. We offer flexible plans tailored to your specific needs and budget, keeping your premises looking professional and welcoming all year round.',
-          'Visits are scheduled to suit your operation — early mornings before staff arrive, quiet periods for schools, or outside trading hours for pubs and shops.',
+          'Clients, staff and visitors have all made their mind up before they get through the door. We keep the place looking sharp all year, on a schedule and a budget that work for you.',
+          'Visits go in when they suit you. Early mornings before staff arrive, quiet periods for schools, or outside trading hours for pubs and shops.',
         ],
       },
       {
-        heading: 'One point of contact, no surprises',
+        heading: 'You deal with me',
         paragraphs: [
-          'You deal directly with Josh, not a call centre. Schedules are agreed up front, work is invoiced clearly, and we carry public liability insurance. If something needs attention between visits, one call sorts it.',
-          'We can also take on one-off works alongside a maintenance contract — a car park tidy, new planting at an entrance, fencing repairs or a full landscaping project.',
+          'No call centre. We agree the schedule up front, the invoices are clear, and we carry public liability insurance. If something needs sorting between visits, one call does it.',
+          'We can take on one off jobs alongside a contract too. A car park tidy, new planting at the entrance, a fence repaired, or a full landscaping job.',
         ],
       },
     ],
     includes: [
       'Scheduled grounds and lawn maintenance',
-      'Hedge, shrub and tree management',
-      'Car park and hard-surface weed control',
-      'Entrance and reception planting displays',
+      'Hedges, shrubs and trees managed',
+      'Weed control on car parks and hard surfaces',
+      'Planting at entrances and receptions',
       'Leaf clearance and winter tidies',
-      'Litter and green waste clearance',
-      'One-off landscaping and fencing works',
-      'Flexible contracts, monthly invoicing',
+      'Litter and green waste cleared',
+      'One off landscaping and fencing',
+      'Flexible contracts, invoiced monthly',
     ],
     faqs: [
       {
         q: 'Do you offer contracts or pay-as-you-go?',
-        a: 'Both. Most commercial clients prefer a fixed schedule with monthly invoicing for predictable budgeting, but we are happy to work on an as-needed basis.',
+        a: 'Either. Most commercial customers want a fixed schedule and a monthly invoice so they can budget, but we are happy to work as needed.',
       },
       {
         q: 'Are you insured for commercial work?',
-        a: 'Yes, we carry public liability insurance and can provide details and risk assessments on request.',
+        a: 'Yes. We carry public liability insurance, and I can send over the details and risk assessments whenever you need them.',
       },
       {
         q: 'Can you work outside business hours?',
-        a: 'Yes. Early starts and out-of-hours visits are standard for sites where daytime work would be disruptive.',
+        a: 'Yes. Early starts and out of hours visits are normal for sites where working in the day would get in the way.',
       },
       {
         q: 'What size of site do you take on?',
-        a: 'Anything from a single office frontage to multi-building grounds. If a site is beyond what we can service properly, we will say so rather than overstretch.',
+        a: 'Anything from a single office frontage up to multi building grounds. If a site is too big for us to do properly, I will tell you straight rather than take it on.',
       },
     ],
     gallery: [images['jw-g6'], images['jw-g8'], images['jw-work-20250507_134138']],
