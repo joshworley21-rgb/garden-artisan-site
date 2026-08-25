@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
-// which emails the enquiry to Jw_gardenservices@yahoo.com. No backend database
-// is required — works on any shared hosting (Hostinger, Fasthosts, etc.).
+// which emails the enquiry to both info@jw-gardenservices.co.uk and the Yahoo
+// address. No backend database is required, so it works on any shared hosting.
 const validate = (formData: { name: string; email: string; phone: string; message: string }) => {
   const errors: Record<string, string> = {};
   const name = formData.name.trim();
@@ -138,7 +138,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Email</h3>
                   <p className="font-body text-primary-foreground/70">
-                    <a href="mailto:Jw_gardenservices@yahoo.com" className="hover:text-hero-accent transition-colors break-all">Jw_gardenservices@yahoo.com</a>
+                    <a href="mailto:info@jw-gardenservices.co.uk" className="hover:text-hero-accent transition-colors break-all">info@jw-gardenservices.co.uk</a>
                   </p>
                 </div>
               </div>
