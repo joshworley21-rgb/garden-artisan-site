@@ -72,6 +72,13 @@ $config = [
     'smtp_secure' => 'ssl',       // 'ssl' (465) or 'tls' (587)
     'smtp_user'   => '',
     'smtp_pass'   => '',
+
+    // Optional: also file the enquiry in the JW Garden Services CRM app, so it
+    // appears in the Enquiries inbox and can be turned into a client or a quote
+    // without retyping it. Both must be set for forwarding to happen; put them
+    // in enquiry-config.php, not here.
+    'crm_endpoint' => '',
+    'crm_key'      => '',
 ];
 if (is_file(__DIR__ . '/enquiry-config.php')) {
     $override = include __DIR__ . '/enquiry-config.php';
@@ -173,10 +180,81 @@ if (!$sent) {
     $sent = @mail(implode(', ', $recipients), $subject, $body, $hdr, '-f' . $config['from_email']);
 }
 
+/**
+ * File the enquiry in the CRM as well as emailing it.
+ *
+ * Deliberately after the email and never able to change the outcome: the email
+ * is the part the business has always relied on, and an enquiry from a paying
+ * customer must not be lost because an API somewhere was slow. If this fails,
+ * it fails quietly and the email has already gone.
+ *
+ * `notify` is the inverse of whether the email got out. The CRM sends its own
+ * notification, so telling it the customer has already been emailed avoids two
+ * copies of every enquiry — but if the mail above failed, the CRM becomes the
+ * one that tells you, and nothing is missed.
+ */
+function crm_forward(array $c, array $fields, bool $alreadyEmailed): bool
+{
+    if (empty($c['crm_endpoint']) || empty($c['crm_key'])) { return false; }
+
+    $payload = json_encode([
+        'key'     => $c['crm_key'],
+        'name'    => $fields['name'],
+        'email'   => $fields['email'],
+        'phone'   => $fields['phone'],
+        'message' => $fields['message'],
+        'source'  => $fields['source'] !== '' ? $fields['source'] : 'website',
+        'notify'  => !$alreadyEmailed,
+    ]);
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init($c['crm_endpoint']);
+        curl_setopt_array($ch, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => $payload,
+            CURLOPT_HTTPHEADER     => ['Content-Type: application/json'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 8,
+            CURLOPT_CONNECTTIMEOUT => 5,
+        ]);
+        curl_exec($ch);
+        $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        curl_close($ch);
+        return $status >= 200 && $status < 300;
+    }
+
+    // Shared hosting without curl still has the stream wrappers.
+    $body = @file_get_contents($c['crm_endpoint'], false, stream_context_create([
+        'http' => [
+            'method'        => 'POST',
+            'header'        => "Content-Type: application/json\r\n",
+            'content'       => $payload,
+            'timeout'       => 8,
+            'ignore_errors' => true,
+        ],
+    ]));
+    if ($body === false) { return false; }
+
+    // $http_response_header is set by the stream wrapper on the call above.
+    $status = isset($http_response_header[0]) && preg_match('#\s(\d{3})\s#', $http_response_header[0], $m)
+        ? (int) $m[1]
+        : 0;
+    return $status >= 200 && $status < 300;
+}
+
+$filedInCrm = crm_forward(
+    $config,
+    ['name' => $name, 'email' => $email, 'phone' => $phone, 'message' => $message, 'source' => $source],
+    $sent,
+);
+
 if ($sent) {
     http_response_code(200);
     echo json_encode(['success' => true]);
 } else {
-    http_response_code(500);
-    echo json_encode(['error' => 'mail_failed']);
+    // The email failed. Only claim success if the CRM actually accepted it —
+    // telling a customer their message arrived when nothing caught it is the
+    // one outcome worth avoiding above all others here.
+    http_response_code($filedInCrm ? 200 : 500);
+    echo json_encode($filedInCrm ? ['success' => true] : ['error' => 'mail_failed']);
 }

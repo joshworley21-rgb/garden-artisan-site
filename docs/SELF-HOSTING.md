@@ -223,10 +223,30 @@ On the live host:
 3. Make sure DNS has SPF, DKIM and DMARC records for the domain, or enquiries
    land in spam.
 
+### Filing enquiries in the CRM as well
+
+Set `crm_endpoint` and `crm_key` in `enquiry-config.php` and each enquiry is
+also posted to the JW Garden Services CRM, where it lands in the Enquiries
+inbox and can be turned into a client or a quote without retyping it. The key
+is shown on the Enquiries screen in the app.
+
+Nothing about the email changes. The forward happens after it, cannot alter
+the outcome, and fails quietly — an enquiry from a paying customer must not be
+lost because an API somewhere was slow. The CRM is told the customer has
+already been emailed, so nothing arrives twice; if the email failed, the CRM
+sends one instead.
+
+The one behaviour worth knowing: when the email fails but the CRM accepts the
+enquiry, the form tells the customer it arrived — because it did. Only when
+*nothing* catches it are they asked to try again.
+
+Only `enquiry.php` and `enquiry-config.php` are involved, so turning this on
+means uploading two files — no rebuild of the site.
+
 Without a PHP host, replace the `fetch('/enquiry.php', …)` call with a hosted
-form endpoint (Formspree, Netlify Forms, Web3Forms) or with the CRM's
-`/api/public/enquiry` endpoint, which writes the enquiry straight into the CRM
-database.
+form endpoint (Formspree, Netlify Forms, Web3Forms) or post straight to the
+CRM's `public-enquiry` function, which writes the enquiry into the CRM and
+emails it.
 
 ## 7. Supabase
 
