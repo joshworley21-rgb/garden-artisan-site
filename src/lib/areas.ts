@@ -28,7 +28,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Local to Aylesbury',
     seoTitle: 'Gardeners in Aylesbury | Weekly Garden Maintenance',
     seoDescription:
-      'Looking for a gardener near you in Aylesbury? JW Garden Services offers weekly garden maintenance, landscaping and planting across Aylesbury and HP19–HP22. Free quotes, all waste taken away.',
+      'Gardener near you in Aylesbury: weekly garden maintenance, landscaping and planting across Aylesbury and HP19 to HP22. Free quotes, all waste taken away.',
     intro:
       'Looking for a gardener near you in Aylesbury? We are based in Bierton, two miles from the town centre, so Aylesbury is where we work most. Weekly maintenance, patios, fencing and planting, with all the clippings taken away.',
     image: images['jw-maint-1'],
@@ -87,7 +87,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Our home village',
     seoTitle: 'Gardeners in Bierton | Village Garden Maintenance',
     seoDescription:
-      'JW Garden Services is based in Bierton — your nearest local gardener for weekly maintenance, hedge cutting, patios and planting in Bierton and Broughton. Free quotes.',
+      'Based in Bierton, so we are your nearest gardener for weekly maintenance, hedge cutting, patios and planting in Bierton and Broughton. Free quotes.',
     intro:
       'Bierton is home. We are based in the village, so if you are looking for a gardener near you in Bierton we are round the corner. Weekly maintenance, hedge cutting, borders and landscaping.',
     image: images['jw-g4'],
@@ -141,7 +141,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Wendover & the Chilterns edge',
     seoTitle: 'Gardeners in Wendover | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Wendover: weekly garden maintenance, hedge cutting, patios and planting for Wendover, Halton and the Chilterns edge. Free quotes, waste removed.',
+      'Gardener near you in Wendover: weekly maintenance, hedge cutting, patios and planting for Wendover, Halton and Aston Clinton. Free quotes, waste removed.',
     intro:
       'Wendover sits on the Chilterns escarpment and the gardens show it. Sloping plots, chalky soil and a lot of shade from mature trees. We look after gardens here weekly, fortnightly and as one off projects.',
     image: images['jw-landscaping'],
@@ -519,7 +519,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Great Missenden & the Misbourne valley',
     seoTitle: 'Gardeners in Great Missenden | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Great Missenden, Prestwood and Little Kingshill: weekly garden maintenance, hedge cutting, terracing and planting. Free quotes, waste removed.',
+      'Gardener near you in Great Missenden, Prestwood and Little Kingshill: weekly maintenance, hedge cutting, terracing and planting. Free quotes.',
     intro:
       'Great Missenden sits in the Misbourne valley in the heart of the Chilterns. Wooded, sloping and chalky. We maintain gardens here weekly and fortnightly, and build the terracing that makes them usable.',
     image: images['jw-landscaping'],
@@ -627,7 +627,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Amersham & Old Amersham',
     seoTitle: 'Gardeners in Amersham | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly garden maintenance, hedge cutting, patios and planting. Free quotes, all green waste removed.',
+      'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly maintenance, hedge cutting, patios and planting. Free quotes, waste removed.',
     intro:
       'Amersham has two very different sets of gardens. The older cottage plots down in the town, and the larger hillside gardens up on the Hill. We look after both, with regular maintenance and landscaping.',
     image: images['jw-g1'],

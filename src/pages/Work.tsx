@@ -28,7 +28,7 @@ const Work = () => (
   <>
     <Seo
       title="Our Work | Garden Projects in Aylesbury & Bucks"
-      description="Real gardens we maintain, plant and build across Bucks, Beds and Herts — borders, hedges, lawns, raised beds, fencing, pergolas and paving, with what each job involved."
+      description="Real gardens we maintain, plant and build across Bucks, Beds and Herts: borders, hedges, lawns, raised beds, fencing, pergolas and paving."
       path="/our-work"
       jsonLd={jsonLd}
     />
