@@ -37,10 +37,13 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // "Areas We Cover" points at a section of the home page, not a page of its
+  // own. NavLink matches on pathname and ignores the hash, so it would light up
+  // as the current page every time you were on the home page.
   const navLinks = [
     { to: '/about', label: 'About' },
     { to: '/our-work', label: 'Our Work' },
-    { to: '/#areas', label: 'Areas We Cover' },
+    { to: '/#areas', label: 'Areas We Cover', isSection: true },
   ];
 
   const isServicesActive = location.pathname.startsWith('/services');
@@ -124,7 +127,7 @@ const Header = () => {
               key={link.to}
               to={link.to}
               className="font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
-              activeClassName="text-primary font-semibold"
+              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
             >
               {link.label}
             </NavLink>
@@ -199,7 +202,7 @@ const Header = () => {
               to={link.to}
               onClick={() => setIsMobileMenuOpen(false)}
               className="font-body text-base text-foreground py-2 border-b border-border hover:text-primary transition-colors"
-              activeClassName="text-primary font-semibold"
+              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
             >
               {link.label}
             </NavLink>
