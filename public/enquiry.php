@@ -217,10 +217,16 @@ function crm_forward(array $c, array $fields, bool $alreadyEmailed): bool
             CURLOPT_TIMEOUT        => 8,
             CURLOPT_CONNECTTIMEOUT => 5,
         ]);
-        curl_exec($ch);
+        $body = curl_exec($ch);
         $status = (int) curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        $error = curl_error($ch);
         curl_close($ch);
-        return $status >= 200 && $status < 300;
+        if ($status >= 200 && $status < 300) { return true; }
+        // Quietly failing is right, but silently failing is not: without the
+        // reason there is nothing to go on when enquiries stop arriving.
+        error_log('enquiry.php: CRM forward failed (HTTP ' . $status . ') '
+            . ($error !== '' ? $error : substr((string) $body, 0, 300)));
+        return false;
     }
 
     // Shared hosting without curl still has the stream wrappers.
@@ -233,13 +239,18 @@ function crm_forward(array $c, array $fields, bool $alreadyEmailed): bool
             'ignore_errors' => true,
         ],
     ]));
-    if ($body === false) { return false; }
+    if ($body === false) {
+        error_log('enquiry.php: CRM forward failed (no response)');
+        return false;
+    }
 
     // $http_response_header is set by the stream wrapper on the call above.
     $status = isset($http_response_header[0]) && preg_match('#\s(\d{3})\s#', $http_response_header[0], $m)
         ? (int) $m[1]
         : 0;
-    return $status >= 200 && $status < 300;
+    if ($status >= 200 && $status < 300) { return true; }
+    error_log('enquiry.php: CRM forward failed (HTTP ' . $status . ') ' . substr($body, 0, 300));
+    return false;
 }
 
 $filedInCrm = crm_forward(
