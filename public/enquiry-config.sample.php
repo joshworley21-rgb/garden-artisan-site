@@ -1,7 +1,14 @@
 <?php
 /**
- * Copy this file to enquiry-config.php (same folder) on your host and fill in
- * the mailbox details created in Hostinger hPanel > Emails.
+ * Copy this file to enquiry-config.php on your host and fill in the mailbox
+ * details created in Hostinger hPanel > Emails.
+ *
+ * PUT THE COPY IN THE FOLDER ABOVE public_html, not inside it. Deploying
+ * replaces everything inside public_html with the deploy branch, and this file
+ * is deliberately not in the branch, so a copy kept inside is deleted on every
+ * deploy. Outside the web root it survives deploys and cannot be requested
+ * over HTTP either.
+ *
  * Do NOT commit the filled-in version anywhere public.
  */
 return [

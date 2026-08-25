@@ -9,10 +9,12 @@
  *
  *  1. Create a real mailbox on your own domain in Hostinger hPanel, e.g.
  *     info@jw-gardenservices.co.uk
- *  2. Copy public/enquiry-config.sample.php to enquiry-config.php next to this
- *     file and fill in the SMTP host / username / password. When present, this
- *     script authenticates over SMTP instead of using mail() — this is what
- *     stops messages being flagged as spam.
+ *  2. Copy public/enquiry-config.sample.php to enquiry-config.php and fill in
+ *     the SMTP host / username / password. Put it in the folder ABOVE
+ *     public_html: a Git deploy wipes everything inside public_html, so a copy
+ *     kept beside this file is deleted every time the site is deployed. When
+ *     present, this script authenticates over SMTP instead of using mail() —
+ *     this is what stops messages being flagged as spam.
  *  3. Make sure your DNS has SPF, DKIM and DMARC records for jw-gardenservices.co.uk
  *     (Hostinger adds SPF + DKIM automatically for its own mail service).
  */
@@ -80,9 +82,16 @@ $config = [
     'crm_endpoint' => '',
     'crm_key'      => '',
 ];
-if (is_file(__DIR__ . '/enquiry-config.php')) {
-    $override = include __DIR__ . '/enquiry-config.php';
+// Deploying replaces everything in public_html with the contents of the deploy
+// branch, and this config is deliberately not in the branch — it holds the
+// mailbox password. A copy sitting next to this file is therefore deleted by
+// every deploy, so the directory above public_html is checked first: it is
+// outside the web root, survives deploys, and cannot be served over HTTP.
+foreach ([dirname(__DIR__) . '/enquiry-config.php', __DIR__ . '/enquiry-config.php'] as $configPath) {
+    if (!is_file($configPath)) { continue; }
+    $override = include $configPath;
     if (is_array($override)) { $config = array_merge($config, $override); }
+    break;
 }
 
 $domain  = preg_replace('/^www\./', '', $_SERVER['HTTP_HOST'] ?? 'jw-gardenservices.co.uk');
