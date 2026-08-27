@@ -40,12 +40,33 @@ npm run dev        # http://localhost:8080
 index.html              page shell, meta tags, JSON-LD business schema
 src/pages/              routed pages (home, about, work, contact, services, areas)
 src/components/         sections and shared UI (src/components/ui = shadcn)
+src/data/reviews.json   customer reviews (see Reviews below)
 src/lib/images.ts       responsive image manifest (points at /assets/…)
 public/assets/          all images and video shipped with the site
 public/enquiry.php      contact form handler (SMTP → business inbox)
 public/.htaccess        SPA fallback, caching and security headers for Apache
 scripts/                asset migration, prerendering, sitemap dates, publishing
 ```
+
+## Reviews
+
+Customer reviews live in `src/data/reviews.json` and drive both the "What Our
+Customers Say" section on the home page and the `AggregateRating` / `Review`
+schema that produces star ratings in Google results. `src/lib/reviews.ts`
+documents the shape of an entry.
+
+Two rules:
+
+- **Only real reviews.** Copy them verbatim from the Google Business Profile or
+  FreeIndex. Inventing reviews, or rounding the count up, breaks Google's review
+  snippet policy and puts both the rich result and the Business Profile at risk.
+- **An empty file publishes nothing.** With no reviews the section does not
+  render and no rating markup is emitted, so the site never shows an empty shell
+  or a zero-star business.
+
+Set `LEAVE_REVIEW_URL` in `src/lib/reviews.ts` to the direct
+`https://search.google.com/local/writereview?placeid=…` link once you have the
+Place ID; it currently falls back to a Google search for the business.
 
 ## Origins
 
