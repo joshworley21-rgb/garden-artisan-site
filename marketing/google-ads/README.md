@@ -17,7 +17,7 @@ the same keyword appears in two ad groups.
 | File | Contents |
 | --- | --- |
 | `01-campaigns.csv` | 4 campaigns, 2 enabled and 2 paused |
-| `02-ad-groups.csv` | 9 ad groups with starting CPC caps |
+| `02-ad-groups.csv` | 10 ad groups with starting CPC caps |
 | `03-keywords.csv` | 49 keywords, exact and phrase only |
 | `04-negative-keywords.csv` | 123 negatives applied to every campaign |
 | `05-responsive-search-ads.csv` | One responsive search ad per ad group |
