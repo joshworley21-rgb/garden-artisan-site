@@ -20,19 +20,55 @@ const url = (path, campaign) =>
   `${SITE}${path}?utm_source=google&utm_medium=cpc&utm_campaign=${campaign}`;
 
 /**
- * Phase 1 runs the two campaigns that pay for themselves fastest: the
- * recurring maintenance round, and the high-ticket landscaping work.
+ * One live campaign holding every phase-1 ad group.
  *
- * Phase 2 (design, commercial) ships PAUSED. Both are lower-volume, and
- * splitting a small budget four ways means none of the four gathers enough
- * conversions to learn from. Turn them on once phase 1 has a cost per enquiry
- * you trust.
+ * Locations, budget, schedule, bidding and negatives are all CAMPAIGN-level
+ * settings, so a second campaign means setting each of them twice. At £15/day
+ * there is nothing to gain from that: splitting the budget between maintenance
+ * and landscaping was a guess, and one pooled budget lets the spend follow
+ * whichever demand actually shows up.
+ *
+ * The ad groups stay separate, because that is what decides which ad a searcher
+ * sees and which page they land on. Somebody searching "patio installers
+ * aylesbury" gets patio copy and the patio page; merging the ad groups too
+ * would hand them a generic gardening ad and the maintenance page.
+ *
+ * Phase 2 (design, commercial) ships PAUSED — lower volume, and worth adding
+ * only once there is a cost per enquiry worth extending.
  */
+/**
+ * Landscaping ad copy. Lives here rather than on the campaign because the one
+ * campaign now holds both maintenance and landscaping ad groups, and the whole
+ * point of keeping the ad groups apart is that a patio search sees patio copy.
+ */
+const landscapingAd = {
+  headlines: [
+    'Landscapers in Aylesbury',
+    'Patios, Paths & Fencing',
+    'Hard Landscaping, Done Well',
+    'Free On-Site Quote',
+    'Turfing & New Lawns',
+    'Local Landscapers, Est 2017',
+    'See Our Recent Projects',
+    'Decking, Fencing & Patios',
+    'Qualified & Insured',
+    'Aylesbury & Surrounding Area',
+    'Book a Free Site Visit',
+    'Built to Last, Not to Rush',
+  ],
+  descriptions: [
+    'Patios, paths, fencing, decking and turfing across Aylesbury and Bucks. Free quotes.',
+    'Landscaping by trained gardeners, not a general builder. Trading locally since 2017.',
+    'See photos of recent patios and fencing on our site, then book a free site visit.',
+    'Covering Aylesbury, Tring, Wendover, Haddenham and the surrounding villages.',
+  ],
+};
+
 export const campaigns = [
   {
-    name: 'Search - Garden Maintenance',
+    name: 'Search - JW Garden Services',
     status: 'Enabled',
-    dailyBudget: 9.0,
+    dailyBudget: 15.0,
     phase: 1,
     adGroups: [
       {
@@ -92,6 +128,64 @@ export const campaigns = [
           ['hedge cutting service', 'Phrase'],
         ],
       },
+      {
+        name: 'Patios',
+        maxCpc: 2.0,
+        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
+        path1: 'Patios',
+        path2: 'Aylesbury',
+        ads: [landscapingAd],
+        keywords: [
+          ['patio installers aylesbury', 'Exact'],
+          ['patio laying aylesbury', 'Exact'],
+          ['patio company near me', 'Phrase'],
+          ['patio installers near me', 'Phrase'],
+          ['new patio cost', 'Phrase'],
+        ],
+      },
+      {
+        name: 'Fencing',
+        maxCpc: 1.8,
+        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
+        path1: 'Fencing',
+        path2: 'Aylesbury',
+        ads: [landscapingAd],
+        keywords: [
+          ['garden fencing aylesbury', 'Exact'],
+          ['fence installers aylesbury', 'Exact'],
+          ['garden fencing near me', 'Phrase'],
+          ['fence fitters near me', 'Phrase'],
+        ],
+      },
+      {
+        name: 'Turfing & New Lawns',
+        maxCpc: 1.7,
+        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
+        path1: 'Turfing',
+        path2: 'New-Lawns',
+        ads: [landscapingAd],
+        keywords: [
+          ['turfing aylesbury', 'Exact'],
+          ['turf laying service aylesbury', 'Exact'],
+          ['new lawn laid near me', 'Phrase'],
+          ['turfing service near me', 'Phrase'],
+        ],
+      },
+      {
+        name: 'Landscaping - Generic',
+        maxCpc: 2.0,
+        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
+        path1: 'Landscaping',
+        path2: 'Aylesbury',
+        ads: [landscapingAd],
+        keywords: [
+          ['landscaping aylesbury', 'Exact'],
+          ['landscapers aylesbury', 'Exact'],
+          ['landscape gardeners aylesbury', 'Exact'],
+          ['landscape gardeners near me', 'Phrase'],
+          ['garden landscaping near me', 'Phrase'],
+        ],
+      },
     ],
     ads: [
       {
@@ -114,93 +208,6 @@ export const campaigns = [
           'City & Guilds qualified, trading since 2017. Lawns, hedges and borders kept immaculate.',
           'We bring our own tools and take every bag of clippings with us. Same day each week.',
           'Covering Aylesbury, Wendover, Wing, Stone, Haddenham and Tring. Call for a free quote.',
-        ],
-      },
-    ],
-  },
-
-  {
-    name: 'Search - Landscaping & Patios',
-    status: 'Enabled',
-    dailyBudget: 6.0,
-    phase: 1,
-    adGroups: [
-      {
-        name: 'Patios',
-        maxCpc: 2.0,
-        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
-        path1: 'Patios',
-        path2: 'Aylesbury',
-        keywords: [
-          ['patio installers aylesbury', 'Exact'],
-          ['patio laying aylesbury', 'Exact'],
-          ['patio company near me', 'Phrase'],
-          ['patio installers near me', 'Phrase'],
-          ['new patio cost', 'Phrase'],
-        ],
-      },
-      {
-        name: 'Fencing',
-        maxCpc: 1.8,
-        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
-        path1: 'Fencing',
-        path2: 'Aylesbury',
-        keywords: [
-          ['garden fencing aylesbury', 'Exact'],
-          ['fence installers aylesbury', 'Exact'],
-          ['garden fencing near me', 'Phrase'],
-          ['fence fitters near me', 'Phrase'],
-        ],
-      },
-      {
-        name: 'Turfing & New Lawns',
-        maxCpc: 1.7,
-        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
-        path1: 'Turfing',
-        path2: 'New-Lawns',
-        keywords: [
-          ['turfing aylesbury', 'Exact'],
-          ['turf laying service aylesbury', 'Exact'],
-          ['new lawn laid near me', 'Phrase'],
-          ['turfing service near me', 'Phrase'],
-        ],
-      },
-      {
-        name: 'Landscaping - Generic',
-        maxCpc: 2.0,
-        finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
-        path1: 'Landscaping',
-        path2: 'Aylesbury',
-        keywords: [
-          ['landscaping aylesbury', 'Exact'],
-          ['landscapers aylesbury', 'Exact'],
-          ['landscape gardeners aylesbury', 'Exact'],
-          ['landscape gardeners near me', 'Phrase'],
-          ['garden landscaping near me', 'Phrase'],
-        ],
-      },
-    ],
-    ads: [
-      {
-        headlines: [
-          'Landscapers in Aylesbury',
-          'Patios, Paths & Fencing',
-          'Hard Landscaping, Done Well',
-          'Free On-Site Quote',
-          'Turfing & New Lawns',
-          'Local Landscapers, Est 2017',
-          'See Our Recent Projects',
-          'Decking, Fencing & Patios',
-          'Qualified & Insured',
-          'Aylesbury & Surrounding Area',
-          'Book a Free Site Visit',
-          'Built to Last, Not to Rush',
-        ],
-        descriptions: [
-          'Patios, paths, fencing, decking and turfing across Aylesbury and Bucks. Free quotes.',
-          'Landscaping by trained gardeners, not a general builder. Trading locally since 2017.',
-          'See photos of recent patios and fencing on our site, then book a free site visit.',
-          'Covering Aylesbury, Tring, Wendover, Haddenham and the surrounding villages.',
         ],
       },
     ],

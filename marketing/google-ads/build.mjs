@@ -42,8 +42,11 @@ const check = (label, value, limit) => {
 
 // --- Validate ads -----------------------------------------------------------
 
+/** An ad group may carry its own ads; otherwise it uses the campaign's. */
+const adsFor = (campaign, group) => group.ads ?? campaign.ads;
+
 for (const campaign of campaigns) {
-  for (const ad of campaign.ads) {
+  for (const ad of campaign.adGroups.flatMap((g) => adsFor(campaign, g))) {
     // Google serves at most 3 headlines and 2 descriptions at once, but wants
     // plenty to choose from. Fewer than 8 headlines limits the combinations it
     // can test and caps Ad Strength at "Average".
@@ -225,7 +228,7 @@ write('05-responsive-search-ads.csv', [
   ],
   ...campaigns.flatMap((c) =>
     c.adGroups.flatMap((g) =>
-      c.ads.map((ad) => [
+      adsFor(c, g).map((ad) => [
         c.name,
         g.name,
         'Responsive search ad',

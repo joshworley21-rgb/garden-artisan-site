@@ -20,11 +20,21 @@ ad groups and ads — so nothing can spend until it is switched on.
 
 | | Campaign | Ad groups | Keywords | Negatives |
 | --- | --- | --- | --- | --- |
-| `24201757678` | Search - Garden Maintenance | 4 | 21 | 123 |
-| `24190973895` | Search - Landscaping & Patios | 4 | 18 | 123 |
+| `24201757678` | Search - JW Garden Services | 8 | 39 | 123 |
 
-Also set on both: £1.50 CPC ceiling, Maximise Clicks (target spend), English
-only, Mon–Fri 07:00–20:00 and Sat 08:00–14:00, a call asset, 5 sitelinks, 8
+It started as two campaigns and was merged into one. Locations, budget,
+schedule, bidding and negatives are all campaign-level settings, so two
+campaigns meant configuring each of them twice for no gain — at £15/day the
+9/6 budget split was a guess, and one pooled budget lets the spend follow
+whichever demand shows up. The ad groups stayed separate, because that is what
+decides which ad a searcher sees and which page they land on.
+
+`24190973895` still exists, emptied and renamed **"ZZ - Landscaping & Patios
+(merged, do not use)"**. It is paused and can be removed whenever convenient;
+the API has no delete, so it was renamed to make it obviously dead.
+
+Also set: £15/day budget, £1.50 CPC ceiling, Maximise Clicks (target spend),
+English only, Mon–Fri 07:00–20:00 and Sat 08:00–14:00, a call asset, sitelinks,
 callouts and a Service catalog snippet.
 
 **Before enabling, two things must be done by hand in the web UI** — neither has
@@ -83,7 +93,11 @@ on this page.
   location targeting at all, so switching them on as they stand would serve the
   ads nationally and burn the budget in a day. Target the **twelve named towns**,
   not a radius: Aylesbury, Bierton, Wendover, Wing, Stone, Waddesdon, Haddenham,
-  Tring, Leighton Buzzard, Great Missenden, Chesham, Amersham. A 25 mile circle
+  Tring, Leighton Buzzard, Great Missenden, Chesham, Amersham — or the
+  equivalent postcode districts, which is how they were entered in practice:
+  HP17-HP23 and HP5, plus HP16, HP6, HP7 and LU7 for Great Missenden, Amersham
+  and Leighton Buzzard. **HP20 is central Aylesbury and must not be missed.**
+  A 25 mile circle
   from Bierton sweeps in Milton Keynes, High Wycombe and Luton — none of them
   worked, all of them expensive. Villages Google has no entry for (Bierton,
   Stone and Wing may not resolve) are covered by adding postcode districts
