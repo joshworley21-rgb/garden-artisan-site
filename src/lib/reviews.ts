@@ -39,13 +39,13 @@ export interface Review {
 export const BUSINESS_ID = 'https://jw-gardenservices.co.uk/#business';
 
 /**
- * Where customers are sent to leave a review. Replace the search URL with the
- * direct write-review link once you have the Place ID:
- * https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID
- * Find it at https://developers.google.com/maps/documentation/places/web-service/place-id
+ * Where customers are sent to leave a review. This is the direct write-review
+ * link for the Business Profile (Place ID ChIJycyvDxxhdkgRKTDKpm5GS9A), read
+ * from the profile itself — it opens the review box straight away rather than
+ * dropping people on a search results page to find it themselves.
  */
 export const LEAVE_REVIEW_URL =
-  'https://www.google.com/search?kgmid=/g/11gnsg7505&q=JW+Garden+Services';
+  'https://search.google.com/local/writereview?placeid=ChIJycyvDxxhdkgRKTDKpm5GS9A';
 
 /** Newest first, so the freshest review leads. */
 export const reviews: Review[] = [...(rawReviews as Review[])].sort((a, b) =>

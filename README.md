@@ -65,9 +65,9 @@ Two rules:
   render and no rating markup is emitted, so the site never shows an empty shell
   or a zero-star business.
 
-Set `LEAVE_REVIEW_URL` in `src/lib/reviews.ts` to the direct
-`https://search.google.com/local/writereview?placeid=…` link once you have the
-Place ID; it currently falls back to a Google search for the business.
+`LEAVE_REVIEW_URL` in `src/lib/reviews.ts` is the direct write-review link for
+the Business Profile (Place ID `ChIJycyvDxxhdkgRKTDKpm5GS9A`), so the button
+opens the review box rather than a search page.
 
 ## Google Ads
 

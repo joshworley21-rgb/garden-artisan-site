@@ -37,7 +37,7 @@ export const campaigns = [
     adGroups: [
       {
         name: 'Gardener - Generic',
-        maxCpc: 2.5,
+        maxCpc: 1.6,
         finalUrl: url('/services/garden-maintenance', 'maintenance'),
         path1: 'Gardeners',
         path2: 'Aylesbury',
@@ -52,7 +52,7 @@ export const campaigns = [
       },
       {
         name: 'Garden Maintenance',
-        maxCpc: 2.5,
+        maxCpc: 1.6,
         finalUrl: url('/services/garden-maintenance', 'maintenance'),
         path1: 'Garden',
         path2: 'Maintenance',
@@ -67,7 +67,7 @@ export const campaigns = [
       },
       {
         name: 'Lawn & Grass Cutting',
-        maxCpc: 2.2,
+        maxCpc: 1.4,
         finalUrl: url('/services/garden-maintenance', 'maintenance'),
         path1: 'Lawn-Care',
         path2: 'Aylesbury',
@@ -81,7 +81,7 @@ export const campaigns = [
       },
       {
         name: 'Hedge Cutting',
-        maxCpc: 2.2,
+        maxCpc: 1.4,
         finalUrl: url('/services/garden-maintenance', 'maintenance'),
         path1: 'Hedge-Cutting',
         path2: 'Aylesbury',
@@ -127,7 +127,7 @@ export const campaigns = [
     adGroups: [
       {
         name: 'Patios',
-        maxCpc: 3.0,
+        maxCpc: 2.0,
         finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
         path1: 'Patios',
         path2: 'Aylesbury',
@@ -141,7 +141,7 @@ export const campaigns = [
       },
       {
         name: 'Fencing',
-        maxCpc: 2.8,
+        maxCpc: 1.8,
         finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
         path1: 'Fencing',
         path2: 'Aylesbury',
@@ -154,7 +154,7 @@ export const campaigns = [
       },
       {
         name: 'Turfing & New Lawns',
-        maxCpc: 2.6,
+        maxCpc: 1.7,
         finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
         path1: 'Turfing',
         path2: 'New-Lawns',
@@ -167,7 +167,7 @@ export const campaigns = [
       },
       {
         name: 'Landscaping - Generic',
-        maxCpc: 3.0,
+        maxCpc: 2.0,
         finalUrl: url('/services/landscaping-and-patios', 'landscaping'),
         path1: 'Landscaping',
         path2: 'Aylesbury',
@@ -214,7 +214,7 @@ export const campaigns = [
     adGroups: [
       {
         name: 'Garden Design',
-        maxCpc: 2.8,
+        maxCpc: 1.8,
         finalUrl: url('/services/garden-design-and-planting', 'design'),
         path1: 'Garden-Design',
         path2: 'Aylesbury',
@@ -256,7 +256,7 @@ export const campaigns = [
     adGroups: [
       {
         name: 'Commercial Grounds',
-        maxCpc: 3.2,
+        maxCpc: 2.0,
         finalUrl: url('/services/commercial-grounds-maintenance', 'commercial'),
         path1: 'Commercial',
         path2: 'Grounds',
@@ -424,7 +424,9 @@ export const manualSettings = {
   languages: ['English'],
   networks: 'Google Search only. Turn OFF the Display Network and Search Partners to start.',
   bidStrategy:
-    'Start on Maximise Clicks with a £2.50 CPC cap. Switch to Maximise ' +
+    'Start on Maximise Clicks with a £1.50 CPC cap — this account has ' +
+    'historically paid about £0.77 a click, so a higher cap only invites ' +
+    'drift. Switch to Maximise ' +
     'Conversions only after the account has recorded ~30 conversions, or ' +
     'the algorithm has nothing to learn from.',
   adSchedule:

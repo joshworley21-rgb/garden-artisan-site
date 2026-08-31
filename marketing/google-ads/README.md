@@ -59,9 +59,10 @@ on this page.
   wastes more local budget than any other.
 - **Networks**: Google Search only. Turn off the Display Network and Search
   Partners to start.
-- **Bidding**: Maximise Clicks with a £2.50 CPC cap. Switch to Maximise
-  Conversions only once the account has recorded roughly 30 conversions —
-  before that the algorithm has nothing to learn from.
+- **Bidding**: Maximise Clicks with a £1.50 CPC cap. The account has
+  historically paid about £0.77 a click, so a higher cap only invites drift.
+  Switch to Maximise Conversions only once it has recorded roughly 30
+  conversions — before that the algorithm has nothing to learn from.
 - **Ad schedule**: Monday to Saturday, 07:00–20:00. You answer the phone
   08:00–16:00, so record a voicemail greeting pointing people at the website
   form.
@@ -81,6 +82,11 @@ Google Ads section of the root `README.md`. In short:
 3. Put them in `.env` as `VITE_GADS_ID`, `VITE_GADS_FORM_LABEL` and
    `VITE_GADS_CALL_LABEL`, then run `npm run build:deploy` and deploy.
 
+This is the highest-priority item in this folder. The account spent ~£246 in
+March and April 2026 and recorded **zero** conversions, because the site has
+carried no tag since it moved off Lovable. Every pound spent before this is
+fixed buys traffic you cannot measure.
+
 Until those are set the site loads no Google tag, sets no cookies and shows no
 consent banner.
 
@@ -95,10 +101,36 @@ consent banner.
 `campaign-plan.mjs` currently ships the recommended start. Change
 `dailyBudget` there and re-run `npm run ads:build` to switch tier.
 
-The only published landscaping benchmark I could find is US — an average CPC of
-$3.65 across 61 landscapers in 2024. UK CPCs outside London generally run lower,
-but **treat any number here as an estimate until Keyword Planner gives you real
-local figures for these exact keywords.**
+These tiers are grounded in the account's own history rather than a benchmark.
+Across £1,975 of past spend it has averaged **£0.77 a click** and **£18.20 a
+conversion** — far cheaper than the US landscaping benchmark of $3.65 a click,
+which is why the CPC caps here sit at £1.40–£2.00 rather than the £2.50–£3.20
+a benchmark would suggest.
+
+At £0.77 a click, £15/day buys roughly 19 clicks a day — about 580 a month.
+
+### What the account has already spent
+
+| Campaign | Spend | Clicks | CPC | Conv. | Cost/conv. |
+| --- | --- | --- | --- | --- | --- |
+| Search-6 | £930.27 | 1,388 | £0.67 | 76.5 | **£12.16** |
+| Performance Max-1 | £480.73 | 534 | £0.90 | 15 | £32.05 |
+| JW garden services | £346.10 | 439 | £0.79 | 13 | £26.62 |
+| March 2025 | £80.76 | 136 | £0.59 | 4 | £20.19 |
+| Garden Services - Apr 24 | £80.85 | 38 | £2.13 | 0 | — |
+| Leads-Search Feb 2024 | £31.07 | 31 | £1.00 | 0 | — |
+| March 2026 | £24.96 | 15 | £1.66 | 0 | — |
+| **Total** | **£1,974.73** | **2,581** | **£0.77** | **108.5** | **£18.20** |
+
+Two things fall straight out of that table:
+
+- **Search beat Performance Max by 2.6×** on cost per conversion (£12.16 against
+  £32.05). That is the evidence for building this account as plain search
+  campaigns and leaving PMax off.
+- **The Mar–Apr 2026 spend of ~£246 recorded zero conversions.** Almost
+  certainly because there is no conversion tracking on the site — see the
+  Conversion tracking section above. Do not read it as the traffic being
+  worthless; read it as the account having been flying blind.
 
 ## First month
 
