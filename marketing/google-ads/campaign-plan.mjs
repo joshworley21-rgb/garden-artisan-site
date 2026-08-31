@@ -20,7 +20,7 @@ const url = (path, campaign) =>
   `${SITE}${path}?utm_source=google&utm_medium=cpc&utm_campaign=${campaign}`;
 
 /**
- * One live campaign holding every phase-1 ad group.
+ * One live campaign holding every ad group, one per service.
  *
  * Locations, budget, schedule, bidding and negatives are all CAMPAIGN-level
  * settings, so a second campaign means setting each of them twice. At £15/day
@@ -33,8 +33,12 @@ const url = (path, campaign) =>
  * aylesbury" gets patio copy and the patio page; merging the ad groups too
  * would hand them a generic gardening ad and the maintenance page.
  *
- * Phase 2 (design, commercial) ships PAUSED — lower volume, and worth adding
- * only once there is a cost per enquiry worth extending.
+ * Garden Design and Commercial Grounds are ad groups in the same campaign
+ * rather than campaigns of their own. They are lower volume, so a separate
+ * campaign each would mean a separate budget, location list and schedule for a
+ * trickle of searches. As ad groups they cost nothing to carry: they draw from
+ * the pooled budget only when somebody actually searches for them, and every
+ * campaign-level setting is configured once.
  */
 /**
  * Landscaping ad copy. Lives here rather than on the campaign because the one
@@ -61,6 +65,44 @@ const landscapingAd = {
     'Landscaping by trained gardeners, not a general builder. Trading locally since 2017.',
     'See photos of recent patios and fencing on our site, then book a free site visit.',
     'Covering Aylesbury, Tring, Wendover, Haddenham and the surrounding villages.',
+  ],
+};
+
+/** Garden design ad copy, used by the Garden Design ad group only. */
+const designAd = {
+  headlines: [
+    'Garden Design in Aylesbury',
+    'Planting Plans That Work',
+    'Designed by a Horticulturist',
+    'Free Design Consultation',
+    'Borders, Beds & Planting',
+    'Local Garden Designers',
+    'City & Guilds Qual, Est 2017',
+    'Book Your Free Quote',
+  ],
+  descriptions: [
+    'Planting plans built around your soil, light and how much time you want to spend.',
+    'Borders, beds and full garden redesigns. Free consultation, no obligation.',
+    'City & Guilds qualified. Serving Aylesbury and the surrounding villages since 2017.',
+  ],
+};
+
+/** Commercial ad copy. Written for a facilities manager, not a homeowner. */
+const commercialAd = {
+  headlines: [
+    'Commercial Grounds Care',
+    'Grounds Maintenance, Bucks',
+    'Offices, Schools & Estates',
+    'Scheduled Site Visits',
+    'Fully Insured, Est 2017',
+    'Request a Site Quote',
+    'Local Grounds Contractor',
+    'Reliable, Same Team Weekly',
+  ],
+  descriptions: [
+    'Scheduled grounds maintenance for offices, schools and managed sites across Bucks.',
+    'The same team every visit, fully insured, with all green waste removed.',
+    'Based in Aylesbury, covering Buckinghamshire, Bedfordshire and Hertfordshire.',
   ],
 };
 
@@ -186,6 +228,36 @@ export const campaigns = [
           ['garden landscaping near me', 'Phrase'],
         ],
       },
+      {
+        name: 'Garden Design',
+        maxCpc: 1.8,
+        finalUrl: url('/services/garden-design-and-planting', 'design'),
+        path1: 'Garden-Design',
+        path2: 'Aylesbury',
+        ads: [designAd],
+        keywords: [
+          ['garden design aylesbury', 'Exact'],
+          ['garden designer aylesbury', 'Exact'],
+          ['garden design near me', 'Phrase'],
+          ['planting plan garden', 'Phrase'],
+          ['garden redesign service', 'Phrase'],
+        ],
+      },
+      {
+        name: 'Commercial Grounds',
+        maxCpc: 2.0,
+        finalUrl: url('/services/commercial-grounds-maintenance', 'commercial'),
+        path1: 'Commercial',
+        path2: 'Grounds',
+        ads: [commercialAd],
+        keywords: [
+          ['commercial grounds maintenance aylesbury', 'Exact'],
+          ['grounds maintenance aylesbury', 'Exact'],
+          ['commercial gardening services', 'Phrase'],
+          ['grounds maintenance contractors near me', 'Phrase'],
+          ['office grounds maintenance', 'Phrase'],
+        ],
+      },
     ],
     ads: [
       {
@@ -208,90 +280,6 @@ export const campaigns = [
           'City & Guilds qualified, trading since 2017. Lawns, hedges and borders kept immaculate.',
           'We bring our own tools and take every bag of clippings with us. Same day each week.',
           'Covering Aylesbury, Wendover, Wing, Stone, Haddenham and Tring. Call for a free quote.',
-        ],
-      },
-    ],
-  },
-
-  {
-    name: 'Search - Garden Design & Planting',
-    status: 'Paused',
-    dailyBudget: 4.0,
-    phase: 2,
-    adGroups: [
-      {
-        name: 'Garden Design',
-        maxCpc: 1.8,
-        finalUrl: url('/services/garden-design-and-planting', 'design'),
-        path1: 'Garden-Design',
-        path2: 'Aylesbury',
-        keywords: [
-          ['garden design aylesbury', 'Exact'],
-          ['garden designer aylesbury', 'Exact'],
-          ['garden design near me', 'Phrase'],
-          ['planting plan garden', 'Phrase'],
-          ['garden redesign service', 'Phrase'],
-        ],
-      },
-    ],
-    ads: [
-      {
-        headlines: [
-          'Garden Design in Aylesbury',
-          'Planting Plans That Work',
-          'Designed by a Horticulturist',
-          'Free Design Consultation',
-          'Borders, Beds & Planting',
-          'Local Garden Designers',
-          'City & Guilds Qual, Est 2017',
-          'Book Your Free Quote',
-        ],
-        descriptions: [
-          'Garden design and planting plans tailored to your space, soil and how you use it.',
-          'Designed and planted by trained gardeners who will maintain it afterwards too.',
-          'Covering Aylesbury and the surrounding Bucks, Beds and Herts villages.',
-        ],
-      },
-    ],
-  },
-
-  {
-    name: 'Search - Commercial Grounds',
-    status: 'Paused',
-    dailyBudget: 4.0,
-    phase: 2,
-    adGroups: [
-      {
-        name: 'Commercial Grounds',
-        maxCpc: 2.0,
-        finalUrl: url('/services/commercial-grounds-maintenance', 'commercial'),
-        path1: 'Commercial',
-        path2: 'Grounds',
-        keywords: [
-          ['commercial grounds maintenance aylesbury', 'Exact'],
-          ['grounds maintenance aylesbury', 'Exact'],
-          ['commercial gardening services', 'Phrase'],
-          ['grounds maintenance contractors near me', 'Phrase'],
-          ['office grounds maintenance', 'Phrase'],
-        ],
-      },
-    ],
-    ads: [
-      {
-        headlines: [
-          'Commercial Grounds Care',
-          'Grounds Maintenance, Bucks',
-          'Offices, Schools & Estates',
-          'Scheduled Site Visits',
-          'Fully Insured, Est 2017',
-          'Request a Site Quote',
-          'Local Grounds Contractor',
-          'Reliable, Same Team Weekly',
-        ],
-        descriptions: [
-          'Scheduled grounds maintenance for offices, schools and managed sites across Bucks.',
-          'The same team every visit, fully insured, with all green waste removed.',
-          'Based in Aylesbury, covering Buckinghamshire, Bedfordshire and Hertfordshire.',
         ],
       },
     ],
@@ -380,7 +368,7 @@ export const assets = {
     },
     {
       text: 'Areas We Cover',
-      description1: '25 miles around Aylesbury',
+      description1: 'Aylesbury and 11 nearby towns',
       description2: 'Bucks, Beds and Herts',
       finalUrl: url('/gardeners-in-aylesbury', 'sitelink'),
     },
@@ -464,21 +452,21 @@ export const budgetTiers = [
     label: 'Toe in the water',
     monthly: 300,
     daily: 10,
-    split: 'Maintenance £6/day · Landscaping £4/day',
+    split: 'One pooled budget across all ten ad groups',
     note: 'Enough to learn which keywords convert. Too thin to fill a round quickly.',
   },
   {
     label: 'Recommended start',
     monthly: 450,
     daily: 15,
-    split: 'Maintenance £9/day · Landscaping £6/day',
+    split: 'One pooled budget across all ten ad groups',
     note: 'Gathers conversion data fast enough to switch to smart bidding inside two months.',
   },
   {
     label: 'Push for the spring rush',
     monthly: 900,
     daily: 30,
-    split: 'Maintenance £18/day · Landscaping £12/day',
+    split: 'One pooled budget across all ten ad groups',
     note: 'For February and March, when people book the whole season. Not before.',
   },
 ];

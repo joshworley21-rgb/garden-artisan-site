@@ -14,13 +14,35 @@ the same keyword appears in two ad groups.
 
 ## Already built in the account
 
-The two phase-1 campaigns were created directly in account **234-303-0207**
-(JW Gardening) via the API, not imported. **Everything is PAUSED** — campaigns,
-ad groups and ads — so nothing can spend until it is switched on.
+The campaign was created directly in account **234-303-0207** (JW Gardening) via
+the API, not imported. **Everything is PAUSED** — campaign, ad groups and ads —
+so nothing can spend until it is switched on.
 
 | | Campaign | Ad groups | Keywords | Negatives |
 | --- | --- | --- | --- | --- |
-| `24201757678` | Search - JW Garden Services | 8 | 39 | 123 |
+| `24201757678` | Search - JW Garden Services | 10 | 49 | 123 |
+
+Every service the business offers now has its own ad group in that one campaign:
+
+| Ad group | ID | Keywords | Lands on |
+| --- | --- | --- | --- |
+| Gardener - Generic | | 6 | `/services/garden-maintenance` |
+| Garden Maintenance | | 6 | `/services/garden-maintenance` |
+| Lawn & Grass Cutting | | 5 | `/services/garden-maintenance` |
+| Hedge Cutting | | 4 | `/services/garden-maintenance` |
+| Patios | | 5 | `/services/landscaping-and-patios` |
+| Fencing | | 4 | `/services/landscaping-and-patios` |
+| Turfing & New Lawns | | 4 | `/services/landscaping-and-patios` |
+| Landscaping - Generic | | 5 | `/services/landscaping-and-patios` |
+| Garden Design | `195034286850` | 5 | `/services/garden-design-and-planting` |
+| Commercial Grounds | `196715455101` | 5 | `/services/commercial-grounds-maintenance` |
+
+Design and commercial were originally planned as separate paused campaigns and
+are now ad groups here instead. As campaigns they would each have needed their
+own budget, location list, schedule and negatives for a trickle of searches. As
+ad groups they cost nothing to carry: they draw on the pooled £15/day only when
+somebody actually searches for them, and every campaign-level setting is
+configured once.
 
 It started as two campaigns and was merged into one. Locations, budget,
 schedule, bidding and negatives are all campaign-level settings, so two
@@ -40,34 +62,33 @@ callouts and a Service catalog snippet.
 **Before enabling, two things must be done by hand in the web UI** — neither has
 an API:
 
-1. **Location targeting.** The campaigns currently have none, which means they
-   would serve nationally. Set the 25-mile radius and the presence option
+1. **Location targeting.** The campaign currently has none, which means it
+   would serve nationally. Set the named towns and the presence option
    described below *before* enabling anything.
 2. **Conversion tracking.** See below.
 
-The CSVs in this folder remain the source of truth and the way to rebuild or to
-import phase 2 (Garden Design, Commercial Grounds), which was deliberately not
-created in the account.
+The CSVs in this folder remain the source of truth and the way to rebuild the
+account from scratch.
 
 ## What ships
 
 | File | Contents |
 | --- | --- |
-| `01-campaigns.csv` | 4 campaigns, 2 enabled and 2 paused |
+| `01-campaigns.csv` | 1 campaign |
 | `02-ad-groups.csv` | 10 ad groups with starting CPC caps |
 | `03-keywords.csv` | 49 keywords, exact and phrase only |
-| `04-negative-keywords.csv` | 123 negatives applied to every campaign |
+| `04-negative-keywords.csv` | 123 campaign negatives |
 | `05-responsive-search-ads.csv` | One responsive search ad per ad group |
 | `06-sitelinks.csv` | 5 sitelinks |
 | `07-callouts.csv` | 8 callouts |
 | `08-structured-snippets.csv` | Service catalog snippet |
 
-**Two campaigns are deliberately paused.** Garden Design and Commercial Grounds
-are lower-volume, and a small budget split four ways means none of the four
-gathers enough conversions to learn from. Enable them once the two live
-campaigns have a cost per enquiry you trust.
+Three ad texts cover the ten ad groups: a maintenance ad (the campaign default),
+a landscaping ad shared by the four hard-landscaping groups, and one each for
+Garden Design and Commercial Grounds. An ad group can override the campaign's ad
+by setting its own `ads` array in `campaign-plan.mjs`.
 
-Nothing spends until you enable the campaigns in the account, so importing is
+Nothing spends until you enable the campaign in the account, so importing is
 safe to do before you have decided on a budget.
 
 ## Importing
@@ -89,8 +110,8 @@ into the web UI under **Campaigns → Assets** than to import.
 Set these once in the web UI. The first one matters more than everything else
 on this page.
 
-- **Location targeting — do this before enabling.** The live campaigns have no
-  location targeting at all, so switching them on as they stand would serve the
+- **Location targeting — do this before enabling.** The live campaign has no
+  location targeting at all, so switching it on as it stands would serve the
   ads nationally and burn the budget in a day. Target the **twelve named towns**,
   not a radius: Aylesbury, Bierton, Wendover, Wing, Stone, Waddesdon, Haddenham,
   Tring, Leighton Buzzard, Great Missenden, Chesham, Amersham — or the
@@ -171,11 +192,13 @@ consent banner.
 
 ## Budget
 
-| | Monthly | Daily | Split |
-| --- | --- | --- | --- |
-| Toe in the water | £300 | £10 | Maintenance £6 · Landscaping £4 |
-| **Recommended start** | **£450** | **£15** | **Maintenance £9 · Landscaping £6** |
-| Spring rush | £900 | £30 | Maintenance £18 · Landscaping £12 |
+| | Monthly | Daily |
+| --- | --- | --- |
+| Toe in the water | £300 | £10 |
+| **Recommended start** | **£450** | **£15** |
+| Spring rush | £900 | £30 |
+
+One pooled budget across all ten ad groups — there is nothing to split.
 
 `campaign-plan.mjs` currently ships the recommended start. Change
 `dailyBudget` there and re-run `npm run ads:build` to switch tier.
@@ -231,8 +254,8 @@ Week 1 is the only week with real work in it.
   predictable waste; the search terms report catches the rest. This is the
   single highest-return habit in a new account.
 - **Week 2** — pause any keyword with 50+ clicks and no enquiry.
-- **Week 4** — compare cost per enquiry between the two campaigns and move
-  budget toward the better one.
+- **Week 4** — compare cost per enquiry between the ad groups. Raise the max CPC
+  on the ones producing enquiries and cut it on the ones that are not.
 - **Month 2** — with ~30 conversions recorded, switch to Maximise Conversions.
 
 ## Editing
