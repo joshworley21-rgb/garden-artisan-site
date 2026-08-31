@@ -81,15 +81,16 @@ on this page.
 
 - **Location targeting — do this before enabling.** The live campaigns have no
   location targeting at all, so switching them on as they stand would serve the
-  ads nationally and burn the budget in a day. Set a 25 mile radius around
-  Bierton, Aylesbury HP22 — the same distance the business actually travels. Then
-  open the location options and set **"Presence: People in or regularly in your
-  targeted locations"**. The default is *Presence or interest*, which shows your
-  ads to somebody in Newcastle reading about Aylesbury. This single setting
-  wastes more local budget than any other. If the outer towns a 25-mile radius
-  picks up (Milton Keynes, High Wycombe, Luton) cost more per enquiry than they
-  are worth, tightening to 15 miles is the first lever to pull — before cutting
-  the budget.
+  ads nationally and burn the budget in a day. Target the **twelve named towns**,
+  not a radius: Aylesbury, Bierton, Wendover, Wing, Stone, Waddesdon, Haddenham,
+  Tring, Leighton Buzzard, Great Missenden, Chesham, Amersham. A 25 mile circle
+  from Bierton sweeps in Milton Keynes, High Wycombe and Luton — none of them
+  worked, all of them expensive. Villages Google has no entry for (Bierton,
+  Stone and Wing may not resolve) are covered by adding postcode districts
+  **HP17-HP22** instead. Then open **Location options** and set **"Presence:
+  People in or regularly in your targeted locations"**. The default is *Presence
+  or interest*, which shows your ads to somebody in Newcastle reading about
+  Aylesbury — that single setting wastes more local budget than any other.
 - **Networks**: Google Search only. Turn off the Display Network and Search
   Partners to start.
 - **Bidding**: Maximise Clicks with a £1.50 CPC cap. The account has
@@ -107,11 +108,20 @@ on this page.
 The site reports two conversions, but only once it is configured — see the
 Google Ads section of the root `README.md`. In short:
 
-1. In Google Ads: **Goals → Conversions → New conversion action → Website →
-   Add manually**. Create two:
+The account's existing conversion actions cannot be reused. "Clicks to call"
+and the three "Local actions" are `GOOGLE_HOSTED` — Google tracks those itself
+and there is nothing to install. "Contact Us", which carries 99 of the account's
+108 recorded conversions, is `GOOGLE_ANALYTICS_4_CUSTOM`: a GA4 import, not a
+Google Ads tag. That is why tracking stopped when the site left Lovable, and why
+none of them offer a Tag setup screen.
+
+1. In Google Ads: **Goals → Conversions → New conversion action → Website**,
+   then choose **"Add a conversion action manually instead"** rather than
+   letting it scan the site. Create two:
    - **Enquiry form** — category *Submit lead form*, count *One*
    - **Phone click** — category *Contact*, count *One*
-2. Each gives you a conversion ID (`AW-…`) and a label.
+2. Each then has a **Tag setup** screen carrying the conversion ID (`AW-…`) and
+   a label.
 3. Put them in `.env` as `VITE_GADS_ID`, `VITE_GADS_FORM_LABEL` and
    `VITE_GADS_CALL_LABEL`, then run `npm run build:deploy` and deploy.
 

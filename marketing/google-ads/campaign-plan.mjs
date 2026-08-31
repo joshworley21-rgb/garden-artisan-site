@@ -416,13 +416,17 @@ export const assets = {
  */
 export const manualSettings = {
   locations: [
-    '25 mile radius around Bierton, Aylesbury HP22',
+    'Aylesbury', 'Bierton', 'Wendover', 'Wing', 'Stone', 'Waddesdon',
+    'Haddenham', 'Tring', 'Leighton Buzzard', 'Great Missenden', 'Chesham',
+    'Amersham',
   ],
   locationNote:
-    'Matches the service area: 25 miles is how far the business actually ' +
-    'travels. If the outer towns (Milton Keynes, High Wycombe, Luton) turn ' +
-    'out to cost more per enquiry than they are worth, tightening to 15 ' +
-    'miles is the first lever to pull — not a smaller budget.',
+    'Named towns, not a radius. A 25 mile circle from Bierton sweeps in ' +
+    'Milton Keynes, High Wycombe and Luton — none of which are worked, and ' +
+    'all of which are expensive. Targeting the twelve places the site has ' +
+    'pages for keeps the spend where the work is. Villages that Google has ' +
+    'no location entry for (Bierton, Stone, Wing may not resolve) are ' +
+    'covered by adding postcode districts HP17-HP22 instead.',
   locationOptionCritical:
     'Set "Presence: People in or regularly in your targeted locations". The ' +
     'default is "Presence or interest", which shows your ads to somebody in ' +
