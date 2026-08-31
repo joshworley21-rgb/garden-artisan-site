@@ -127,8 +127,15 @@ none of them offer a Tag setup screen.
    letting it scan the site. Create two:
    - **Enquiry form** — category *Submit lead form*, count *One*
    - **Phone click** — category *Contact*, count *One*
-2. Each then has a **Tag setup** screen carrying the conversion ID (`AW-…`) and
-   a label.
+2. The account's conversion ID is **`AW-409710547`** — that is
+   `VITE_GADS_ID`, and it is the same for every conversion action in the
+   account. Each individual action then has its own **event snippet**
+   (`Tag setup` → `Install the tag yourself`) reading
+   `send_to: 'AW-409710547/<label>'`; the part after the slash is the label,
+   and it differs per action.
+
+   Do not paste the account-level Google tag into the site. `src/lib/analytics.ts`
+   already loads it, and a second copy on the page double-counts.
 3. Set both new actions to **Primary**, and demote every existing one to
    **Secondary action (observe only)**. As of this writing three are wrongly
    primary — "Contact Us", "JW Gardening Services - GA4 (web) call" and
