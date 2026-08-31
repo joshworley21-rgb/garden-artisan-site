@@ -6,6 +6,7 @@ import ContactSection from '@/components/ContactSection';
 import { Button } from '@/components/ui/button';
 import NotFound from '@/pages/NotFound';
 import { getService, services } from '@/lib/services';
+import { trackPhoneClick } from '@/lib/analytics';
 
 const SITE = 'https://jw-gardenservices.co.uk';
 
@@ -137,7 +138,7 @@ const ServiceDetail = () => {
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild>
-                    <a href="tel:+447950636954">
+                    <a href="tel:+447950636954" onClick={trackPhoneClick}>
                       <Phone className="h-4 w-4" />
                       07950 636954
                     </a>

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import NotFound from '@/pages/NotFound';
 import { getArea, areas } from '@/lib/areas';
 import { services } from '@/lib/services';
+import { trackPhoneClick } from '@/lib/analytics';
 
 const SITE = 'https://jw-gardenservices.co.uk';
 
@@ -104,7 +105,7 @@ const AreaDetail = () => {
                   <p>
                     We are based in Bierton, Aylesbury &mdash; {area.travelTime.toLowerCase()} &mdash; and we
                     cover {area.postcodes}. Call{' '}
-                    <a href="tel:+447950636954" className="text-primary underline underline-offset-4">
+                    <a href="tel:+447950636954" onClick={trackPhoneClick} className="text-primary underline underline-offset-4">
                       07950 636954
                     </a>{' '}
                     and we will tell you honestly whether your {area.town} garden is on our round and what a
@@ -164,7 +165,7 @@ const AreaDetail = () => {
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild>
-                    <a href="tel:+447950636954">
+                    <a href="tel:+447950636954" onClick={trackPhoneClick}>
                       <Phone className="h-4 w-4" />
                       07950 636954
                     </a>

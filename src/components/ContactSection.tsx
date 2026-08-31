@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getAttribution } from '@/lib/attribution';
+import { trackEnquiryConversion, trackPhoneClick } from '@/lib/analytics';
 
 // Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
 // which emails the enquiry to both info@jw-gardenservices.co.uk and the Yahoo
@@ -61,10 +63,16 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
           phone: formData.phone.trim(),
           message: formData.message.trim(),
           source_page: location.pathname,
+          // Where this visit came from, so the enquiry email and the CRM record
+          // say which ad or keyword produced the lead.
+          attribution: getAttribution(),
         }),
       });
 
       if (res.ok) {
+        // Only on a confirmed submission: counting attempts would inflate the
+        // conversion figure that bidding is optimised against.
+        trackEnquiryConversion();
         void notify('success', "Thank you — we've received your enquiry and will be in touch shortly.");
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
@@ -125,7 +133,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 <div>
                   <h3 className="font-heading text-lg font-semibold mb-1">Phone</h3>
                   <p className="font-body text-primary-foreground/70">
-                    <a href="tel:07950636954" className="hover:text-hero-accent transition-colors">07950 636954</a><br />
+                    <a href="tel:07950636954" onClick={trackPhoneClick} className="hover:text-hero-accent transition-colors">07950 636954</a><br />
                     Call us for a free quote
                   </p>
                 </div>

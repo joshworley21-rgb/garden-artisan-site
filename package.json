@@ -17,7 +17,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prerender": "node scripts/prerender.mjs"
+    "prerender": "node scripts/prerender.mjs",
+    "ads:build": "node marketing/google-ads/build.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

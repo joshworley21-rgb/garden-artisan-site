@@ -47,6 +47,28 @@ $phone   = trim($data['phone']   ?? '');
 $message = trim($data['message'] ?? '');
 $source  = trim($data['source_page'] ?? '');
 
+/**
+ * Where the visit came from, sent by src/lib/attribution.ts. Everything here is
+ * attacker-controllable (it starts life as a URL query string), so it is
+ * whitelisted by key, length-capped and stripped of CR/LF before it goes
+ * anywhere near a mail header or the CRM.
+ */
+$attributionKeys = [
+    'gclid', 'wbraid', 'gbraid',
+    'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+    'referrer', 'landing_page',
+];
+$attribution = [];
+$rawAttribution = $data['attribution'] ?? [];
+if (is_array($rawAttribution)) {
+    foreach ($attributionKeys as $key) {
+        $value = $rawAttribution[$key] ?? '';
+        if (!is_string($value)) { continue; }
+        $value = trim(str_replace(["\r", "\n"], ' ', $value));
+        if ($value !== '') { $attribution[$key] = mb_substr($value, 0, 300); }
+    }
+}
+
 $errors = [];
 if ($name === '' || mb_strlen($name) > 100) $errors[] = 'name';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 255) $errors[] = 'email';
@@ -102,6 +124,17 @@ $body    = "New enquiry from your website\n\n"
          . ($phone !== '' ? "Phone:   {$phone}\n" : '')
          . "Page:    {$source}\n\n"
          . "Message:\n{$message}\n";
+
+// Lead source, appended so it never pushes the customer's details off the top
+// of a phone notification. A paid click is called out explicitly: it is the
+// line that tells you the advertising is working.
+if (!empty($attribution)) {
+    $paid = isset($attribution['gclid']) || isset($attribution['wbraid']) || isset($attribution['gbraid']);
+    $body .= "\n--\nLead source" . ($paid ? ' (GOOGLE ADS CLICK)' : '') . "\n";
+    foreach ($attribution as $key => $value) {
+        $body .= sprintf("%-14s %s\n", $key . ':', $value);
+    }
+}
 
 $messageId = '<' . bin2hex(random_bytes(12)) . '@' . $domain . '>';
 $headers = [
@@ -213,6 +246,7 @@ function crm_forward(array $c, array $fields, bool $alreadyEmailed): bool
         'phone'   => $fields['phone'],
         'message' => $fields['message'],
         'source'  => $fields['source'] !== '' ? $fields['source'] : 'website',
+        'attribution' => $fields['attribution'] ?? [],
         'notify'  => !$alreadyEmailed,
     ]);
 
@@ -264,7 +298,14 @@ function crm_forward(array $c, array $fields, bool $alreadyEmailed): bool
 
 $filedInCrm = crm_forward(
     $config,
-    ['name' => $name, 'email' => $email, 'phone' => $phone, 'message' => $message, 'source' => $source],
+    [
+        'name'        => $name,
+        'email'       => $email,
+        'phone'       => $phone,
+        'message'     => $message,
+        'source'      => $source,
+        'attribution' => $attribution,
+    ],
     $sent,
 );
 

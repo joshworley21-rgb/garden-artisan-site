@@ -1,8 +1,10 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DeferredToaster from "./components/DeferredToaster";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
+import ConsentBanner from "./components/ConsentBanner";
+import { captureAttribution } from "./lib/attribution";
 
 // Secondary routes are code-split so the mobile landing page ships less JS.
 const About = lazy(() => import("./pages/About"));
@@ -13,7 +15,13 @@ const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const AreaDetail = lazy(() => import("./pages/AreaDetail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const App = () => (
+const App = () => {
+  // Read the campaign tags off the landing URL before any navigation drops them.
+  useEffect(() => {
+    captureAttribution();
+  }, []);
+
+  return (
   <>
     <DeferredToaster />
     <BrowserRouter>
@@ -32,8 +40,11 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      {/* Inside the router: the banner links to the privacy page. */}
+      <ConsentBanner />
     </BrowserRouter>
   </>
-);
+  );
+};
 
 export default App;
