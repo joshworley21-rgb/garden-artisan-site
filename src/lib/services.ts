@@ -41,7 +41,7 @@ export const services: ServiceContent[] = [
       {
         heading: 'We are gardeners, not a mow and go',
         paragraphs: [
-          'Cutting grass and looking after a garden are not the same job. I trained in horticulture at BCA and did an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
+          'Cutting grass and looking after a garden are not the same job. I am a City & Guilds-qualified horticulturist and served an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
           'We are members of The Gardeners Guild. We bring our own tools and take every bag of clippings away with us, so you are not left with a green bin you cannot shut.',
         ],
       },
@@ -94,7 +94,7 @@ export const services: ServiceContent[] = [
     eyebrow: 'Hard landscaping',
     seoTitle: 'Landscaping Aylesbury | Patios, Paths & Fencing',
     seoDescription:
-      'Hard landscaping in Aylesbury and Buckinghamshire: patios, paths, fencing, decking, sleeper beds and turfing. Built by a trained horticulturist. Free quotes.',
+      'Hard landscaping in Aylesbury and Bucks: patios, paths, fencing, decking and turfing. Built by a City & Guilds-qualified horticulturist.',
     intro:
       'Patios, paths, fencing, decking and new lawns across Aylesbury and Buckinghamshire. Built properly, so they are still right in ten years.',
     image: images['jw-landscaping'],

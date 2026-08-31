@@ -105,13 +105,13 @@ export const campaigns = [
           'Same Day, Every Week',
           'Gardeners Guild Members',
           'Lawns, Hedges & Borders',
-          'Trained Horticulturist',
+          'City & Guilds Qualified',
           'Book Your Free Quote',
           'Reliable Weekly Gardeners',
         ],
         descriptions: [
           'Weekly garden maintenance across Aylesbury and the villages. Free quotes, waste removed.',
-          'Trained at BCA, trading since 2017. Lawns, hedges and borders kept immaculate all year.',
+          'City & Guilds qualified, trading since 2017. Lawns, hedges and borders kept immaculate.',
           'We bring our own tools and take every bag of clippings with us. Same day each week.',
           'Covering Aylesbury, Wendover, Wing, Stone, Haddenham and Tring. Call for a free quote.',
         ],
@@ -236,7 +236,7 @@ export const campaigns = [
           'Free Design Consultation',
           'Borders, Beds & Planting',
           'Local Garden Designers',
-          'Trained at BCA, Est 2017',
+          'City & Guilds Qual, Est 2017',
           'Book Your Free Quote',
         ],
         descriptions: [
@@ -381,7 +381,7 @@ export const assets = {
   callouts: [
     'Free Quotes',
     'All Waste Taken Away',
-    'Trained Horticulturist',
+    'City & Guilds Qualified',
     'Gardeners Guild Member',
     'Same Day Each Week',
     'Established 2017',

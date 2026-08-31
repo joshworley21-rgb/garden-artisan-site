@@ -11,7 +11,7 @@ const About = () => (
   <>
     <Seo
       title="About Josh | JW Garden Services, Aylesbury"
-      description="Meet Josh Worley, BCA-trained horticulturist and founder of JW Garden Services in Bierton, Aylesbury, caring for gardens across Bucks, Beds and Herts."
+      description="Meet Josh Worley, City &amp; Guilds-qualified horticulturist and founder of JW Garden Services in Bierton, Aylesbury, caring for gardens across Bucks and Herts."
       path="/about"
     />
     <PageLayout
@@ -24,9 +24,10 @@ const About = () => (
           <p>
             Hi, I&rsquo;m Josh, the founder of JW Garden Services. My passion for horticulture
             started at a young age and has only grown stronger over the years. After discovering my
-            love for gardening in school, I pursued it professionally by studying horticulture at
-            BCA. To further develop my knowledge and skills, I continued my education through an
-            apprenticeship, gaining hands-on experience and refining my craft.
+            love for gardening in school, I pursued it professionally and qualified as a
+            City &amp; Guilds horticulturist. To further develop my knowledge and skills, I
+            continued my education through an apprenticeship, gaining hands-on experience and
+            refining my craft.
           </p>
           <p>
             In 2017, I took the leap and founded JW Garden Services. Since then, the business has
