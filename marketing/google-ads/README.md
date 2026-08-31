@@ -52,11 +52,15 @@ into the web UI under **Campaigns → Assets** than to import.
 Set these once in the web UI. The first one matters more than everything else
 on this page.
 
-- **Location targeting**: 15 mile radius around Bierton, Aylesbury HP22. Then
+- **Location targeting**: 25 mile radius around Bierton, Aylesbury HP22 — the
+  same distance the business actually travels. Then
   open the location options and set **"Presence: People in or regularly in your
   targeted locations"**. The default is *Presence or interest*, which shows your
   ads to somebody in Newcastle reading about Aylesbury. This single setting
-  wastes more local budget than any other.
+  wastes more local budget than any other. If the outer towns a 25-mile radius
+  picks up (Milton Keynes, High Wycombe, Luton) cost more per enquiry than they
+  are worth, tightening to 15 miles is the first lever to pull — before cutting
+  the budget.
 - **Networks**: Google Search only. Turn off the Display Network and Search
   Partners to start.
 - **Bidding**: Maximise Clicks with a £1.50 CPC cap. The account has

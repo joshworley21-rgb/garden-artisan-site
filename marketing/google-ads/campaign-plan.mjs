@@ -414,8 +414,13 @@ export const assets = {
  */
 export const manualSettings = {
   locations: [
-    '15 mile radius around Bierton, Aylesbury HP22',
+    '25 mile radius around Bierton, Aylesbury HP22',
   ],
+  locationNote:
+    'Matches the service area: 25 miles is how far the business actually ' +
+    'travels. If the outer towns (Milton Keynes, High Wycombe, Luton) turn ' +
+    'out to cost more per enquiry than they are worth, tightening to 15 ' +
+    'miles is the first lever to pull — not a smaller budget.',
   locationOptionCritical:
     'Set "Presence: People in or regularly in your targeted locations". The ' +
     'default is "Presence or interest", which shows your ads to somebody in ' +
