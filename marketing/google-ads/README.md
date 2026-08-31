@@ -108,6 +108,13 @@ on this page.
 The site reports two conversions, but only once it is configured — see the
 Google Ads section of the root `README.md`. In short:
 
+**The account's website tracking points at the wrong domain.** Goals → the
+"Conversions on a website" data source reads `https://www.jw-gardening.com/`,
+with a Google tag and GA4 property 340239237 attached to it. That domain appears
+nowhere in this repository. It is the real reason conversions stopped, and the
+reason every historic conversion in this account was recorded against a site
+that is not the one these campaigns advertise.
+
 The account's existing conversion actions cannot be reused. "Clicks to call"
 and the three "Local actions" are `GOOGLE_HOSTED` — Google tracks those itself
 and there is nothing to install. "Contact Us", which carries 99 of the account's
@@ -122,7 +129,15 @@ none of them offer a Tag setup screen.
    - **Phone click** — category *Contact*, count *One*
 2. Each then has a **Tag setup** screen carrying the conversion ID (`AW-…`) and
    a label.
-3. Put them in `.env` as `VITE_GADS_ID`, `VITE_GADS_FORM_LABEL` and
+3. Set both new actions to **Primary**, and demote every existing one to
+   **Secondary action (observe only)**. As of this writing three are wrongly
+   primary — "Contact Us", "JW Gardening Services - GA4 (web) call" and
+   "JW Gardening Services - GA4 (web) ua_email" — and all three are GA4 imports
+   from `jw-gardening.com`, a domain this site has nothing to do with. They can
+   never fire again, so leaving them primary points Smart Bidding at conversions
+   that will not happen. ("Email" and "Call (All Web Site Data)" are Universal
+   Analytics, retired by Google in 2023; they are already secondary.)
+4. Put the new values in `.env` as `VITE_GADS_ID`, `VITE_GADS_FORM_LABEL` and
    `VITE_GADS_CALL_LABEL`, then run `npm run build:deploy` and deploy.
 
 This is the highest-priority item in this folder. The account spent ~£246 in
