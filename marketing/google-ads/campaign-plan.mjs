@@ -389,7 +389,9 @@ export const assets = {
     'Own Tools Brought',
   ],
   structuredSnippet: {
-    header: 'Services',
+    // Google only accepts headers from its own fixed list — "Services" is
+    // rejected, "Service catalog" is the one that means this.
+    header: 'Service catalog',
     values: [
       'Garden maintenance',
       'Hedge cutting',

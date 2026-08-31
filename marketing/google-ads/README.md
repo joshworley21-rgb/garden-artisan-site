@@ -12,6 +12,33 @@ The build fails rather than writing files if a headline is over 30 characters,
 a description over 90, a landing page is missing from `public/sitemap.xml`, or
 the same keyword appears in two ad groups.
 
+## Already built in the account
+
+The two phase-1 campaigns were created directly in account **234-303-0207**
+(JW Gardening) via the API, not imported. **Everything is PAUSED** — campaigns,
+ad groups and ads — so nothing can spend until it is switched on.
+
+| | Campaign | Ad groups | Keywords | Negatives |
+| --- | --- | --- | --- | --- |
+| `24201757678` | Search - Garden Maintenance | 4 | 21 | 123 |
+| `24190973895` | Search - Landscaping & Patios | 4 | 18 | 123 |
+
+Also set on both: £1.50 CPC ceiling, Maximise Clicks (target spend), English
+only, Mon–Fri 07:00–20:00 and Sat 08:00–14:00, a call asset, 5 sitelinks, 8
+callouts and a Service catalog snippet.
+
+**Before enabling, two things must be done by hand in the web UI** — neither has
+an API:
+
+1. **Location targeting.** The campaigns currently have none, which means they
+   would serve nationally. Set the 25-mile radius and the presence option
+   described below *before* enabling anything.
+2. **Conversion tracking.** See below.
+
+The CSVs in this folder remain the source of truth and the way to rebuild or to
+import phase 2 (Garden Design, Commercial Grounds), which was deliberately not
+created in the account.
+
 ## What ships
 
 | File | Contents |
@@ -23,7 +50,7 @@ the same keyword appears in two ad groups.
 | `05-responsive-search-ads.csv` | One responsive search ad per ad group |
 | `06-sitelinks.csv` | 5 sitelinks |
 | `07-callouts.csv` | 8 callouts |
-| `08-structured-snippets.csv` | Services snippet |
+| `08-structured-snippets.csv` | Service catalog snippet |
 
 **Two campaigns are deliberately paused.** Garden Design and Commercial Grounds
 are lower-volume, and a small budget split four ways means none of the four
@@ -52,8 +79,10 @@ into the web UI under **Campaigns → Assets** than to import.
 Set these once in the web UI. The first one matters more than everything else
 on this page.
 
-- **Location targeting**: 25 mile radius around Bierton, Aylesbury HP22 — the
-  same distance the business actually travels. Then
+- **Location targeting — do this before enabling.** The live campaigns have no
+  location targeting at all, so switching them on as they stand would serve the
+  ads nationally and burn the budget in a day. Set a 25 mile radius around
+  Bierton, Aylesbury HP22 — the same distance the business actually travels. Then
   open the location options and set **"Presence: People in or regularly in your
   targeted locations"**. The default is *Presence or interest*, which shows your
   ads to somebody in Newcastle reading about Aylesbury. This single setting

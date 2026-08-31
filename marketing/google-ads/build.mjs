@@ -73,6 +73,23 @@ assets.sitelinks.forEach((s) => {
   check('Sitelink description', s.description2, LIMITS.sitelinkDescription);
 });
 assets.callouts.forEach((c) => check('Callout', c, LIMITS.callout));
+
+// Structured snippet headers are a closed list. Anything else is rejected on
+// import and by the API, which is easy to miss because the value reads fine.
+const SNIPPET_HEADERS = [
+  'Amenities', 'Brands', 'Courses', 'Degree programs', 'Destinations',
+  'Featured hotels', 'Insurance coverage', 'Models', 'Neighborhoods',
+  'Service catalog', 'Shows', 'Styles', 'Types',
+];
+if (!SNIPPET_HEADERS.includes(assets.structuredSnippet.header)) {
+  problems.push(
+    `Structured snippet header "${assets.structuredSnippet.header}" is not one ` +
+      `of Google's accepted headers: ${SNIPPET_HEADERS.join(', ')}`,
+  );
+}
+if (assets.structuredSnippet.values.length < 3) {
+  problems.push('Structured snippet needs at least 3 values');
+}
 assets.structuredSnippet.values.forEach((v) =>
   check('Structured snippet value', v, LIMITS.snippetValue),
 );
