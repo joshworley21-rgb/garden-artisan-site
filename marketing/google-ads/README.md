@@ -187,6 +187,16 @@ At £0.77 a click, £15/day buys roughly 19 clicks a day — about 580 a month.
 | March 2026 | £24.96 | 15 | £1.66 | 0 | — |
 | **Total** | **£1,974.73** | **2,581** | **£0.77** | **108.5** | **£18.20** |
 
+**Treat that conversion column with suspicion.** "Contact Us", which is 99 of
+those 108, is defined in GA4 as `Page load: /contact` counted on **every**
+conversion, not one per person. So it counted anybody who so much as landed on
+the contact page, repeatedly, on a domain that is not this site. It is a
+page-view metric wearing a conversion's clothing. The true cost per *enquiry*
+over that period is unknown and certainly higher than £18.20. The click and
+cost figures are sound; the conversion and cost-per-conversion figures are not,
+which is the strongest argument for the tracking work below. Its last recorded
+conversion was 23 November 2025.
+
 Two things fall straight out of that table:
 
 - **Search beat Performance Max by 2.6×** on cost per conversion (£12.16 against
