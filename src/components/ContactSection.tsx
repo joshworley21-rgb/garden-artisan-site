@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, Send, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { trackEnquirySubmitted } from '@/lib/analytics';
 
 // Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
 // which emails the enquiry to both info@jw-gardenservices.co.uk and the Yahoo
@@ -65,6 +66,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
       });
 
       if (res.ok) {
+        trackEnquirySubmitted(location.pathname);
         void notify('success', "Thank you — we've received your enquiry and will be in touch shortly.");
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {

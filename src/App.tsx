@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DeferredToaster from "./components/DeferredToaster";
 import Index from "./pages/Index";
 import ScrollToTop from "./components/ScrollToTop";
+import RouteAnalytics from "./components/RouteAnalytics";
 
 // Secondary routes are code-split so the mobile landing page ships less JS.
 const About = lazy(() => import("./pages/About"));
@@ -18,6 +19,7 @@ const App = () => (
     <DeferredToaster />
     <BrowserRouter>
       <ScrollToTop />
+      <RouteAnalytics />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
