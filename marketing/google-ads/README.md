@@ -51,13 +51,53 @@ campaigns meant configuring each of them twice for no gain — at £15/day the
 whichever demand shows up. The ad groups stayed separate, because that is what
 decides which ad a searcher sees and which page they land on.
 
-`24190973895` still exists, emptied and renamed **"ZZ - Landscaping & Patios
-(merged, do not use)"**. It is paused and can be removed whenever convenient;
-the API has no delete, so it was renamed to make it obviously dead.
+`24190973895` still exists, renamed **"ZZ OLD - Landscaping & Patios
+(superseded, do not use)"**. It still holds its original four ad groups (Patios,
+Fencing, Turfing & New Lawns, Landscaping - Generic) — an earlier note here said
+it had been emptied, which was wrong. The campaign is paused and all four ad
+groups have since been paused too, so nothing in it can serve even if the
+campaign is switched on by accident. Remove it in the web UI whenever
+convenient.
 
 Also set: £15/day budget, £1.50 CPC ceiling, Maximise Clicks (target spend),
 English only, Mon–Fri 07:00–20:00 and Sat 08:00–14:00, a call asset, sitelinks,
 callouts and a Service catalog snippet.
+
+## Clearing out the old account
+
+Everything predating this build is either already removed or paused and prefixed
+`ZZ OLD -` so it sorts to the bottom of the campaign list.
+
+| Campaign | ID | Spend | State |
+| --- | --- | --- | --- |
+| Search-6 | `22465459162` | £930.27 | Already removed |
+| JW garden services | `20574890099` | £346.10 | Already removed |
+| Garden Services - Apr 24 | `21156820258` | £80.85 | Already removed |
+| Leads-Search- Feb 2024 | `22246672214` | £31.07 | Already removed |
+| ZZ OLD - Performance Max-1 | `20569120512` | £480.73 | Paused |
+| ZZ OLD - March 2025 | `22373474280` | £80.76 | Paused |
+| ZZ OLD - March 2026 | `23688050618` | £24.96 | Paused |
+| ZZ OLD - Landscaping & Patios | `24190973895` | £0 | Paused, ad groups paused |
+
+The API this repo drives can create, pause and rename, but it has **no remove
+action** for campaigns, ad groups, ads or conversion actions. Removing them is a
+web-UI job: tick the campaign, then **Edit → Remove**.
+
+Removing is safe for reporting. Google keeps the spend history of a removed
+campaign — the four already-removed campaigns above still return their spend
+through the API, which is where those figures came from. Removing changes what
+you see in the campaign list, not what the account knows about its own past.
+
+Two things must survive the clear-out:
+
+- **The `Enquiry form` and `Phone click` conversion actions.** They are the new
+  tracking and the site is built against their labels.
+- **Search - JW Garden Services** (`24201757678`) and its ten ad groups.
+
+Removing a conversion action cannot be undone and takes its historical
+conversion data out of the reports it feeds. There is no reason to remove the
+old GA4 and Universal Analytics actions — demoting them to **Secondary** stops
+them influencing bidding, which is the only harm they do.
 
 **Before enabling, two things must be done by hand in the web UI** — neither has
 an API:
