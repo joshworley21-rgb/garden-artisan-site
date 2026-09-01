@@ -83,24 +83,18 @@ export const trackPageView = (path: string) => {
 };
 
 /**
- * A nominal value per lead, matching the snippet Google generated for the
- * conversion action. Every enquiry is worth the same here because the job value
- * is not known at submit time; it exists so value-based bidding has something to
- * work with later. Changing it changes reported conversion value, not bidding.
+ * Fired from the enquiry form's success branch — this is the primary lead.
+ *
+ * No value is sent, matching the snippet Google generated for the Submit lead
+ * form action. When the tag omits a value Google falls back to the value set on
+ * the conversion action itself, so the amount stays editable in the Ads UI
+ * rather than being pinned here and needing a rebuild to change.
  */
-const LEAD_VALUE = 1.0;
-const LEAD_CURRENCY = 'GBP';
-
-/** Fired from the enquiry form's success branch — this is the primary lead. */
 export const trackEnquirySubmitted = (sourcePage: string) => {
   if (!initialised) return;
   gtag('event', 'generate_lead', { method: 'enquiry_form', source_page: sourcePage });
   if (ADS_ID && ENQUIRY_LABEL) {
-    gtag('event', 'conversion', {
-      send_to: `${ADS_ID}/${ENQUIRY_LABEL}`,
-      value: LEAD_VALUE,
-      currency: LEAD_CURRENCY,
-    });
+    gtag('event', 'conversion', { send_to: `${ADS_ID}/${ENQUIRY_LABEL}` });
   }
 };
 
@@ -112,11 +106,7 @@ const listenForPhoneClicks = () => {
 
     gtag('event', 'contact', { method: 'phone' });
     if (ADS_ID && CALL_LABEL) {
-      gtag('event', 'conversion', {
-        send_to: `${ADS_ID}/${CALL_LABEL}`,
-        value: LEAD_VALUE,
-        currency: LEAD_CURRENCY,
-      });
+      gtag('event', 'conversion', { send_to: `${ADS_ID}/${CALL_LABEL}` });
     }
   });
 };
