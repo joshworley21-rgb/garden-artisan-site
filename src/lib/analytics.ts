@@ -82,12 +82,25 @@ export const trackPageView = (path: string) => {
   });
 };
 
+/**
+ * A nominal value per lead, matching the snippet Google generated for the
+ * conversion action. Every enquiry is worth the same here because the job value
+ * is not known at submit time; it exists so value-based bidding has something to
+ * work with later. Changing it changes reported conversion value, not bidding.
+ */
+const LEAD_VALUE = 1.0;
+const LEAD_CURRENCY = 'GBP';
+
 /** Fired from the enquiry form's success branch — this is the primary lead. */
 export const trackEnquirySubmitted = (sourcePage: string) => {
   if (!initialised) return;
   gtag('event', 'generate_lead', { method: 'enquiry_form', source_page: sourcePage });
   if (ADS_ID && ENQUIRY_LABEL) {
-    gtag('event', 'conversion', { send_to: `${ADS_ID}/${ENQUIRY_LABEL}` });
+    gtag('event', 'conversion', {
+      send_to: `${ADS_ID}/${ENQUIRY_LABEL}`,
+      value: LEAD_VALUE,
+      currency: LEAD_CURRENCY,
+    });
   }
 };
 
@@ -99,7 +112,11 @@ const listenForPhoneClicks = () => {
 
     gtag('event', 'contact', { method: 'phone' });
     if (ADS_ID && CALL_LABEL) {
-      gtag('event', 'conversion', { send_to: `${ADS_ID}/${CALL_LABEL}` });
+      gtag('event', 'conversion', {
+        send_to: `${ADS_ID}/${CALL_LABEL}`,
+        value: LEAD_VALUE,
+        currency: LEAD_CURRENCY,
+      });
     }
   });
 };
