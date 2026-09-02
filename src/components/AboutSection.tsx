@@ -29,7 +29,7 @@ const AboutSection = () => {
               alt="Josh weeding a flower border, in a JW Garden Services polo shirt"
               loading="lazy"
               decoding="async"
-              className="w-full rounded-lg object-cover aspect-[4/5] shadow-soft"
+              className="w-full rounded-lg object-cover aspect-[3/2] shadow-soft"
             />
           </div>
 

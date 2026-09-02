@@ -46,7 +46,7 @@
 
     /* Custom properties */
     --font-heading: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    --font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
 
     /* Shadows — tinted with the foreground green, never neutral black. */
     --shadow-soft: 0 4px 20px -2px hsl(150 25% 15% / 0.08);
