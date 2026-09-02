@@ -43,27 +43,29 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-5 font-body text-lg text-muted-foreground leading-relaxed measure">
               <p>
-                Josh trained in horticulture at BCA and finished an apprenticeship before
-                starting JW Garden Services in 2017. That training is the difference between
-                cutting grass and looking after a garden: prune shrubs and roses in the right
-                month and they come back stronger the next summer.
+                Your garden should be somewhere you want to sit and eat outside, not another
+                job on the list. We have been looking after gardens around Aylesbury since
+                2017, and the horticulture is the part we care about most.
               </p>
               <p>
-                We turn up with our own tools, so there is nothing for you to dig out of the
-                shed. If we spot something worth doing, we will mention it. No pressure
-                either way.
+                Some gardens want a weekly visit and nothing more. Some want redesigning from
+                the fence in. Most sit somewhere between the two, and we will tell you straight
+                which one yours is.
               </p>
             </div>
 
-            {/* Credentials as a definition list on hairline rules. */}
-            <dl className="mt-10 grid sm:grid-cols-2 gap-x-10">
-              {credentials.map((credential) => (
+            <dl className="mt-10 grid sm:grid-cols-2 border-t border-border">
+              {credentials.map((credential, index) => (
                 <div
                   key={credential.term}
-                  className="border-t border-border py-4 flex flex-col gap-1"
+                  className={`border-b border-border py-5 sm:py-6 ${
+                    index % 2 === 0 ? 'sm:pr-10' : 'sm:border-l sm:border-border sm:pl-10'
+                  }`}
                 >
-                  <dt className="font-body text-sm text-muted-foreground">{credential.term}</dt>
-                  <dd className="font-body text-foreground">{credential.detail}</dd>
+                  <dt className="font-body font-medium text-foreground">{credential.term}</dt>
+                  <dd className="font-body text-sm text-muted-foreground mt-1.5">
+                    {credential.detail}
+                  </dd>
                 </div>
               ))}
             </dl>
