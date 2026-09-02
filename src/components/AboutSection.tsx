@@ -1,6 +1,6 @@
 import { images } from '@/lib/images';
 
-const aboutImage = images['jw-maint-2'];
+const aboutImage = images['jw-maint-3'];
 const guildLogo = images['gardeners-guild-logo'];
 
 // The same four credentials the section has always listed, but set as a
@@ -26,10 +26,10 @@ const AboutSection = () => {
               sizes="(max-width: 1024px) 90vw, 40vw"
               width={aboutImage.width}
               height={aboutImage.height}
-              alt="Striped lawn running up to a deep herbaceous border in full flower"
+              alt="Wisteria in full flower trained across the front of a brick house"
               loading="lazy"
               decoding="async"
-              className="w-full rounded-lg object-cover aspect-[4/3] border border-border"
+              className="w-full rounded-lg object-cover aspect-[3/4] border border-border"
             />
           </div>
 
