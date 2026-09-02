@@ -35,11 +35,12 @@ const AboutSection = () => {
 
           <div className="lg:col-span-7">
             <p className="kicker font-body mb-6">About Us</p>
-            {/* Same words as before; the second line now separates by tone and weight
-                instead of a one-line italic serif in accent green. */}
+            {/* Keeps the original heading's shape and most of its words. Only the
+                two tells go: "Passionate About" as an opener, and "Flourish",
+                which sits in the same family as "thriving". */}
             <h2 className="font-heading heading-section text-foreground mb-6">
-              Passionate About Helping
-              <span className="block font-normal text-muted-foreground">Outdoor Spaces Flourish</span>
+              Helping Outdoor Spaces
+              <span className="block font-normal text-muted-foreground">Come Into Their Own</span>
             </h2>
             <div className="space-y-5 font-body text-lg text-muted-foreground leading-relaxed measure">
               <p>
