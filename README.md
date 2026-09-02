@@ -45,17 +45,26 @@ public/assets/          all images and video shipped with the site
 public/enquiry.php      contact form handler (SMTP → business inbox)
 public/.htaccess        SPA fallback, caching and security headers for Apache
 scripts/                asset migration, prerendering, sitemap dates, publishing
-.claude/skills/         UI/UX Pro Max design skills for Claude Code (see below)
+.claude/skills/         design skills Claude Code loads for UI work (see below)
 ```
 
 ## Design skills
 
-`.claude/skills/` holds [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-(MIT), a local design-intelligence database Claude Code picks up automatically
-when it works on the interface — UI styles, product colour palettes, font
-pairings, chart types, accessibility and UX rules, and per-stack guidance for
-React, Tailwind and shadcn/ui. It is plain CSV and Markdown searched by Python
-scripts: no network calls, no API keys, nothing that ships in the site build.
+`.claude/skills/` holds two sets of design skills Claude Code picks up
+automatically when it works on the interface.
+
+**[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)**
+(Anthropic, Apache 2.0) is the art-direction half: a single `SKILL.md` on
+brief-first visual decisions, typography pairing, restraint and self-critique,
+and interface copy. It has no data or scripts — it shapes how the design gets
+chosen before any of it gets written.
+
+**[UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**
+(MIT) is the reference half: a local design-intelligence database of UI styles,
+product colour palettes, font pairings, chart types, accessibility and UX
+rules, and per-stack guidance for React, Tailwind and shadcn/ui. It is plain
+CSV and Markdown searched by Python scripts — no network calls, no API keys,
+and nothing that ships in the site build.
 
 Query it directly with Python 3:
 
@@ -72,10 +81,12 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "hero section" --domain u
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
 ```
 
-Installed with `npx ui-ux-pro-max-cli init --ai claude`; re-run it with
-`--force` to update. The sibling skills (`brand`, `design`, `design-system`,
-`banner-design`, `slides`, `ui-styling`) come with it and cover brand kits,
-logos and marketing collateral.
+UI/UX Pro Max was installed with `npx ui-ux-pro-max-cli init --ai claude`;
+re-run it with `--force` to update. Its sibling skills (`brand`, `design`,
+`design-system`, `banner-design`, `slides`, `ui-styling`) come with it and
+cover brand kits, logos and marketing collateral. `frontend-design` is a copy
+of that folder from `anthropics/skills` — update it by copying the folder
+again.
 
 ## Origins
 
