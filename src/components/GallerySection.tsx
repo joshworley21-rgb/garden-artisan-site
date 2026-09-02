@@ -44,11 +44,11 @@ const GallerySection = () => {
         {/* A column wall rather than a grid of identical squares: every photo keeps
             the shape it was taken in, so tall borders stay tall and wide lawns stay
             wide. */}
-        <div className="columns-2 lg:columns-3 gap-3 sm:gap-4 lg:gap-6 [column-fill:balance]">
+        <div className="columns-2 lg:columns-3 gap-2 sm:gap-2.5 lg:gap-3 [column-fill:balance]">
           {galleryImages.map((item, index) => (
             <figure
               key={item.key}
-              className="mb-3 sm:mb-4 lg:mb-6 break-inside-avoid overflow-hidden rounded-lg bg-muted"
+              className="mb-2 sm:mb-2.5 lg:mb-3 break-inside-avoid overflow-hidden rounded-lg bg-muted"
             >
               <img
                 src={item.image.src}

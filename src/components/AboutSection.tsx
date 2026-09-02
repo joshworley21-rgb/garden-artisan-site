@@ -1,16 +1,16 @@
 import { images } from '@/lib/images';
 
 const aboutImage = images['jw-maint-3'];
-const guildLogo = images['gardeners-guild-logo'];
 
-// The credentials the section has always listed, set as a definition list on
-// hairline rules rather than four Lucide glyphs in tinted rounded squares — a
-// shield next to "insured" was decoration, not information. The Guild
-// membership is the fourth cell of the same grid, carried by its own mark.
+// The same four credentials the section has always listed, set as a definition
+// list on hairline rules rather than four Lucide glyphs in tinted rounded
+// squares — a shield next to "insured" was decoration, not information. The
+// Guild's own mark stays in the footer, where it appears on every page.
 const credentials = [
   { term: 'Fully Qualified Horticulturist', detail: 'City & Guilds certified expertise' },
   { term: 'Professional & Insured', detail: 'Public liability cover, details on request' },
   { term: 'Tailored Solutions', detail: 'Weekly in summer, less often over winter' },
+  { term: 'Gardeners Guild Member', detail: 'Qualified, accredited professional' },
 ];
 
 // Every cell sits on the same rules; odd ones pick up the vertical divider once
@@ -67,42 +67,18 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* display:contents lets the list keep its dl/dt/dd semantics while
-                its rows and the Guild mark share one grid. */}
-            <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 border-t border-border">
-              <dl className="contents">
-                {credentials.map((credential, index) => (
-                  <div key={credential.term} className={cell(index)}>
-                    <dt className="font-body font-medium text-foreground text-[0.9375rem] sm:text-base">
-                      {credential.term}
-                    </dt>
-                    <dd className="font-body text-[0.8125rem] sm:text-sm text-muted-foreground mt-1 sm:mt-1.5">
-                      {credential.detail}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-
-              <a
-                href="https://thegardenersguild.co.uk/"
-                target="_blank"
-                rel="noopener"
-                className={`${cell(3)} group flex items-start gap-4`}
-              >
-                <img
-                  src={guildLogo.src}
-                  alt="The Gardeners Guild"
-                  width={guildLogo.width}
-                  height={guildLogo.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-10 w-auto shrink-0 rounded-sm"
-                />
-                <span className="font-body text-[0.8125rem] sm:text-sm text-muted-foreground group-hover:text-foreground transition-colors [text-wrap:balance]">
-                  Accredited member of The Gardeners Guild
-                </span>
-              </a>
-            </div>
+            <dl className="mt-8 sm:mt-10 grid sm:grid-cols-2 border-t border-border">
+              {credentials.map((credential, index) => (
+                <div key={credential.term} className={cell(index)}>
+                  <dt className="font-body font-medium text-foreground text-[0.9375rem] sm:text-base">
+                    {credential.term}
+                  </dt>
+                  <dd className="font-body text-[0.8125rem] sm:text-sm text-muted-foreground mt-1 sm:mt-1.5">
+                    {credential.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
