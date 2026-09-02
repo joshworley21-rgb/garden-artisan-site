@@ -153,7 +153,9 @@ const ServiceDetail = () => {
             <h2 className="font-heading heading-section text-foreground mb-8 text-center">
               Recent {service.navLabel.toLowerCase()} work
             </h2>
-            <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
+            {/* Same wall treatment as the homepage portfolio: a 2px hairline
+                gutter, no radius, no shadow. */}
+            <div className="grid sm:grid-cols-3 gap-0.5">
               {service.gallery.map((img, i) => (
                 <img
                   key={img.src}
@@ -165,7 +167,7 @@ const ServiceDetail = () => {
                   alt={`${service.navLabel} project by JW Garden Services in the Aylesbury area — example ${i + 1}`}
                   loading="lazy"
                   decoding="async"
-                  className="w-full rounded-lg shadow-soft object-cover aspect-[4/3]"
+                  className="w-full object-cover aspect-[4/3]"
                 />
               ))}
             </div>

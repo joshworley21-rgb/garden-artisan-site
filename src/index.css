@@ -131,9 +131,13 @@
 }
 
 @layer components {
+  /* Symmetric on purpose: the bottom used to run 13% heavier than the top,
+     which read as a section trailing off rather than closing. The background
+     alternates between sections, so the tone change marks the break and the
+     padding does not have to. */
   .section-padding {
-    padding-top: clamp(4rem, 7.5vw, 9rem);
-    padding-bottom: clamp(4.5rem, 8.5vw, 10.5rem);
+    padding-top: clamp(3rem, 5vw, 6rem);
+    padding-bottom: clamp(3rem, 5vw, 6rem);
   }
 
   .container-wide {
