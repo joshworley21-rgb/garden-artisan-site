@@ -50,7 +50,7 @@ scripts/                asset migration, prerendering, sitemap dates, publishing
 
 ## Design skills
 
-`.claude/skills/` holds two sets of design skills Claude Code picks up
+`.claude/skills/` holds three sets of design skills Claude Code picks up
 automatically when it works on the interface.
 
 **[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)**
@@ -66,7 +66,15 @@ rules, and per-stack guidance for React, Tailwind and shadcn/ui. It is plain
 CSV and Markdown searched by Python scripts — no network calls, no API keys,
 and nothing that ships in the site build.
 
-Query it directly with Python 3:
+**[unslop-ui](https://github.com/JCarterJohnson/vibecoded-design-tells/tree/main/skill)**
+(MIT) is the guardrail: a ranked catalogue of the cues that make a site read as
+AI-generated, weighted by a 3.2M-post Reddit analysis, plus `devibe_scan.py`,
+a dependency-free scanner. It prescribes no look — it flags *unspecified
+defaults*, including the cream-plus-serif-plus-sage one that anti-AI redesigns
+tend to land on. A line commented `unslop-ignore` is skipped, so deliberate
+brand choices stay unflagged.
+
+Query the Pro Max databases with Python 3:
 
 ```sh
 # Full design system for a brief
@@ -81,12 +89,24 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "hero section" --domain u
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
 ```
 
+Scan this site for AI-default tells:
+
+```sh
+python3 .claude/skills/unslop-ui/scripts/devibe_scan.py ./src
+python3 .claude/skills/unslop-ui/scripts/devibe_scan.py ./src --severity high
+```
+
+The exit code is the number of high-severity findings, so it can gate CI. Note
+that it scans `src/components/ui/` too, where stock shadcn primitives live —
+those hits are expected unless the primitives get themed.
+
 UI/UX Pro Max was installed with `npx ui-ux-pro-max-cli init --ai claude`;
 re-run it with `--force` to update. Its sibling skills (`brand`, `design`,
 `design-system`, `banner-design`, `slides`, `ui-styling`) come with it and
-cover brand kits, logos and marketing collateral. `frontend-design` is a copy
-of that folder from `anthropics/skills` — update it by copying the folder
-again.
+cover brand kits, logos and marketing collateral. `frontend-design` and
+`unslop-ui` are copies of their upstream folders (from `anthropics/skills`, and
+from the packaged `unslop-ui.skill` in `vibecoded-design-tells`) — update
+either by copying it in again.
 
 ## Origins
 
