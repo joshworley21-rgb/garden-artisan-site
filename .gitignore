@@ -25,3 +25,10 @@ dist-ssr
 
 # Holds the mailbox password — lives only on the server, never in this repo
 public/enquiry-config.php
+
+# Impeccable: shared setup is committed (.impeccable/live/config.json),
+# per-developer overrides and live-session scratch state are not
+.impeccable/config.local.json
+.impeccable/live/roots.json
+.impeccable/live/inject-journal.json
+.impeccable/live/sessions/
