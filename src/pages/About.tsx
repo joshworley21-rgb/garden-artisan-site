@@ -15,72 +15,76 @@ const About = () => (
       path="/about"
     />
     <PageLayout
-    eyebrow="Our story"
-    title="Your Garden, Our Passion"
-  >
-    <section className="section-padding bg-background">
-      <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <div className="space-y-6 font-body text-lg text-muted-foreground leading-relaxed">
-          <p>
-            Hi, I&rsquo;m Josh, the founder of JW Garden Services. My passion for horticulture
-            started at a young age and has only grown stronger over the years. After discovering my
-            love for gardening in school, I pursued it professionally by studying horticulture at
-            BCA. To further develop my knowledge and skills, I continued my education through an
-            apprenticeship, gaining hands-on experience and refining my craft.
-          </p>
-          <p>
-            In 2017, I took the leap and founded JW Garden Services. Since then, the business has
-            grown from strength to strength, built on a foundation of expertise, hard work, and a
-            love for creating beautiful outdoor spaces. Whether it&rsquo;s routine garden
-            maintenance or specialized horticultural services, I take pride in delivering
-            high-quality results tailored to each client&rsquo;s unique needs.
-          </p>
-          <p>
-            At JW Garden Services, we believe every garden has the potential to flourish.
-            We&rsquo;re here to make that happen with professional care and attention to detail,
-            ensuring your outdoor space looks its best all year round.
-          </p>
-        </div>
+      eyebrow="About"
+      title="A trained gardener, not a mow and go"
+      intro="I'm Josh. I got into gardening at school, studied horticulture at BCA, and did an apprenticeship before starting JW Garden Services in 2017."
+    >
+      <section className="section-padding bg-background">
+        <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="space-y-6 font-body text-lg text-muted-foreground leading-relaxed measure">
+            <p>
+              Cutting grass and looking after a garden are not the same job. Anyone can take the
+              top off a hedge. Knowing when it should be cut, and that the roses next to it want
+              pruning at a different point in the year, is the part you train for. It shows up the
+              following summer, in how much everything flowers.
+            </p>
+            <p>
+              I work out of Bierton, so most of the gardens I look after are ones I drive past
+              anyway. That keeps you honest. A garden ten minutes from your own front door is not
+              one you can do a rushed job on and forget about.
+            </p>
+            <p>
+              Most people ring because the garden has got away from them a bit. I come and look,
+              ask how you actually use the space, and send a written quote with the costs broken
+              down. No obligation. If a job wants a proper tree surgeon rather than me, I will say
+              so.
+            </p>
+            <p>
+              I am City &amp; Guilds qualified, a member of The Gardeners Guild, and we carry
+              public liability insurance. I can send the details and risk assessments over
+              whenever you need them.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            src={about1.src}
-            srcSet={about1.srcSet}
-            sizes="(max-width: 1024px) 50vw, 25vw"
-            width={about1.width}
-            height={about1.height}
-            alt="Josh working on a garden project"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft"
-          />
-          <img
-            src={about2.src}
-            srcSet={about2.srcSet}
-            sizes="(max-width: 1024px) 50vw, 25vw"
-            width={about2.width}
-            height={about2.height}
-            alt="Freshly maintained garden border"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft row-span-2"
-          />
-          <img
-            src={about3.src}
-            srcSet={about3.srcSet}
-            sizes="(max-width: 1024px) 50vw, 25vw"
-            width={about3.width}
-            height={about3.height}
-            alt="Completed landscaping project by JW Garden Services"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft"
-          />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={about1.src}
+              srcSet={about1.srcSet}
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              width={about1.width}
+              height={about1.height}
+              alt="Stone terrace edged with lavender and clipped domes, looking out over open countryside"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover rounded-lg border border-border"
+            />
+            <img
+              src={about2.src}
+              srcSet={about2.srcSet}
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              width={about2.width}
+              height={about2.height}
+              alt="Deep mixed border of salvias, lupins and irises in front of a red smoke bush"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover rounded-lg border border-border row-span-2"
+            />
+            <img
+              src={about3.src}
+              srcSet={about3.srcSet}
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              width={about3.width}
+              height={about3.height}
+              alt="Josh weeding a flower border by hand beside a striped lawn"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover rounded-lg border border-border"
+            />
+          </div>
         </div>
-      </div>
-    </section>
-    <ContactSection />
-  </PageLayout>
+      </section>
+      <ContactSection />
+    </PageLayout>
   </>
 );
 
