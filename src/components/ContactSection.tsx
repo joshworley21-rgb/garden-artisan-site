@@ -67,7 +67,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
 
       if (res.ok) {
         trackEnquirySubmitted(location.pathname);
-        void notify('success', "Thank you — we've received your enquiry and will be in touch shortly.");
+        void notify('success', "Thank you. We have your enquiry and will be in touch shortly.");
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
         throw new Error('submission failed');
@@ -95,12 +95,13 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   Contact Us
                 </p>
                 <h2 className="font-heading heading-section tracking-tight text-balance mb-6">
-                  Let&rsquo;s Transform
+                  Tell Us About
                   <span className="block font-normal text-primary-foreground/60">Your Garden</span>
                 </h2>
                 <p className="font-body text-lg text-primary-foreground/80 leading-relaxed measure mb-6">
-                  Ready to create the outdoor space you&rsquo;ve always dreamed of? Get in touch
-                  today for a free consultation. We&rsquo;d love to hear about your project.
+                  Quotes are free and there is no obligation. Josh comes out to look at the
+                  garden, you talk through what you want, and you get a written quote with the
+                  costs broken down.
                 </p>
               </>
             )}

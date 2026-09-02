@@ -49,8 +49,8 @@ const Footer = () => {
               />
             </Link>
             <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
-              Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
-              serving Bedfordshire, Buckinghamshire, and Hertfordshire.
+              Garden maintenance, landscaping and planting since 2017. Based in Bierton,
+              Aylesbury, serving Bedfordshire, Buckinghamshire and Hertfordshire.
             </p>
             <div className="flex gap-4">
               <a

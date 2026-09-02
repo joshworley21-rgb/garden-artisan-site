@@ -8,8 +8,8 @@ const guildLogo = images['gardeners-guild-logo'];
 // rounded squares — a shield next to "insured" was decoration, not information.
 const credentials = [
   { term: 'Fully Qualified Horticulturist', detail: 'City & Guilds certified expertise' },
-  { term: 'Professional & Insured', detail: 'Complete peace of mind' },
-  { term: 'Tailored Solutions', detail: 'Bespoke care for every garden' },
+  { term: 'Professional & Insured', detail: 'Public liability cover, details on request' },
+  { term: 'Tailored Solutions', detail: 'Weekly in summer, less often over winter' },
   { term: 'Gardeners Guild Member', detail: 'Qualified, accredited professional' },
 ];
 
@@ -43,15 +43,15 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-5 font-body text-lg text-muted-foreground leading-relaxed measure">
               <p>
-                At JW Garden Services, we believe your garden should be a sanctuary&mdash;a place
-                where you can relax, entertain, and connect with nature. With years of experience
-                and a genuine passion for horticulture, we bring expertise and dedication to every
-                project.
+                Josh trained in horticulture at BCA and finished an apprenticeship before
+                starting JW Garden Services in 2017. That training is the difference between
+                cutting grass and looking after a garden: prune shrubs and roses in the right
+                month and they come back stronger the next summer.
               </p>
               <p>
-                Whether you need routine maintenance, specialist horticultural care, or a complete
-                garden transformation, we&rsquo;re here to bring your vision to life with attention
-                to detail and professional craftsmanship.
+                We bring our own tools and take every bag of clippings away, so you are not left
+                with a green bin you cannot shut. If we spot something worth doing, we will
+                mention it. No pressure either way.
               </p>
             </div>
 

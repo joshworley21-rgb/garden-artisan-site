@@ -43,10 +43,9 @@ const AreasSection = () => {
               Areas We Cover
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed measure mb-8">
-              JW Garden Services provides garden maintenance, garden design and hard
-              landscaping in Aylesbury and the surrounding villages and towns across
-              Buckinghamshire, Bedfordshire and Hertfordshire — making sure every outdoor
-              need is met, whatever the season.
+              We cover Aylesbury and the surrounding villages and towns across
+              Buckinghamshire, Bedfordshire and Hertfordshire. The nearest to our Bierton
+              base are listed first.
             </p>
 
             {/* Distances, not tick marks. The mileage is already in the data and it
@@ -70,8 +69,8 @@ const AreasSection = () => {
             </ul>
 
             <p className="font-body text-sm text-muted-foreground measure mt-8">
-              Not on the list? We travel up to 25 miles from Bierton, Aylesbury — get in
-              touch and we&rsquo;ll let you know.
+              Not on the list? We travel up to 25 miles from Bierton. Get in touch and
+              we&rsquo;ll let you know.
             </p>
           </div>
 

@@ -36,8 +36,7 @@ const GallerySection = () => {
               Our Recent Work
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
-              Take a look at some of the gardens we&rsquo;ve transformed. Each project reflects
-              our commitment to quality and attention to detail.
+              Some of the gardens we look after, and some of the landscaping we have built.
             </p>
           </div>
         </div>

@@ -19,9 +19,8 @@ const ServicesSection = () => {
               Garden Services in Aylesbury &amp; Buckinghamshire
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
-              Professional garden maintenance, landscaping, planting and commercial grounds care
-              across Aylesbury, Bierton and the surrounding towns and villages — delivered with
-              expert craftsmanship and attention to detail.
+              Garden maintenance, landscaping, planting and commercial grounds care, across
+              Aylesbury, Bierton and the towns and villages around them.
             </p>
           </div>
         </div>
