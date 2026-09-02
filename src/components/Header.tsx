@@ -86,7 +86,7 @@ const Header = () => {
               onClick={() => setIsServicesOpen((v) => !v)}
               aria-expanded={isServicesOpen}
               aria-haspopup="true"
-              className={`font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap flex items-center gap-1 transition-colors duration-300 hover:text-primary ${
+              className={`font-body text-sm whitespace-nowrap flex items-center gap-1 transition-colors duration-300 hover:text-primary ${
                 isServicesActive ? 'text-primary font-semibold' : 'text-foreground'
               }`}
             >
@@ -126,7 +126,7 @@ const Header = () => {
             <NavLink
               key={link.to}
               to={link.to}
-              className="font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
+              className="font-body text-sm whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
               activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
             >
               {link.label}

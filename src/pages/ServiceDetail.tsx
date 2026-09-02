@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { Check, ArrowRight, Phone } from 'lucide-react';
+import { Check, Phone } from 'lucide-react';
 import Seo from '@/components/Seo';
 import PageLayout from '@/components/PageLayout';
 import ContactSection from '@/components/ContactSection';
@@ -133,7 +133,6 @@ const ServiceDetail = () => {
                   <Button variant="elegant" size="lg" asChild>
                     <Link to="/contact">
                       Get a free quote
-                      <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
                   <Button variant="outline" size="lg" asChild>
@@ -174,7 +173,6 @@ const ServiceDetail = () => {
               <Button variant="outline" size="lg" asChild>
                 <Link to="/our-work">
                   See more of our work
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -217,9 +215,8 @@ const ServiceDetail = () => {
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
                     {s.intro}
                   </p>
-                  <span className="cta-move font-body text-sm text-primary inline-flex items-center gap-2">
+                  <span className="cta-move font-body text-sm text-primary">
                     Find out more
-                    <ArrowRight className="cta-arrow h-4 w-4" />
                   </span>
                 </Link>
               ))}

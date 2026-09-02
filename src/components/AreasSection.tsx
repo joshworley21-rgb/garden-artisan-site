@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Check, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { areas as areaPages } from '@/lib/areas';
 
@@ -39,48 +38,46 @@ const AreasSection = () => {
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Copy */}
           <div>
-            <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
-              Service Area
-            </span>
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
-              Areas We Cover
+            <p className="kicker font-body mb-6">Where we work</p>
+            <h2 className="font-heading heading-section text-foreground font-semibold tracking-tight text-balance mb-6">
+              Aylesbury and the villages round it
             </h2>
-            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-              JW Garden Services provides garden maintenance, garden design and hard
-              landscaping in Aylesbury and the surrounding villages and towns across
-              Buckinghamshire, Bedfordshire and Hertfordshire — making sure every outdoor
-              need is met, whatever the season.
+            <p className="font-body text-lg text-muted-foreground leading-relaxed measure mb-8">
+              We work out of Bierton, so most of these are a short drive. The closest are
+              listed first. If your village is not here, ask anyway — we cover a fair bit
+              of Bucks, Beds and Herts.
             </p>
 
-            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
-              {areas.map((area) => {
-                return (
-                  <li key={area.slug} className="flex items-center gap-3 font-body text-foreground">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
-                    </span>
-                    <Link
-                      to={`/${area.slug}`}
-                      className="text-sm sm:text-base underline underline-offset-4 decoration-primary/30 hover:text-primary transition-colors"
-                    >
+            {/* Distances, not tick marks. The mileage is already in the data and it
+                answers the question a customer actually has. */}
+            <ul className="grid sm:grid-cols-2 gap-x-10">
+              {areas.map((area) => (
+                <li key={area.slug} className="border-t border-border">
+                  <Link
+                    to={`/${area.slug}`}
+                    className="flex items-baseline justify-between gap-4 py-3 font-body group"
+                  >
+                    <span className="text-foreground group-hover:text-primary transition-colors">
                       {area.town}
-                    </Link>
-                  </li>
-                );
-              })}
+                    </span>
+                    <span className="text-sm text-muted-foreground tabular-nums">
+                      {area.distanceMiles} mi
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
 
-            <p className="font-body text-sm text-muted-foreground mt-8 flex items-start gap-2">
-              <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-              Not on the list? We travel up to 25 miles from Bierton, Aylesbury — get in
-              touch and we'll let you know.
+            <p className="font-body text-sm text-muted-foreground measure mt-8">
+              Not on the list? We travel up to 25 miles from Bierton — get in touch and
+              we&rsquo;ll let you know.
             </p>
           </div>
 
           {/* Map */}
           <div
             ref={mapRef}
-            className="rounded-lg overflow-hidden shadow-elevated bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
+            className="rounded-lg overflow-hidden border border-border bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
           >
             {showMap && (
               <iframe

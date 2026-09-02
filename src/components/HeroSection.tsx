@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin } from 'lucide-react';
 import {
   heroPoster,
   heroPosterFallback,
@@ -66,7 +65,7 @@ const HeroSection = () => {
   }, [showVideo]);
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
+    <section className="relative flex flex-col overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <picture>
@@ -112,41 +111,42 @@ const HeroSection = () => {
             }`}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 to-transparent" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-wide text-center py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-3 py-2 sm:px-4 mb-6 sm:mb-8 animate-fade-up">
-            <MapPin className="h-4 w-4 shrink-0 text-hero-accent" />
-            <span className="text-primary-foreground/90 text-xs sm:text-sm font-body tracking-wide">
-              Based in Bierton, Aylesbury • Covering Beds, Bucks & Herts
-            </span>
-          </div>
+      {/* Content.
 
-          {/* Main Heading */}
-          <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
-            Gardeners in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion & expertise</span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
-            JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
-            villages looking their best — from weekly maintenance to a full garden redesign.
-            Let us develop a space you can love, all year round.
+          Anchored to the lower left rather than centred. The old composition
+          (pill badge, centred h1, centred subhead, centred button) is the
+          stock landing-page skeleton; sitting the text in one corner lets the
+          photograph behind it actually be a photograph. */}
+      <div className="relative z-10 w-full mt-auto container-wide pb-14 sm:pb-20 pt-28">
+        <div className="max-w-2xl animate-fade-up">
+          <p className="font-body text-sm text-primary-foreground/75 mb-5">
+            Bierton, Aylesbury &middot; Gardening here since 2017
           </p>
 
-          {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-600">
-            <Button variant="hero" size="xl" className="group" asChild>
-              <Link to="/contact">
-                Get in Touch
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+          <h1 className="font-heading heading-hero text-primary-foreground font-semibold tracking-tight text-balance mb-6">
+            Gardeners in Aylesbury
+          </h1>
+
+          <p className="font-body body-lead text-primary-foreground/85 measure mb-8">
+            Trained horticulturists, not a mow&#8209;and&#8209;go. Weekly maintenance, pruning at
+            the right time of year, and hard landscaping across Bucks, Beds and Herts.
+            Every bag of clippings leaves with us.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/contact">Get a quote</Link>
             </Button>
+            <a
+              href="tel:07950636954"
+              className="font-body text-primary-foreground underline underline-offset-4 decoration-primary-foreground/40 hover:decoration-primary-foreground transition-colors"
+            >
+              or call 07950 636954
+            </a>
           </div>
         </div>
       </div>

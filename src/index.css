@@ -48,15 +48,12 @@
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
-    /* Gradient definitions */
-    --gradient-hero: linear-gradient(180deg, hsl(150 35% 22% / 0.85) 0%, hsl(150 35% 22% / 0.6) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(45 25% 95%) 0%, hsl(150 15% 92%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(110 40% 33%) 0%, hsl(150 35% 22%) 100%);
-
-    /* Shadows */
+    /* Shadows — tinted with the foreground green, never neutral black. */
     --shadow-soft: 0 4px 20px -2px hsl(150 25% 15% / 0.08);
     --shadow-elevated: 0 12px 40px -8px hsl(150 25% 15% / 0.15);
-    --shadow-glow: 0 0 40px hsl(110 40% 33% / 0.25);
+
+    /* One shared easing, so every transition on the site moves the same way. */
+    --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -138,6 +135,14 @@
     padding-right: clamp(1.25rem, 4vw, 2.5rem);
   }
 
+  /* Narrower sibling for text-led sections, so width varies by section role
+     instead of every block sitting at the same 80rem. */
+  .container-reading {
+    @apply max-w-5xl mx-auto;
+    padding-left: clamp(1.25rem, 4vw, 2.5rem);
+    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
   /* "Find out more" affordance. Nudging the arrow alone was too small to read
      as interactive, so the whole label glides right and an underline sweeps
      in when the card is hovered or the link is focused.
@@ -205,6 +210,30 @@
     text-wrap: balance;
   }
 
+  /* Keeps running prose near 62 characters. Wide measures were making the
+     section intros read like filler; a real column reads like writing. */
+  .measure {
+    max-width: 62ch;
+  }
+
+  /* Section opener. Replaces the uppercase letter-spaced eyebrow that used to
+     head all six sections: a short sentence-case kicker on a hairline rule,
+     so the eye lands on the heading rather than on a row of small capitals. */
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .kicker::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: hsl(var(--border));
+  }
+
   /* Fluid heading scale — smooth across every breakpoint */
   .heading-hero {
     font-size: clamp(2.25rem, 6.2vw, 4.5rem);
@@ -221,29 +250,18 @@
     line-height: 1.65;
   }
 
+  /* The single entrance on the page: the hero block on load. Everything else
+     arrives without animation, which is what makes this one read as deliberate. */
   .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
+    animation: fadeUp 0.7s var(--ease-soft) forwards;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+      animation: none;
+    }
   }
 
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out forwards;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
 }
 
 @keyframes fadeUp {
@@ -257,22 +275,3 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}

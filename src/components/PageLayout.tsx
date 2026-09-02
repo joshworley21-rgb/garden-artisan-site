@@ -17,11 +17,11 @@ const PageLayout = ({ eyebrow, title, intro, children }: PageLayoutProps) => {
         <section className="bg-primary text-primary-foreground pb-8 md:pb-10" style={{ paddingTop: 'clamp(7rem, 12vw, 10rem)' }}>
           <div className="container-wide max-w-3xl">
             {eyebrow && (
-              <span className="font-body text-sm uppercase tracking-widest text-primary-foreground/70 mb-4 block">
+              <span className="font-body text-sm text-primary-foreground/70 mb-4 block">
                 {eyebrow}
               </span>
             )}
-            <h1 className="font-heading heading-section font-semibold mb-4">
+            <h1 className="font-heading heading-section font-semibold tracking-tight text-balance mb-4">
               {title}
             </h1>
             {intro && (

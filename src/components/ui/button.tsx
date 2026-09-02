@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-body tracking-wide",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-[background-color,border-color,color,transform] duration-200 ease-soft active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-body",
   {
     variants: {
       variant: {
@@ -15,11 +15,13 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Premium variants for the landscaping site
-        hero: "bg-primary text-primary-foreground hover:bg-primary/95 shadow-elevated hover:shadow-glow uppercase tracking-widest font-medium",
-        heroOutline: "border-2 border-primary-foreground/80 text-primary-foreground hover:bg-primary-foreground/10 uppercase tracking-widest font-medium backdrop-blur-sm",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-soft uppercase tracking-widest font-medium",
-        elegant: "bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground uppercase tracking-widest font-medium",
+        // Site variants. Sentence case, not letter-spaced capitals: a garden
+        // firm asking for a phone call should sound like a person, and the
+        // uppercase treatment on every CTA was reading as boilerplate.
+        hero: "bg-primary text-primary-foreground hover:bg-primary/90 font-medium",
+        heroOutline: "border border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/10 font-medium",
+        accent: "bg-accent text-accent-foreground hover:bg-accent/90 font-medium",
+        elegant: "bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium",
       },
       size: {
         default: "h-10 px-4 py-2",
