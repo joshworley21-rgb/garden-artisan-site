@@ -43,12 +43,15 @@ const GallerySection = () => {
 
         {/* A column wall rather than a grid of identical squares: every photo keeps
             the shape it was taken in, so tall borders stay tall and wide lawns stay
-            wide. */}
-        <div className="columns-2 lg:columns-3 gap-2 sm:gap-2.5 lg:gap-3 [column-fill:balance]">
+            wide. The 2px gutter is the site's own hairline; any tighter and
+            adjacent photographs start reading as one picture. Square corners,
+            because at this spacing a radius only shows as background slivers
+            where four corners meet. */}
+        <div className="columns-2 lg:columns-3 gap-0.5 [column-fill:balance]">
           {galleryImages.map((item, index) => (
             <figure
               key={item.key}
-              className="mb-2 sm:mb-2.5 lg:mb-3 break-inside-avoid overflow-hidden rounded-lg bg-muted"
+              className="mb-0.5 break-inside-avoid overflow-hidden bg-muted"
             >
               <img
                 src={item.image.src}
