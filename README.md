@@ -51,7 +51,7 @@ scripts/                asset migration, prerendering, sitemap dates, publishing
 
 ## Design skills
 
-`.claude/skills/` holds four sets of design skills Claude Code picks up
+`.claude/skills/` holds five sets of design skills Claude Code picks up
 automatically when it works on the interface.
 
 **[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)**
@@ -82,6 +82,19 @@ forms, animation, typography, images, i18n and hydration — and reports
 violations as terse `file:line` findings. It holds no rules of its own, so a
 review needs network access to
 [web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines).
+
+**[high-end-visual-design](https://github.com/Leonxlnx/taste-skill)** is the
+opinionated one: a single prescriptive `SKILL.md` for an "Awwwards-tier" look —
+banned fonts and icon sets, three vibe archetypes, nested double-bezel cards,
+pill CTAs with a button-in-button arrow, `py-24`+ sections, custom
+cubic-bezier motion, and GPU-safe animation guardrails.
+
+Note that it contradicts the two above it by design. Its Editorial Luxury
+archetype specifies `#FDFBF7` with a serif display face, which is the exact
+hex and pairing `unslop-ui` lists as the 2026 "tasteful default" tell, and its
+mandatory `rounded-full` CTAs are that catalogue's tell #5. `frontend-design`
+likewise argues against prescribing a look at all. Reach for one or the other
+per task rather than expecting them to agree.
 
 Query the Pro Max databases with Python 3:
 
@@ -117,12 +130,12 @@ cover brand kits, logos and marketing collateral. `frontend-design` and
 from the packaged `unslop-ui.skill` in `vibecoded-design-tells`) — update
 either by copying it in again.
 
-`web-design-guidelines` came from
-`npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines`,
-which is why it sits in `.agents/skills/` with a symlink from `.claude/skills/`
-and a pinned hash in `skills-lock.json`; `npx skills update` refreshes it. Git
-stores that entry as a symlink, so a Windows checkout needs developer mode or
-`git config core.symlinks true` for it to resolve.
+`web-design-guidelines` and `high-end-visual-design` came from `npx skills add`
+(`vercel-labs/agent-skills` and `Leonxlnx/taste-skill`), which is why they sit
+in `.agents/skills/` with symlinks from `.claude/skills/` and pinned hashes in
+`skills-lock.json`; `npx skills update` refreshes them. Git stores those two
+entries as symlinks, so a Windows checkout needs developer mode or
+`git config core.symlinks true` for them to resolve.
 
 ## Origins
 
