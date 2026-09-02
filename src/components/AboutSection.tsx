@@ -29,7 +29,7 @@ const AboutSection = () => {
               alt="Wisteria in full flower trained across the front of a brick house"
               loading="lazy"
               decoding="async"
-              className="w-full rounded-lg object-cover aspect-[3/4] border border-border"
+              className="w-full rounded-lg object-cover aspect-[4/3] lg:aspect-[3/4] border border-border"
             />
           </div>
 
@@ -42,7 +42,7 @@ const AboutSection = () => {
               Helping Outdoor Spaces
               <span className="block font-normal text-muted-foreground">Come Into Their Own</span>
             </h2>
-            <div className="space-y-5 font-body text-lg text-muted-foreground leading-relaxed measure">
+            <div className="space-y-4 sm:space-y-5 font-body text-base sm:text-lg text-muted-foreground leading-relaxed measure">
               <p>
                 Your garden should be somewhere you want to sit and eat outside, not another
                 job on the list. We have been looking after gardens around Aylesbury since
@@ -55,23 +55,25 @@ const AboutSection = () => {
               </p>
             </div>
 
-            <dl className="mt-10 grid sm:grid-cols-2 border-t border-border">
+            <dl className="mt-8 sm:mt-10 grid sm:grid-cols-2 border-t border-border">
               {credentials.map((credential, index) => (
                 <div
                   key={credential.term}
-                  className={`border-b border-border py-5 sm:py-6 ${
+                  className={`border-b border-border py-3.5 sm:py-6 ${
                     index % 2 === 0 ? 'sm:pr-10' : 'sm:border-l sm:border-border sm:pl-10'
                   }`}
                 >
-                  <dt className="font-body font-medium text-foreground">{credential.term}</dt>
-                  <dd className="font-body text-sm text-muted-foreground mt-1.5">
+                  <dt className="font-body font-medium text-foreground text-[0.9375rem] sm:text-base">
+                    {credential.term}
+                  </dt>
+                  <dd className="font-body text-[0.8125rem] sm:text-sm text-muted-foreground mt-1 sm:mt-1.5">
                     {credential.detail}
                   </dd>
                 </div>
               ))}
             </dl>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <a
                 href="https://thegardenersguild.co.uk/"
                 target="_blank"
