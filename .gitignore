@@ -25,3 +25,7 @@ dist-ssr
 
 # Holds the mailbox password — lives only on the server, never in this repo
 public/enquiry-config.php
+
+# Python bytecode from the .claude skill scripts
+__pycache__/
+*.pyc

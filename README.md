@@ -45,7 +45,37 @@ public/assets/          all images and video shipped with the site
 public/enquiry.php      contact form handler (SMTP → business inbox)
 public/.htaccess        SPA fallback, caching and security headers for Apache
 scripts/                asset migration, prerendering, sitemap dates, publishing
+.claude/skills/         UI/UX Pro Max design skills for Claude Code (see below)
 ```
+
+## Design skills
+
+`.claude/skills/` holds [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+(MIT), a local design-intelligence database Claude Code picks up automatically
+when it works on the interface — UI styles, product colour palettes, font
+pairings, chart types, accessibility and UX rules, and per-stack guidance for
+React, Tailwind and shadcn/ui. It is plain CSV and Markdown searched by Python
+scripts: no network calls, no API keys, nothing that ships in the site build.
+
+Query it directly with Python 3:
+
+```sh
+# Full design system for a brief
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "garden maintenance local service" \
+  --design-system -p "JW Garden Services"
+
+# One domain: product, style, color, typography, landing, chart, ux, icons,
+# react, web, google-fonts, gsap
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "hero section" --domain ux
+
+# Stack-specific guidance
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
+```
+
+Installed with `npx ui-ux-pro-max-cli init --ai claude`; re-run it with
+`--force` to update. The sibling skills (`brand`, `design`, `design-system`,
+`banner-design`, `slides`, `ui-styling`) come with it and cover brand kits,
+logos and marketing collateral.
 
 ## Origins
 
