@@ -6,51 +6,58 @@
 
 @layer base {
   :root {
-    /* Premium Garden Palette */
-    --background: 45 30% 97%;
-    --foreground: 150 25% 15%;
+    /* Cool neutral paper, near-black ink, one green.
 
-    --card: 45 25% 95%;
-    --card-foreground: 150 25% 15%;
+       The ground used to be a warm cream, which tinted every garden photograph
+       on the page the same direction and left the whole site in one temperature.
+       A neutral, slightly cool paper lets the planting carry the colour, which
+       is how landscape practices present work. Green is now a single hue family
+       used deliberately, not two greens spread across every surface. */
+    --background: 210 20% 98%;
+    --foreground: 215 28% 11%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 150 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 11%;
 
-    /* Deep Forest Green - Primary brand color */
-    --primary: 150 35% 22%;
-    --primary-foreground: 45 30% 97%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 28% 11%;
 
-    /* Warm Stone/Cream */
-    --secondary: 45 25% 90%;
-    --secondary-foreground: 150 25% 15%;
+    /* Deep green — the brand anchor, concentrated in the contact panel and
+       the primary control rather than washed over the page. */
+    --primary: 158 42% 18%;
+    --primary-foreground: 210 20% 98%;
 
-    /* Muted sage tones */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 10% 45%;
+    --secondary: 214 20% 95%;
+    --secondary-foreground: 215 28% 11%;
 
-    /* Fresh leaf-green accent */
-    --accent: 110 40% 33%;
-    --accent-foreground: 45 30% 97%;
+    --muted: 214 20% 94%;
+    --muted-foreground: 215 14% 40%;
 
-    /* Bright leaf green for hero text over dark overlay */
-    --hero-accent: 95 55% 58%;
+    /* Same hue family as primary, one step brighter. */
+    --accent: 158 46% 30%;
+    --accent-foreground: 210 20% 98%;
+
+    /* Green that stays legible on the dark contact panel and over video. */
+    --hero-accent: 152 48% 62%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 150 15% 85%;
-    --input: 150 15% 85%;
-    --ring: 150 35% 22%;
+    --border: 214 18% 88%;
+    --input: 214 18% 88%;
+    --ring: 158 42% 18%;
 
-    --radius: 0.25rem;
+    /* Tighter than the old 4px: closer to square reads as drawn, not templated. */
+    --radius: 0.125rem;
 
     /* Custom properties */
-    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-heading: 'Cabinet Grotesk', 'Switzer', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
 
-    /* Shadows — tinted with the foreground green, never neutral black. */
-    --shadow-soft: 0 4px 20px -2px hsl(150 25% 15% / 0.08);
-    --shadow-elevated: 0 12px 40px -8px hsl(150 25% 15% / 0.15);
+    /* Shadows tinted with the ink, never neutral black. Used sparingly now —
+       hairline borders carry most of the separation. */
+    --shadow-soft: 0 1px 3px hsl(215 28% 11% / 0.06), 0 8px 24px -12px hsl(215 28% 11% / 0.08);
+    --shadow-elevated: 0 12px 40px -16px hsl(215 28% 11% / 0.14);
 
     /* One shared easing, so every transition on the site moves the same way. */
     --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -66,33 +73,33 @@
   }
 
   .dark {
-    --background: 150 25% 8%;
-    --foreground: 45 25% 95%;
+    --background: 215 28% 8%;
+    --foreground: 210 20% 96%;
 
-    --card: 150 25% 12%;
-    --card-foreground: 45 25% 95%;
+    --card: 215 24% 12%;
+    --card-foreground: 210 20% 96%;
 
-    --popover: 150 25% 10%;
-    --popover-foreground: 45 25% 95%;
+    --popover: 215 24% 11%;
+    --popover-foreground: 210 20% 96%;
 
-    --primary: 150 30% 45%;
-    --primary-foreground: 150 25% 8%;
+    --primary: 152 44% 48%;
+    --primary-foreground: 215 28% 8%;
 
-    --secondary: 150 20% 18%;
-    --secondary-foreground: 45 25% 95%;
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 20% 96%;
 
-    --muted: 150 20% 18%;
-    --muted-foreground: 150 15% 60%;
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 14% 62%;
 
-    --accent: 95 45% 55%;
-    --accent-foreground: 150 25% 8%;
+    --accent: 152 48% 58%;
+    --accent-foreground: 215 28% 8%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 150 30% 45%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 152 44% 48%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -247,22 +254,33 @@
 
   /* Fluid heading scale — smooth across every breakpoint.
 
-     Cormorant Garamond is a high-contrast classical face: its thick/thin
-     modulation is the reason to use it, and semibold was filling the thins in
-     and flattening it to a generic bold serif. Set at 500 with the tracking
-     pulled in, the contrast reads and the headings settle down. */
+     Cabinet Grotesk is a display grotesque, so the settings that suited a
+     high-contrast serif do not transfer: a grotesque wants more weight and
+     considerably tighter tracking at display sizes, where the old 500/-0.02em
+     would read soft and spaced out. */
   .heading-hero {
-    font-size: clamp(2.5rem, 6.4vw, 4.75rem);
-    line-height: 1.05;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.25rem, 5.2vw, 4rem);
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+  }
+
+  /* Second line of a two-part hero headline. Sized in em so it tracks the
+     headline, but clearly subordinate to it: at equal size a 700-weight
+     grotesque turns the pair into four lines of shouting. */
+  .heading-hero-sub {
+    display: block;
+    font-size: 0.46em;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
 
   .heading-section {
     font-size: clamp(1.875rem, 4.2vw, 3.25rem);
-    line-height: 1.12;
-    font-weight: 500;
-    letter-spacing: -0.015em;
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.028em;
   }
 
   /* Lead paragraphs sit at 300: against a 400 body it gives the page a real

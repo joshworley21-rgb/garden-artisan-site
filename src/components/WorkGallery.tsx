@@ -30,7 +30,7 @@ const WorkGallery = () => (
                     alt={project.alt}
                     loading={groupIndex === 0 && index < 2 ? 'eager' : 'lazy'}
                     decoding="async"
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
+                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-[1.03] motion-reduce:transform-none"
                   />
                 </div>
                 <figcaption className="font-heading text-xl text-foreground font-semibold">

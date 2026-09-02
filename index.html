@@ -3,20 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Body face is Switzer, served by Fontshare, so there are two font origins
-         to warm up. Both stylesheets still load non-blockingly via media=print. -->
+    <!-- Both faces come from Fontshare, so there is one font origin to warm up.
+         Fontshare's API serves one family per request, hence two stylesheets;
+         both load non-blockingly via media=print. -->
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      href="https://api.fontshare.com/v2/css?f%5B%5D=cabinet-grotesk@400,500,700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      href="https://api.fontshare.com/v2/css?f%5B%5D=cabinet-grotesk@400,500,700&display=swap"
       media="print"
       onload="this.media='all'"
     />

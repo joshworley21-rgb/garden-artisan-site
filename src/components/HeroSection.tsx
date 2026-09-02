@@ -129,7 +129,7 @@ const HeroSection = () => {
 
           <h1 className="font-heading heading-hero text-primary-foreground mb-6">
             Gardeners in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion &amp; expertise</span>
+            <span className="heading-hero-sub mt-3 text-primary-foreground/70">Transforming gardens with passion &amp; expertise</span>
           </h1>
 
           <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mb-8 sm:mb-10">
