@@ -28,9 +28,9 @@ export const areas: AreaContent[] = [
     eyebrow: 'Local to Aylesbury',
     seoTitle: 'Gardeners in Aylesbury | Weekly Garden Maintenance',
     seoDescription:
-      'Gardener near you in Aylesbury: weekly garden maintenance, landscaping and planting across Aylesbury and HP19 to HP22. Free quotes, all waste taken away.',
+      'Gardener near you in Aylesbury: weekly garden maintenance, landscaping and planting across Aylesbury and HP19 to HP22. Free quotes.',
     intro:
-      'Looking for a gardener near you in Aylesbury? We are based in Bierton, two miles from the town centre, so Aylesbury is where we work most. Weekly maintenance, patios, fencing and planting, with all the clippings taken away.',
+      'Looking for a gardener near you in Aylesbury? We are based in Bierton, two miles from the town centre, so Aylesbury is where we work most. Weekly maintenance, patios, fencing and planting.',
     image: images['jw-maint-1'],
     imageAlt: 'Freshly striped lawn in an Aylesbury garden maintained by JW Garden Services',
     body: [
@@ -54,7 +54,6 @@ export const areas: AreaContent[] = [
       'Based in Bierton, about 5 minutes from the town centre',
       'Weekly rounds in Fairford Leys, Bedgrove, Berryfields and Watermead',
       'Used to new build clay soil and compacted lawns',
-      'Green waste taken away every visit, so your brown bin stays empty',
     ],
     nearby: ['Bierton', 'Stone', 'Wing', 'Haddenham'],
     postcodes: 'HP17, HP18, HP19, HP20, HP21, HP22',
@@ -141,7 +140,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Wendover & the Chilterns edge',
     seoTitle: 'Gardeners in Wendover | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Wendover: weekly maintenance, hedge cutting, patios and planting for Wendover, Halton and Aston Clinton. Free quotes, waste removed.',
+      'Gardener near you in Wendover: weekly maintenance, hedge cutting, patios and planting for Wendover, Halton and Aston Clinton. Free quotes.',
     intro:
       'Wendover sits on the Chilterns escarpment and the gardens show it. Sloping plots, chalky soil and a lot of shade from mature trees. We look after gardens here weekly, fortnightly and as one off projects.',
     image: images['jw-landscaping'],
@@ -195,7 +194,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Wing & the Leighton Buzzard side',
     seoTitle: 'Gardeners in Wing | Garden Maintenance & Hedges',
     seoDescription:
-      'Local gardener for Wing, Cublington and Stewkley: weekly garden maintenance, hedge cutting, lawn care, patios and planting. Free quotes, all waste removed.',
+      'Local gardener for Wing, Cublington and Stewkley: weekly garden maintenance, hedge cutting, lawn care, patios and planting. Free quotes.',
     intro:
       'We cover Wing and the villages around it on the Leighton Buzzard side of Aylesbury. Bigger village gardens, long hedges and paddock boundaries, kept tidy on a regular round.',
     image: images['jw-maint-3'],
@@ -220,7 +219,6 @@ export const areas: AreaContent[] = [
       'Around 15 minutes from Bierton',
       'Set up for big village lawns and long hedges',
       'Covers Wing, Cublington, Stewkley and towards Leighton Buzzard',
-      'All clippings and hedge waste taken away',
     ],
     nearby: ['Aylesbury', 'Bierton', 'Leighton Buzzard', 'Wendover'],
     postcodes: 'LU7, HP22',
@@ -249,7 +247,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Stone, Bishopstone & Hartwell',
     seoTitle: 'Gardeners in Stone, Aylesbury | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Stone, Bishopstone and Hartwell: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes and all green waste removed.',
+      'Gardener near you in Stone, Bishopstone and Hartwell: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes.',
     intro:
       'Stone is a few minutes down the A418 from our Bierton base, so it is one of the villages we visit most. Weekly and fortnightly maintenance, hedges, borders and small landscaping jobs.',
     image: images['jw-g5'],
@@ -274,7 +272,6 @@ export const areas: AreaContent[] = [
       'Around 5 minutes from our Bierton base',
       'Weekly and fortnightly rounds in Stone, Bishopstone and Hartwell',
       'Used to heavy Vale clay and wet winter lawns',
-      'All clippings and hedge waste taken away',
     ],
     nearby: ['Aylesbury', 'Bierton', 'Haddenham', 'Waddesdon'],
     postcodes: 'HP17',
@@ -287,7 +284,7 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'My lawn is waterlogged every winter. Can you help?',
-        a: 'Usually. Clay lawns round Stone respond well to autumn aeration, sensible mowing heights and top dressing. Where the water genuinely has nowhere to go we will say so and talk about drainage or planting, rather than selling you treatments that will not work.',
+        a: 'Usually. Clay lawns round Stone respond well to autumn aeration, sensible mowing heights and top dressing. Where the water has nowhere to go we will say so and talk about drainage or planting, rather than selling you treatments that will not work.',
       },
       {
         q: 'Can you do a one-off tidy before we sell?',
@@ -303,7 +300,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Waddesdon & the Quainton side',
     seoTitle: 'Gardeners in Waddesdon | Garden Maintenance',
     seoDescription:
-      'Local gardener for Waddesdon, Quainton and Whitchurch: weekly garden maintenance, hedge cutting, lawns, borders and landscaping. Free quotes, waste removed.',
+      'Local gardener for Waddesdon, Quainton and Whitchurch: weekly garden maintenance, hedge cutting, lawns, borders and landscaping. Free quotes.',
     intro:
       'Waddesdon and the villages around it have some of the nicest gardens in the Vale. Bigger plots, stone walls and long hedges. We look after them on regular rounds and as one off projects.',
     image: images['jw-g4'],
@@ -357,7 +354,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Haddenham & Cuddington',
     seoTitle: 'Gardeners in Haddenham | Weekly Garden Maintenance',
     seoDescription:
-      'Gardener near you in Haddenham, Cuddington and Long Crendon: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes, all waste removed.',
+      'Gardener near you in Haddenham, Cuddington and Long Crendon: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes.',
     intro:
       'Haddenham is a short run from Bierton down the A418. We work across the village and out towards Cuddington and Long Crendon. Regular maintenance, hedges, borders and landscaping.',
     image: images['jw-maint-1'],
@@ -374,7 +371,7 @@ export const areas: AreaContent[] = [
         heading: 'Newer estates and bigger lawns',
         paragraphs: [
           'The newer part of the village towards the station has larger, flatter lawns and young boundary hedges. Those do best with lawn treatment through the year, and with the hedges cut properly early on so they thicken from the base.',
-          'Whichever end of Haddenham you are in, everything we cut leaves with us. Nothing gets left bagged up for your green bin.',
+          'Whichever end of Haddenham you are in, the work is the same: cutting on a schedule that suits the hedge rather than whenever it has got away from you.',
         ],
       },
     ],
@@ -411,7 +408,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Tring & the Herts border',
     seoTitle: 'Gardeners in Tring | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Tring, Wilstone and Long Marston: weekly garden maintenance, hedge cutting, patios and planting. Free quotes and all green waste removed.',
+      'Gardener near you in Tring, Wilstone and Long Marston: weekly garden maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
       'Tring is just over the county line from us and an easy run along the A41. We cover the town, the reservoir villages and out towards Aldbury, with regular maintenance and landscaping.',
     image: images['jw-g8'],
@@ -465,7 +462,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Leighton Buzzard & Linslade',
     seoTitle: 'Gardeners in Leighton Buzzard | Garden Maintenance',
     seoDescription:
-      'Local gardener for Leighton Buzzard and Linslade: weekly garden maintenance, lawn care, hedge cutting, patios and planting. Free quotes, all waste taken away.',
+      'Local gardener for Leighton Buzzard and Linslade: weekly garden maintenance, lawn care, hedge cutting, patios and planting. Free quotes.',
     intro:
       'Leighton Buzzard and Linslade are a straight run from us through Wing, so they are part of our regular round. Weekly and fortnightly maintenance, hedge cutting and landscaping.',
     image: images['jw-maint-2'],
@@ -490,7 +487,6 @@ export const areas: AreaContent[] = [
       'Around 20 minutes from our Bierton base',
       'Covers Leighton Buzzard, Linslade, Heath and Reach and Stewkley',
       'Used to fast draining sandy soil and summer lawn stress',
-      'Green waste taken away every visit',
     ],
     nearby: ['Wing', 'Aylesbury', 'Bierton', 'Wendover'],
     postcodes: 'LU7',
@@ -573,7 +569,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Chesham & the Chess valley',
     seoTitle: 'Gardeners in Chesham | Garden Maintenance & Hedges',
     seoDescription:
-      'Gardener near you in Chesham, Chesham Bois and Ashley Green: weekly garden maintenance, hedge cutting, patios and planting. Free quotes and all waste removed.',
+      'Gardener near you in Chesham, Chesham Bois and Ashley Green: weekly garden maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
       'Chesham gardens are steep, leafy and often surprisingly big for a town. We cover Chesham, Chesham Bois and the Chess valley with regular maintenance and hard landscaping.',
     image: images['jw-g7'],
@@ -590,7 +586,7 @@ export const areas: AreaContent[] = [
         heading: 'Hedges, boundaries and privacy',
         paragraphs: [
           'Hedge cutting is the job we get asked for most here. The long laurel, conifer and beech boundaries between close set houses are what give Chesham gardens their privacy, and they need cutting properly once or twice a year to stay dense instead of going bare at the bottom.',
-          'We cut to a straight line and take it all away, including the awkward top growth most people cannot safely reach.',
+          'We cut to a straight line, including the awkward top growth most people cannot safely reach.',
         ],
       },
     ],
@@ -598,7 +594,7 @@ export const areas: AreaContent[] = [
       'Around 30 minutes from our Bierton base',
       'Covers Chesham, Chesham Bois, Ashley Green and Hyde Heath',
       'Set up for steep gardens, banks and terracing',
-      'Tall hedge cutting with all the waste removed',
+      'Set up for tall hedges most ladders will not reach',
     ],
     nearby: ['Amersham', 'Great Missenden', 'Wendover', 'Tring'],
     postcodes: 'HP5',
@@ -611,7 +607,7 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'Can you cut a very tall hedge?',
-        a: 'We cut most domestic hedges including tall laurel and conifer, and it all gets cleared away afterwards. If a hedge needs proper tree work we will tell you straight.',
+        a: 'We cut most domestic hedges including tall laurel and conifer. If a hedge needs proper tree work we will tell you straight.',
       },
       {
         q: 'Is there a minimum visit for Chesham?',
@@ -627,7 +623,7 @@ export const areas: AreaContent[] = [
     eyebrow: 'Amersham & Old Amersham',
     seoTitle: 'Gardeners in Amersham | Garden Maintenance',
     seoDescription:
-      'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly maintenance, hedge cutting, patios and planting. Free quotes, waste removed.',
+      'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
       'Amersham has two very different sets of gardens. The older cottage plots down in the town, and the larger hillside gardens up on the Hill. We look after both, with regular maintenance and landscaping.',
     image: images['jw-g1'],
@@ -636,7 +632,7 @@ export const areas: AreaContent[] = [
       {
         heading: 'Old Amersham and Amersham on the Hill',
         paragraphs: [
-          'Down in Old Amersham the gardens are older and more intricate. Walled plots, mixed borders, brick paths and mature trees. The work is careful pruning, keeping the borders in order, and looking after the structure that is already there.',
+          'Down in Old Amersham the gardens are older and more involved. Walled plots, mixed borders, brick paths and mature trees. The work is careful pruning, keeping the borders in order, and looking after the structure that is already there.',
           'Up on the Hill, the 1930s and post war houses have larger, more open gardens with big lawns and substantial boundary hedges. Those suit a straightforward weekly cut and edge, with the hedge work booked in seasonally.',
         ],
       },
@@ -666,10 +662,6 @@ export const areas: AreaContent[] = [
       {
         q: 'Do you take on regular weekly visits in Amersham?',
         a: 'We do, though because it is a longer run we prefer to group Amersham and Chesham customers on the same day. Ask us which day we are in the area.',
-      },
-      {
-        q: 'Do you clear everything away?',
-        a: 'Always. All the clippings, prunings and hedge waste leave with us and get disposed of responsibly.',
       },
     ],
     gallery: [images['jw-g4'], images['jw-maint-1'], images['jw-g8']],

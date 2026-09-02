@@ -51,7 +51,7 @@
     --radius: 0.125rem;
 
     /* Custom properties */
-    --font-heading: 'Cabinet Grotesk', 'Switzer', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Author', 'Switzer', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
 
     /* Shadows tinted with the ink, never neutral black. Used sparingly now —
@@ -254,15 +254,16 @@
 
   /* Fluid heading scale — smooth across every breakpoint.
 
-     Cabinet Grotesk is a display grotesque, so the settings that suited a
-     high-contrast serif do not transfer: a grotesque wants more weight and
-     considerably tighter tracking at display sizes, where the old 500/-0.02em
-     would read soft and spaced out. */
+     Author is a humanist sans: rounder and more open than a geometric grotesque,
+     so it carries display sizes without needing to be squeezed. 700 at -0.035em
+     read hard and condensed; 600 with the tracking eased is the same confidence
+     without the edge. */
   .heading-hero {
     font-size: clamp(2.25rem, 5.2vw, 4rem);
-    line-height: 1.02;
-    font-weight: 700;
-    letter-spacing: -0.035em;
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
   }
 
   /* Second line of a two-part hero headline. Sized in em so it tracks the
@@ -278,9 +279,20 @@
 
   .heading-section {
     font-size: clamp(1.875rem, 4.2vw, 3.25rem);
-    line-height: 1.08;
-    font-weight: 600;
-    letter-spacing: -0.028em;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+
+  /* The h3 step. Sub-headings had drifted across three ad-hoc sizes
+     (text-xl / text-2xl / text-2xl md:text-3xl) at semibold, which read heavier
+     than the section headings above them. */
+  .heading-sub {
+    font-size: clamp(1.25rem, 1.9vw, 1.625rem);
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.012em;
   }
 
   /* Lead paragraphs sit at 300: against a 400 body it gives the page a real

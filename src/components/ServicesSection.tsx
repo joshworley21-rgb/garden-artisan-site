@@ -15,7 +15,7 @@ const ServicesSection = () => {
         <div className="mb-12 lg:mb-16">
           <p className="kicker font-body mb-6">What We Offer</p>
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-            <h2 className="lg:col-span-7 font-heading heading-section text-foreground tracking-tight text-balance">
+            <h2 className="lg:col-span-7 font-heading heading-section text-foreground">
               Garden Services in Aylesbury &amp; Buckinghamshire
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
@@ -47,7 +47,7 @@ const ServicesSection = () => {
               </div>
 
               <div className="flex flex-1 flex-col p-7 lg:p-8">
-                <h3 className="font-heading text-2xl leading-snug text-foreground font-semibold mb-3">
+                <h3 className="font-heading heading-sub text-foreground mb-3">
                   {service.navLabel}
                 </h3>
                 <p className="font-body text-muted-foreground leading-relaxed measure flex-1">

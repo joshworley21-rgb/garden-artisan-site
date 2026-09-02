@@ -31,7 +31,7 @@ const About = () => (
           <p>
             In 2017, I took the leap and founded JW Garden Services. Since then, the business has
             grown from strength to strength, built on a foundation of expertise, hard work, and a
-            genuine love for creating beautiful outdoor spaces. Whether it&rsquo;s routine garden
+            love for creating beautiful outdoor spaces. Whether it&rsquo;s routine garden
             maintenance or specialized horticultural services, I take pride in delivering
             high-quality results tailored to each client&rsquo;s unique needs.
           </p>

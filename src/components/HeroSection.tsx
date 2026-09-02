@@ -111,8 +111,12 @@ const HeroSection = () => {
             }`}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 to-transparent" />
+        {/* Two scrims that overlap only under the text. The old pair washed the
+            whole frame (0.20 even at the top), which flattened the planting;
+            these clear to transparent away from the lower left so the colour
+            comes back, while the corner the copy sits in stays dark enough. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
       </div>
 
       {/* Content.

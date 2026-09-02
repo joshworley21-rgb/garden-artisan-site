@@ -94,7 +94,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 <p className="kicker kicker-invert font-body mb-6">
                   Contact Us
                 </p>
-                <h2 className="font-heading heading-section tracking-tight text-balance mb-6">
+                <h2 className="font-heading heading-section mb-6">
                   Tell Us About
                   <span className="block font-normal text-primary-foreground/60">Your Garden</span>
                 </h2>
@@ -171,7 +171,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
 
           {/* Contact Form */}
           <div className="bg-primary-foreground/5 rounded-lg p-8 md:p-10 border border-primary-foreground/10">
-            <h3 className="font-heading text-2xl font-semibold mb-6">Send Us a Message</h3>
+            <h3 className="font-heading heading-sub mb-6">Send Us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block font-body text-sm mb-2 text-primary-foreground/80">

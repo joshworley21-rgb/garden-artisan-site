@@ -32,7 +32,7 @@ const GallerySection = () => {
         <div className="mb-12 lg:mb-16">
           <p className="kicker font-body mb-6">Portfolio</p>
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-            <h2 className="lg:col-span-7 font-heading heading-section text-foreground tracking-tight text-balance">
+            <h2 className="lg:col-span-7 font-heading heading-section text-foreground">
               Our Recent Work
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">

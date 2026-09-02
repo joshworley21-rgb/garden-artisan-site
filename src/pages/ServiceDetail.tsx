@@ -91,7 +91,7 @@ const ServiceDetail = () => {
             <div className="space-y-10">
               {service.body.map((block) => (
                 <div key={block.heading}>
-                  <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4">
+                  <h2 className="font-heading heading-sub text-foreground mb-4">
                     {block.heading}
                   </h2>
                   <div className="space-y-4 font-body text-lg text-muted-foreground leading-relaxed">
@@ -116,7 +116,7 @@ const ServiceDetail = () => {
                 className="w-full rounded-lg shadow-elevated object-cover aspect-[4/3]"
               />
               <div className="rounded-lg border border-border/60 bg-secondary/30 p-6 sm:p-8">
-                <h2 className="font-heading text-xl font-semibold text-foreground mb-4">
+                <h2 className="font-heading heading-sub text-foreground mb-4">
                   What&rsquo;s included
                 </h2>
                 <ul className="space-y-3">
@@ -188,7 +188,7 @@ const ServiceDetail = () => {
             <dl className="space-y-8">
               {service.faqs.map((f) => (
                 <div key={f.q} className="border-b border-border/60 pb-6 last:border-0">
-                  <dt className="font-heading text-xl font-semibold text-foreground mb-2">{f.q}</dt>
+                  <dt className="font-heading heading-sub text-foreground mb-2">{f.q}</dt>
                   <dd className="font-body text-muted-foreground leading-relaxed">{f.a}</dd>
                 </div>
               ))}
@@ -209,7 +209,7 @@ const ServiceDetail = () => {
                   to={`/services/${s.slug}`}
                   className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
                 >
-                  <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-heading heading-sub text-foreground mb-2 group-hover:text-primary transition-colors">
                     {s.navLabel}
                   </h3>
                   <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">

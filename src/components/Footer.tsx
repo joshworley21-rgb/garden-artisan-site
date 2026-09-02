@@ -81,7 +81,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
+            <h4 className="font-heading heading-sub mb-4">Services</h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.to}>
@@ -95,7 +95,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-heading heading-sub mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.to}>
@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* Accreditation */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Accreditation</h4>
+            <h4 className="font-heading heading-sub mb-4">Accreditation</h4>
             <a
               href="https://thegardenersguild.co.uk/"
               target="_blank"
@@ -135,7 +135,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pb-8 border-t border-background/10 pt-8">
-          <h4 className="font-heading text-lg font-semibold mb-4">Gardeners near you</h4>
+          <h4 className="font-heading heading-sub mb-4">Gardeners near you</h4>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {areaLinks.map((link) => (
               <li key={link.to}>

@@ -16,7 +16,7 @@ const Privacy = () => (
           collect when you contact us and how we use it.
         </p>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="font-heading heading-sub text-foreground mb-3">
             Information we collect
           </h2>
           <p>
@@ -26,7 +26,7 @@ const Privacy = () => (
           </p>
         </div>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="font-heading heading-sub text-foreground mb-3">
             How we use your information
           </h2>
           <p>
@@ -35,7 +35,7 @@ const Privacy = () => (
           </p>
         </div>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="font-heading heading-sub text-foreground mb-3">
             Your rights
           </h2>
           <p>

@@ -13,7 +13,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Seo
         title="Gardeners in Aylesbury | Garden Maintenance & Landscaping"
-        description="Trusted gardeners in Aylesbury since 2017. Garden maintenance, landscaping, patios and planting across Bucks, Beds and Herts. Free quotes, waste taken away."
+        description="Trusted gardeners in Aylesbury since 2017. Garden maintenance, landscaping, patios and planting across Bucks, Beds and Herts. Free quotes."
         path="/"
       />
       <Header />

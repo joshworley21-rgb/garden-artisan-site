@@ -21,7 +21,7 @@ const PageLayout = ({ eyebrow, title, intro, children }: PageLayoutProps) => {
                 {eyebrow}
               </span>
             )}
-            <h1 className="font-heading heading-section tracking-tight text-balance mb-4">
+            <h1 className="font-heading heading-section mb-4">
               {title}
             </h1>
             {intro && (

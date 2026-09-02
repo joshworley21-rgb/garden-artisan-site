@@ -39,7 +39,7 @@ const AreasSection = () => {
           {/* Copy */}
           <div>
             <p className="kicker font-body mb-6">Service Area</p>
-            <h2 className="font-heading heading-section text-foreground tracking-tight text-balance mb-6">
+            <h2 className="font-heading heading-section text-foreground mb-6">
               Areas We Cover
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed measure mb-8">
@@ -48,21 +48,14 @@ const AreasSection = () => {
               base are listed first.
             </p>
 
-            {/* Distances, not tick marks. The mileage is already in the data and it
-                answers the question a customer actually has. */}
-            <ul className="grid sm:grid-cols-2 gap-x-10">
+            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
               {areas.map((area) => (
-                <li key={area.slug} className="border-t border-border">
+                <li key={area.slug} className="font-body">
                   <Link
                     to={`/${area.slug}`}
-                    className="flex items-baseline justify-between gap-4 py-3 font-body group"
+                    className="text-sm sm:text-base text-foreground underline underline-offset-4 decoration-border hover:text-primary hover:decoration-primary/50 transition-colors"
                   >
-                    <span className="text-foreground group-hover:text-primary transition-colors">
-                      {area.town}
-                    </span>
-                    <span className="text-sm text-muted-foreground tabular-nums">
-                      {area.distanceMiles} mi
-                    </span>
+                    {area.town}
                   </Link>
                 </li>
               ))}

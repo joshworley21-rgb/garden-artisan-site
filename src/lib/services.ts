@@ -42,7 +42,7 @@ export const services: ServiceContent[] = [
         heading: 'We are gardeners, not a mow and go',
         paragraphs: [
           'Cutting grass and looking after a garden are not the same job. I trained in horticulture at BCA and did an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
-          'We are members of The Gardeners Guild. We bring our own tools and take every bag of clippings away with us, so you are not left with a green bin you cannot shut.',
+          'We are members of The Gardeners Guild, and we turn up with our own tools, so there is nothing for you to dig out of the shed.',
         ],
       },
     ],
@@ -54,7 +54,6 @@ export const services: ServiceContent[] = [
       'Pots and seasonal flowers planted up',
       'Leaf clearing and winter tidies',
       'Lawn feeds to thicken the grass',
-      'All clippings taken away',
     ],
     faqs: [
       {
@@ -64,10 +63,6 @@ export const services: ServiceContent[] = [
       {
         q: 'Why choose weekly rather than fortnightly maintenance?',
         a: 'Your garden looks right every day, not just the day after we have been. Each visit is quicker too, because there is less to catch up on.',
-      },
-      {
-        q: 'Do you take the garden waste away?',
-        a: 'Yes, every time. It is part of the visit. You will not be left with bags of clippings or a full bin.',
       },
       {
         q: 'Do I need to be home for the visit?',
@@ -243,7 +238,7 @@ export const services: ServiceContent[] = [
       'Weed control on car parks and hard surfaces',
       'Planting at entrances and receptions',
       'Leaf clearance and winter tidies',
-      'Litter and green waste cleared',
+      'Litter picked before every cut',
       'One off landscaping and fencing',
       'Flexible contracts, invoiced monthly',
     ],

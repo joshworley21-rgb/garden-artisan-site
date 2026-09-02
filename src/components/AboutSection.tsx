@@ -1,6 +1,6 @@
 import { images } from '@/lib/images';
 
-const josh = images['jw-josh3'];
+const aboutImage = images['jw-maint-2'];
 const guildLogo = images['gardeners-guild-logo'];
 
 // The same four credentials the section has always listed, but set as a
@@ -21,15 +21,15 @@ const AboutSection = () => {
           {/* Portrait — a real photograph of the person who does the work. */}
           <div className="lg:col-span-5">
             <img
-              src={josh.src}
-              srcSet={josh.srcSet}
+              src={aboutImage.src}
+              srcSet={aboutImage.srcSet}
               sizes="(max-width: 1024px) 90vw, 40vw"
-              width={josh.width}
-              height={josh.height}
-              alt="Josh weeding a flower border, in a JW Garden Services polo shirt"
+              width={aboutImage.width}
+              height={aboutImage.height}
+              alt="Striped lawn running up to a deep herbaceous border in full flower"
               loading="lazy"
               decoding="async"
-              className="w-full rounded-lg object-cover aspect-[3/2] shadow-soft"
+              className="w-full rounded-lg object-cover aspect-[4/3] border border-border"
             />
           </div>
 
@@ -37,7 +37,7 @@ const AboutSection = () => {
             <p className="kicker font-body mb-6">About Us</p>
             {/* Same words as before; the second line now separates by tone and weight
                 instead of a one-line italic serif in accent green. */}
-            <h2 className="font-heading heading-section text-foreground tracking-tight text-balance mb-6">
+            <h2 className="font-heading heading-section text-foreground mb-6">
               Passionate About Helping
               <span className="block font-normal text-muted-foreground">Outdoor Spaces Flourish</span>
             </h2>
@@ -49,9 +49,9 @@ const AboutSection = () => {
                 month and they come back stronger the next summer.
               </p>
               <p>
-                We bring our own tools and take every bag of clippings away, so you are not left
-                with a green bin you cannot shut. If we spot something worth doing, we will
-                mention it. No pressure either way.
+                We turn up with our own tools, so there is nothing for you to dig out of the
+                shed. If we spot something worth doing, we will mention it. No pressure
+                either way.
               </p>
             </div>
 
