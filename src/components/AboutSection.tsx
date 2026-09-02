@@ -61,9 +61,9 @@ const AboutSection = () => {
                 2017, and the horticulture is the part we care about most.
               </p>
               <p>
-                Some gardens want a weekly visit and nothing more. Some want redesigning from
-                the fence in. Most sit somewhere between the two, and we will tell you straight
-                which one yours is.
+                Some gardens want a regular weekly visit and nothing more. Some want
+                redesigning from the ground up. Most sit somewhere between the two, and we
+                will happily offer our advice as needed to make your garden come to life!
               </p>
             </div>
 
