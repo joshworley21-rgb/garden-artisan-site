@@ -46,11 +46,12 @@ public/enquiry.php      contact form handler (SMTP → business inbox)
 public/.htaccess        SPA fallback, caching and security headers for Apache
 scripts/                asset migration, prerendering, sitemap dates, publishing
 .claude/skills/         design skills Claude Code loads for UI work (see below)
+.agents/skills/         skills installed by `npx skills`, symlinked into .claude/
 ```
 
 ## Design skills
 
-`.claude/skills/` holds three sets of design skills Claude Code picks up
+`.claude/skills/` holds four sets of design skills Claude Code picks up
 automatically when it works on the interface.
 
 **[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)**
@@ -73,6 +74,14 @@ a dependency-free scanner. It prescribes no look — it flags *unspecified
 defaults*, including the cream-plus-serif-plus-sage one that anti-AI redesigns
 tend to land on. A line commented `unslop-ignore` is skipped, so deliberate
 brand choices stay unflagged.
+
+**[web-design-guidelines](https://github.com/vercel-labs/agent-skills)**
+(Vercel) is the compliance pass: a small skill that fetches Vercel's Web
+Interface Guidelines — roughly 130 rules across accessibility, focus states,
+forms, animation, typography, images, i18n and hydration — and reports
+violations as terse `file:line` findings. It holds no rules of its own, so a
+review needs network access to
+[web-interface-guidelines](https://github.com/vercel-labs/web-interface-guidelines).
 
 Query the Pro Max databases with Python 3:
 
@@ -107,6 +116,13 @@ cover brand kits, logos and marketing collateral. `frontend-design` and
 `unslop-ui` are copies of their upstream folders (from `anthropics/skills`, and
 from the packaged `unslop-ui.skill` in `vibecoded-design-tells`) — update
 either by copying it in again.
+
+`web-design-guidelines` came from
+`npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines`,
+which is why it sits in `.agents/skills/` with a symlink from `.claude/skills/`
+and a pinned hash in `skills-lock.json`; `npx skills update` refreshes it. Git
+stores that entry as a symlink, so a Windows checkout needs developer mode or
+`git config core.symlinks true` for it to resolve.
 
 ## Origins
 
