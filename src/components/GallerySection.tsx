@@ -29,46 +29,49 @@ const GallerySection = () => {
     <section id="work" className="section-padding bg-background">
       <div className="container-wide">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
-            Portfolio
-          </span>
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
-            Our Recent Work
-          </h2>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed">
+        <div className="ruled-head grid gap-6 lg:grid-cols-12 lg:gap-12 mb-12 lg:mb-16">
+          <div className="lg:col-span-7">
+            <span className="label label-rule text-accent mb-5 block">
+              Portfolio
+            </span>
+            <h2 className="font-heading heading-section text-foreground">
+              Our Recent Work
+            </h2>
+          </div>
+          <p className="font-body text-lg text-muted-foreground leading-relaxed lg:col-span-5 lg:pt-1">
             Take a look at some of the gardens we've transformed. Each project reflects our 
             commitment to quality and attention to detail.
           </p>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-          {galleryImages.map((item, index) => (
-            <div
-              key={item.key}
-              className="group relative aspect-square overflow-hidden rounded-lg shadow-soft hover:shadow-elevated transition-all duration-500"
-            >
-              <img
-                src={item.image.src}
-                srcSet={item.image.srcSet}
-                sizes="(max-width: 640px) 44vw, (max-width: 1024px) 43vw, 28vw"
-                width={item.image.width}
-                height={item.image.height}
-                alt={item.alt}
-                loading={index < 2 ? 'eager' : 'lazy'}
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-all duration-500 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-primary-foreground/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* A packed grid with a deliberate rhythm rather than fourteen
+            identical squares: one plate in six runs double, one in six runs
+            tall. No hover magnifier — nothing here opens. */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[8.5rem] sm:auto-rows-[11rem] lg:auto-rows-[12rem] grid-flow-dense gap-3 sm:gap-4 lg:gap-6">
+          {galleryImages.map((item, index) => {
+            const rhythm = index % 6;
+            const span =
+              rhythm === 0
+                ? 'col-span-2 row-span-2'
+                : rhythm === 3
+                  ? 'row-span-2'
+                  : '';
+            return (
+              <figure key={item.key} className={`plate ${span}`}>
+                <img
+                  src={item.image.src}
+                  srcSet={item.image.srcSet}
+                  sizes="(max-width: 640px) 44vw, (max-width: 1024px) 43vw, 28vw"
+                  width={item.image.width}
+                  height={item.image.height}
+                  alt={item.alt}
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>

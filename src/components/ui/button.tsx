@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-body tracking-wide",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 font-ui tracking-wide",
   {
     variants: {
       variant: {
@@ -16,16 +16,18 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // Premium variants for the landscaping site
-        hero: "bg-primary text-primary-foreground hover:bg-primary/95 shadow-elevated hover:shadow-glow uppercase tracking-widest font-medium",
-        heroOutline: "border-2 border-primary-foreground/80 text-primary-foreground hover:bg-primary-foreground/10 uppercase tracking-widest font-medium backdrop-blur-sm",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-soft uppercase tracking-widest font-medium",
-        elegant: "bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground uppercase tracking-widest font-medium",
+        // Square, flat and set in the signage face. The lift on hover is a
+        // 1px rule that grows under the label, not a glow.
+        hero: "bg-primary text-primary-foreground hover:bg-accent uppercase tracking-[0.18em] text-xs font-semibold",
+        heroOutline: "border border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/10 uppercase tracking-[0.18em] text-xs font-semibold",
+        accent: "bg-accent text-accent-foreground hover:bg-accent/90 uppercase tracking-[0.18em] text-xs font-semibold",
+        elegant: "bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground uppercase tracking-[0.18em] text-xs font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
-        lg: "h-12 px-8 text-base",
-        xl: "h-14 px-10 text-base",
+        lg: "h-11 px-7",
+        xl: "h-14 px-10 text-sm",
         icon: "h-10 w-10",
       },
     },

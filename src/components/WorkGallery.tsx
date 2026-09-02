@@ -20,7 +20,7 @@ const WorkGallery = () => (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {group.projects.map((project, index) => (
               <figure key={project.key} className="flex flex-col">
-                <div className="overflow-hidden rounded-lg shadow-soft mb-3">
+                <div className="plate mb-3">
                   <img
                     src={project.image.src}
                     srcSet={project.image.srcSet}
@@ -30,7 +30,7 @@ const WorkGallery = () => (
                     alt={project.alt}
                     loading={groupIndex === 0 && index < 2 ? 'eager' : 'lazy'}
                     decoding="async"
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
+                    className="w-full aspect-[4/3] object-cover"
                   />
                 </div>
                 <figcaption className="font-heading text-xl text-foreground font-semibold">

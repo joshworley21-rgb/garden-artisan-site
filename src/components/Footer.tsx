@@ -36,7 +36,7 @@ const Footer = () => {
             <Link
               to="/"
               aria-label="JW Garden Services home"
-              className="inline-block mb-4 rounded-lg bg-background px-4 py-3"
+              className="inline-block mb-5 rounded-sm bg-background px-4 py-3"
             >
               <img
                 src={logo.url}
@@ -58,7 +58,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="JW Garden Services on Google Business Profile"
-                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group"
+                className="w-10 h-10 rounded-sm border border-background/20 flex items-center justify-center transition-colors hover:border-hero-accent hover:bg-hero-accent group"
               >
                 <svg aria-hidden="true" viewBox="0 0 48 48" className="h-5 w-5">
                   <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.92c-.52 2.81-2.1 5.19-4.48 6.79v5.66h7.24c4.24-3.91 6.44-9.66 6.44-16.46z"/>
@@ -67,13 +67,13 @@ const Footer = () => {
                   <path fill="#EA4335" d="M24 9.75c3.94 0 7.48 1.36 10.27 4.02l7.69-7.69C35.93 2.18 30.48 0 24 0 14.46 0 6.18 4.93 2.23 12.19l7.44 5.83C11.69 9.75 17.34 9.75 24 9.75z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="JW Garden Services on Facebook" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+              <a href="#" aria-label="JW Garden Services on Facebook" className="w-10 h-10 rounded-sm border border-background/20 flex items-center justify-center transition-colors hover:border-hero-accent hover:bg-hero-accent group">
                 <Facebook aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" aria-label="JW Garden Services on Instagram" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+              <a href="#" aria-label="JW Garden Services on Instagram" className="w-10 h-10 rounded-sm border border-background/20 flex items-center justify-center transition-colors hover:border-hero-accent hover:bg-hero-accent group">
                 <Instagram aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
-              <a href="#" aria-label="JW Garden Services on LinkedIn" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
+              <a href="#" aria-label="JW Garden Services on LinkedIn" className="w-10 h-10 rounded-sm border border-background/20 flex items-center justify-center transition-colors hover:border-hero-accent hover:bg-hero-accent group">
                 <Linkedin aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
               </a>
             </div>
@@ -81,7 +81,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
+            <h4 className="label text-background/60 mb-5 pb-3 border-b border-background/15">Services</h4>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.to}>
@@ -95,7 +95,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="label text-background/60 mb-5 pb-3 border-b border-background/15">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.to}>
@@ -109,7 +109,7 @@ const Footer = () => {
 
           {/* Accreditation */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Accreditation</h4>
+            <h4 className="label text-background/60 mb-5 pb-3 border-b border-background/15">Accreditation</h4>
             <a
               href="https://thegardenersguild.co.uk/"
               target="_blank"
@@ -124,7 +124,7 @@ const Footer = () => {
                 height={guildLogo.height}
                 loading="lazy"
                 decoding="async"
-                className="h-14 w-auto self-start object-contain bg-background rounded-sm p-1 transition-transform group-hover:scale-105"
+                className="h-14 w-auto self-start object-contain bg-background rounded-sm p-1"
               />
               <span className="font-body text-sm text-background/70 group-hover:text-hero-accent transition-colors">
                 Proud to follow The Gardeners Guild standards for professional gardening
@@ -135,7 +135,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pb-8 border-t border-background/10 pt-8">
-          <h4 className="font-heading text-lg font-semibold mb-4">Gardeners near you</h4>
+          <h4 className="label text-background/60 mb-5">Gardeners near you</h4>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {areaLinks.map((link) => (
               <li key={link.to}>

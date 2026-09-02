@@ -91,12 +91,12 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
           <div>
             {showIntro && (
               <>
-                <span className="text-hero-accent font-body text-sm uppercase tracking-widest mb-4 block">
+                <span className="label label-rule text-hero-accent mb-5 block">
                   Contact Us
                 </span>
-                <h2 className="font-heading heading-section font-semibold mb-6">
+                <h2 className="font-heading heading-section mb-6">
                   Let's Transform
-                  <span className="block italic font-normal">Your Garden</span>
+                  <span className="block font-body italic font-normal text-hero-accent tracking-normal mt-1 text-[0.72em] leading-[1.2]">Your Garden</span>
                 </h2>
                 <p className="font-body text-lg text-primary-foreground/80 leading-relaxed mb-6">
                   Ready to create the outdoor space you've always dreamed of? Get in touch today 
@@ -106,13 +106,11 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
             )}
 
             {/* Contact Details */}
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-hero-accent" />
-                </div>
+            <div className="space-y-5">
+              <div className="flex items-start gap-4 border-t border-primary-foreground/15 pt-5">
+                <MapPin className="h-5 w-5 text-hero-accent shrink-0 mt-1" strokeWidth={1.5} aria-hidden="true" />
                 <div>
-                  <h3 className="font-heading text-lg font-semibold mb-1">Location</h3>
+                  <h3 className="font-heading text-base mb-1">Location</h3>
                   <p className="font-body text-primary-foreground/70">
                     Based in Bierton, Aylesbury<br />
                     Covering Beds, Bucks & Herts
@@ -120,12 +118,10 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-hero-accent" />
-                </div>
+              <div className="flex items-start gap-4 border-t border-primary-foreground/15 pt-5">
+                <Phone className="h-5 w-5 text-hero-accent shrink-0 mt-1" strokeWidth={1.5} aria-hidden="true" />
                 <div>
-                  <h3 className="font-heading text-lg font-semibold mb-1">Phone</h3>
+                  <h3 className="font-heading text-base mb-1">Phone</h3>
                   <p className="font-body text-primary-foreground/70">
                     <a href="tel:07950636954" className="hover:text-hero-accent transition-colors">07950 636954</a><br />
                     Call us for a free quote
@@ -133,24 +129,20 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-5 w-5 text-hero-accent" />
-                </div>
+              <div className="flex items-start gap-4 border-t border-primary-foreground/15 pt-5">
+                <Mail className="h-5 w-5 text-hero-accent shrink-0 mt-1" strokeWidth={1.5} aria-hidden="true" />
                 <div>
-                  <h3 className="font-heading text-lg font-semibold mb-1">Email</h3>
+                  <h3 className="font-heading text-base mb-1">Email</h3>
                   <p className="font-body text-primary-foreground/70">
                     <a href="mailto:info@jw-gardenservices.co.uk" className="hover:text-hero-accent transition-colors break-all">info@jw-gardenservices.co.uk</a>
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary-foreground/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-5 w-5 text-hero-accent" />
-                </div>
+              <div className="flex items-start gap-4 border-t border-primary-foreground/15 pt-5">
+                <Clock className="h-5 w-5 text-hero-accent shrink-0 mt-1" strokeWidth={1.5} aria-hidden="true" />
                 <div>
-                  <h3 className="font-heading text-lg font-semibold mb-1">Hours</h3>
+                  <h3 className="font-heading text-base mb-1">Hours</h3>
                   <p className="font-body text-primary-foreground/70">
                     Monday - Friday: 8am - 4pm<br />
                     Saturday - Sunday: Closed
@@ -160,7 +152,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
 
               {/* Google Business Profile + map */}
               <div className="space-y-4 pt-2">
-                <div className="overflow-hidden rounded-lg border border-primary-foreground/10">
+                <div className="overflow-hidden rounded-sm border border-primary-foreground/15">
                   <iframe
                     title="JW Garden Services on Google Maps — Bierton, Aylesbury"
                     src="https://maps.google.com/maps?q=JW%20Garden%20Services%20Bierton%20Aylesbury&z=12&output=embed"
@@ -190,11 +182,11 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
           </div>
 
           {/* Contact Form */}
-          <div className="bg-primary-foreground/5 backdrop-blur-sm rounded-lg p-8 md:p-10 border border-primary-foreground/10">
-            <h3 className="font-heading text-2xl font-semibold mb-6">Send Us a Message</h3>
+          <div className="bg-primary-foreground/[0.06] rounded-sm p-8 md:p-10 border border-primary-foreground/15">
+            <h3 className="font-heading text-2xl mb-6">Send Us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block font-body text-sm mb-2 text-primary-foreground/80">
+                <label htmlFor="name" className="block label text-primary-foreground/70 mb-2.5">
                   Your Name
                 </label>
                 <input
@@ -204,7 +196,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/25 rounded-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent focus:ring-1 focus:ring-hero-accent transition-colors"
                   placeholder="John Smith"
                   maxLength={100}
                 />
@@ -212,7 +204,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="email" className="block font-body text-sm mb-2 text-primary-foreground/80">
+                  <label htmlFor="email" className="block label text-primary-foreground/70 mb-2.5">
                     Email Address
                   </label>
                   <input
@@ -222,14 +214,14 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/25 rounded-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent focus:ring-1 focus:ring-hero-accent transition-colors"
                     placeholder="john@example.com"
                     maxLength={255}
                   />
                   {errors.email && <p className="mt-1 font-body text-sm text-hero-accent">{errors.email}</p>}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
+                  <label htmlFor="phone" className="block label text-primary-foreground/70 mb-2.5">
                     Phone Number
                   </label>
                   <input
@@ -238,7 +230,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/25 rounded-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent focus:ring-1 focus:ring-hero-accent transition-colors"
                     placeholder="01234 567890"
                     maxLength={40}
                   />
@@ -246,7 +238,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 </div>
               </div>
               <div>
-                <label htmlFor="message" className="block font-body text-sm mb-2 text-primary-foreground/80">
+                <label htmlFor="message" className="block label text-primary-foreground/70 mb-2.5">
                   Your Message
                 </label>
                 <textarea
@@ -256,7 +248,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/25 rounded-sm font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent focus:ring-1 focus:ring-hero-accent transition-colors resize-none"
                   placeholder="Tell us about your garden project..."
                   maxLength={2000}
                 />

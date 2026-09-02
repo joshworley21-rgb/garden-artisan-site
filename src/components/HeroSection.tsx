@@ -112,35 +112,41 @@ const HeroSection = () => {
             }`}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
+        {/* Weighted to the left, where the type sits, so the right of the
+            photograph stays a photograph. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-wide text-center py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-3 py-2 sm:px-4 mb-6 sm:mb-8 animate-fade-up">
+      {/* Content — set left against the photograph like a title block on a
+          drawing, rather than stacked down the middle of the frame. */}
+      <div className="relative z-10 container-wide w-full py-16 sm:py-20">
+        <div className="max-w-3xl">
+          {/* Locality line, on its own rule */}
+          <div className="flex items-center gap-3 mb-7 sm:mb-9 animate-fade-up">
             <MapPin className="h-4 w-4 shrink-0 text-hero-accent" />
-            <span className="text-primary-foreground/90 text-xs sm:text-sm font-body tracking-wide">
-              Based in Bierton, Aylesbury • Covering Beds, Bucks & Herts
+            <span className="label text-primary-foreground/85 leading-relaxed">
+              Based in Bierton, Aylesbury • Covering Beds, Bucks &amp; Herts
             </span>
           </div>
+          <div className="h-px w-24 bg-hero-accent mb-7 sm:mb-9 animate-fade-up" />
 
-          {/* Main Heading */}
-          <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
+          {/* Main Heading — signage face, then the reading face in italic for
+              the promise. One idea per line. */}
+          <h1 className="font-heading heading-hero text-primary-foreground mb-6 animate-fade-up animation-delay-200">
             Gardeners in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion & expertise</span>
+            <span className="block font-body italic font-normal text-hero-accent tracking-normal mt-2 text-[0.62em] leading-[1.15]">Transforming gardens with passion &amp; expertise</span>
           </h1>
 
           {/* Subheading */}
-          <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
+          <p className="font-body body-lead text-primary-foreground/85 max-w-xl mb-8 sm:mb-10 animate-fade-up animation-delay-400">
             JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
             villages looking their best — from weekly maintenance to a full garden redesign.
             Let us develop a space you can love, all year round.
           </p>
 
           {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-600">
+          <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-up animation-delay-600">
             <Button variant="hero" size="xl" className="group" asChild>
               <Link to="/contact">
                 Get in Touch

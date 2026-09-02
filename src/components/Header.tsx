@@ -50,8 +50,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-all duration-500 ${
-        isScrolled ? 'py-2' : 'py-3'
+      className={`fixed top-0 left-0 right-0 z-50 border-b bg-background/95 backdrop-blur-md transition-all duration-300 ${
+        isScrolled ? 'py-2 border-border' : 'py-3 border-transparent'
       }`}
     >
       <div className="container-wide flex items-center justify-between">
@@ -86,8 +86,8 @@ const Header = () => {
               onClick={() => setIsServicesOpen((v) => !v)}
               aria-expanded={isServicesOpen}
               aria-haspopup="true"
-              className={`font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap flex items-center gap-1 transition-colors duration-300 hover:text-primary ${
-                isServicesActive ? 'text-primary font-semibold' : 'text-foreground'
+              className={`font-ui text-[0.7rem] xl:text-xs font-semibold uppercase tracking-[0.16em] whitespace-nowrap flex items-center gap-1 transition-colors duration-200 hover:text-accent ${
+                isServicesActive ? 'text-accent' : 'text-foreground'
               }`}
             >
               Services
@@ -100,11 +100,11 @@ const Header = () => {
                 isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
               }`}
             >
-              <div className="min-w-[260px] rounded-lg border border-border/60 bg-background shadow-elevated overflow-hidden">
+              <div className="min-w-[260px] rounded-sm border border-border bg-card shadow-elevated overflow-hidden">
                 <NavLink
                   to="/#services"
                   onClick={() => setIsServicesOpen(false)}
-                  className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40"
+                  className="block px-5 py-3 font-ui text-sm text-foreground hover:bg-secondary hover:text-accent transition-colors border-b border-border/60"
                 >
                   All Services
                 </NavLink>
@@ -113,7 +113,7 @@ const Header = () => {
                     key={service.slug}
                     to={`/services/${service.slug}`}
                     onClick={() => setIsServicesOpen(false)}
-                    className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40 last:border-0"
+                    className="block px-5 py-3 font-ui text-sm text-foreground hover:bg-secondary hover:text-accent transition-colors border-b border-border/60 last:border-0"
                   >
                     {service.navLabel}
                   </Link>
@@ -126,8 +126,8 @@ const Header = () => {
             <NavLink
               key={link.to}
               to={link.to}
-              className="font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
-              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
+              className="font-ui text-[0.7rem] xl:text-xs font-semibold uppercase tracking-[0.16em] whitespace-nowrap text-foreground transition-colors duration-200 hover:text-accent"
+              activeClassName={link.isSection ? undefined : 'text-accent'}
             >
               {link.label}
             </NavLink>
@@ -153,7 +153,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`nav:hidden absolute top-full left-0 right-0 z-50 bg-background shadow-elevated transition-all duration-300 ${
+        className={`nav:hidden absolute top-full left-0 right-0 z-50 border-b border-border bg-background shadow-elevated transition-all duration-300 ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
@@ -164,7 +164,7 @@ const Header = () => {
               type="button"
               onClick={() => setIsServicesOpen((v) => !v)}
               aria-expanded={isServicesOpen}
-              className="font-body text-base text-foreground py-2 w-full flex items-center justify-between hover:text-primary transition-colors"
+              className="font-ui text-sm font-semibold uppercase tracking-[0.14em] text-foreground py-2 w-full flex items-center justify-between hover:text-accent transition-colors"
             >
               Services
               <ChevronDown
@@ -179,7 +179,7 @@ const Header = () => {
               <NavLink
                 to="/#services"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block font-body text-sm text-muted-foreground py-2 pl-4 hover:text-primary transition-colors"
+                className="block font-body text-base text-muted-foreground py-2 pl-4 hover:text-accent transition-colors"
               >
                 All Services
               </NavLink>
@@ -188,7 +188,7 @@ const Header = () => {
                   key={service.slug}
                   to={`/services/${service.slug}`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block font-body text-sm text-muted-foreground py-2 pl-4 hover:text-primary transition-colors"
+                  className="block font-body text-base text-muted-foreground py-2 pl-4 hover:text-accent transition-colors"
                 >
                   {service.navLabel}
                 </Link>
@@ -201,8 +201,8 @@ const Header = () => {
               key={link.to}
               to={link.to}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="font-body text-base text-foreground py-2 border-b border-border hover:text-primary transition-colors"
-              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
+              className="font-ui text-sm font-semibold uppercase tracking-[0.14em] text-foreground py-2 border-b border-border hover:text-accent transition-colors"
+              activeClassName={link.isSection ? undefined : 'text-accent'}
             >
               {link.label}
             </NavLink>

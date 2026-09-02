@@ -52,7 +52,7 @@ const About = () => (
             alt="Josh working on a garden project"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft"
+            className="plate w-full h-full object-cover"
           />
           <img
             src={about2.src}
@@ -63,7 +63,7 @@ const About = () => (
             alt="Freshly maintained garden border"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft row-span-2"
+            className="plate w-full h-full object-cover row-span-2"
           />
           <img
             src={about3.src}
@@ -74,7 +74,7 @@ const About = () => (
             alt="Completed landscaping project by JW Garden Services"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover rounded-lg shadow-soft"
+            className="plate w-full h-full object-cover"
           />
         </div>
       </div>

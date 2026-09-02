@@ -124,16 +124,16 @@ const AreaDetail = () => {
                 alt={area.imageAlt}
                 loading="lazy"
                 decoding="async"
-                className="w-full rounded-lg shadow-elevated object-cover aspect-[4/3]"
+                className="plate w-full object-cover aspect-[4/3]"
               />
-              <div className="rounded-lg border border-border/60 bg-secondary/30 p-6 sm:p-8">
+              <div className="rounded-sm border border-border bg-secondary/60 p-6 sm:p-8">
                 <h2 className="font-heading text-xl font-semibold text-foreground mb-4">
                   Why we&rsquo;re local to {area.town}
                 </h2>
                 <ul className="space-y-3">
                   {area.localNotes.map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-foreground">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-accent/40">
                         <Check className="h-3 w-3 text-primary" strokeWidth={3} />
                       </span>
                       <span className="text-sm sm:text-base">{item}</span>
@@ -186,7 +186,7 @@ const AreaDetail = () => {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
+                  className="group rounded-sm border border-border bg-card p-6 transition-colors hover:border-accent"
                 >
                   <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {s.navLabel}
@@ -220,7 +220,7 @@ const AreaDetail = () => {
                   alt={`Garden maintained by JW Garden Services near ${area.town}, Buckinghamshire — example ${i + 1}`}
                   loading="lazy"
                   decoding="async"
-                  className="w-full rounded-lg shadow-soft object-cover aspect-[4/3]"
+                  className="plate w-full object-cover aspect-[4/3]"
                 />
               ))}
             </div>
@@ -255,14 +255,14 @@ const AreaDetail = () => {
                 <Link
                   key={a.slug}
                   to={`/${a.slug}`}
-                  className="font-body text-sm rounded-full border border-border/60 bg-card px-5 py-2.5 text-foreground shadow-soft transition-colors hover:border-primary/40 hover:text-primary"
+                  className="font-ui text-sm rounded-sm border border-border bg-card px-5 py-2.5 text-foreground transition-colors hover:border-accent hover:text-accent"
                 >
                   Gardeners in {a.town}
                 </Link>
               ))}
               <Link
                 to="/#areas"
-                className="font-body text-sm rounded-full border border-border/60 bg-card px-5 py-2.5 text-foreground shadow-soft transition-colors hover:border-primary/40 hover:text-primary"
+                className="font-ui text-sm rounded-sm border border-border bg-card px-5 py-2.5 text-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 All areas we cover
               </Link>

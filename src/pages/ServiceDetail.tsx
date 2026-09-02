@@ -113,16 +113,16 @@ const ServiceDetail = () => {
                 alt={service.imageAlt}
                 loading="lazy"
                 decoding="async"
-                className="w-full rounded-lg shadow-elevated object-cover aspect-[4/3]"
+                className="plate w-full object-cover aspect-[4/3]"
               />
-              <div className="rounded-lg border border-border/60 bg-secondary/30 p-6 sm:p-8">
+              <div className="rounded-sm border border-border bg-secondary/60 p-6 sm:p-8">
                 <h2 className="font-heading text-xl font-semibold text-foreground mb-4">
                   What&rsquo;s included
                 </h2>
                 <ul className="space-y-3">
                   {service.includes.map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-foreground">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-accent/40">
                         <Check className="h-3 w-3 text-primary" strokeWidth={3} />
                       </span>
                       <span className="text-sm sm:text-base">{item}</span>
@@ -166,7 +166,7 @@ const ServiceDetail = () => {
                   alt={`${service.navLabel} project by JW Garden Services in the Aylesbury area — example ${i + 1}`}
                   loading="lazy"
                   decoding="async"
-                  className="w-full rounded-lg shadow-soft object-cover aspect-[4/3]"
+                  className="plate w-full object-cover aspect-[4/3]"
                 />
               ))}
             </div>
@@ -209,7 +209,7 @@ const ServiceDetail = () => {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
+                  className="group rounded-sm border border-border bg-card p-6 transition-colors hover:border-accent"
                 >
                   <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
                     {s.navLabel}

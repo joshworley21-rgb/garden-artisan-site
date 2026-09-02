@@ -34,15 +34,15 @@ const AreasSection = () => {
   }, [showMap]);
 
   return (
-    <section id="areas" className="section-padding bg-secondary/30">
+    <section id="areas" className="section-padding bg-secondary/60">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
+        <div className="ruled-head grid lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-start">
           {/* Copy */}
-          <div>
-            <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
+          <div className="lg:col-span-7">
+            <span className="label label-rule text-accent mb-5 block">
               Service Area
             </span>
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
+            <h2 className="font-heading heading-section text-foreground mb-6">
               Areas We Cover
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
@@ -52,18 +52,21 @@ const AreasSection = () => {
               need is met, whatever the season.
             </p>
 
-            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
+            {/* Read as an index of the round, not as a checklist of features. */}
+            <ul className="grid grid-cols-2 gap-x-6 sm:gap-x-10 border-t border-border">
               {areas.map((area) => {
                 return (
-                  <li key={area.slug} className="flex items-center gap-3 font-body text-foreground">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
-                    </span>
+                  <li key={area.slug} className="border-b border-border">
                     <Link
                       to={`/${area.slug}`}
-                      className="text-sm sm:text-base underline underline-offset-4 decoration-primary/30 hover:text-primary transition-colors"
+                      className="group flex items-center justify-between gap-3 py-3 font-ui text-sm font-medium tracking-wide text-foreground transition-colors hover:text-accent"
                     >
                       {area.town}
+                      <Check
+                        className="h-3.5 w-3.5 shrink-0 text-accent/60 transition-colors group-hover:text-accent"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                     </Link>
                   </li>
                 );
@@ -80,7 +83,7 @@ const AreasSection = () => {
           {/* Map */}
           <div
             ref={mapRef}
-            className="rounded-lg overflow-hidden shadow-elevated bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
+            className="lg:col-span-5 rounded-sm overflow-hidden border border-border bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
           >
             {showMap && (
               <iframe

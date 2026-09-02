@@ -6,105 +6,108 @@
 
 @layer base {
   :root {
-    /* Premium Garden Palette */
-    --background: 45 30% 97%;
-    --foreground: 150 25% 15%;
+    /* Palette taken from the photographs on the page: limestone paving, yew
+       hedge, cut grass. Deliberately cool — the cream + serif + sage look this
+       site used to wear is now the most-copied "tasteful" AI default. */
 
-    --card: 45 25% 95%;
-    --card-foreground: 150 25% 15%;
+    /* Limestone paper */
+    --background: 80 10% 93%;
+    --foreground: 156 30% 12%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 150 25% 15%;
+    /* Chalk — panels and cards sitting on the paper */
+    --card: 70 16% 97%;
+    --card-foreground: 156 30% 12%;
 
-    /* Deep Forest Green - Primary brand color */
-    --primary: 150 35% 22%;
-    --primary-foreground: 45 30% 97%;
+    --popover: 70 16% 97%;
+    --popover-foreground: 156 30% 12%;
 
-    /* Warm Stone/Cream */
-    --secondary: 45 25% 90%;
-    --secondary-foreground: 150 25% 15%;
+    /* Yew — the ink of the brand, and the ground of the dark sections */
+    --primary: 157 42% 15%;
+    --primary-foreground: 70 20% 96%;
 
-    /* Muted sage tones */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 10% 45%;
+    /* Mist — quiet panels a step off the paper */
+    --secondary: 120 10% 88%;
+    --secondary-foreground: 156 30% 12%;
 
-    /* Fresh leaf-green accent */
-    --accent: 110 40% 33%;
-    --accent-foreground: 45 30% 97%;
+    --muted: 100 8% 87%;
+    --muted-foreground: 155 12% 32%;
 
-    /* Bright leaf green for hero text over dark overlay */
-    --hero-accent: 95 55% 58%;
+    /* Cut grass — interaction only: links, focus, the live rule under a CTA */
+    --accent: 94 48% 26%;
+    --accent-foreground: 70 20% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* The same green lifted for use over dark photography */
+    --hero-accent: 88 58% 62%;
 
-    --border: 150 15% 85%;
-    --input: 150 15% 85%;
-    --ring: 150 35% 22%;
+    --destructive: 5 62% 42%;
+    --destructive-foreground: 70 20% 96%;
 
-    --radius: 0.25rem;
+    /* Hairlines are structural here, so they need to be visible */
+    --border: 100 10% 68%;
+    --input: 100 10% 68%;
+    --ring: 94 48% 26%;
 
-    /* Custom properties */
-    --font-heading: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
+    /* Drawing-set corners: 2px, never a pill */
+    --radius: 0.125rem;
 
-    /* Gradient definitions */
-    --gradient-hero: linear-gradient(180deg, hsl(150 35% 22% / 0.85) 0%, hsl(150 35% 22% / 0.6) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(45 25% 95%) 0%, hsl(150 15% 92%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(110 40% 33%) 0%, hsl(150 35% 22%) 100%);
+    /* Archivo for anything that behaves like signage — headings, nav, labels,
+       buttons. Newsreader for anything that behaves like prose. The usual AI
+       pairing is the reverse (serif display over a sans body). */
+    --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-ui: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(150 25% 15% / 0.08);
-    --shadow-elevated: 0 12px 40px -8px hsl(150 25% 15% / 0.15);
-    --shadow-glow: 0 0 40px hsl(110 40% 33% / 0.25);
+    /* Depth comes from rules and photography, not from drop shadows */
+    --shadow-soft: 0 1px 2px hsl(156 30% 12% / 0.06);
+    --shadow-elevated: 0 12px 32px -18px hsl(156 30% 12% / 0.35);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 80 10% 93%;
+    --sidebar-foreground: 156 30% 12%;
+    --sidebar-primary: 157 42% 15%;
+    --sidebar-primary-foreground: 70 20% 96%;
+    --sidebar-accent: 120 10% 88%;
+    --sidebar-accent-foreground: 156 30% 12%;
+    --sidebar-border: 100 10% 68%;
+    --sidebar-ring: 94 48% 26%;
   }
 
   .dark {
-    --background: 150 25% 8%;
-    --foreground: 45 25% 95%;
+    --background: 157 30% 8%;
+    --foreground: 70 16% 94%;
 
-    --card: 150 25% 12%;
-    --card-foreground: 45 25% 95%;
+    --card: 157 28% 11%;
+    --card-foreground: 70 16% 94%;
 
-    --popover: 150 25% 10%;
-    --popover-foreground: 45 25% 95%;
+    --popover: 157 28% 11%;
+    --popover-foreground: 70 16% 94%;
 
-    --primary: 150 30% 45%;
-    --primary-foreground: 150 25% 8%;
+    --primary: 88 40% 62%;
+    --primary-foreground: 157 30% 8%;
 
-    --secondary: 150 20% 18%;
-    --secondary-foreground: 45 25% 95%;
+    --secondary: 157 20% 16%;
+    --secondary-foreground: 70 16% 94%;
 
-    --muted: 150 20% 18%;
-    --muted-foreground: 150 15% 60%;
+    --muted: 157 20% 16%;
+    --muted-foreground: 100 10% 68%;
 
-    --accent: 95 45% 55%;
-    --accent-foreground: 150 25% 8%;
+    --accent: 88 45% 58%;
+    --accent-foreground: 157 30% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 5 55% 40%;
+    --destructive-foreground: 70 16% 94%;
 
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 150 30% 45%;
+    --border: 157 18% 22%;
+    --input: 157 18% 22%;
+    --ring: 88 45% 58%;
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 157 30% 8%;
+    --sidebar-foreground: 70 16% 94%;
+    --sidebar-primary: 88 40% 62%;
+    --sidebar-primary-foreground: 157 30% 8%;
+    --sidebar-accent: 157 20% 16%;
+    --sidebar-accent-foreground: 70 16% 94%;
+    --sidebar-border: 157 18% 22%;
+    --sidebar-ring: 88 45% 58%;
   }
 }
 
@@ -117,12 +120,34 @@
     scroll-behavior: smooth;
   }
 
+  /* The header is fixed, so anchored sections need to stop clear of it. */
+  section[id],
+  [id]:target {
+    scroll-margin-top: 6.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  /* Newsreader's optical size axis: prose is set at reading size, not at the
+     display cut the browser would otherwise interpolate to. */
+  p, li, blockquote {
+    font-optical-sizing: auto;
   }
 }
 
@@ -136,6 +161,86 @@
     @apply max-w-7xl mx-auto;
     padding-left: clamp(1.25rem, 4vw, 2.5rem);
     padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* --- The drawing set -------------------------------------------------
+     The page borrows its structure from a garden designer's site plan: a
+     hairline rule opens every section, small-caps labels sit on that rule the
+     way a title block does, and photographs are pinned inside corner ticks
+     rather than floated on drop shadows. */
+
+  .label {
+    font-family: var(--font-ui);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* A label that carries its own leading rule, like a drawing callout. */
+  .label-rule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .label-rule::before {
+    content: '';
+    width: 2.25rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  /* Section head: a full-width hairline the heading hangs from. */
+  .ruled-head {
+    border-top: 1px solid hsl(var(--border));
+    padding-top: 1.75rem;
+  }
+
+  /* Photographs are pinned, not floated: 1px frame plus two corner ticks. */
+  .plate {
+    position: relative;
+    overflow: hidden;
+    outline: 1px solid hsl(var(--foreground) / 0.12);
+    outline-offset: -1px;
+  }
+
+  .plate::before,
+  .plate::after {
+    content: '';
+    position: absolute;
+    width: 0.875rem;
+    height: 0.875rem;
+    pointer-events: none;
+    z-index: 2;
+    border-color: hsl(var(--primary-foreground) / 0.9);
+    /* The ticks have to read over a bright lawn as well as a dark hedge. */
+    filter: drop-shadow(0 0 1px hsl(156 30% 12% / 0.55));
+  }
+
+  .plate::before {
+    top: 0.625rem;
+    left: 0.625rem;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .plate::after {
+    right: 0.625rem;
+    bottom: 0.625rem;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  /* Ruled index rows — services, credentials, covered towns. */
+  .row-ruled {
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  .row-ruled:last-child {
+    border-bottom: 1px solid hsl(var(--border));
   }
 
   /* "Find out more" affordance. Nudging the arrow alone was too small to read
@@ -207,13 +312,17 @@
 
   /* Fluid heading scale — smooth across every breakpoint */
   .heading-hero {
-    font-size: clamp(2.25rem, 6.2vw, 4.5rem);
-    line-height: 1.08;
+    font-size: clamp(2.5rem, 6.4vw, 4.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-stretch: 110%;
   }
 
   .heading-section {
-    font-size: clamp(1.875rem, 4.2vw, 3.25rem);
-    line-height: 1.15;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-stretch: 110%;
   }
 
   .body-lead {
@@ -243,6 +352,16 @@
 
   .animation-delay-600 {
     animation-delay: 600ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-scale-in {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 

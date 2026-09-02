@@ -22,7 +22,9 @@ export default {
       },
       fontFamily: {
         heading: ['var(--font-heading)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        // Signage voice: nav, buttons, labels, anything that is not prose.
+        ui: ['var(--font-ui)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-body)', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -81,7 +83,6 @@ export default {
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'elevated': 'var(--shadow-elevated)',
-        'glow': 'var(--shadow-glow)',
       },
       keyframes: {
         "accordion-down": {
