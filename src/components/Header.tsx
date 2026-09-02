@@ -1,221 +1,268 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
+import Action from '@/components/Action';
 import { services } from '@/lib/services';
+
 const logo = { url: '/assets/jw-logo.png' };
+
+const navLinks = [
+  { to: '/about', label: 'About' },
+  { to: '/our-work', label: 'Our work' },
+  // Points at a section of the home page, so it must never light up as the
+  // current page: NavLink matches on pathname and ignores the hash.
+  { to: '/#areas', label: 'Areas', isSection: true },
+];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setIsServicesOpen(false);
-  }, [location.pathname]);
+    setMenuOpen(false);
+    setServicesOpen(false);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 24);
+        frame = 0;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
-  // Close desktop dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const onClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsServicesOpen(false);
+        setServicesOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', onClickOutside);
+    return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  // "Areas We Cover" points at a section of the home page, not a page of its
-  // own. NavLink matches on pathname and ignores the hash, so it would light up
-  // as the current page every time you were on the home page.
-  const navLinks = [
-    { to: '/about', label: 'About' },
-    { to: '/our-work', label: 'Our Work' },
-    { to: '/#areas', label: 'Areas We Cover', isSection: true },
-  ];
+  // Escape closes whichever layer is open; the page underneath stops scrolling
+  // while the full-screen menu is up.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setMenuOpen(false);
+      setServicesOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
-  const isServicesActive = location.pathname.startsWith('/services');
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const { style } = document.body;
+    const previous = style.overflow;
+    if (menuOpen) style.overflow = 'hidden';
+    return () => {
+      style.overflow = previous;
+    };
+  }, [menuOpen]);
+
+  const servicesActive = location.pathname.startsWith('/services');
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-all duration-500 ${
-        isScrolled ? 'py-2' : 'py-3'
-      }`}
-    >
-      <div className="container-wide flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center shrink-0 overflow-hidden"
-          aria-label="JW Garden Services home"
-        >
-          <img
-            src={logo.url}
-            alt="JW Garden Services logo"
-            width={255}
-            height={102}
-            fetchPriority="high"
-            decoding="async"
-            className="block object-contain object-left transition-all duration-300 h-12 sm:h-14 md:h-16 lg:h-[68px] xl:h-20 w-auto max-w-[58vw] sm:max-w-[280px] lg:max-w-[300px] xl:max-w-[400px]"
-          />
-        </Link>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[70] focus:bg-ink focus:px-5 focus:py-3 focus:text-chalk"
+      >
+        Skip to content
+      </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden nav:flex items-center gap-5 xl:gap-8">
-          {/* Services dropdown */}
-          <div
-            ref={dropdownRef}
-            className="relative"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setIsServicesOpen((v) => !v)}
-              aria-expanded={isServicesOpen}
-              aria-haspopup="true"
-              className={`font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap flex items-center gap-1 transition-colors duration-300 hover:text-primary ${
-                isServicesActive ? 'text-primary font-semibold' : 'text-foreground'
-              }`}
-            >
-              Services
-              <ChevronDown
-                className={`h-3.5 w-3.5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            <div
-              className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 ${
-                isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
-              }`}
-            >
-              <div className="min-w-[260px] rounded-lg border border-border/60 bg-background shadow-elevated overflow-hidden">
-                <NavLink
-                  to="/#services"
-                  onClick={() => setIsServicesOpen(false)}
-                  className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40"
-                >
-                  All Services
-                </NavLink>
-                {services.map((service) => (
-                  <Link
-                    key={service.slug}
-                    to={`/services/${service.slug}`}
-                    onClick={() => setIsServicesOpen(false)}
-                    className="block px-5 py-3 font-body text-sm text-foreground hover:bg-secondary/40 hover:text-primary transition-colors border-b border-border/40 last:border-0"
-                  >
-                    {service.navLabel}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              className="font-body text-[0.8rem] xl:text-sm uppercase tracking-[0.12em] xl:tracking-widest whitespace-nowrap text-foreground transition-colors duration-300 hover:text-primary"
-              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-          <Button variant="hero" size="lg" className="whitespace-nowrap" asChild>
-            <Link to="/contact">
-              <Phone className="h-4 w-4" />
-              Get in Touch
-            </Link>
-          </Button>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMobileMenuOpen}
-          className="nav:hidden -mr-2 p-2 text-foreground transition-colors"
-        >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`nav:hidden absolute top-full left-0 right-0 z-50 bg-background shadow-elevated transition-all duration-300 ${
-          isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+      <header
+        className={`fixed inset-x-0 top-0 z-[60] transition-[background-color,border-color,padding] duration-700 ease-estate ${
+          menuOpen
+            ? 'border-b border-transparent py-4'
+            : isScrolled
+              ? 'border-b border-rule bg-chalk/90 py-2.5 backdrop-blur-md supports-[backdrop-filter]:bg-chalk/75'
+              : 'border-b border-transparent py-4'
         }`}
       >
-        <nav className="container-wide py-6 flex flex-col gap-4">
-          {/* Services expandable */}
-          <div className="border-b border-border">
-            <button
-              type="button"
-              onClick={() => setIsServicesOpen((v) => !v)}
-              aria-expanded={isServicesOpen}
-              className="font-body text-base text-foreground py-2 w-full flex items-center justify-between hover:text-primary transition-colors"
-            >
-              Services
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                isServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className="wrap flex items-center justify-between gap-6">
+          {/* The mark is dark ink on transparent: over the open menu it needs a
+              light plaque, the same trick the footer uses. */}
+          <Link
+            to="/"
+            aria-label="JW Garden Services — home"
+            className={`shrink-0 transition-[background-color,padding] duration-500 ease-estate ${
+              menuOpen ? 'bg-chalk px-3 py-2' : ''
+            }`}
+          >
+            <img
+              src={logo.url}
+              alt="JW Garden Services"
+              width={255}
+              height={102}
+              fetchPriority="high"
+              decoding="async"
+              className={`block w-auto object-contain object-left transition-[height] duration-700 ease-estate ${
+                isScrolled ? 'h-10 sm:h-11' : 'h-11 sm:h-14'
               }`}
-            >
-              <NavLink
-                to="/#services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block font-body text-sm text-muted-foreground py-2 pl-4 hover:text-primary transition-colors"
-              >
-                All Services
-              </NavLink>
-              {services.map((service) => (
-                <Link
-                  key={service.slug}
-                  to={`/services/${service.slug}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block font-body text-sm text-muted-foreground py-2 pl-4 hover:text-primary transition-colors"
-                >
-                  {service.navLabel}
-                </Link>
-              ))}
-            </div>
-          </div>
+            />
+          </Link>
 
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="font-body text-base text-foreground py-2 border-b border-border hover:text-primary transition-colors"
-              activeClassName={link.isSection ? undefined : 'text-primary font-semibold'}
+          <nav className="hidden items-center gap-9 nav:flex" aria-label="Main">
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
             >
-              {link.label}
-            </NavLink>
-          ))}
-          <Button variant="hero" size="lg" className="mt-4" asChild>
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Phone className="h-4 w-4" />
-              Get in Touch
-            </Link>
-          </Button>
+              <button
+                type="button"
+                onClick={() => setServicesOpen((v) => !v)}
+                aria-expanded={servicesOpen}
+                className={`flex items-center gap-2 py-2 font-body text-[0.9375rem] transition-colors duration-300 hover:text-ceanothus ${
+                  servicesActive ? 'text-ceanothus' : 'text-ink'
+                }`}
+              >
+                Services
+                <svg viewBox="0 0 10 6" aria-hidden="true" className={`h-1.5 w-2.5 transition-transform duration-500 ease-estate ${servicesOpen ? 'rotate-180' : ''}`}>
+                  <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              <div
+                className={`absolute left-0 top-full pt-3 transition-[opacity,transform] duration-500 ease-estate ${
+                  servicesOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-1 opacity-0'
+                }`}
+              >
+                <div className="w-[19rem] border border-rule bg-chalk-wash shadow-plate">
+                  {services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      to={`/services/${service.slug}`}
+                      onClick={() => setServicesOpen(false)}
+                      className="block border-b border-rule/70 px-6 py-4 transition-colors duration-300 last:border-0 hover:bg-chalk-mount"
+                    >
+                      <span className="block font-display text-[1.0625rem] leading-tight">{service.navLabel}</span>
+                      <span className="tag mt-2 block text-stone">{service.eyebrow}</span>
+                    </Link>
+                  ))}
+                  <NavLink
+                    to="/#services"
+                    onClick={() => setServicesOpen(false)}
+                    className="block bg-chalk-mount px-6 py-3.5 font-body text-sm text-stone transition-colors hover:text-ink"
+                  >
+                    All four, side by side
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className="py-2 font-body text-[0.9375rem] text-ink transition-colors duration-300 hover:text-ceanothus"
+                activeClassName={link.isSection ? undefined : 'text-ceanothus'}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+
+            <a
+              href="tel:+447950636954"
+              className="nums font-mono text-[0.8125rem] tracking-wide text-stone transition-colors hover:text-ink xl:block hidden"
+            >
+              07950 636954
+            </a>
+
+            <Action to="/contact">Get a quote</Action>
+          </nav>
+
+          {/* Hamburger — the two rules cross into an X rather than disappearing. */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            className="relative z-[60] -mr-2 flex h-11 w-11 items-center justify-center nav:hidden"
+          >
+            <span className="relative block h-3 w-7">
+              <span
+                className={`absolute left-0 block h-px w-full transition-transform duration-500 ease-estate ${
+                  menuOpen ? 'top-1.5 rotate-45 bg-chalk' : 'top-0 bg-ink'
+                }`}
+              />
+              <span
+                className={`absolute left-0 block h-px w-full transition-transform duration-500 ease-estate ${
+                  menuOpen ? 'top-1.5 -rotate-45 bg-chalk' : 'top-3 bg-ink'
+                }`}
+              />
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {/* Full-screen menu. Links arrive one after another rather than together. */}
+      <div
+        id="site-menu"
+        className={`on-ink fixed inset-0 z-50 bg-ink/[0.97] backdrop-blur-xl transition-opacity duration-500 ease-estate nav:hidden ${
+          menuOpen ? 'visible opacity-100' : 'invisible opacity-0'
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <nav
+          className="wrap flex h-full flex-col justify-center gap-8 overflow-y-auto overscroll-contain py-28"
+          aria-label="Main"
+        >
+          <ul className="space-y-1">
+            {[
+              { to: '/', label: 'Home' },
+              ...services.map((s) => ({ to: `/services/${s.slug}`, label: s.navLabel })),
+              { to: '/our-work', label: 'Our work' },
+              { to: '/about', label: 'About' },
+              { to: '/#areas', label: 'Areas we cover' },
+              { to: '/contact', label: 'Contact' },
+            ].map((link, i) => (
+              <li
+                key={link.to}
+                className={`transition-[opacity,transform] duration-700 ease-estate ${
+                  menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}
+                style={{ transitionDelay: menuOpen ? `${80 + i * 55}ms` : '0ms' }}
+              >
+                <Link
+                  to={link.to}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-1.5 font-display text-[clamp(1.75rem,7vw,2.5rem)] leading-tight text-chalk"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="rule-top pt-8">
+            <span className="tag text-stone-light">Bierton, Aylesbury</span>
+            <a href="tel:+447950636954" className="nums mt-3 block font-display text-3xl text-chalk">
+              07950 636954
+            </a>
+            <a href="mailto:info@jw-gardenservices.co.uk" className="link-rule mt-3 inline-block text-sm">
+              info@jw-gardenservices.co.uk
+            </a>
+          </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 };
 

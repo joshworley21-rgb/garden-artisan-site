@@ -8,15 +8,15 @@ const Privacy = () => (
       description="How JW Garden Services collects, uses and protects the information you send through our enquiry form."
       path="/privacy"
     />
-    <PageLayout eyebrow="Legal" title="Privacy Policy">
-    <section className="section-padding bg-background">
-      <div className="container-wide max-w-3xl font-body text-muted-foreground leading-relaxed space-y-6">
+    <PageLayout eyebrow="Legal" title="Privacy policy">
+      <section className="section-tight">
+        <div className="wrap max-w-measure space-y-8 text-pretty text-[1.0625rem] text-stone">
         <p>
           JW Garden Services respects your privacy. This policy explains what information we
           collect when you contact us and how we use it.
         </p>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="display-3 mb-3 text-ink">
             Information we collect
           </h2>
           <p>
@@ -26,7 +26,7 @@ const Privacy = () => (
           </p>
         </div>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="display-3 mb-3 text-ink">
             How we use your information
           </h2>
           <p>
@@ -35,7 +35,7 @@ const Privacy = () => (
           </p>
         </div>
         <div>
-          <h2 className="font-heading text-2xl text-foreground font-semibold mb-3">
+          <h2 className="display-3 mb-3 text-ink">
             Your rights
           </h2>
           <p>
@@ -43,9 +43,9 @@ const Privacy = () => (
             you. Contact us and we'll action your request promptly.
           </p>
         </div>
-      </div>
-    </section>
-  </PageLayout>
+        </div>
+      </section>
+    </PageLayout>
   </>
 );
 

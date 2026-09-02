@@ -1,103 +1,71 @@
-import { useEffect, useRef, useState } from 'react';
-import { Check, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Arrow from '@/components/Arrow';
+import Reveal from '@/components/Reveal';
+import Tag from '@/components/Tag';
 import { areas as areaPages } from '@/lib/areas';
 
-// Sorted by driving distance from our Bierton base, capped at 12 (a tidy 6 x 2 grid).
-const areas = [...areaPages]
-  .sort((a, b) => a.distanceMiles - b.distanceMiles)
-  .slice(0, 12);
+// Nearest first: the list is a round, and a round has an order.
+const areas = [...areaPages].sort((a, b) => a.distanceMiles - b.distanceMiles);
 
-const AreasSection = () => {
-  // The Google Maps embed is heavy, so it only mounts once it scrolls into view.
-  const mapRef = useRef<HTMLDivElement>(null);
-  const [showMap, setShowMap] = useState(false);
-
-  useEffect(() => {
-    const node = mapRef.current;
-    if (!node || showMap) return;
-    if (typeof IntersectionObserver === 'undefined') {
-      setShowMap(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          setShowMap(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '300px' },
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [showMap]);
-
-  return (
-    <section id="areas" className="section-padding bg-secondary/30">
-      <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
-          {/* Copy */}
-          <div>
-            <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
-              Service Area
-            </span>
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
-              Areas We Cover
-            </h2>
-            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-              JW Garden Services provides garden maintenance, garden design and hard
-              landscaping in Aylesbury and the surrounding villages and towns across
-              Buckinghamshire, Bedfordshire and Hertfordshire — making sure every outdoor
-              need is met, whatever the season.
-            </p>
-
-            <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
-              {areas.map((area) => {
-                return (
-                  <li key={area.slug} className="flex items-center gap-3 font-body text-foreground">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                      <Check className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
-                    </span>
-                    <Link
-                      to={`/${area.slug}`}
-                      className="text-sm sm:text-base underline underline-offset-4 decoration-primary/30 hover:text-primary transition-colors"
-                    >
-                      {area.town}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <p className="font-body text-sm text-muted-foreground mt-8 flex items-start gap-2">
-              <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-              Not on the list? We travel up to 25 miles from Bierton, Aylesbury — get in
-              touch and we'll let you know.
-            </p>
-          </div>
-
-          {/* Map */}
-          <div
-            ref={mapRef}
-            className="rounded-lg overflow-hidden shadow-elevated bg-muted aspect-[4/3] sm:aspect-square lg:aspect-[4/5]"
-          >
-            {showMap && (
-              <iframe
-                title="Map showing the areas JW Garden Services covers around Aylesbury"
-                src="https://www.google.com/maps?q=Bierton,+Aylesbury,+Buckinghamshire,+UK&z=10&output=embed"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="border-0 h-full w-full"
-              />
-            )}
-          </div>
+const AreasSection = () => (
+  <section id="areas" className="section">
+    <div className="wrap">
+      <Reveal className="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <Tag className="text-stone">The round</Tag>
+          <h2 className="display-2 mt-6 max-w-[18ch] text-balance">
+            Twenty-five miles from a village outside Aylesbury
+          </h2>
         </div>
-      </div>
-    </section>
-  );
-};
+        <p className="lead max-w-[40ch] text-pretty text-stone lg:col-span-5 lg:pb-2">
+          We are based in Bierton. These are the towns and villages we drive to, nearest first, with
+          the postcodes we cover in each.
+        </p>
+      </Reveal>
+
+      {/* A table of distances rather than a map: it answers the question a map
+          only gestures at — how far away are you, and do you come to my
+          postcode. */}
+      <Reveal className="mt-14 lg:mt-20">
+        <div className="rule-top grid grid-cols-[1fr_auto] gap-x-6 pb-3 pt-3 sm:grid-cols-[1fr_7rem_auto]">
+          <span className="tag text-stone">Town or village</span>
+          <span className="tag hidden text-right text-stone sm:block">From Bierton</span>
+          <span className="tag text-right text-stone">Postcodes</span>
+        </div>
+
+        <ul>
+          {areas.map((area) => (
+            <li key={area.slug}>
+              <Link
+                to={`/${area.slug}`}
+                className="rule-top group grid grid-cols-[1fr_auto] items-baseline gap-x-6 gap-y-2 py-5 sm:grid-cols-[1fr_7rem_9rem]"
+              >
+                <span className="flex items-baseline gap-3 font-display text-[1.375rem] leading-tight transition-colors duration-500 ease-estate group-hover:text-ceanothus sm:text-[1.5rem]">
+                  {area.town}
+                  <Arrow className="row-arrow h-3.5 w-3.5 shrink-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="sr-only">— gardeners in {area.town}</span>
+                </span>
+                <span className="tag nums hidden text-right text-stone sm:block">
+                  {area.distanceMiles === 0 ? 'Our village' : `${area.distanceMiles} miles`}
+                </span>
+                <span className="tag nums text-right text-stone/80">{area.postcodes}</span>
+                <span className="tag nums col-span-2 text-stone sm:hidden">
+                  {area.distanceMiles === 0 ? 'Our village' : `${area.distanceMiles} miles from Bierton`}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="rule-top pt-6">
+          <p className="max-w-[62ch] font-body text-sm text-stone">
+            Not on the list? We travel up to 25 miles from Bierton &mdash; send us your postcode and
+            we will tell you straight whether you are on the round.
+          </p>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+);
 
 export default AreasSection;

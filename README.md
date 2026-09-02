@@ -47,6 +47,30 @@ public/.htaccess        SPA fallback, caching and security headers for Apache
 scripts/                asset migration, prerendering, sitemap dates, publishing
 ```
 
+## Design
+
+The site runs on one small design system, "Estate Record", defined in
+`src/index.css` (tokens, type scale, plate/label/rule components) and
+`tailwind.config.ts` (colour and font names). The short version:
+
+| Piece | What it is |
+| --- | --- |
+| Ground | `chalk` limestone paper, with `ink` — a near-black bottle green — for the gardening-year, contact and footer bands |
+| Accent | `ceanothus` blue, taken from the flowers that recur in the photographs, not from "garden = green" |
+| Type | Fraunces for display, Karla for reading, IBM Plex Mono for labels and figures |
+| Photographs | Every picture is a `Plate` — a mount with a hairline and a square-cornered image inside it |
+| Labels | `Tag` / `.tag` is only ever used to carry a fact: a cadence, a distance, a postcode, a month |
+| Motion | `Reveal` fades sections up on scroll; hidden state is gated on the `reveal-on` class so the page still reads without JavaScript |
+
+Section rhythm comes from `.section` / `.section-tight` and the `.wrap`
+container — do not add ad-hoc padding to sections. The one call to action is
+`src/components/Action.tsx`; `src/components/ui/button.tsx` is only there for
+the shadcn components that import `buttonVariants`.
+
+`src/components/GardenYear.tsx` is the home page's centrepiece: a twelve-month
+chart of what happens when, with the current month marked on the client so the
+prerendered HTML is not stamped with the build month.
+
 ## Origins
 
 This project started on the Lovable platform. It no longer depends on it: the

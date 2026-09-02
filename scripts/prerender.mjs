@@ -147,6 +147,23 @@ function stripRuntimePreloads(html) {
   });
 }
 
+/**
+ * The scroll-reveal animation is gated on a `reveal-on` class that an inline
+ * script in index.html puts on <html>. Capturing the live DOM bakes it in,
+ * which would leave every below-the-fold section at opacity 0 for a reader or
+ * a crawler without JavaScript. Strip it from the static file: the same inline
+ * script re-adds it the moment the page is opened in a browser.
+ */
+function stripRevealState(html) {
+  return html.replace(
+    /(<html\b[^>]*\sclass=")([^"]*)(")/i,
+    (tag, before, classes, after) => {
+      const kept = classes.split(/\s+/).filter((c) => c && c !== 'reveal-on');
+      return kept.length ? `${before}${kept.join(' ')}${after}` : before.replace(/\sclass="$/, '');
+    },
+  );
+}
+
 const server = await serve();
 const browser = await launchBrowser();
 const page = await browser.newPage();
@@ -161,9 +178,11 @@ for (const route of routes) {
   // desktop file before React swaps it. The poster image stays; the video is
   // added after load either way.
   const html = await inlineStylesheet(
-    stripRuntimePreloads(
-      ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
-        .replace(/<video[\s\S]*?<\/video>/g, ''),
+    stripRevealState(
+      stripRuntimePreloads(
+        ('<!doctype html>\n' + (await page.evaluate(() => document.documentElement.outerHTML)))
+          .replace(/<video[\s\S]*?<\/video>/g, ''),
+      ),
     ),
   );
 

@@ -1,8 +1,14 @@
+import Reveal from '@/components/Reveal';
+import Tag from '@/components/Tag';
 import { projectGroups } from '@/lib/projects';
 
 /**
- * The portfolio, grouped by the kind of work rather than shown as one flat grid,
- * so each photo carries a caption explaining what was actually done.
+ * The portfolio, grouped by the kind of work rather than shown as one flat
+ * grid, so every photograph carries a caption saying what was actually done.
+ *
+ * Laid out in columns rather than a grid: the pictures keep their own shape
+ * instead of being cropped to a common ratio, which is the point of showing
+ * them at all.
  */
 const WorkGallery = () => (
   <>
@@ -10,30 +16,35 @@ const WorkGallery = () => (
       <section
         key={group.id}
         id={group.id}
-        className={`section-padding ${groupIndex % 2 === 1 ? 'bg-secondary/30' : 'bg-background'}`}
+        className={`section-tight ${groupIndex % 2 === 1 ? 'bg-chalk-wash' : ''}`}
       >
-        <div className="container-wide">
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-10 md:mb-14">
-            {group.heading}
-          </h2>
+        <div className="wrap">
+          <Reveal className="rule-bottom flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pb-5">
+            <h2 className="display-2 max-w-[20ch]">{group.heading}</h2>
+            <Tag className="text-stone">
+              {group.projects.length} {group.projects.length === 1 ? 'photograph' : 'photographs'}
+            </Tag>
+          </Reveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="mt-10 gap-8 sm:columns-2 lg:columns-3">
             {group.projects.map((project, index) => (
-              <figure key={project.key} className="flex flex-col">
-                <div className="overflow-hidden rounded-lg shadow-soft mb-3">
-                  <img
-                    src={project.image.src}
-                    srcSet={project.image.srcSet}
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 46vw, 31vw"
-                    width={project.image.width}
-                    height={project.image.height}
-                    alt={project.alt}
-                    loading={groupIndex === 0 && index < 2 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
-                  />
+              <figure key={project.key} className="group mb-8 break-inside-avoid">
+                <div className="mount">
+                  <div className="overflow-hidden">
+                    <img
+                      src={project.image.src}
+                      srcSet={project.image.srcSet}
+                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
+                      width={project.image.width}
+                      height={project.image.height}
+                      alt={project.alt}
+                      loading={groupIndex === 0 && index < 2 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      className="plate-img"
+                    />
+                  </div>
                 </div>
-                <figcaption className="font-heading text-xl text-foreground font-semibold">
+                <figcaption className="rule-bottom mt-4 pb-3 font-display text-[1.0625rem] leading-snug">
                   {project.title}
                 </figcaption>
               </figure>

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin } from 'lucide-react';
+import Action from '@/components/Action';
+import Tag from '@/components/Tag';
 import {
   heroPoster,
   heroPosterFallback,
@@ -44,11 +43,20 @@ const useHeroVideo = () => {
   return enabled;
 };
 
+/** The four things a new customer actually wants to know, in their own words. */
+const record = [
+  { label: 'Trained', value: 'Horticulture at BCA, then an apprenticeship' },
+  { label: 'Member', value: 'The Gardeners Guild' },
+  { label: 'Rounds', value: 'Weekly, March to October' },
+  { label: 'Clippings', value: 'Taken away every visit' },
+];
+
 const HeroSection = () => {
   const showVideo = useHeroVideo();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [poster, setPoster] = useState(heroPoster);
+  const [paused, setPaused] = useState(false);
   // Resolved on the client: the file depends on screen size and codec support.
   const [videoSrc, setVideoSrc] = useState(pickHeroVideo);
 
@@ -65,90 +73,139 @@ const HeroSection = () => {
     return () => document.removeEventListener('touchstart', attempt);
   }, [showVideo]);
 
+  const toggleVideo = () => {
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) {
+      const p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+      setPaused(false);
+    } else {
+      el.pause();
+      setPaused(true);
+    }
+  };
+
   return (
-    <section className="relative flex items-center justify-center overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
-      {/* Background Video with image poster fallback */}
-      <div className="absolute inset-0">
-        <picture>
-          {/* Upright phones crop the landscape still to nothing but its middle,
-              so give them a frame cropped to shape instead. */}
-          {poster === heroPoster && (
-            <source
-              media={heroPosterPortrait.media}
-              srcSet={heroPosterPortrait.srcSet}
-              sizes="100vw"
-            />
-          )}
-          <img
-            src={poster.src}
-            srcSet={poster.srcSet}
-            sizes="100vw"
-            width={poster.width}
-            height={poster.height}
-            alt="Beautiful English garden landscape maintained by JW Garden Services"
-            fetchPriority="high"
-            decoding="async"
-            onError={() => setPoster(heroPosterFallback)}
-            className="w-full h-full object-cover"
-          />
-        </picture>
-        {showVideo && (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onCanPlay={() => setVideoReady(true)}
-            onPlaying={() => setVideoReady(true)}
-            onError={() => setVideoSrc((current) =>
-              current === heroVideoFallback ? current : heroVideoFallback,
-            )}
-            aria-hidden="true"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              videoReady ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/70" />
-      </div>
+    <section className="pb-[clamp(2.5rem,5vw,4.5rem)] pt-[clamp(7rem,13vw,11rem)]">
+      <div className="wrap">
+        <span className="enter block" style={{ '--reveal-delay': '80ms' } as React.CSSProperties}>
+          <Tag className="text-stone">Bierton, Aylesbury &middot; Since 2017</Tag>
+        </span>
 
-      {/* Content */}
-      <div className="relative z-10 container-wide text-center py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-3 py-2 sm:px-4 mb-6 sm:mb-8 animate-fade-up">
-            <MapPin className="h-4 w-4 shrink-0 text-hero-accent" />
-            <span className="text-primary-foreground/90 text-xs sm:text-sm font-body tracking-wide">
-              Based in Bierton, Aylesbury • Covering Beds, Bucks & Herts
-            </span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6 animate-fade-up animation-delay-200">
+        <div className="mt-8 grid gap-x-12 gap-y-8 lg:mt-12 lg:grid-cols-12 lg:items-end">
+          <h1
+            className="display-1 enter text-balance lg:col-span-7"
+            style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
+          >
             Gardeners in Aylesbury
-            <span className="block italic font-normal text-hero-accent">Transforming gardens with passion & expertise</span>
           </h1>
 
-          {/* Subheading */}
-          <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mx-auto mb-8 sm:mb-10 animate-fade-up animation-delay-400">
-            JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
-            villages looking their best — from weekly maintenance to a full garden redesign.
-            Let us develop a space you can love, all year round.
-          </p>
-
-          {/* CTA Button */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up animation-delay-600">
-            <Button variant="hero" size="xl" className="group" asChild>
-              <Link to="/contact">
-                Get in Touch
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
+          <div
+            className="enter lg:col-span-5 lg:pb-2"
+            style={{ '--reveal-delay': '300ms' } as React.CSSProperties}
+          >
+            <p className="lead max-w-[38ch] text-pretty text-stone">
+              JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
+              villages looking their best &mdash; from weekly maintenance to a full garden redesign.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <Action to="/contact" size="lg">
+                Ask about your garden
+              </Action>
+              <a href="tel:+447950636954" className="link-rule nums font-body text-[0.9375rem]">
+                07950 636954
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* The film, mounted. No text over the top of it: the photography is the
+          argument, and covering it with a headline is what everyone else does. */}
+      <div className="wrap mt-10 lg:mt-14">
+        <div
+          className="mount enter-rise"
+          style={{ '--reveal-delay': '160ms' } as React.CSSProperties}
+        >
+          <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[16/10] md:aspect-auto md:h-[clamp(21rem,54vh,36rem)]">
+            <picture>
+              {/* Upright phones crop the landscape still to nothing but its
+                  middle, so give them a frame cropped to shape instead. */}
+              {poster === heroPoster && (
+                <source
+                  media={heroPosterPortrait.media}
+                  srcSet={heroPosterPortrait.srcSet}
+                  sizes="100vw"
+                />
+              )}
+              <img
+                src={poster.src}
+                srcSet={poster.srcSet}
+                sizes="100vw"
+                width={poster.width}
+                height={poster.height}
+                alt="A garden near Aylesbury maintained by JW Garden Services"
+                fetchPriority="high"
+                decoding="async"
+                onError={() => setPoster(heroPosterFallback)}
+                className="h-full w-full object-cover"
+              />
+            </picture>
+            {showVideo && (
+              <video
+                ref={videoRef}
+                src={videoSrc}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                onCanPlay={() => setVideoReady(true)}
+                onPlaying={() => setVideoReady(true)}
+                onError={() =>
+                  setVideoSrc((current) => (current === heroVideoFallback ? current : heroVideoFallback))
+                }
+                aria-hidden="true"
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-estate ${
+                  videoReady ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            )}
+
+            {/* The clip loops for as long as the page is open, so it needs a
+                way to stop it. */}
+            {showVideo && videoReady && (
+              <button
+                type="button"
+                onClick={toggleVideo}
+                className="tag absolute bottom-3 right-3 rounded-full bg-ink/70 px-4 py-2.5 text-chalk backdrop-blur-sm transition-colors duration-300 hover:bg-ink/90"
+              >
+                {paused ? 'Play' : 'Pause'}
+                <span className="sr-only"> the garden film</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* The record bar: the credentials line, set as a ruled table rather than
+          a row of badges. */}
+      <div className="wrap mt-8 lg:mt-12">
+        <dl className="rule-top grid grid-cols-2 gap-x-6 gap-y-7 border-rule pt-8 md:grid-cols-4 md:gap-y-0">
+          {record.map((item, i) => (
+            <div
+              key={item.label}
+              className="enter md:border-l md:border-rule md:first:border-l-0 md:pl-6 md:first:pl-0"
+              style={{ '--reveal-delay': `${420 + i * 90}ms` } as React.CSSProperties}
+            >
+              <dt className="tag text-ceanothus">{item.label}</dt>
+              <dd className="mt-2.5 max-w-[24ch] font-body text-[0.9375rem] leading-snug text-stone">
+                {item.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { images } from '@/lib/images';
@@ -8,36 +7,25 @@ import { areas } from '@/lib/areas';
 const guildLogo = images['gardeners-guild-logo'];
 const logo = { url: '/assets/jw-logo.png' };
 
+const pages = [
+  { to: '/about', label: 'About' },
+  { to: '/our-work', label: 'Our work' },
+  { to: '/contact', label: 'Contact' },
+  { to: '/privacy', label: 'Privacy' },
+];
+
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { to: '/about', label: 'About Us' },
-    { to: '/our-work', label: 'Our Work' },
-    { to: '/contact', label: 'Contact' },
-    { to: '/privacy', label: 'Privacy Policy' },
-  ];
-
-  const serviceLinks = services.map((s) => ({
-    to: `/services/${s.slug}`,
-    label: s.navLabel,
-  }));
-
-  const areaLinks = [...areas].sort((a, b) => a.distanceMiles - b.distanceMiles).map((a) => ({ to: `/${a.slug}`, label: a.town }));
+  const year = new Date().getFullYear();
+  const areaLinks = [...areas].sort((a, b) => a.distanceMiles - b.distanceMiles);
 
   return (
-    <footer className="bg-foreground text-background py-16">
-      <div className="container-wide">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            {/* The logo's ink is almost entirely dark, so it needs a light plaque
-                to stay legible against the near-black footer. */}
-            <Link
-              to="/"
-              aria-label="JW Garden Services home"
-              className="inline-block mb-4 rounded-lg bg-background px-4 py-3"
-            >
+    <footer className="on-ink bg-ink text-chalk">
+      <div className="wrap py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-4">
+            {/* The mark is dark ink on transparent, so on this ground it needs
+                a light plaque to stay legible. */}
+            <Link to="/" aria-label="JW Garden Services — home" className="inline-block bg-chalk px-5 py-4">
               <img
                 src={logo.url}
                 alt="JW Garden Services"
@@ -45,112 +33,93 @@ const Footer = () => {
                 height={102}
                 loading="lazy"
                 decoding="async"
-                className="block h-14 w-auto"
+                className="block h-12 w-auto"
               />
             </Link>
-            <p className="font-body text-background/70 leading-relaxed mb-6 max-w-md">
-              Transforming gardens with passion and expertise. Based in Bierton, Aylesbury, 
-              serving Bedfordshire, Buckinghamshire, and Hertfordshire.
+            <p className="mt-6 max-w-[34ch] text-pretty font-body text-[0.9375rem] text-stone-light">
+              Garden maintenance, planting and hard landscaping from Bierton, Aylesbury — across
+              Buckinghamshire, Bedfordshire and Hertfordshire.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=JW%20Garden%20Services%20Bierton%20Aylesbury"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="JW Garden Services on Google Business Profile"
-                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group"
-              >
-                <svg aria-hidden="true" viewBox="0 0 48 48" className="h-5 w-5">
-                  <path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.92c-.52 2.81-2.1 5.19-4.48 6.79v5.66h7.24c4.24-3.91 6.44-9.66 6.44-16.46z"/>
-                  <path fill="#34A853" d="M24 46c6.48 0 11.93-2.15 15.9-5.81l-7.24-5.66c-2.01 1.35-4.58 2.15-8.66 2.15-6.66 0-12.31-4.5-14.33-10.55H2.23v5.83C6.18 41.07 14.46 46 24 46z"/>
-                  <path fill="#FBBC05" d="M9.67 26.13c-.51-1.56-.8-3.23-.8-4.93s.29-3.37.8-4.93V10.44H2.23A21.94 21.94 0 0 0 0 24.5c0 3.55.85 6.91 2.23 9.81l7.44-5.83z"/>
-                  <path fill="#EA4335" d="M24 9.75c3.94 0 7.48 1.36 10.27 4.02l7.69-7.69C35.93 2.18 30.48 0 24 0 14.46 0 6.18 4.93 2.23 12.19l7.44 5.83C11.69 9.75 17.34 9.75 24 9.75z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="JW Garden Services on Facebook" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Facebook aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
-              <a href="#" aria-label="JW Garden Services on Instagram" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Instagram aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
-              <a href="#" aria-label="JW Garden Services on LinkedIn" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Linkedin aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
-            </div>
+            <a href="tel:+447950636954" className="nums mt-6 block font-display text-2xl text-chalk">
+              07950 636954
+            </a>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
-                    {link.label}
+          <nav className="lg:col-span-3" aria-label="Services">
+            <h2 className="tag text-stone-light">Services</h2>
+            <ul className="mt-5 space-y-3">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to={`/services/${service.slug}`}
+                    className="font-body text-[0.9375rem] text-chalk/85 transition-colors duration-300 hover:text-ceanothus-light"
+                  >
+                    {service.navLabel}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
-                    {link.label}
+          <nav className="lg:col-span-2" aria-label="Pages">
+            <h2 className="tag text-stone-light">Pages</h2>
+            <ul className="mt-5 space-y-3">
+              {pages.map((page) => (
+                <li key={page.to}>
+                  <Link
+                    to={page.to}
+                    className="font-body text-[0.9375rem] text-chalk/85 transition-colors duration-300 hover:text-ceanothus-light"
+                  >
+                    {page.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Accreditation */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Accreditation</h4>
+          <div className="lg:col-span-3">
+            <h2 className="tag text-stone-light">Accredited</h2>
             <a
               href="https://thegardenersguild.co.uk/"
               target="_blank"
               rel="noopener"
-              className="inline-flex flex-col gap-3 group"
-              aria-label="The Gardeners Guild — professional gardening association"
+              className="group mt-5 block"
             >
               <img
                 src={guildLogo.src}
-                alt="The Gardeners Guild logo"
+                alt="The Gardeners Guild"
                 width={guildLogo.width}
                 height={guildLogo.height}
                 loading="lazy"
                 decoding="async"
-                className="h-14 w-auto self-start object-contain bg-background rounded-sm p-1 transition-transform group-hover:scale-105"
+                className="h-14 w-auto bg-chalk p-1.5"
               />
-              <span className="font-body text-sm text-background/70 group-hover:text-hero-accent transition-colors">
-                Proud to follow The Gardeners Guild standards for professional gardening
+              <span className="mt-4 block max-w-[28ch] font-body text-sm text-stone-light transition-colors duration-300 group-hover:text-chalk">
+                We work to The Gardeners Guild standards for professional gardening.
               </span>
             </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pb-8 border-t border-background/10 pt-8">
-          <h4 className="font-heading text-lg font-semibold mb-4">Gardeners near you</h4>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {areaLinks.map((link) => (
-              <li key={link.to}>
-                <Link to={link.to} className="font-body text-sm text-background/70 hover:text-hero-accent transition-colors">
-                  Gardeners in {link.label}
+        <nav className="rule-top mt-14 pt-8" aria-label="Areas we cover">
+          <h2 className="tag text-stone-light">Gardeners near you</h2>
+          <ul className="mt-5 flex flex-wrap gap-x-7 gap-y-3">
+            {areaLinks.map((area) => (
+              <li key={area.slug}>
+                <Link
+                  to={`/${area.slug}`}
+                  className="font-body text-sm text-chalk/70 transition-colors duration-300 hover:text-ceanothus-light"
+                >
+                  {area.town}
                 </Link>
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-body text-sm text-background/50">
-            © {currentYear} JW Garden Services. All rights reserved.
-          </p>
+        <div className="rule-top mt-10 flex flex-col gap-3 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="tag text-stone-light/70">© {year} JW Garden Services</p>
+          <p className="tag text-stone-light/70">Bierton · Aylesbury · Buckinghamshire</p>
         </div>
       </div>
     </footer>

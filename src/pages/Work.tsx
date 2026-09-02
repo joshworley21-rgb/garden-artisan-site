@@ -34,25 +34,26 @@ const Work = () => (
     />
     <PageLayout
       eyebrow="Portfolio"
-      title="Our Work"
+      title="Our work"
       intro="Gardens we look after week to week, borders we have planted and structures we have built — photographed on the job rather than staged."
     >
       <WorkGallery />
 
-      <section className="section-padding bg-background border-t border-border">
-        <div className="container-wide max-w-3xl">
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-5">
-            Thinking about your own garden?
-          </h2>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed mb-4">
-            Every garden on this page started with a look round and an honest conversation about
-            what it needed first. Sometimes that is a full redesign; more often it is a tidy-up,
-            then a regular visit to stop it getting away again.
-          </p>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what you are dealing with and we will tell you what we would do
-            about it — quotes are free, and there is no obligation to book anything regular.
-          </p>
+      <section className="section-tight rule-top">
+        <div className="wrap max-w-measure">
+          <h2 className="display-2 max-w-[16ch] text-balance">Thinking about your own garden?</h2>
+          <div className="prose-estate mt-8 text-pretty text-[1.0625rem] text-stone">
+            <p>
+              Every garden on this page started with a look round and an honest conversation about
+              what it needed first. Sometimes that is a full redesign; more often it is a tidy-up,
+              then a regular visit to stop it getting away again.
+            </p>
+            <p>
+              We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what
+              you are dealing with and we will tell you what we would do about it &mdash; quotes are
+              free, and there is no obligation to book anything regular.
+            </p>
+          </div>
         </div>
       </section>
 

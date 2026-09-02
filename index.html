@@ -8,14 +8,19 @@
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@300..700&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Karla:wght@300..700&display=swap"
       media="print"
       onload="this.media='all'"
     />
+    <!-- Turns on the scroll-reveal animation before the first paint, so there
+         is no flash of already-placed content. scripts/prerender.mjs strips the
+         class from the static HTML it writes, which is what keeps every section
+         visible for a reader or a crawler without JavaScript. -->
+    <script>document.documentElement.classList.add('reveal-on');</script>
     <!-- Preload the poster the page will actually use: an upright phone gets the
          portrait crop from <picture>, so preloading the landscape set there
          fetched 92 KB that was never displayed and delayed the real one. -->
@@ -44,6 +49,8 @@
          exception — Helmet replaces it. -->
     <title>JW Garden Services | Gardeners in Aylesbury, Bucks</title>
     <meta name="author" content="JW Garden Services" />
+    <!-- Matches the chalk page ground so the browser chrome does not fight it. -->
+    <meta name="theme-color" content="#ecede7" />
     <link rel="icon" href="/favicon.png" type="image/png" />
 
     <meta name="geo.region" content="GB-BKM" />

@@ -10,12 +10,12 @@ const Contact = () => (
       path="/contact"
     />
     <PageLayout
-    eyebrow="Get in Touch"
-    title="Contact Us"
-    intro="Tell us about your garden and we'll get back to you with friendly, practical advice and a clear quote."
-  >
-    <ContactSection showIntro={false} flushTop />
-  </PageLayout>
+      eyebrow="Get in touch"
+      title="Contact us"
+      intro="Tell us about your garden and we will come back to you with practical advice and a clear quote."
+    >
+      <ContactSection showIntro={false} flushTop />
+    </PageLayout>
   </>
 );
 

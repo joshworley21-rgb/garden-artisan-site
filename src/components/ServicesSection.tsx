@@ -1,79 +1,119 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import Arrow from '@/components/Arrow';
+import Reveal from '@/components/Reveal';
+import Tag from '@/components/Tag';
 import { services } from '@/lib/services';
 
+/**
+ * How often each kind of work happens. The four services are not a sequence,
+ * so numbering them 01–04 would be decoration; their cadence is the thing a
+ * customer is actually choosing between, so that is what the label carries.
+ */
+const cadence: Record<string, string> = {
+  'garden-maintenance': 'Weekly',
+  'landscaping-and-patios': 'Project work',
+  'garden-design-and-planting': 'Seasonal',
+  'commercial-grounds-maintenance': 'Contract',
+};
+
+/**
+ * An index rather than a row of cards: the four services listed as ruled
+ * entries, with one large plate alongside that changes to whichever entry you
+ * are reading. Phones get the plate inside each entry instead.
+ */
 const ServicesSection = () => {
+  const [active, setActive] = useState(0);
+
   return (
-    <section id="services" className="section-padding bg-background">
-      <div className="container-wide">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-body text-sm uppercase tracking-widest mb-4 block">
-            What We Offer
-          </span>
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-6">
-            Garden Services in Aylesbury &amp; Buckinghamshire
-          </h2>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            Professional garden maintenance, landscaping, planting and commercial grounds care
-            across Aylesbury, Bierton and the surrounding towns and villages — delivered with
-            expert craftsmanship and attention to detail.
+    <section id="services" className="section">
+      <div className="wrap">
+        <Reveal className="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <Tag className="text-stone">What we do</Tag>
+            <h2 className="display-2 mt-6 max-w-[16ch] text-balance">
+              Four kinds of work, one gardener
+            </h2>
+          </div>
+          <p className="lead max-w-[42ch] text-pretty text-stone lg:col-span-5 lg:pb-2">
+            Maintenance, hard landscaping, planting and commercial grounds &mdash; across Aylesbury,
+            Bierton and the villages around them.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <article
-              key={service.slug}
-              className="group relative flex flex-col bg-card rounded-lg overflow-hidden shadow-soft border border-border/60 hover:border-accent/40 hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 ease-out"
-            >
-              {/* Image */}
-              <div className="relative h-52 sm:h-60 lg:h-64 overflow-hidden">
-                <img
-                  src={service.image.src}
-                  srcSet={service.image.srcSet}
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 46vw, 23vw"
-                  width={service.image.width}
-                  height={service.image.height}
-                  alt={service.imageAlt}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-                {/* Persistent subtle gradient for legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent" />
-                {/* Gold accent bar that grows on hover */}
-                <div className="absolute left-0 bottom-0 h-1 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
-
-                {/* Index badge */}
-                <span className="absolute top-4 left-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/90 backdrop-blur-sm font-heading text-sm font-semibold text-primary shadow-soft">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-1 flex-col p-8">
-                <h3 className="font-heading text-2xl leading-snug text-foreground font-semibold mb-4 transition-colors duration-300 group-hover:text-primary">
-                  {service.navLabel}
-                </h3>
-                <p className="font-body text-muted-foreground leading-relaxed mb-2 flex-1">
-                  {service.intro}
-                </p>
+        <div className="mt-14 grid gap-x-16 lg:mt-20 lg:grid-cols-12">
+          <ul className="rule-top lg:col-span-7">
+            {services.map((service, index) => (
+              <Reveal as="li" key={service.slug} delay={index * 90}>
                 <Link
                   to={`/services/${service.slug}`}
-                  className="mt-6 inline-flex items-center gap-2 font-body text-sm uppercase tracking-widest text-primary"
+                  className="rule-bottom group grid items-start gap-x-8 gap-y-4 py-8 md:grid-cols-[7.5rem_1fr_auto] lg:py-10"
+                  onMouseEnter={() => setActive(index)}
+                  onFocus={() => setActive(index)}
                 >
-                  <span className="cta-move inline-flex items-center gap-2">
-                    Find out more
-                    <ArrowRight className="cta-arrow h-4 w-4" />
+                  <span className="tag pt-2 text-ceanothus" aria-hidden="true">
+                    {cadence[service.slug] ?? service.eyebrow}
                   </span>
-                  <span className="absolute inset-0" aria-hidden="true" />
-                  <span className="sr-only"> about {service.navLabel.toLowerCase()}</span>
+
+                  <div>
+                    <h3 className="display-3 transition-colors duration-500 ease-estate group-hover:text-ceanothus">
+                      {service.navLabel}
+                    </h3>
+                    <p className="mt-3 max-w-[48ch] text-pretty text-stone">{service.intro}</p>
+
+                    {/* Phones get the picture in the row; desktops get the
+                        single large plate alongside the list. */}
+                    <div className="mount mt-6 lg:hidden">
+                      <div className="aspect-[16/10] overflow-hidden">
+                        <img
+                          src={service.image.src}
+                          srcSet={service.image.srcSet}
+                          sizes="(max-width: 1024px) 92vw, 1px"
+                          width={service.image.width}
+                          height={service.image.height}
+                          alt={service.imageAlt}
+                          loading="lazy"
+                          decoding="async"
+                          className="plate-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <span className="hidden pt-3 text-stone transition-colors duration-500 group-hover:text-ink md:block">
+                    <Arrow className="row-arrow h-4 w-4" />
+                  </span>
                 </Link>
+              </Reveal>
+            ))}
+          </ul>
+
+          <div className="hidden lg:col-span-5 lg:block">
+            <div className="sticky top-32">
+              <div className="mount">
+                <div className="relative aspect-[4/5] overflow-hidden bg-chalk-mount">
+                  {services.map((service, index) => (
+                    <img
+                      key={service.slug}
+                      src={service.image.src}
+                      srcSet={service.image.srcSet}
+                      sizes="(max-width: 1024px) 1px, 34vw"
+                      width={service.image.width}
+                      height={service.image.height}
+                      alt={index === active ? service.imageAlt : ''}
+                      aria-hidden={index !== active}
+                      loading="lazy"
+                      decoding="async"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-estate ${
+                        index === active ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
-            </article>
-          ))}
+              <p className="tag mt-4 block text-stone">{services[active].navLabel}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -6,273 +6,389 @@
 
 @layer base {
   :root {
-    /* Premium Garden Palette */
-    --background: 45 30% 97%;
-    --foreground: 150 25% 15%;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Karla', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
 
-    --card: 45 25% 95%;
-    --card-foreground: 150 25% 15%;
+    /* — Estate Record palette —
+       Ink is the near-black bottle green of glasshouse ironwork; chalk is
+       limestone paper; ceanothus is the blue that keeps turning up in the
+       photographs on this site. Nothing else. */
+    --ink: 156 24% 11%;
+    --ink-raise: 156 20% 16%;
+    --rule-dark: 155 14% 24%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 150 25% 15%;
+    --chalk: 70 12% 92%;
+    --chalk-mount: 70 10% 86%;
+    --limewash: 72 20% 96%;
+    --rule: 150 8% 78%;
 
-    /* Deep Forest Green - Primary brand color */
-    --primary: 150 35% 22%;
-    --primary-foreground: 45 30% 97%;
+    --stone: 140 5% 36%;
+    --stone-light: 140 8% 70%;
 
-    /* Warm Stone/Cream */
-    --secondary: 45 25% 90%;
-    --secondary-foreground: 150 25% 15%;
+    --ceanothus: 210 34% 37%;
+    --ceanothus-light: 209 38% 74%;
 
-    /* Muted sage tones */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 10% 45%;
+    --ease-estate: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-plate: cubic-bezier(0.32, 0.72, 0, 1);
 
-    /* Fresh leaf-green accent */
-    --accent: 110 40% 33%;
-    --accent-foreground: 45 30% 97%;
-
-    /* Bright leaf green for hero text over dark overlay */
-    --hero-accent: 95 55% 58%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 150 15% 85%;
-    --input: 150 15% 85%;
-    --ring: 150 35% 22%;
-
+    /* shadcn's tokens, re-pointed at the palette above so the components in
+       src/components/ui inherit the redesign for free. */
+    --background: var(--chalk);
+    --foreground: var(--ink);
+    --card: var(--limewash);
+    --card-foreground: var(--ink);
+    --popover: var(--limewash);
+    --popover-foreground: var(--ink);
+    --primary: var(--ink);
+    --primary-foreground: var(--chalk);
+    --secondary: var(--chalk-mount);
+    --secondary-foreground: var(--ink);
+    --muted: var(--chalk-mount);
+    --muted-foreground: var(--stone);
+    --accent: var(--ceanothus);
+    --accent-foreground: var(--limewash);
+    --destructive: 4 54% 42%;
+    --destructive-foreground: 72 20% 96%;
+    --border: var(--rule);
+    --input: var(--rule);
+    --ring: var(--ceanothus);
     --radius: 0.25rem;
 
-    /* Custom properties */
-    --font-heading: 'Cormorant Garamond', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-
-    /* Gradient definitions */
-    --gradient-hero: linear-gradient(180deg, hsl(150 35% 22% / 0.85) 0%, hsl(150 35% 22% / 0.6) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(45 25% 95%) 0%, hsl(150 15% 92%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(110 40% 33%) 0%, hsl(150 35% 22%) 100%);
-
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(150 25% 15% / 0.08);
-    --shadow-elevated: 0 12px 40px -8px hsl(150 25% 15% / 0.15);
-    --shadow-glow: 0 0 40px hsl(110 40% 33% / 0.25);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: var(--limewash);
+    --sidebar-foreground: var(--ink);
+    --sidebar-primary: var(--ink);
+    --sidebar-primary-foreground: var(--chalk);
+    --sidebar-accent: var(--chalk-mount);
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: var(--rule);
+    --sidebar-ring: var(--ceanothus);
   }
 
-  .dark {
-    --background: 150 25% 8%;
-    --foreground: 45 25% 95%;
-
-    --card: 150 25% 12%;
-    --card-foreground: 45 25% 95%;
-
-    --popover: 150 25% 10%;
-    --popover-foreground: 45 25% 95%;
-
-    --primary: 150 30% 45%;
-    --primary-foreground: 150 25% 8%;
-
-    --secondary: 150 20% 18%;
-    --secondary-foreground: 45 25% 95%;
-
-    --muted: 150 20% 18%;
-    --muted-foreground: 150 15% 60%;
-
-    --accent: 95 45% 55%;
-    --accent-foreground: 150 25% 8%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 150 30% 45%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   html {
     scroll-behavior: smooth;
+    /* The header is a fixed bar, so anchored sections — and anything the
+       browser scrolls to on focus — need clearance. */
+    scroll-padding-top: 6rem;
+    /* One ground, no dark theme: tell the browser so native controls and
+       scrollbars match the page instead of the OS. */
+    color-scheme: light;
+    -webkit-tap-highlight-color: hsl(var(--ceanothus) / 0.16);
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    touch-action: manipulation;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  body {
+    @apply bg-chalk text-ink font-body antialiased;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--ceanothus) / 0.85);
+    color: hsl(var(--limewash));
+  }
+
+  /* One focus ring for the whole site: a ceanothus outline, never removed. */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid hsl(var(--ceanothus));
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .on-ink :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline-color: hsl(var(--ceanothus-light));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
   }
 }
 
 @layer components {
-  .section-padding {
-    padding-top: clamp(3.5rem, 7vw, 8rem);
-    padding-bottom: clamp(3.5rem, 7vw, 8rem);
+  /* ————————————————————————————————————————————————
+     Structure
+     ———————————————————————————————————————————————— */
+
+  /* One container for the whole site. Wide, with an inset that grows into a
+     real margin on large screens — the page is a mounted print, and a print
+     needs a margin. */
+  .wrap {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-left: max(clamp(1.25rem, 5vw, 4.5rem), env(safe-area-inset-left));
+    padding-right: max(clamp(1.25rem, 5vw, 4.5rem), env(safe-area-inset-right));
   }
 
-  .container-wide {
-    @apply max-w-7xl mx-auto;
-    padding-left: clamp(1.25rem, 4vw, 2.5rem);
-    padding-right: clamp(1.25rem, 4vw, 2.5rem);
+  .section {
+    padding-block: clamp(4.5rem, 9vw, 10rem);
   }
 
-  /* "Find out more" affordance. Nudging the arrow alone was too small to read
-     as interactive, so the whole label glides right and an underline sweeps
-     in when the card is hovered or the link is focused.
+  .section-tight {
+    padding-block: clamp(3rem, 5.5vw, 6rem);
+  }
 
-     The transform lives on this inner span, never on the <a>: the service
-     cards stretch their link over the card with an absolutely positioned
-     overlay, and a transform on the anchor would make it the containing
-     block and collapse that click target on hover. */
-  .cta-move {
+  /* A hairline. Not a 1px solid grey box — a printed rule. */
+  .rule-top { border-top: 1px solid hsl(var(--rule)); }
+  .rule-bottom { border-bottom: 1px solid hsl(var(--rule)); }
+  .on-ink .rule-top { border-top-color: hsl(var(--rule-dark)); }
+  .on-ink .rule-bottom { border-bottom-color: hsl(var(--rule-dark)); }
+
+  /* ————————————————————————————————————————————————
+     The label system — small mono tags that carry real information
+     (a cadence, a distance, a month, a postcode), never decoration.
+     ———————————————————————————————————————————————— */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .tag-rule {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tag-rule::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: hsl(var(--ceanothus));
+    flex: none;
+  }
+
+  .on-ink .tag-rule::before { background: hsl(var(--ceanothus-light)); }
+
+  /* ————————————————————————————————————————————————
+     The plate — every photograph is a mounted print: a chalk mount with a
+     hairline, and the image sitting square-cornered inside it.
+     ———————————————————————————————————————————————— */
+  .mount {
+    background: hsl(var(--chalk-mount));
+    padding: clamp(0.375rem, 0.8vw, 0.75rem);
+    box-shadow: inset 0 0 0 1px hsl(var(--rule) / 0.9);
+  }
+
+  .on-ink .mount {
+    background: hsl(var(--ink-raise));
+    box-shadow: inset 0 0 0 1px hsl(var(--rule-dark));
+  }
+
+  .plate-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1200ms var(--ease-plate);
+  }
+
+  .group:hover .plate-img,
+  .group:focus-within .plate-img {
+    transform: scale(1.035);
+  }
+
+  /* ————————————————————————————————————————————————
+     Links and controls
+     ———————————————————————————————————————————————— */
+
+  /* An inline link underlines by sweeping a rule in from the left. */
+  .link-rule {
     position: relative;
-    transition: transform 300ms ease-out;
+    color: hsl(var(--ceanothus));
+    text-decoration: none;
   }
 
-  .cta-move::after {
+  .link-rule::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -3px;
+    bottom: -0.15em;
     height: 1px;
     background: currentColor;
-    transform: scaleX(0);
+    opacity: 0.45;
     transform-origin: left;
-    transition: transform 300ms ease-out;
+    transition: transform 500ms var(--ease-estate), opacity 500ms var(--ease-estate);
   }
 
-  .cta-move .cta-arrow {
-    transition: transform 300ms ease-out;
+  .link-rule:hover::after,
+  .link-rule:focus-visible::after {
+    opacity: 1;
+    transform: scaleX(1.02);
   }
 
-  .group:hover .cta-move,
-  a:focus-visible .cta-move {
-    transform: translateX(6px);
+  .on-ink .link-rule { color: hsl(var(--ceanothus-light)); }
+
+  /* The row affordance used by the service and area indexes: the whole row is
+     the target, and the arrow travels on hover. */
+  .row-arrow {
+    transition: transform 600ms var(--ease-estate);
   }
 
-  .group:hover .cta-move::after,
-  a:focus-visible .cta-move::after {
-    transform: scaleX(1);
+  .group:hover .row-arrow,
+  .group:focus-within .row-arrow {
+    transform: translateX(0.5rem);
   }
 
-  /* The arrow travels a little further than the words, so the row stretches. */
-  .group:hover .cta-move .cta-arrow,
-  a:focus-visible .cta-move .cta-arrow {
-    transform: translateX(4px);
+  /* Form fields are ruled lines, not boxes. */
+  .field {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid hsl(var(--rule-dark));
+    padding: 0.75rem 0;
+    color: hsl(var(--limewash));
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 400ms var(--ease-estate);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .cta-move,
-    .cta-move::after,
-    .cta-move .cta-arrow {
-      transition: none;
-    }
-
-    .group:hover .cta-move,
-    a:focus-visible .cta-move,
-    .group:hover .cta-move .cta-arrow,
-    a:focus-visible .cta-move .cta-arrow {
-      transform: none;
-    }
-  }
+  .field::placeholder { color: hsl(var(--stone-light) / 0.55); }
+  .field:hover { border-bottom-color: hsl(var(--stone-light) / 0.7); }
+  .field:focus { border-bottom-color: hsl(var(--ceanothus-light)); }
+  .field-invalid { border-bottom-color: hsl(14 70% 62%); }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* ————————————————————————————————————————————————
+     Type scale. Fraunces is variable, so the display sizes also move the
+     optical-size axis — larger settings have finer joins and tighter fit,
+     which is the whole point of using it rather than a static serif.
+     ———————————————————————————————————————————————— */
+  .display-1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 7.4vw, 6.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 400;
+    font-variation-settings: 'opsz' 144;
   }
 
-  /* Fluid heading scale — smooth across every breakpoint */
-  .heading-hero {
-    font-size: clamp(2.25rem, 6.2vw, 4.5rem);
-    line-height: 1.08;
+  .display-2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.4vw, 3.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.028em;
+    font-weight: 400;
+    font-variation-settings: 'opsz' 96;
   }
 
-  .heading-section {
-    font-size: clamp(1.875rem, 4.2vw, 3.25rem);
+  .display-3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.3vw, 2rem);
     line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+    font-variation-settings: 'opsz' 48;
   }
 
-  .body-lead {
-    font-size: clamp(1rem, 1.3vw, 1.25rem);
-    line-height: 1.65;
+  .display-4 {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.5vw, 1.4rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+    font-variation-settings: 'opsz' 24;
   }
 
-  .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
+  .lead {
+    font-size: clamp(1.0625rem, 1.15vw, 1.25rem);
+    line-height: 1.6;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
+  .prose-estate p + p { margin-top: 1.25em; }
 
-  .animate-scale-in {
-    animation: scaleIn 0.6s ease-out forwards;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
 
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
+  /* Numerals line up in tables of distances, postcodes and months. */
+  .nums { font-variant-numeric: tabular-nums; }
 
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
+  /* ————————————————————————————————————————————————
+     Scroll reveal.
 
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-}
-
-@keyframes fadeUp {
-  from {
+     The hidden state is gated on `.reveal-on`, which an inline script in
+     index.html adds to <html> before first paint and scripts/prerender.mjs
+     strips from the static output. Result: JavaScript gets the animation, and
+     a crawler or a reader without JavaScript gets the whole page, visible.
+     ———————————————————————————————————————————————— */
+  .reveal-on [data-reveal] {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(1.75rem);
+    transition:
+      opacity 900ms var(--ease-estate),
+      transform 900ms var(--ease-estate);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: transform, opacity;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
+  .reveal-on [data-reveal][data-shown='true'] {
     opacity: 1;
+    transform: none;
+    will-change: auto;
   }
-}
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+  /* The hero sets itself out on load rather than on scroll. */
+  .reveal-on .enter {
+    animation: enter 1100ms var(--ease-estate) both;
+    animation-delay: var(--reveal-delay, 0ms);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  @keyframes enter {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Same arrival, without touching opacity — used on the hero plate so the
+     largest image on the page is painted at full strength straight away and
+     the LCP measurement is not pushed out by a fade. */
+  .reveal-on .enter-rise {
+    animation: rise 1200ms var(--ease-plate) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes rise {
+    from { transform: translateY(2rem); }
+    to { transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on [data-reveal],
+    .reveal-on [data-reveal][data-shown='true'] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      will-change: auto;
+    }
+
+    .reveal-on .enter,
+    .reveal-on .enter-rise { animation: none; }
+
+    .plate-img,
+    .group:hover .plate-img,
+    .group:focus-within .plate-img,
+    .row-arrow,
+    .group:hover .row-arrow {
+      transition: none;
+      transform: none;
+    }
   }
 }

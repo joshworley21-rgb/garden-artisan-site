@@ -1,9 +1,12 @@
 import { Link, useParams } from 'react-router-dom';
-import { Check, ArrowRight, Phone } from 'lucide-react';
 import Seo from '@/components/Seo';
 import PageLayout from '@/components/PageLayout';
 import ContactSection from '@/components/ContactSection';
-import { Button } from '@/components/ui/button';
+import Action from '@/components/Action';
+import Arrow from '@/components/Arrow';
+import Plate from '@/components/Plate';
+import Reveal from '@/components/Reveal';
+import Tag from '@/components/Tag';
 import NotFound from '@/pages/NotFound';
 import { getService, services } from '@/lib/services';
 
@@ -85,145 +88,147 @@ const ServiceDetail = () => {
         jsonLd={jsonLd}
       />
       <PageLayout eyebrow={service.eyebrow} title={service.h1} intro={service.intro}>
-        {/* Main copy + hero image */}
-        <section className="section-padding bg-background">
-          <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div className="space-y-10">
-              {service.body.map((block) => (
-                <div key={block.heading}>
-                  <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                    {block.heading}
-                  </h2>
-                  <div className="space-y-4 font-body text-lg text-muted-foreground leading-relaxed">
-                    {block.paragraphs.map((p) => (
-                      <p key={p.slice(0, 24)}>{p}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <img
-                src={service.image.src}
-                srcSet={service.image.srcSet}
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                width={service.image.width}
-                height={service.image.height}
+        {/* The lead photograph, full width, before a word of body copy. */}
+        <section className="pb-4">
+          <div className="wrap">
+            <Reveal>
+              <Plate
+                image={service.image}
                 alt={service.imageAlt}
-                loading="lazy"
-                decoding="async"
-                className="w-full rounded-lg shadow-elevated object-cover aspect-[4/3]"
+                sizes="(max-width: 1024px) 92vw, 84vw"
+                aspect="aspect-[16/10] md:aspect-[21/9]"
+                priority
+                className="group"
               />
-              <div className="rounded-lg border border-border/60 bg-secondary/30 p-6 sm:p-8">
-                <h2 className="font-heading text-xl font-semibold text-foreground mb-4">
-                  What&rsquo;s included
-                </h2>
-                <ul className="space-y-3">
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="section-tight">
+          <div className="wrap grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-7">
+              <div className="max-w-measure">
+                {service.body.map((block, index) => (
+                  <div key={block.heading} className={index ? 'mt-12' : ''}>
+                    <h2 className="display-3 max-w-[22ch] text-balance">{block.heading}</h2>
+                    <div className="prose-estate mt-5 text-pretty text-[1.0625rem] text-stone">
+                      {block.paragraphs.map((p) => (
+                        <p key={p.slice(0, 24)}>{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-5" delay={120}>
+              <div className="lg:sticky lg:top-32">
+                <h2 className="tag rule-bottom block pb-4 text-ceanothus">What&rsquo;s included</h2>
+                <ul>
                   {service.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-foreground">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                        <Check className="h-3 w-3 text-primary" strokeWidth={3} />
-                      </span>
-                      <span className="text-sm sm:text-base">{item}</span>
+                    <li
+                      key={item}
+                      className="rule-bottom py-3.5 font-body text-[0.9375rem] leading-snug"
+                    >
+                      {item}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Button variant="elegant" size="lg" asChild>
-                    <Link to="/contact">
-                      Get a free quote
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <a href="tel:+447950636954">
-                      <Phone className="h-4 w-4" />
-                      07950 636954
-                    </a>
-                  </Button>
+                <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <Action to="/contact">Get a free quote</Action>
+                  <a href="tel:+447950636954" className="link-rule nums font-body text-[0.9375rem]">
+                    07950 636954
+                  </a>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
-        {/* Gallery */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
-              Recent {service.navLabel.toLowerCase()} work
-            </h2>
-            <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
+        <section className="section-tight bg-chalk-wash">
+          <div className="wrap">
+            <Reveal className="rule-bottom flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pb-5">
+              <h2 className="display-2 max-w-[20ch]">
+                Recent {service.navLabel.toLowerCase()} work
+              </h2>
+              <Tag className="text-stone">{service.gallery.length} photographs</Tag>
+            </Reveal>
+
+            <div className="mt-10 gap-8 sm:columns-2 lg:columns-3">
               {service.gallery.map((img, i) => (
-                <img
-                  key={img.src}
-                  src={img.src}
-                  srcSet={img.srcSet}
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  width={img.width}
-                  height={img.height}
-                  alt={`${service.navLabel} project by JW Garden Services in the Aylesbury area — example ${i + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full rounded-lg shadow-soft object-cover aspect-[4/3]"
-                />
+                <figure key={`${img.src}-${i}`} className="group mb-8 break-inside-avoid">
+                  <div className="mount">
+                    <div className="overflow-hidden">
+                      <img
+                        src={img.src}
+                        srcSet={img.srcSet}
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 30vw"
+                        width={img.width}
+                        height={img.height}
+                        alt={`${service.navLabel} by JW Garden Services in the Aylesbury area — example ${i + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="plate-img"
+                      />
+                    </div>
+                  </div>
+                </figure>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/our-work">
-                  See more of our work
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+
+            <Reveal className="mt-6">
+              <Action to="/our-work" tone="outline">
+                See more of our work
+              </Action>
+            </Reveal>
           </div>
         </section>
 
-        {/* FAQs */}
-        <section className="section-padding bg-background">
-          <div className="container-wide max-w-3xl">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8">
-              {service.navLabel} FAQs
-            </h2>
-            <dl className="space-y-8">
-              {service.faqs.map((f) => (
-                <div key={f.q} className="border-b border-border/60 pb-6 last:border-0">
-                  <dt className="font-heading text-xl font-semibold text-foreground mb-2">{f.q}</dt>
-                  <dd className="font-body text-muted-foreground leading-relaxed">{f.a}</dd>
-                </div>
-              ))}
-            </dl>
+        <section className="section-tight">
+          <div className="wrap grid gap-10 lg:grid-cols-12">
+            <Reveal className="lg:col-span-4">
+              <Tag className="text-stone">Common questions</Tag>
+              <h2 className="display-2 mt-6 max-w-[14ch] text-balance">
+                {service.navLabel}, answered
+              </h2>
+            </Reveal>
+
+            <Reveal className="lg:col-span-8" delay={100}>
+              <dl className="rule-top">
+                {service.faqs.map((f) => (
+                  <div key={f.q} className="rule-bottom py-7">
+                    <dt className="display-4 max-w-[42ch]">{f.q}</dt>
+                    <dd className="mt-3 max-w-measure text-pretty text-stone">{f.a}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
           </div>
         </section>
 
-        {/* Other services — internal linking */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
-              Our other services
-            </h2>
-            <div className="grid sm:grid-cols-3 gap-6">
-              {others.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/services/${s.slug}`}
-                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
-                >
-                  <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                    {s.navLabel}
-                  </h3>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
-                    {s.intro}
-                  </p>
-                  <span className="cta-move font-body text-sm text-primary inline-flex items-center gap-2">
-                    Find out more
-                    <ArrowRight className="cta-arrow h-4 w-4" />
-                  </span>
-                </Link>
+        <section className="section-tight bg-chalk-wash">
+          <div className="wrap">
+            <Reveal className="rule-bottom pb-5">
+              <Tag className="text-stone">Also on the round</Tag>
+            </Reveal>
+            <ul className="mt-2">
+              {others.map((s, index) => (
+                <Reveal as="li" key={s.slug} delay={index * 80}>
+                  <Link
+                    to={`/services/${s.slug}`}
+                    className="rule-bottom group grid items-baseline gap-x-8 gap-y-2 py-6 md:grid-cols-[1fr_auto]"
+                  >
+                    <div>
+                      <h3 className="display-3 transition-colors duration-500 ease-estate group-hover:text-ceanothus">
+                        {s.navLabel}
+                      </h3>
+                      <p className="mt-2 max-w-[54ch] text-pretty text-stone">{s.intro}</p>
+                    </div>
+                    <Arrow className="row-arrow hidden h-4 w-4 text-stone md:block" />
+                  </Link>
+                </Reveal>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
