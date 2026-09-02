@@ -125,8 +125,8 @@
 
 @layer components {
   .section-padding {
-    padding-top: clamp(3.5rem, 7vw, 8rem);
-    padding-bottom: clamp(3.5rem, 7vw, 8rem);
+    padding-top: clamp(4rem, 7.5vw, 9rem);
+    padding-bottom: clamp(4.5rem, 8.5vw, 10.5rem);
   }
 
   .container-wide {
@@ -222,8 +222,9 @@
   .kicker {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9375rem;
+    gap: 1.25rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
     color: hsl(var(--muted-foreground));
   }
 
@@ -234,20 +235,42 @@
     background: hsl(var(--border));
   }
 
-  /* Fluid heading scale — smooth across every breakpoint */
+  /* Same opener on the dark contact panel, where the light border token and
+     muted-foreground would both disappear. */
+  .kicker-invert {
+    color: hsl(var(--primary-foreground) / 0.6);
+  }
+
+  .kicker-invert::after {
+    background: hsl(var(--primary-foreground) / 0.2);
+  }
+
+  /* Fluid heading scale — smooth across every breakpoint.
+
+     Cormorant Garamond is a high-contrast classical face: its thick/thin
+     modulation is the reason to use it, and semibold was filling the thins in
+     and flattening it to a generic bold serif. Set at 500 with the tracking
+     pulled in, the contrast reads and the headings settle down. */
   .heading-hero {
-    font-size: clamp(2.25rem, 6.2vw, 4.5rem);
-    line-height: 1.08;
+    font-size: clamp(2.5rem, 6.4vw, 4.75rem);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
 
   .heading-section {
     font-size: clamp(1.875rem, 4.2vw, 3.25rem);
-    line-height: 1.15;
+    line-height: 1.12;
+    font-weight: 500;
+    letter-spacing: -0.015em;
   }
 
+  /* Lead paragraphs sit at 300: against a 400 body it gives the page a real
+     weight step instead of one undifferentiated 400/600 setting. */
   .body-lead {
-    font-size: clamp(1rem, 1.3vw, 1.25rem);
-    line-height: 1.65;
+    font-size: clamp(1.0625rem, 1.35vw, 1.3125rem);
+    line-height: 1.6;
+    font-weight: 300;
   }
 
   /* The single entrance on the page: the hero block on load. Everything else

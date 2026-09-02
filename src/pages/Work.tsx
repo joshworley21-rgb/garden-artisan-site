@@ -41,7 +41,7 @@ const Work = () => (
 
       <section className="section-padding bg-background border-t border-border">
         <div className="container-wide max-w-3xl">
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-5">
+          <h2 className="font-heading heading-section text-foreground mb-5">
             Thinking about your own garden?
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-4">

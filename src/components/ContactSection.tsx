@@ -91,12 +91,16 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
           <div>
             {showIntro && (
               <>
-                <h2 className="font-heading heading-section font-semibold tracking-tight text-balance mb-6">
-                  Tell us about the garden
+                <p className="kicker kicker-invert font-body mb-6">
+                  Contact Us
+                </p>
+                <h2 className="font-heading heading-section tracking-tight text-balance mb-6">
+                  Let&rsquo;s Transform
+                  <span className="block font-normal text-primary-foreground/60">Your Garden</span>
                 </h2>
                 <p className="font-body text-lg text-primary-foreground/80 leading-relaxed measure mb-6">
-                  Quotes are free and we come out to look before we price anything. Say
-                  roughly what you need and where you are, and we&rsquo;ll come back to you.
+                  Ready to create the outdoor space you&rsquo;ve always dreamed of? Get in touch
+                  today for a free consultation. We&rsquo;d love to hear about your project.
                 </p>
               </>
             )}
@@ -109,6 +113,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   <a href="tel:07950636954" className="underline underline-offset-4 decoration-primary-foreground/30 hover:decoration-primary-foreground transition-colors">
                     07950 636954
                   </a>
+                  <span className="block text-primary-foreground/70">Call us for a free quote</span>
                 </dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-8 border-b border-primary-foreground/15 py-4">
@@ -120,15 +125,15 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 </dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-8 border-b border-primary-foreground/15 py-4">
-                <dt className="font-body text-sm text-primary-foreground/60 sm:w-28 shrink-0">Based</dt>
+                <dt className="font-body text-sm text-primary-foreground/60 sm:w-28 shrink-0">Location</dt>
                 <dd className="font-body text-primary-foreground/85">
-                  Bierton, Aylesbury &mdash; covering Bucks, Beds &amp; Herts
+                  Based in Bierton, Aylesbury<br />Covering Beds, Bucks &amp; Herts
                 </dd>
               </div>
               <div className="flex flex-col sm:flex-row sm:gap-8 border-b border-primary-foreground/15 py-4">
                 <dt className="font-body text-sm text-primary-foreground/60 sm:w-28 shrink-0">Hours</dt>
                 <dd className="font-body text-primary-foreground/85">
-                  Monday to Friday, 8am &ndash; 4pm
+                  Monday - Friday: 8am - 4pm<br />Saturday - Sunday: Closed
                 </dd>
               </div>
             </dl>
@@ -158,18 +163,18 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     <path fill="#FBBC05" d="M9.67 26.13c-.51-1.56-.8-3.23-.8-4.93s.29-3.37.8-4.93V10.44H2.23A21.94 21.94 0 0 0 0 24.5c0 3.55.85 6.91 2.23 9.81l7.44-5.83z"/>
                     <path fill="#EA4335" d="M24 9.75c3.94 0 7.48 1.36 10.27 4.02l7.69-7.69C35.93 2.18 30.48 0 24 0 14.46 0 6.18 4.93 2.23 12.19l7.44 5.83C11.69 9.75 17.34 9.75 24 9.75z"/>
                   </svg>
-                  Find us on Google and read our reviews
+                  Find us on Google &amp; read our reviews
                 </a>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="bg-primary-foreground/5 rounded-lg p-8 md:p-10 border border-primary-foreground/10">
-            <h3 className="font-heading text-2xl font-semibold mb-6">Send a message</h3>
+            <h3 className="font-heading text-2xl font-semibold mb-6">Send Us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <label htmlFor="name" className="block font-body text-sm mb-2 text-primary-foreground/80">
-                  Your name
+                  Your Name
                 </label>
                 <input
                   type="text"
@@ -179,7 +184,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
-                  placeholder="Your name"
+                  placeholder="John Smith"
                   maxLength={100}
                 />
                 {errors.name && <p className="mt-1 font-body text-sm text-hero-accent">{errors.name}</p>}
@@ -187,7 +192,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="email" className="block font-body text-sm mb-2 text-primary-foreground/80">
-                    Email
+                    Email Address
                   </label>
                   <input
                     type="email"
@@ -197,14 +202,14 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
-                    placeholder="you@example.com"
+                    placeholder="john@example.com"
                     maxLength={255}
                   />
                   {errors.email && <p className="mt-1 font-body text-sm text-hero-accent">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
-                    Phone
+                    Phone Number
                   </label>
                   <input
                     type="tel"
@@ -221,7 +226,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
               </div>
               <div>
                 <label htmlFor="message" className="block font-body text-sm mb-2 text-primary-foreground/80">
-                  Your message
+                  Your Message
                 </label>
                 <textarea
                   id="message"
@@ -231,13 +236,13 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors resize-none"
-                  placeholder="Roughly what you need, and which village you are in"
+                  placeholder="Tell us about your garden project..."
                   maxLength={2000}
                 />
                 {errors.message && <p className="mt-1 font-body text-sm text-hero-accent">{errors.message}</p>}
               </div>
               <Button type="submit" variant="accent" size="xl" className="w-full group" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending…' : 'Send message'}
+                {isSubmitting ? 'Sending…' : 'Send Message'}
                 {isSubmitting ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (

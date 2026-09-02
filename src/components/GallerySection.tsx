@@ -30,14 +30,14 @@ const GallerySection = () => {
       <div className="container-wide">
         {/* Section opener */}
         <div className="mb-12 lg:mb-16">
-          <p className="kicker font-body mb-6">Recent work</p>
+          <p className="kicker font-body mb-6">Portfolio</p>
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-            <h2 className="lg:col-span-7 font-heading heading-section text-foreground font-semibold tracking-tight text-balance">
-              Gardens we look after
+            <h2 className="lg:col-span-7 font-heading heading-section text-foreground tracking-tight text-balance">
+              Our Recent Work
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
-              Borders, hedges, patios and a lot of lawn. All of it photographed on the day
-              we finished.
+              Take a look at some of the gardens we&rsquo;ve transformed. Each project reflects
+              our commitment to quality and attention to detail.
             </p>
           </div>
         </div>

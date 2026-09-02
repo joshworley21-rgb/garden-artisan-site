@@ -13,7 +13,7 @@ const WorkGallery = () => (
         className={`section-padding ${groupIndex % 2 === 1 ? 'bg-secondary/30' : 'bg-background'}`}
       >
         <div className="container-wide">
-          <h2 className="font-heading heading-section text-foreground font-semibold mb-10 md:mb-14">
+          <h2 className="font-heading heading-section text-foreground mb-10 md:mb-14">
             {group.heading}
           </h2>
 

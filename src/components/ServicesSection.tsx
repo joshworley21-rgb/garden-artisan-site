@@ -13,14 +13,15 @@ const ServicesSection = () => {
       <div className="container-wide">
         {/* Section opener: left-aligned, sentence case, no letter-spaced eyebrow. */}
         <div className="mb-12 lg:mb-16">
-          <p className="kicker font-body mb-6">What we do</p>
+          <p className="kicker font-body mb-6">What We Offer</p>
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-12 items-end">
-            <h2 className="lg:col-span-7 font-heading heading-section text-foreground font-semibold tracking-tight text-balance">
-              Four things, done properly
+            <h2 className="lg:col-span-7 font-heading heading-section text-foreground tracking-tight text-balance">
+              Garden Services in Aylesbury &amp; Buckinghamshire
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
-              Maintenance and landscaping are most of what we do. Design, planting and
-              commercial grounds work fill the rest of the year.
+              Professional garden maintenance, landscaping, planting and commercial grounds care
+              across Aylesbury, Bierton and the surrounding towns and villages — delivered with
+              expert craftsmanship and attention to detail.
             </p>
           </div>
         </div>

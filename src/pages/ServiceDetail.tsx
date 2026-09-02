@@ -150,7 +150,7 @@ const ServiceDetail = () => {
         {/* Gallery */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
+            <h2 className="font-heading heading-section text-foreground mb-8 text-center">
               Recent {service.navLabel.toLowerCase()} work
             </h2>
             <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
@@ -182,7 +182,7 @@ const ServiceDetail = () => {
         {/* FAQs */}
         <section className="section-padding bg-background">
           <div className="container-wide max-w-3xl">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8">
+            <h2 className="font-heading heading-section text-foreground mb-8">
               {service.navLabel} FAQs
             </h2>
             <dl className="space-y-8">
@@ -199,7 +199,7 @@ const ServiceDetail = () => {
         {/* Other services — internal linking */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
+            <h2 className="font-heading heading-section text-foreground mb-8 text-center">
               Our other services
             </h2>
             <div className="grid sm:grid-cols-3 gap-6">

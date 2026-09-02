@@ -177,7 +177,7 @@ const AreaDetail = () => {
         {/* Services in this town */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
+            <h2 className="font-heading heading-section text-foreground mb-8 text-center">
               What we do in {area.town}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -203,7 +203,7 @@ const AreaDetail = () => {
         {/* Gallery */}
         <section className="section-padding bg-background">
           <div className="container-wide">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8 text-center">
+            <h2 className="font-heading heading-section text-foreground mb-8 text-center">
               Gardens we look after near {area.town}
             </h2>
             <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
@@ -228,7 +228,7 @@ const AreaDetail = () => {
         {/* FAQs */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide max-w-3xl">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8">
+            <h2 className="font-heading heading-section text-foreground mb-8">
               Gardening in {area.town} — common questions
             </h2>
             <dl className="space-y-8">
@@ -245,7 +245,7 @@ const AreaDetail = () => {
         {/* Nearby areas */}
         <section className="section-padding bg-background">
           <div className="container-wide text-center">
-            <h2 className="font-heading heading-section text-foreground font-semibold mb-8">
+            <h2 className="font-heading heading-section text-foreground mb-8">
               We also cover nearby
             </h2>
             <div className="flex flex-wrap justify-center gap-3">

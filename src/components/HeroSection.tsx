@@ -127,7 +127,7 @@ const HeroSection = () => {
             Bierton, Aylesbury &middot; Gardening here since 2017
           </p>
 
-          <h1 className="font-heading heading-hero text-primary-foreground font-semibold mb-6">
+          <h1 className="font-heading heading-hero text-primary-foreground mb-6">
             Gardeners in Aylesbury
             <span className="block italic font-normal text-hero-accent">Transforming gardens with passion &amp; expertise</span>
           </h1>
@@ -138,16 +138,10 @@ const HeroSection = () => {
             Let us develop a space you can love, all year round.
           </p>
 
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Button variant="hero" size="xl" asChild>
-              <Link to="/contact">Get a quote</Link>
+              <Link to="/contact">Get in Touch</Link>
             </Button>
-            <a
-              href="tel:07950636954"
-              className="font-body text-primary-foreground underline underline-offset-4 decoration-primary-foreground/40 hover:decoration-primary-foreground transition-colors"
-            >
-              or call 07950 636954
-            </a>
           </div>
         </div>
       </div>
