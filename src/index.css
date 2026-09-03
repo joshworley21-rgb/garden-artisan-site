@@ -6,46 +6,46 @@
 
 @layer base {
   :root {
-    /* Cool neutral paper, near-black ink, one green.
+    /* "Estate Record" palette — limestone paper, bottle-green ink, one blue.
 
-       The ground used to be a warm cream, which tinted every garden photograph
-       on the page the same direction and left the whole site in one temperature.
-       A neutral, slightly cool paper lets the planting carry the colour, which
-       is how landscape practices present work. Green is now a single hue family
-       used deliberately, not two greens spread across every surface. */
-    --background: 210 20% 98%;
-    --foreground: 215 28% 11%;
+       Ink is the near-black bottle green of Victorian glasshouse ironwork;
+       chalk is limestone paper. The single accent is ceanothus blue, the
+       flower colour that keeps recurring in Josh's own photographs —
+       ceanothus, alliums, wisteria, campanula — so the accent is drawn from
+       the planting on the site rather than defaulting to a second green. */
+    --background: 70 12% 92%;
+    --foreground: 156 24% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 28% 11%;
+    --card: 72 20% 96%;
+    --card-foreground: 156 24% 11%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 11%;
+    --popover: 72 20% 96%;
+    --popover-foreground: 156 24% 11%;
 
-    /* Deep green — the brand anchor, concentrated in the contact panel and
-       the primary control rather than washed over the page. */
-    --primary: 158 42% 18%;
-    --primary-foreground: 210 20% 98%;
+    /* The contact panel and the primary control are the only places ink
+       covers a whole surface. */
+    --primary: 156 24% 11%;
+    --primary-foreground: 70 12% 92%;
 
-    --secondary: 214 20% 95%;
-    --secondary-foreground: 215 28% 11%;
+    --secondary: 70 10% 86%;
+    --secondary-foreground: 156 24% 11%;
 
-    --muted: 214 20% 94%;
-    --muted-foreground: 215 14% 40%;
+    --muted: 70 10% 86%;
+    --muted-foreground: 140 5% 36%;
 
-    /* Same hue family as primary, one step brighter. */
-    --accent: 158 46% 30%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 210 34% 37%;
+    --accent-foreground: 72 20% 96%;
 
-    /* Green that stays legible on the dark contact panel and over video. */
-    --hero-accent: 152 48% 62%;
+    /* The same blue lightened, so it stays legible on the ink panel and
+       over the hero video. */
+    --hero-accent: 209 38% 74%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 44%;
+    --destructive-foreground: 72 20% 96%;
 
-    --border: 214 18% 88%;
-    --input: 214 18% 88%;
-    --ring: 158 42% 18%;
+    --border: 150 8% 78%;
+    --input: 150 8% 78%;
+    --ring: 210 34% 37%;
 
     /* Tighter than the old 4px: closer to square reads as drawn, not templated. */
     --radius: 0.125rem;
@@ -54,62 +54,24 @@
     --font-heading: 'Author', 'Switzer', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Switzer', ui-sans-serif, system-ui, sans-serif;
 
-    /* Shadows tinted with the ink, never neutral black. Used sparingly now —
+    /* Shadows tinted with the ink, never neutral black. Used sparingly —
        hairline borders carry most of the separation. */
-    --shadow-soft: 0 1px 3px hsl(215 28% 11% / 0.06), 0 8px 24px -12px hsl(215 28% 11% / 0.08);
-    --shadow-elevated: 0 12px 40px -16px hsl(215 28% 11% / 0.14);
+    --shadow-soft: 0 1px 3px hsl(156 24% 11% / 0.06), 0 8px 24px -12px hsl(156 24% 11% / 0.08);
+    --shadow-elevated: 0 12px 40px -16px hsl(156 24% 11% / 0.14);
 
     /* One shared easing, so every transition on the site moves the same way. */
     --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 72 20% 96%;
+    --sidebar-foreground: 156 24% 11%;
+    --sidebar-primary: 156 24% 11%;
+    --sidebar-primary-foreground: 70 12% 92%;
+    --sidebar-accent: 70 10% 86%;
+    --sidebar-accent-foreground: 156 24% 11%;
+    --sidebar-border: 150 8% 78%;
+    --sidebar-ring: 210 34% 37%;
   }
 
-  .dark {
-    --background: 215 28% 8%;
-    --foreground: 210 20% 96%;
-
-    --card: 215 24% 12%;
-    --card-foreground: 210 20% 96%;
-
-    --popover: 215 24% 11%;
-    --popover-foreground: 210 20% 96%;
-
-    --primary: 152 44% 48%;
-    --primary-foreground: 215 28% 8%;
-
-    --secondary: 215 20% 18%;
-    --secondary-foreground: 210 20% 96%;
-
-    --muted: 215 20% 18%;
-    --muted-foreground: 215 14% 62%;
-
-    --accent: 152 48% 58%;
-    --accent-foreground: 215 28% 8%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 215 20% 22%;
-    --input: 215 20% 22%;
-    --ring: 152 44% 48%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
 
 @layer base {
