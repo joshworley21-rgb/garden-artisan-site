@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Check, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { areas as areaPages } from '@/lib/areas';
 
@@ -50,7 +51,12 @@ const AreasSection = () => {
 
             <ul className="grid grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
               {areas.map((area) => (
-                <li key={area.slug} className="font-body">
+                <li key={area.slug} className="font-body flex items-center gap-2.5 sm:gap-3">
+                  {/* The tick is a list marker, not information — the town name
+                      beside it is the whole content of the row. */}
+                  <span className="flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-full bg-secondary">
+                    <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" strokeWidth={2} aria-hidden="true" />
+                  </span>
                   <Link
                     to={`/${area.slug}`}
                     className="text-sm sm:text-base text-foreground underline underline-offset-4 decoration-border hover:text-primary hover:decoration-primary/50 transition-colors"
@@ -61,9 +67,12 @@ const AreasSection = () => {
               ))}
             </ul>
 
-            <p className="font-body text-sm text-muted-foreground measure mt-8">
-              Not on the list? We travel up to 25 miles from Bierton. Get in touch and
-              we&rsquo;ll let you know.
+            <p className="font-body text-sm text-muted-foreground measure mt-8 flex gap-2.5">
+              <MapPin className="h-4 w-4 shrink-0 mt-[0.2em]" strokeWidth={1.5} aria-hidden="true" />
+              <span>
+                Not on the list? We travel up to 25 miles from Bierton. Get in touch and
+                we&rsquo;ll let you know.
+              </span>
             </p>
           </div>
 
