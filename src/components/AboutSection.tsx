@@ -1,16 +1,17 @@
+import { Award, Leaf, Shield, Users } from 'lucide-react';
 import { images } from '@/lib/images';
 
 const aboutImage = images['jw-maint-3'];
 
-// The same four credentials the section has always listed, set as a definition
-// list on hairline rules rather than four Lucide glyphs in tinted rounded
-// squares — a shield next to "insured" was decoration, not information. The
-// Guild's own mark stays in the footer, where it appears on every page.
+// The four credentials, each with the mark it has always carried. The glyphs
+// sit in tinted squares at the site's own 2px radius rather than the rounded
+// ones they had before, and the rules underneath stay. The Guild's photographic
+// mark is separate — it lives in the footer, on every page.
 const credentials = [
-  { term: 'Fully Qualified Horticulturist', detail: 'City & Guilds certified expertise' },
-  { term: 'Professional & Insured', detail: 'Public liability cover, details on request' },
-  { term: 'Tailored Solutions', detail: 'Weekly in summer, less often over winter' },
-  { term: 'Gardeners Guild Member', detail: 'Qualified, accredited professional' },
+  { icon: Award, term: 'Fully Qualified Horticulturist', detail: 'City & Guilds certified expertise' },
+  { icon: Shield, term: 'Professional & Insured', detail: 'Public liability cover, details on request' },
+  { icon: Leaf, term: 'Tailored Solutions', detail: 'Weekly in summer, less often over winter' },
+  { icon: Users, term: 'Gardeners Guild Member', detail: 'Qualified, accredited professional' },
 ];
 
 // Every cell sits on the same rules; odd ones pick up the vertical divider once
@@ -71,6 +72,13 @@ const AboutSection = () => {
               {credentials.map((credential, index) => (
                 <div key={credential.term} className={cell(index)}>
                   <dt className="font-body font-medium text-foreground text-[0.9375rem] sm:text-base">
+                    <span className="mb-3 sm:mb-4 flex h-11 w-11 items-center justify-center rounded-sm bg-secondary">
+                      <credential.icon
+                        className="h-5 w-5 text-primary"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    </span>
                     {credential.term}
                   </dt>
                   <dd className="font-body text-[0.8125rem] sm:text-sm text-muted-foreground mt-1 sm:mt-1.5">
