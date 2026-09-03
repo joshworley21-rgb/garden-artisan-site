@@ -124,7 +124,7 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'Do you cut long rural hedges and field boundaries?',
-        a: 'Regularly. Native hedges, laurel, conifer and mixed boundaries. We work outside the bird nesting season wherever we can, and all the cuttings go with us.',
+        a: 'Regularly. Native hedges, laurel, conifer and mixed boundaries. We work outside the bird nesting season wherever we can.',
       },
       {
         q: 'Can you look after a garden while we are away?',

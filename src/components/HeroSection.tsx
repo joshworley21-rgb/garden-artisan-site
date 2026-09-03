@@ -65,7 +65,7 @@ const HeroSection = () => {
   }, [showVideo]);
 
   return (
-    <section className="relative flex flex-col overflow-hidden min-h-[560px] h-[calc(100svh-5rem)] max-h-[820px]">
+    <section className="relative flex flex-col overflow-hidden min-h-[560px] h-[calc(100svh-var(--header-h))] max-h-[820px]">
       {/* Background Video with image poster fallback */}
       <div className="absolute inset-0">
         <picture>
@@ -125,7 +125,7 @@ const HeroSection = () => {
           (pill badge, centred h1, centred subhead, centred button) is the
           stock landing-page skeleton; sitting the text in one corner lets the
           photograph behind it actually be a photograph. */}
-      <div className="relative z-10 w-full mt-auto container-wide pb-14 sm:pb-20 pt-28">
+      <div className="relative z-10 w-full mt-auto container-wide pb-14 sm:pb-20 pt-[calc(var(--header-h)+0.5rem)]">
         <div className="max-w-4xl animate-fade-up">
           <p className="font-body text-sm text-primary-foreground/75 mb-5">
             Bierton, Aylesbury &middot; Gardening here since 2017
@@ -138,7 +138,7 @@ const HeroSection = () => {
 
           <p className="font-body body-lead text-primary-foreground/80 max-w-2xl mb-8 sm:mb-10">
             JW Garden Services keeps gardens across Aylesbury, Bierton and the surrounding
-            villages looking their best — from weekly maintenance to a full garden redesign.
+            villages looking their best, from weekly maintenance to a full garden redesign.
             Let us develop a space you can love, all year round.
           </p>
 

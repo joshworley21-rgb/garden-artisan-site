@@ -106,7 +106,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener"
               className="inline-flex flex-col gap-3 group"
-              aria-label="The Gardeners Guild — professional gardening association"
+              aria-label="The Gardeners Guild, a professional gardening association"
             >
               <img
                 src={guildLogo.src}

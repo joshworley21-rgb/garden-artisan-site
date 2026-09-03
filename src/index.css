@@ -74,6 +74,16 @@
     --sidebar-ring: 210 34% 37%;
   }
 
+  /* Height of the fixed header, which is the logo plus its vertical padding.
+     The logo steps up through the breakpoints, so the header does too: 72px on
+     a phone, 104px from xl. Anything sizing itself against the header reads
+     this rather than assuming a value. The hero used to subtract a flat 5rem
+     and so overshot the fold by 12px at lg and 24px at xl. */
+  :root { --header-h: 4.5rem; }
+  @media (min-width: 640px) { :root { --header-h: 5rem; } }
+  @media (min-width: 768px) { :root { --header-h: 5.5rem; } }
+  @media (min-width: 1024px) { :root { --header-h: 5.75rem; } }
+  @media (min-width: 1280px) { :root { --header-h: 6.5rem; } }
 }
 
 @layer base {

@@ -143,7 +143,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
             <div className="space-y-4 pt-8">
               <div className="overflow-hidden rounded-lg border border-primary-foreground/10">
                   <iframe
-                    title="JW Garden Services on Google Maps — Bierton, Aylesbury"
+                    title="JW Garden Services on Google Maps, Bierton, Aylesbury"
                     src="https://maps.google.com/maps?q=JW%20Garden%20Services%20Bierton%20Aylesbury&z=12&output=embed"
                     width="100%"
                     height="220"
@@ -186,7 +186,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/40 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                   placeholder="John Smith"
                   maxLength={100}
                 />
@@ -210,7 +210,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/40 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                     placeholder="john@example.com"
                     maxLength={255}
                   />
@@ -232,7 +232,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/40 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                     placeholder="01234 567890"
                     maxLength={40}
                   />
@@ -256,7 +256,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/40 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors resize-none"
                   placeholder="Tell us about your garden project..."
                   maxLength={2000}
                 />

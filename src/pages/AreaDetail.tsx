@@ -101,8 +101,7 @@ const AreaDetail = () => {
                     close by who turns up when they say they will and does a proper job.
                   </p>
                   <p>
-                    We are based in Bierton, Aylesbury &mdash; {area.travelTime.toLowerCase()} &mdash; and we
-                    cover {area.postcodes}. Call{' '}
+                    We are based in Bierton, Aylesbury, and we cover {area.postcodes}. Call{' '}
                     <a href="tel:+447950636954" className="text-primary underline underline-offset-4">
                       07950 636954
                     </a>{' '}
@@ -214,7 +213,7 @@ const AreaDetail = () => {
                   sizes="(max-width: 640px) 100vw, 33vw"
                   width={img.width}
                   height={img.height}
-                  alt={`Garden maintained by JW Garden Services near ${area.town}, Buckinghamshire — example ${i + 1}`}
+                  alt={`Garden maintained by JW Garden Services near ${area.town}, Buckinghamshire, example ${i + 1}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full rounded-lg shadow-soft object-cover aspect-[4/3]"
@@ -228,7 +227,7 @@ const AreaDetail = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide max-w-3xl">
             <h2 className="font-heading heading-section text-foreground mb-8">
-              Gardening in {area.town} — common questions
+              Gardening in {area.town}: common questions
             </h2>
             <dl className="space-y-8">
               {area.faqs.map((f) => (

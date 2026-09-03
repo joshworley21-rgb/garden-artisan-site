@@ -47,7 +47,7 @@ const ServiceDetail = () => {
         ].map((name) => ({ '@type': 'City', name })),
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: `${service.navLabel} — what's included`,
+          name: `${service.navLabel}: what's included`,
           itemListElement: service.includes.map((item) => ({
             '@type': 'Offer',
             itemOffered: { '@type': 'Service', name: item },
@@ -164,7 +164,7 @@ const ServiceDetail = () => {
                   sizes="(max-width: 640px) 100vw, 33vw"
                   width={img.width}
                   height={img.height}
-                  alt={`${service.navLabel} project by JW Garden Services in the Aylesbury area — example ${i + 1}`}
+                  alt={`${service.navLabel} project by JW Garden Services in the Aylesbury area, example ${i + 1}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full object-cover aspect-[4/3]"

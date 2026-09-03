@@ -35,7 +35,7 @@ const Work = () => (
     <PageLayout
       eyebrow="Portfolio"
       title="Our Work"
-      intro="Gardens we look after week to week, borders we have planted and structures we have built — photographed on the job rather than staged."
+      intro="Gardens we look after week to week, borders we have planted and structures we have built, photographed on the job rather than staged."
     >
       <WorkGallery />
 
@@ -51,7 +51,7 @@ const Work = () => (
           </p>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
             We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what you are dealing with and we will tell you what we would do
-            about it — quotes are free, and there is no obligation to book anything regular.
+            about it. Quotes are free, and there is no obligation to book anything regular.
           </p>
         </div>
       </section>
