@@ -13,38 +13,40 @@
        flower colour that keeps recurring in Josh's own photographs —
        ceanothus, alliums, wisteria, campanula — so the accent is drawn from
        the planting on the site rather than defaulting to a second green. */
-    --background: 70 12% 92%;
+    --background: 68 16% 86%;
     --foreground: 156 24% 11%;
 
-    --card: 72 20% 96%;
+    --card: 70 20% 91%;
     --card-foreground: 156 24% 11%;
 
-    --popover: 72 20% 96%;
+    --popover: 70 20% 91%;
     --popover-foreground: 156 24% 11%;
 
     /* The contact panel and the primary control are the only places ink
-       covers a whole surface. */
+       covers a whole surface. primary-foreground is deliberately lighter than
+       the page ground: it is also the hero copy sitting over video, where a
+       limestone-weight tone would not hold its contrast. */
     --primary: 156 24% 11%;
-    --primary-foreground: 70 12% 92%;
+    --primary-foreground: 72 16% 94%;
 
-    --secondary: 70 10% 86%;
+    --secondary: 68 14% 79%;
     --secondary-foreground: 156 24% 11%;
 
-    --muted: 70 10% 86%;
-    --muted-foreground: 140 5% 36%;
+    --muted: 68 14% 79%;
+    --muted-foreground: 140 6% 34%;
 
     --accent: 210 34% 37%;
-    --accent-foreground: 72 20% 96%;
+    --accent-foreground: 70 20% 91%;
 
     /* The same blue lightened, so it stays legible on the ink panel and
        over the hero video. */
     --hero-accent: 209 38% 74%;
 
     --destructive: 0 72% 44%;
-    --destructive-foreground: 72 20% 96%;
+    --destructive-foreground: 70 20% 91%;
 
-    --border: 150 8% 78%;
-    --input: 150 8% 78%;
+    --border: 66 12% 70%;
+    --input: 66 12% 70%;
     --ring: 210 34% 37%;
 
     /* Tighter than the old 4px: closer to square reads as drawn, not templated. */
@@ -62,13 +64,13 @@
     /* One shared easing, so every transition on the site moves the same way. */
     --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-    --sidebar-background: 72 20% 96%;
+    --sidebar-background: 70 20% 91%;
     --sidebar-foreground: 156 24% 11%;
     --sidebar-primary: 156 24% 11%;
-    --sidebar-primary-foreground: 70 12% 92%;
-    --sidebar-accent: 70 10% 86%;
+    --sidebar-primary-foreground: 72 16% 94%;
+    --sidebar-accent: 68 14% 79%;
     --sidebar-accent-foreground: 156 24% 11%;
-    --sidebar-border: 150 8% 78%;
+    --sidebar-border: 66 12% 70%;
     --sidebar-ring: 210 34% 37%;
   }
 
