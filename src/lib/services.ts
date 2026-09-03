@@ -21,20 +21,28 @@ export const services: ServiceContent[] = [
     slug: 'garden-maintenance',
     navLabel: 'Garden Maintenance',
     h1: 'Garden Maintenance in Aylesbury',
-    eyebrow: 'Weekly garden care',
-    seoTitle: 'Weekly Garden Maintenance Aylesbury | JW Garden Services',
+    eyebrow: 'Regular and one-off garden care',
+    seoTitle: 'Garden Maintenance Aylesbury | Weekly, Fortnightly, One-Off',
     seoDescription:
-      'Weekly garden maintenance in Aylesbury and across Bucks, Beds and Herts — keeping lawns, hedges and borders immaculate all year. Trained, reliable, free quotes.',
+      'Garden maintenance in Aylesbury and across Bucks, Beds and Herts. Weekly, fortnightly or a one-off tidy. Lawns, hedges, borders and seasonal work, free quotes.',
     intro:
-      'Regular garden maintenance around Aylesbury. We keep the lawn cut, the hedges neat and the borders weeded, so you come home to a garden that is already done.',
+      'Garden maintenance around Aylesbury, weekly or as a one-off. We keep the lawn cut, the hedges neat and the borders weeded, so you come home to a garden that is already done.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
       {
-        heading: 'What a weekly visit looks like',
+        heading: 'How often we come',
         paragraphs: [
-          'Coming every week means nothing gets out of hand. The grass is cut before it starts looking long, hedges get trimmed little and often instead of one hard cut a year, and weeds come out while they are still small.',
-          'Most gardens round here want us weekly from March to October. Over winter we can drop to fortnightly or monthly, or keep the same day all year if you would rather. Whatever suits you.',
+          'Some gardens want us every week. Some every fortnight, some once a month, and some just want the place knocked back into shape and then left alone for a while. All of those are fine.',
+          'A weekly round means nothing gets out of hand. The grass is cut before it starts looking long, hedges get trimmed little and often instead of one hard cut a year, and weeds come out while they are still small. Most gardens round here want that from March to October, then fortnightly or monthly through the winter.',
+          'If fortnightly would do, we will say so. We would rather quote you for what the garden actually needs than sell you a visit you do not want.',
+        ],
+      },
+      {
+        heading: 'One-off jobs and catching up',
+        paragraphs: [
+          'Plenty of gardens start as a one-off. Something that has got away from someone over a summer, a tidy before the house goes on the market, or a clear-out after a wet winter. There is no obligation to book anything regular afterwards, and if you do want us back we can sort that out once the garden is straight.',
+          'Holidays are the other one. If you are away, we can keep an eye on things, water the pots and keep the place presentable until you are home.',
           'If we spot something worth doing, we will mention it. No pressure either way.',
         ],
       },
@@ -50,19 +58,21 @@ export const services: ServiceContent[] = [
       'Mowing, edging and stripes',
       'Hedges trimmed and kept in shape',
       'Shrubs, roses and small trees pruned',
-      'Borders weeded every visit',
+      'Borders weeded and kept clear',
       'Pots and seasonal flowers planted up',
       'Leaf clearing and winter tidies',
       'Lawn feeds to thicken the grass',
+      'Overgrown gardens cleared and brought back',
+      'Holiday cover while you are away',
     ],
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'Weekly suits most gardens. The grass never gets long and the weeds do not get a chance. March to October is the busy stretch, then fortnightly or monthly through winter. Bigger gardens usually stay weekly all year.',
+        a: 'It depends on the garden and on you. Weekly suits most, because the grass never gets long and the weeds do not get a chance. March to October is the busy stretch, then fortnightly or monthly through winter, and bigger gardens usually stay weekly all year. If fortnightly would do, we will say so.',
       },
       {
-        q: 'Why choose weekly rather than fortnightly maintenance?',
-        a: 'Your garden looks right every day, not just the day after we have been. Each visit is quicker too, because there is less to catch up on.',
+        q: 'Can you do a one-off tidy instead of a regular visit?',
+        a: 'Yes. A lot of jobs start that way, whether it is a clearance, a tidy before selling, or just getting on top of a garden that has run away with itself. Book nothing else if you do not want to.',
       },
       {
         q: 'Do I need to be home for the visit?',
