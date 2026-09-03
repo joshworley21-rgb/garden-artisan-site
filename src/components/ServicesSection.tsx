@@ -46,7 +46,7 @@ const ServicesSection = () => {
                 />
               </div>
 
-              <div className="flex flex-1 flex-col p-7 lg:p-8">
+              <div className="flex flex-1 flex-col p-6 lg:p-8">
                 <h3 className="font-heading heading-sub text-foreground mb-3">
                   {service.navLabel}
                 </h3>

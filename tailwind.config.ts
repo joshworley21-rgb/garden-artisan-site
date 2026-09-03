@@ -73,10 +73,17 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      /* One surface radius, three aliases. shadcn's ladder subtracts 2px and
+         4px from --radius, which was written for its default 0.5rem; against
+         our 0.125rem both lower rungs went to 0, so `rounded-sm` silently
+         rendered square and `rounded-md` came out smaller than `rounded-lg`.
+         This design has exactly two radii: the 2px token on surfaces, and a
+         pill on the area ticks. So every alias resolves to the token and
+         nothing silently renders square. */
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "var(--radius)",
+        sm: "var(--radius)",
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
