@@ -67,15 +67,6 @@ const Footer = () => {
                   <path fill="#EA4335" d="M24 9.75c3.94 0 7.48 1.36 10.27 4.02l7.69-7.69C35.93 2.18 30.48 0 24 0 14.46 0 6.18 4.93 2.23 12.19l7.44 5.83C11.69 9.75 17.34 9.75 24 9.75z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="JW Garden Services on Facebook" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Facebook aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
-              <a href="#" aria-label="JW Garden Services on Instagram" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Instagram aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
-              <a href="#" aria-label="JW Garden Services on LinkedIn" className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-hero-accent transition-colors group">
-                <Linkedin aria-hidden="true" className="h-5 w-5 text-background group-hover:text-foreground" />
-              </a>
             </div>
           </div>
 

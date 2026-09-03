@@ -181,14 +181,20 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   type="text"
                   id="name"
                   name="name"
+                  aria-invalid={errors.name ? true : undefined}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                   placeholder="John Smith"
                   maxLength={100}
                 />
-                {errors.name && <p className="mt-1 font-body text-sm text-hero-accent">{errors.name}</p>}
+                {errors.name && (
+                  <p id="name-error" role="alert" className="mt-1 font-body text-sm text-hero-accent">
+                    {errors.name}
+                  </p>
+                )}
               </div>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
@@ -199,14 +205,20 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     type="email"
                     id="email"
                     name="email"
+                    aria-invalid={errors.email ? true : undefined}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                     placeholder="john@example.com"
                     maxLength={255}
                   />
-                  {errors.email && <p className="mt-1 font-body text-sm text-hero-accent">{errors.email}</p>}
+                  {errors.email && (
+                  <p id="email-error" role="alert" className="mt-1 font-body text-sm text-hero-accent">
+                    {errors.email}
+                  </p>
+                )}
                 </div>
                 <div>
                   <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
@@ -216,13 +228,19 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     type="tel"
                     id="phone"
                     name="phone"
+                    aria-invalid={errors.phone ? true : undefined}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors"
+                    className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors"
                     placeholder="01234 567890"
                     maxLength={40}
                   />
-                  {errors.phone && <p className="mt-1 font-body text-sm text-hero-accent">{errors.phone}</p>}
+                  {errors.phone && (
+                  <p id="phone-error" role="alert" className="mt-1 font-body text-sm text-hero-accent">
+                    {errors.phone}
+                  </p>
+                )}
                 </div>
               </div>
               <div>
@@ -232,15 +250,21 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 <textarea
                   id="message"
                   name="message"
+                  aria-invalid={errors.message ? true : undefined}
+                  aria-describedby={errors.message ? 'message-error' : undefined}
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-hero-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/40 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors resize-none"
                   placeholder="Tell us about your garden project..."
                   maxLength={2000}
                 />
-                {errors.message && <p className="mt-1 font-body text-sm text-hero-accent">{errors.message}</p>}
+                {errors.message && (
+                  <p id="message-error" role="alert" className="mt-1 font-body text-sm text-hero-accent">
+                    {errors.message}
+                  </p>
+                )}
               </div>
               <Button type="submit" variant="accent" size="xl" className="w-full group" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending…' : 'Send Message'}
