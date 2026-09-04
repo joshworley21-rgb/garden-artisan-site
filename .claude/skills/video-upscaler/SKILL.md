@@ -1,97 +1,115 @@
 ---
 name: video-upscaler
-version: 1.0.0
+version: 2.0.0
 display_name: Video Upscaler
-author: wells1137
-description: "Intelligently upscale and enhance videos to cinematic quality using a multi-model backend (Topaz, SeedVR2)."
-tags: [video, upscale, enhance, topaz, seedvr, 4k, quality]
+description: "AI-upscale video locally with Real-ESRGAN. Runs on this machine via ONNX Runtime - no API keys, no upload, no per-minute billing."
+tags: [video, upscale, enhance, real-esrgan, super-resolution, onnx, ffmpeg]
 ---
 
-## Summary
+## What this does
 
-The **Video Upscaler** skill provides professional-grade video quality enhancement by leveraging a powerful, multi-model backend. It intelligently selects the best AI model (Topaz, SeedVR2, etc.) based on the user-defined profile to achieve optimal results, transforming low-resolution or noisy footage into crisp, cinematic-quality video.
+Upscales video using a real super-resolution neural network (Real-ESRGAN),
+running entirely on the local machine through ONNX Runtime. It reconstructs
+detail rather than interpolating between existing pixels, which is the
+difference between this and an `ffmpeg scale` filter.
 
-This skill abstracts away the complexity of choosing and configuring different AI upscaling models. Instead of dealing with dozens of technical parameters, the user simply chooses a high-level goal, and the skill handles the rest.
+Everything is local. No API key, no account, nothing uploaded, no per-minute
+cost. The tradeoff is compute time — see **Performance** before starting a job.
 
-## Features
-
-- **Multi-Model Backend**: Dynamically routes requests to the best model for the job (Topaz, SeedVR2, etc.) via a unified API.
-- **Profile-Based Enhancement**: Offers a range of pre-configured profiles for common use cases, from standard 2x upscaling to 4K cinematic conversion and 60 FPS frame boosting.
-- **Asynchronous by Design**: Handles long-running video processing jobs without blocking the agent.
-- **Simple Interface**: Requires only a video URL and a profile name to start.
-
-## How It Works
-
-The skill operates in a simple, two-step asynchronous workflow:
-
-1.  **Submit Job**: The agent calls the `/upscale` endpoint with a video URL and a profile name. The service validates the request, selects the appropriate AI model, and submits the job to the `fal.ai` backend. It immediately returns a `task_id`.
-
-2.  **Poll for Status**: The agent uses the `task_id` to periodically call the `/status/{task_id}` endpoint. The status will be `queued`, `in_progress`, or `completed`. Once completed, the response will contain the URL of the final, upscaled video.
-
-## Available Profiles
-
-| Profile Name | Description |
-| :--- | :--- |
-| `standard_x2` | **2x upscale** using Topaz Proteus v4. Best all-around quality for live-action footage. |
-| `cinema_4k` | Upscale to **4K (2160p)** using SeedVR2. Best for cinematic content requiring temporal consistency. |
-| `frame_boost_60fps` | 2x upscale + **frame interpolation to 60 FPS** using Topaz Apollo v8. Best for sports and action. |
-| `ai_video_enhance` | **4x upscale** using Topaz. Best for AI-generated videos that need resolution boosting. |
-| `web_optimized` | Upscale to **1080p** with web-optimized H264 output. Best for social media and web publishing. |
-
-## End-to-End Example
-
-**User Request:** "Enhance this video to 4K cinematic quality: [video_url]"
-
-**1. Agent -> Skill (Submit Job)**
-
-The agent identifies the user's intent and calls the `/upscale` endpoint with the `cinema_4k` profile.
+## Usage
 
 ```bash
-curl -X POST http://<your_backend_url>/upscale \
-  -H "Content-Type: application/json" \
-  -d 
-    "video_url": "[video_url]",
-    "profile": "cinema_4k"
-  }
+python3 scripts/upscale.py INPUT OUTPUT --height 1440
 ```
 
-**Response:**
-```json
-{
-  "task_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-  "model_used": "fal-ai/seedvr/upscale/video",
-  "profile": "cinema_4k"
-}
-```
+Common options:
 
-**2. Agent -> Skill (Poll for Status)**
+| Flag | Default | Meaning |
+| :--- | :--- | :--- |
+| `--height N` | — | Target height; width follows the source aspect ratio |
+| `--scale N` | — | Target multiplier instead of a height (`--scale 2`) |
+| `--model` | `realesrgan-x2` | `realesrgan-x2` or `realesrgan-x4` |
+| `--tile N` | `384` | Tile size; `0` processes whole frames (more RAM) |
+| `--overlap N` | `24` | Tile overlap, blended with a linear feather |
+| `--threads N` | all cores | Inference threads |
+| `--crf N` | `16` | x264 quality; lower is better and larger |
+| `--limit N` | `0` | Process only the first N frames — use this to test first |
+| `--no-audio` | off | Drop the audio track instead of copying it |
+| `--keep-workdir` | off | Keep intermediate frames after finishing |
 
-The agent waits and then polls the status endpoint.
+**Always dry-run with `--limit 3` first.** It exercises the whole pipeline in
+a couple of minutes and tells you the real per-frame cost before you commit to
+a long job.
+
+## Requirements
 
 ```bash
-curl http://<your_backend_url>/status/a1b2c3d4-e5f6-7890-1234-567890abcdef
+pip install onnxruntime numpy pillow imageio-ffmpeg
 ```
 
-**Response (In Progress):**
-```json
-{
-  "task_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-  "status": "in_progress",
-  "logs": ["Processing frame 100/1200..."]
-}
-```
+`ffmpeg` is used from `PATH` if present; otherwise the static binary from
+`imageio-ffmpeg` is used automatically. Weights download on first run to
+`~/.cache/video-upscaler` (override with `--model-dir` or
+`$VIDEO_UPSCALER_MODELS`) and are verified against a pinned SHA-256 — a
+truncated or swapped download aborts the run rather than quietly degrading
+output.
 
-**Response (Completed):**
-```json
-{
-  "task_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-  "status": "completed",
-  "result": {
-    "video_url": "https://.../upscaled_video.mp4"
-  }
-}
-```
+## How it works
 
-**3. Agent -> User**
+1. **Probe** the source for geometry, exact rational frame rate, and audio.
+2. **Extract** frames to PNG.
+3. **Upscale** each frame through Real-ESRGAN in overlapping tiles, blended
+   with a linear feather so tile seams do not appear.
+4. **Fit** to the exact target if the model's integer scale overshoots (the
+   remainder is a Lanczos resize — the tool warns when this happens).
+5. **Encode** with x264 at the source's exact frame rate, copying audio through.
 
-The agent delivers the final, upscaled video URL to the user.
+Tiling is what bounds peak memory: 720p at `--tile 384` peaks near 1 GB where
+whole-frame inference needs about 2.8 GB, and the gap widens with resolution.
+
+**Resumable.** Upscaled frames are written as they finish, and re-running the
+same command skips completed frames. A multi-hour job that dies picks up where
+it stopped rather than starting over.
+
+## Performance
+
+Measured on 4 cores of an Intel Xeon @ 2.10GHz, no GPU, `realesrgan-x2`:
+
+| Source | Per frame | 10s @ 24fps (240 frames) |
+| :--- | :--- | :--- |
+| 720p → 1440p, `--tile 384` | ~30 s | ~2 hours |
+| 720p → 1440p, whole-frame | ~32 s | ~2.1 hours |
+
+This is CPU-bound and scales roughly with pixel count. A CUDA GPU changes the
+picture completely — ONNX Runtime picks `CUDAExecutionProvider` automatically
+when `onnxruntime-gpu` is installed, typically a 20–50x speedup.
+
+Plan accordingly: this is well suited to short clips and overnight batches, and
+poorly suited to anything feature-length on CPU.
+
+## Limitations
+
+- **Real-ESRGAN is a single-frame model.** It has no temporal awareness, so it
+  cannot enforce consistency across frames the way a video-native model
+  (SeedVR2, Topaz Astra) does. On most footage this is invisible; on fine
+  moving texture it can shimmer slightly between frames.
+- **It cannot exceed its training.** Heavy compression artifacts, motion blur,
+  and genuinely missing detail are not recoverable.
+- **Detail is plausible, not true.** A generative upscaler invents detail
+  consistent with its training data. Do not use it where the output must be
+  forensically faithful to the source.
+- **`realesrgan-x2` is the quality choice for 2x.** Using `realesrgan-x4` and
+  downscaling is slower and generally not better for a 2x target.
+
+## History
+
+Version 1.0.0 of this skill (from `wells1137/media-skills`) was documentation
+only: it described a `fal.ai`-backed HTTP service but shipped no
+implementation, and every endpoint pointed at a `http://<your_backend_url>`
+placeholder. It could not run. This version replaces it with a working local
+pipeline. The original is preserved in this repository's git history.
+
+If you specifically want the hosted Topaz / SeedVR2 models the original
+described, that is a different tool: it needs a deployed service and a paid
+`fal.ai` key, and it trades locality and privacy for speed and temporal
+consistency.
