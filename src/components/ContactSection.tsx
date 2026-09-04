@@ -237,7 +237,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                 </div>
                 <div>
                   <label htmlFor="phone" className="block font-body text-sm mb-2 text-primary-foreground/80">
-                    Phone Number
+                    Phone Number <span className="text-primary-foreground/50">(optional)</span>
                   </label>
                   <input
                     ref={fieldRefs.phone}

@@ -73,10 +73,10 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="font-heading heading-sub mb-4">Services</h4>
-            <ul className="space-y-3">
+            <ul>
               {serviceLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
+                  <Link to={link.to} className="inline-block py-1.5 font-body text-background/70 hover:text-hero-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -87,10 +87,10 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="font-heading heading-sub mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <ul>
               {quickLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="font-body text-background/70 hover:text-hero-accent transition-colors">
+                  <Link to={link.to} className="inline-block py-1.5 font-body text-background/70 hover:text-hero-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -127,10 +127,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pb-8 border-t border-background/10 pt-8">
           <h4 className="font-heading heading-sub mb-4">Gardeners near you</h4>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap gap-x-6">
             {areaLinks.map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="font-body text-sm text-background/70 hover:text-hero-accent transition-colors">
+                <Link to={link.to} className="inline-block py-1.5 font-body text-sm text-background/70 hover:text-hero-accent transition-colors">
                   Gardeners in {link.label}
                 </Link>
               </li>
