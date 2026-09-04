@@ -10,9 +10,18 @@ import {
 } from '@/lib/hero-media';
 
 /**
- * The poster paints first (LCP), then the video loads on all screen sizes.
- * Only data-saver, very slow connections and reduced-motion users stay on
- * the lightweight WebP poster.
+ * The poster paints first (LCP), then the video loads on all screen sizes, at
+ * its original quality — nothing here ever swaps in a smaller file. What
+ * changes is *when* the browser starts fetching it.
+ *
+ * An idle callback fired straight from mount can still land inside the
+ * window Core Web Vitals are measured in: requestIdleCallback only means
+ * "nothing queued on the main thread right now", which can be true while the
+ * poster image, fonts and other page resources are still in flight over the
+ * network. So this waits for the page's own load event first — a signal that
+ * the initial network burst is over — before it even starts the idle timer,
+ * and gives mobile a longer fallback delay since it has the least bandwidth
+ * to spare for a multi-megabyte file arriving on top of everything else.
  */
 const useHeroVideo = () => {
   const [enabled, setEnabled] = useState(false);
@@ -31,12 +40,33 @@ const useHeroVideo = () => {
 
     if (!allowed) return;
 
-    const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number })
-      .requestIdleCallback;
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const isNarrow = window.innerWidth <= 700;
     const start = () => setEnabled(true);
-    const id = idle ? idle(start) : window.setTimeout(start, 600);
+
+    let idleId: number | undefined;
+    let timeoutId: number | undefined;
+    const armIdle = () => {
+      if (win.requestIdleCallback) idleId = win.requestIdleCallback(start);
+      else timeoutId = window.setTimeout(start, isNarrow ? 1500 : 600);
+    };
+    const disarm = () => {
+      if (idleId !== undefined) win.cancelIdleCallback?.(idleId);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
+
+    if (document.readyState === 'complete') {
+      armIdle();
+      return disarm;
+    }
+
+    window.addEventListener('load', armIdle, { once: true });
     return () => {
-      if (!idle) window.clearTimeout(id as number);
+      window.removeEventListener('load', armIdle);
+      disarm();
     };
   }, []);
 
