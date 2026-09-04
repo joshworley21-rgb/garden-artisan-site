@@ -132,7 +132,7 @@ const AreaDetail = () => {
                   {area.localNotes.map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-foreground">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                        <Check className="h-3 w-3 text-primary" strokeWidth={3} />
+                        <Check className="h-3 w-3 text-primary" strokeWidth={3} aria-hidden="true" />
                       </span>
                       <span className="text-sm sm:text-base">{item}</span>
                     </li>
@@ -140,14 +140,14 @@ const AreaDetail = () => {
                 </ul>
                 <dl className="mt-6 space-y-3 border-t border-border/60 pt-6 font-body text-sm text-muted-foreground">
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                    <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" aria-hidden="true" />
                     <span>
                       <dt className="inline font-medium text-foreground">Postcodes covered: </dt>
                       <dd className="inline">{area.postcodes}</dd>
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                    <Clock className="h-4 w-4 text-primary mt-0.5 shrink-0" aria-hidden="true" />
                     <span>
                       <dt className="inline font-medium text-foreground">Distance from us: </dt>
                       <dd className="inline">{area.travelTime}</dd>
@@ -162,7 +162,7 @@ const AreaDetail = () => {
                   </Button>
                   <Button variant="outline" size="lg" asChild>
                     <a href="tel:+447950636954">
-                      <Phone className="h-4 w-4" />
+                      <Phone className="h-4 w-4" aria-hidden="true" />
                       07950 636954
                     </a>
                   </Button>
@@ -183,7 +183,7 @@ const AreaDetail = () => {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
+                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-[transform,border-color,box-shadow] hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
                 >
                   <h3 className="font-heading heading-sub text-foreground mb-2 group-hover:text-primary transition-colors">
                     {s.navLabel}

@@ -13,7 +13,7 @@ const PageLayout = ({ eyebrow, title, intro, children }: PageLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
         <section className="bg-primary text-primary-foreground pb-8 md:pb-10" style={{ paddingTop: 'clamp(7rem, 12vw, 10rem)' }}>
           <div className="container-wide max-w-3xl">
             {eyebrow && (

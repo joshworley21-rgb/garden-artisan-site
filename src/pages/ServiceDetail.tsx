@@ -123,7 +123,7 @@ const ServiceDetail = () => {
                   {service.includes.map((item) => (
                     <li key={item} className="flex items-start gap-3 font-body text-foreground">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                        <Check className="h-3 w-3 text-primary" strokeWidth={3} />
+                        <Check className="h-3 w-3 text-primary" strokeWidth={3} aria-hidden="true" />
                       </span>
                       <span className="text-sm sm:text-base">{item}</span>
                     </li>
@@ -137,7 +137,7 @@ const ServiceDetail = () => {
                   </Button>
                   <Button variant="outline" size="lg" asChild>
                     <a href="tel:+447950636954">
-                      <Phone className="h-4 w-4" />
+                      <Phone className="h-4 w-4" aria-hidden="true" />
                       07950 636954
                     </a>
                   </Button>
@@ -209,7 +209,7 @@ const ServiceDetail = () => {
                 <Link
                   key={s.slug}
                   to={`/services/${s.slug}`}
-                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
+                  className="group rounded-lg border border-border/60 bg-card p-6 shadow-soft transition-[transform,border-color,box-shadow] hover:-translate-y-1 hover:border-accent/40 hover:shadow-elevated"
                 >
                   <h3 className="font-heading heading-sub text-foreground mb-2 group-hover:text-primary transition-colors">
                     {s.navLabel}

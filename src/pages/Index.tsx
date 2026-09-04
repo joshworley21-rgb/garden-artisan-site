@@ -17,7 +17,7 @@ const Index = () => {
         path="/"
       />
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
         <HeroSection />
         <ServicesSection />
         <AboutSection />

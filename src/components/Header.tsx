@@ -58,12 +58,18 @@ const Header = () => {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-body focus:text-sm focus:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        Skip to main content
+      </a>
       {/* Sits in the document rather than in the fixed header, so it scrolls
           away with the page. No positioned ancestor, so it anchors to the top
           of the document. */}
       <div ref={sentinelRef} aria-hidden="true" className="absolute top-[50px] left-0 h-px w-px" />
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md shadow-soft transition-[padding] duration-500 ${
           isScrolled ? 'py-2' : 'py-3'
         }`}
       >
@@ -81,7 +87,7 @@ const Header = () => {
               height={102}
               fetchPriority="high"
               decoding="async"
-              className="block object-contain object-left transition-all duration-300 h-12 sm:h-14 md:h-16 lg:h-[68px] xl:h-20 w-auto max-w-[58vw] sm:max-w-[280px] lg:max-w-[300px] xl:max-w-[400px]"
+              className="block object-contain object-left transition-[height] duration-300 h-12 sm:h-14 md:h-16 lg:h-[68px] xl:h-20 w-auto max-w-[58vw] sm:max-w-[280px] lg:max-w-[300px] xl:max-w-[400px]"
             />
           </Link>
 
@@ -106,10 +112,11 @@ const Header = () => {
                 Services
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
                 />
               </button>
               <div
-                className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-all duration-200 ${
+                className={`absolute left-1/2 -translate-x-1/2 top-full pt-3 transition-[opacity,transform] duration-200 ${
                   isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
                 }`}
               >
@@ -147,7 +154,7 @@ const Header = () => {
             ))}
             <Button variant="hero" size="lg" className="whitespace-nowrap" asChild>
               <Link to="/contact">
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4" aria-hidden="true" />
                 Get in Touch
               </Link>
             </Button>
@@ -160,13 +167,13 @@ const Header = () => {
             aria-expanded={isMobileMenuOpen}
             className="nav:hidden -mr-2 p-2 text-foreground transition-colors"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`nav:hidden absolute top-full left-0 right-0 z-50 bg-background shadow-elevated transition-all duration-300 ${
+          className={`nav:hidden absolute top-full left-0 right-0 z-50 bg-background shadow-elevated transition-[opacity] duration-300 ${
             isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
           }`}
         >
@@ -182,10 +189,11 @@ const Header = () => {
                 Services
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
                 />
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ${
+                className={`overflow-hidden transition-[max-height,opacity] duration-300 ${
                   isServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
@@ -222,7 +230,7 @@ const Header = () => {
             ))}
             <Button variant="hero" size="lg" className="mt-4" asChild>
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4" aria-hidden="true" />
                 Get in Touch
               </Link>
             </Button>

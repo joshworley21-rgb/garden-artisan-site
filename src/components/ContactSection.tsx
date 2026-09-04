@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Send, Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackEnquirySubmitted } from '@/lib/analytics';
 
@@ -40,6 +40,12 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const location = useLocation();
+  const fieldRefs = {
+    name: useRef<HTMLInputElement>(null),
+    email: useRef<HTMLInputElement>(null),
+    phone: useRef<HTMLInputElement>(null),
+    message: useRef<HTMLTextAreaElement>(null),
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,6 +54,9 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
       const fieldErrors = validate(formData);
       if (Object.keys(fieldErrors).length > 0) {
         setErrors(fieldErrors);
+        // name/email/phone/message is the order the fields appear in the form.
+        const firstInvalid = (['name', 'email', 'phone', 'message'] as const).find((f) => fieldErrors[f]);
+        if (firstInvalid) fieldRefs[firstInvalid].current?.focus();
         void notify('error', 'Please check the highlighted fields');
         return;
       }
@@ -178,9 +187,11 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   Your Name
                 </label>
                 <input
+                  ref={fieldRefs.name}
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name"
                   aria-invalid={errors.name ? true : undefined}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                   value={formData.name}
@@ -202,9 +213,13 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     Email Address
                   </label>
                   <input
+                    ref={fieldRefs.email}
                     type="email"
                     id="email"
                     name="email"
+                    autoComplete="email"
+                    inputMode="email"
+                    spellCheck={false}
                     aria-invalid={errors.email ? true : undefined}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     value={formData.email}
@@ -225,9 +240,12 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                     Phone Number
                   </label>
                   <input
+                    ref={fieldRefs.phone}
                     type="tel"
                     id="phone"
                     name="phone"
+                    autoComplete="tel"
+                    inputMode="tel"
                     aria-invalid={errors.phone ? true : undefined}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
                     value={formData.phone}
@@ -248,8 +266,10 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   Your Message
                 </label>
                 <textarea
+                  ref={fieldRefs.message}
                   id="message"
                   name="message"
+                  autoComplete="off"
                   aria-invalid={errors.message ? true : undefined}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   value={formData.message}
@@ -257,7 +277,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-primary-foreground/10 border border-primary-foreground/40 rounded-lg font-body text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:outline-none focus-visible:border-hero-accent focus-visible:ring-2 focus-visible:ring-hero-accent/40 transition-colors resize-none"
-                  placeholder="Tell us about your garden project..."
+                  placeholder="Tell us about your garden project…"
                   maxLength={2000}
                 />
                 {errors.message && (
@@ -269,9 +289,9 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
               <Button type="submit" variant="accent" size="xl" className="w-full group" disabled={isSubmitting}>
                 {isSubmitting ? 'Sending…' : 'Send Message'}
                 {isSubmitting ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                 ) : (
-                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 )}
               </Button>
             </form>

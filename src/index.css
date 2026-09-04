@@ -93,6 +93,10 @@
 
   html {
     scroll-behavior: smooth;
+    /* The header is fixed and its height varies by breakpoint (see
+       --header-h above). Without this, jumping to an in-page anchor
+       (#services, #areas, #contact) lands the section's top edge under it. */
+    scroll-padding-top: var(--header-h);
   }
 
   body {
