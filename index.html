@@ -6,33 +6,14 @@
     <!-- Matches --background (68 16% 86%, the limestone ground) so the browser
          chrome doesn't flash a mismatched colour on load or in the tab switcher. -->
     <meta name="theme-color" content="#DFE1D6" />
-    <!-- Both faces come from Fontshare, so there is one font origin to warm up.
-         Fontshare's API serves one family per request, hence two stylesheets;
-         both load non-blockingly via media=print. -->
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://api.fontshare.com/v2/css?f%5B%5D=author@400,500,600,700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://api.fontshare.com/v2/css?f%5B%5D=author@400,500,600,700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <link
-      rel="preload"
-      as="style"
-      href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@300,400,500,600&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://api.fontshare.com/v2/css?f%5B%5D=switzer@300,400,500,600&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
+    <!-- Author and Switzer are self-hosted from /fonts (see index.css) instead
+         of Fontshare's API, so there is no third-party DNS/TLS round trip on
+         the critical path. Preload only the two weights that render above the
+         fold on first paint: Switzer 400 for body copy, Author 600 for the
+         hero heading. The rest load with the stylesheet, off the critical
+         path, once they are actually needed. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/switzer-400.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/author-600.woff2" crossorigin />
     <!-- Preload the poster the page will actually use: an upright phone gets the
          portrait crop from <picture>, so preloading the landscape set there
          fetched 92 KB that was never displayed and delayed the real one. -->

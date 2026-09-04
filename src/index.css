@@ -2,7 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts are loaded non-blockingly from index.html (preconnect + preload). */
+/* Author and Switzer, self-hosted from /public/fonts (originally Fontshare).
+   Self-hosting removes the third-party DNS + TLS round trip to
+   api.fontshare.com/cdn.fontshare.com that sat on the critical path before
+   first paint on every visit. font-display: swap means text still renders
+   immediately in the fallback stack while these load. index.html preloads
+   the two weights used above the fold (Switzer 400 for body copy, Author 600
+   for the hero heading) so they don't wait behind other requests. */
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/author-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/author-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/author-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/author-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-300.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-500.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-600.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
 
 @layer base {
   :root {
