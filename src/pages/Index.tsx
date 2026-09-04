@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Seo
-        title="Gardeners in Aylesbury | Garden Maintenance & Landscaping"
-        description="Trusted gardeners in Aylesbury since 2017. Garden maintenance, landscaping, patios and planting across Bucks, Beds and Herts. Free quotes."
+        title="Garden Maintenance & Landscaping | Bucks, Beds & Herts"
+        description="Garden maintenance, landscaping and planting across Buckinghamshire, Bedfordshire and Hertfordshire. Based in Aylesbury, trusted since 2017. Free quotes."
         path="/"
       />
       <Header />

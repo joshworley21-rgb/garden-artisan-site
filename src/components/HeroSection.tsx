@@ -132,7 +132,7 @@ const HeroSection = () => {
           </p>
 
           <h1 className="font-heading heading-hero text-primary-foreground mb-6">
-            Gardeners in Aylesbury
+            Gardeners Across Bucks, Beds &amp; Herts
             <span className="heading-hero-sub mt-3 text-primary-foreground/70">Transforming gardens with passion &amp; expertise</span>
           </h1>
 
