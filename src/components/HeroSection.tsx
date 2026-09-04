@@ -50,8 +50,14 @@ const useHeroVideo = () => {
     let idleId: number | undefined;
     let timeoutId: number | undefined;
     const armIdle = () => {
-      if (win.requestIdleCallback) idleId = win.requestIdleCallback(start);
-      else timeoutId = window.setTimeout(start, isNarrow ? 1500 : 600);
+      // requestIdleCallback fires almost immediately once the page settles —
+      // there's nothing else queued on the main thread by then — so on a
+      // narrow viewport this skips it and uses a real fixed delay instead.
+      // Without that, the video's decode/play work lands inside the
+      // FCP-to-TTI window Lighthouse counts as Total Blocking Time, which is
+      // exactly the regression a plain idle callback produced here.
+      if (win.requestIdleCallback && !isNarrow) idleId = win.requestIdleCallback(start);
+      else timeoutId = window.setTimeout(start, isNarrow ? 3000 : 600);
     };
     const disarm = () => {
       if (idleId !== undefined) win.cancelIdleCallback?.(idleId);
