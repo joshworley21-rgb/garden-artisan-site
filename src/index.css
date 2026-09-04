@@ -217,11 +217,20 @@
     color: hsl(var(--muted-foreground));
   }
 
+  /* The rule leads with a short ceanothus segment before settling into the
+     neutral hairline — the one accent colour this site uses, repeated
+     identically at the head of every section rather than spent on a wash. */
   .kicker::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: hsl(var(--border));
+    background: linear-gradient(
+      to right,
+      hsl(var(--accent) / 0.6) 0,
+      hsl(var(--accent) / 0.6) 1.75rem,
+      hsl(var(--border)) 1.75rem,
+      hsl(var(--border)) 100%
+    );
   }
 
   /* Same opener on the dark contact panel, where the light border token and
@@ -231,7 +240,13 @@
   }
 
   .kicker-invert::after {
-    background: hsl(var(--primary-foreground) / 0.2);
+    background: linear-gradient(
+      to right,
+      hsl(var(--hero-accent) / 0.7) 0,
+      hsl(var(--hero-accent) / 0.7) 1.75rem,
+      hsl(var(--primary-foreground) / 0.2) 1.75rem,
+      hsl(var(--primary-foreground) / 0.2) 100%
+    );
   }
 
   /* Fluid heading scale — smooth across every breakpoint.

@@ -23,7 +23,7 @@ const cell = (index: number) =>
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-secondary/30">
+    <section id="about" className="section-padding bg-secondary/30 border-t border-border">
       <div className="container-wide">
         <div className="grid lg:grid-cols-12 gap-x-10 lg:gap-x-16 gap-y-8 lg:gap-y-6 items-start">
           {/* Heading first on a phone: the reader should know what the section

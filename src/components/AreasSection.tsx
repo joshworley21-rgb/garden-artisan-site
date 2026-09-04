@@ -34,7 +34,7 @@ const AreasSection = () => {
   }, [showMap]);
 
   return (
-    <section id="areas" className="section-padding bg-secondary/30">
+    <section id="areas" className="section-padding bg-secondary/30 border-t border-border">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Copy */}

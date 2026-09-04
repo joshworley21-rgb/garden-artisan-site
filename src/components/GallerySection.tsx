@@ -26,7 +26,7 @@ for (let i = galleryImages.length - 1; i > 0; i--) {
 
 const GallerySection = () => {
   return (
-    <section id="work" className="section-padding bg-background">
+    <section id="work" className="section-padding bg-background border-t border-border">
       <div className="container-wide">
         {/* Section opener */}
         <div className="mb-12 lg:mb-16">
