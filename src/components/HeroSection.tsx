@@ -142,7 +142,7 @@ const HeroSection = () => {
               current === heroVideoFallback ? current : heroVideoFallback,
             )}
             aria-hidden="true"
-            style={{ transitionDuration: '2000ms' }}
+            style={{ transitionDuration: '1000ms' }}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity ease-out ${
               videoReady ? 'opacity-100' : 'opacity-0'
             }`}
