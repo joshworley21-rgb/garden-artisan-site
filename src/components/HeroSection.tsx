@@ -112,8 +112,16 @@ const HeroSection = () => {
 
   return (
     <section className="relative flex flex-col overflow-hidden min-h-[560px] h-[calc(100svh-var(--header-h))] max-h-[820px]">
-      {/* Background Video with image poster fallback */}
-      <div className="absolute inset-0">
+      {/* Background Video with image poster fallback.
+          isolate, plus the video's own translateZ/willChange, give this its
+          own compositing layer up front: on Android Chrome, inserting an
+          autoplaying <video> mid-page forces the browser to promote it to a
+          new GPU layer at that exact moment, and the repaint that triggers
+          can flash/ghost whatever's stacked above it (the heading text here)
+          for a frame or two. Isolating both this layer and the text layer
+          below keeps that promotion from forcing a repaint of content it
+          doesn't actually overlap in paint order. */}
+      <div className="absolute inset-0 isolate">
         <picture>
           {/* Upright phones crop the landscape still to nothing but its middle,
               so give them a frame cropped to shape instead. */}
@@ -153,6 +161,7 @@ const HeroSection = () => {
             )}
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ transform: 'translateZ(0)', willChange: 'transform' }}
           />
         )}
         {/* Two scrims that overlap only under the text. The old pair washed the
@@ -169,7 +178,7 @@ const HeroSection = () => {
           (pill badge, centred h1, centred subhead, centred button) is the
           stock landing-page skeleton; sitting the text in one corner lets the
           photograph behind it actually be a photograph. */}
-      <div className="relative z-10 w-full mt-auto container-wide pb-14 sm:pb-20 pt-[calc(var(--header-h)+0.5rem)]">
+      <div className="relative isolate z-10 w-full mt-auto container-wide pb-14 sm:pb-20 pt-[calc(var(--header-h)+0.5rem)]">
         <div className="max-w-4xl animate-fade-up">
           <p className="font-body text-sm text-primary-foreground/75 mb-5">
             Bierton, Aylesbury &middot; Gardening here since 2017
