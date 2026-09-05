@@ -57,7 +57,7 @@ const useHeroVideo = () => {
       // FCP-to-TTI window Lighthouse counts as Total Blocking Time, which is
       // exactly the regression a plain idle callback produced here.
       if (win.requestIdleCallback && !isNarrow) idleId = win.requestIdleCallback(start);
-      else timeoutId = window.setTimeout(start, isNarrow ? 3000 : 600);
+      else timeoutId = window.setTimeout(start, isNarrow ? 1200 : 600);
     };
     const disarm = () => {
       if (idleId !== undefined) win.cancelIdleCallback?.(idleId);
