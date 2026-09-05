@@ -17,12 +17,15 @@
     <!-- Preload the poster the page will actually use: an upright phone gets the
          portrait crop from <picture>, so preloading the landscape set there
          fetched 92 KB that was never displayed and delayed the real one. -->
+    <!-- ?v=v3 must match the HERO_ASSET_VERSION query string src/lib/hero-media.ts
+         appends to these same URLs - a preload only counts as a match to the
+         browser if the URL is byte-identical, query string included. -->
     <link
       rel="preload"
       as="image"
       media="(orientation: portrait) and (max-width: 700px)"
-      href="/assets/jw-hero-clip-portrait-608.webp"
-      imagesrcset="/assets/jw-hero-clip-portrait-456.webp 456w, /assets/jw-hero-clip-portrait-608.webp 608w"
+      href="/assets/jw-hero-clip-portrait-608.webp?v=v3"
+      imagesrcset="/assets/jw-hero-clip-portrait-456.webp?v=v3 456w, /assets/jw-hero-clip-portrait-608.webp?v=v3 608w"
       imagesizes="100vw"
       fetchpriority="high"
     />
@@ -30,8 +33,8 @@
       rel="preload"
       as="image"
       media="(orientation: landscape), (min-width: 701px)"
-      href="/assets/jw-hero-clip-poster-1024.webp"
-      imagesrcset="/assets/jw-hero-clip-poster-480.webp 480w, /assets/jw-hero-clip-poster-768.webp 768w, /assets/jw-hero-clip-poster-1024.webp 1024w, /assets/jw-hero-clip-poster-1440.webp 1440w"
+      href="/assets/jw-hero-clip-poster-1024.webp?v=v3"
+      imagesrcset="/assets/jw-hero-clip-poster-480.webp?v=v3 480w, /assets/jw-hero-clip-poster-768.webp?v=v3 768w, /assets/jw-hero-clip-poster-1024.webp?v=v3 1024w, /assets/jw-hero-clip-poster-1440.webp?v=v3 1440w"
       imagesizes="100vw"
       fetchpriority="high"
     />

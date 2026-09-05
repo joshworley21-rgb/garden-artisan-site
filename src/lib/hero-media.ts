@@ -1,28 +1,36 @@
 /**
  * Hero poster and video.
  *
- * Encoded from a 2560x1440 master, denoised and lightly sharpened, then cut
- * three ways: 854 for narrow low-DPR phones, 1440 for a standard desktop
- * window, and 1920 for wide or high-DPR (retina) desktops, where a 1440px
- * file was visibly upscaled and soft. AV1 where the browser takes it, H.264
- * everywhere else.
- *
- *   desktop 1920  AV1 ~4.6 MB · H.264 ~5.1 MB
- *   desktop 1440  AV1 ~5.0 MB · H.264 ~4.5 MB
- *   phone   854   AV1 ~2.3 MB · H.264 ~1.8 MB
+ * Encoded from a 3840x2160 master, cut three ways: 854 for narrow low-DPR
+ * phones, 1440 for a standard desktop window, and 1920 for wide or high-DPR
+ * (retina) desktops, where a 1440px file was visibly upscaled and soft. AV1
+ * where the browser takes it, H.264 everywhere else.
  *
  * The poster is the video's own first frame, so the swap from image to video
  * is invisible.
+ *
+ * Every filename here is static - unlike the JS/CSS bundle, nothing under
+ * public/assets goes through Vite's content-hashing, but .htaccess still
+ * caches them for a year as "immutable" (correct for the hashed bundle,
+ * wrong for these). Re-encoding one of these files and redeploying under the
+ * same name does NOT reach anyone who already loaded the page: their browser
+ * keeps serving the byte-identical stale copy from cache for the full year.
+ * HERO_ASSET_VERSION is the substitute for a content hash - bump it any time
+ * one of these files' bytes change, so the querystring makes it a new URL
+ * the cache has never seen.
  */
+const HERO_ASSET_VERSION = 'v3';
+const v = (path: string) => `${path}?v=${HERO_ASSET_VERSION}`;
+
 export const heroPoster = {
-  src: '/assets/jw-hero-clip-poster-1024.webp',
+  src: v('/assets/jw-hero-clip-poster-1024.webp'),
   // Five steps rather than three: a 412px phone at DPR 1.75 asks for 721px,
   // which with only a 720/1280 pair jumps to the largest file for one pixel.
   // 1920 covers the same retina-desktop case the 1920 video tier exists for.
   srcSet:
-    '/assets/jw-hero-clip-poster-480.webp 480w, /assets/jw-hero-clip-poster-768.webp 768w, ' +
-    '/assets/jw-hero-clip-poster-1024.webp 1024w, /assets/jw-hero-clip-poster-1440.webp 1440w, ' +
-    '/assets/jw-hero-clip-poster-1920.webp 1920w',
+    `${v('/assets/jw-hero-clip-poster-480.webp')} 480w, ${v('/assets/jw-hero-clip-poster-768.webp')} 768w, ` +
+    `${v('/assets/jw-hero-clip-poster-1024.webp')} 1024w, ${v('/assets/jw-hero-clip-poster-1440.webp')} 1440w, ` +
+    `${v('/assets/jw-hero-clip-poster-1920.webp')} 1920w`,
   width: 1440,
   height: 810,
 };
@@ -36,20 +44,20 @@ export const heroPosterFallback = {
 };
 
 const portrait = {
-  av1: '/assets/jw-hero-clip-portrait.webm',
-  h264: '/assets/jw-hero-clip-portrait.mp4',
+  av1: v('/assets/jw-hero-clip-portrait.webm'),
+  h264: v('/assets/jw-hero-clip-portrait.mp4'),
 };
 
 const landscape = [
-  { upTo: 700, av1: '/assets/jw-hero-clip-854.webm', h264: '/assets/jw-hero-clip-854.mp4' },
-  { upTo: 1440, av1: '/assets/jw-hero-clip-1440.webm', h264: '/assets/jw-hero-clip-1440.mp4' },
-  { upTo: Infinity, av1: '/assets/jw-hero-clip-1920.webm', h264: '/assets/jw-hero-clip-1920.mp4' },
+  { upTo: 700, av1: v('/assets/jw-hero-clip-854.webm'), h264: v('/assets/jw-hero-clip-854.mp4') },
+  { upTo: 1440, av1: v('/assets/jw-hero-clip-1440.webm'), h264: v('/assets/jw-hero-clip-1440.mp4') },
+  { upTo: Infinity, av1: v('/assets/jw-hero-clip-1920.webm'), h264: v('/assets/jw-hero-clip-1920.mp4') },
 ];
 
 /** Poster for an upright phone, cropped to match the portrait clip. */
 export const heroPosterPortrait = {
   srcSet:
-    '/assets/jw-hero-clip-portrait-456.webp 456w, /assets/jw-hero-clip-portrait-608.webp 608w',
+    `${v('/assets/jw-hero-clip-portrait-456.webp')} 456w, ${v('/assets/jw-hero-clip-portrait-608.webp')} 608w`,
   media: '(orientation: portrait) and (max-width: 700px)',
 };
 
@@ -99,13 +107,13 @@ export function pickHeroPosterSrc(): string {
   if (typeof window === 'undefined') return heroPoster.src;
 
   if (window.innerHeight > window.innerWidth && window.innerWidth <= 700) {
-    return '/assets/jw-hero-clip-portrait-608.webp';
+    return v('/assets/jw-hero-clip-portrait-608.webp');
   }
 
   const dpr = window.devicePixelRatio || 1;
   const physicalWidth = window.innerWidth * dpr;
-  if (physicalWidth <= 768) return '/assets/jw-hero-clip-poster-768.webp';
-  if (physicalWidth <= 1440) return '/assets/jw-hero-clip-poster-1440.webp';
-  return '/assets/jw-hero-clip-poster-1920.webp';
+  if (physicalWidth <= 768) return v('/assets/jw-hero-clip-poster-768.webp');
+  if (physicalWidth <= 1440) return v('/assets/jw-hero-clip-poster-1440.webp');
+  return v('/assets/jw-hero-clip-poster-1920.webp');
 }
 
