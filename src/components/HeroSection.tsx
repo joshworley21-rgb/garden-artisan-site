@@ -6,6 +6,7 @@ import {
   heroPosterFallback,
   heroPosterPortrait,
   heroVideoFallback,
+  pickHeroPosterSrc,
   pickHeroVideo,
 } from '@/lib/hero-media';
 
@@ -82,10 +83,19 @@ const useHeroVideo = () => {
 const HeroSection = () => {
   const showVideo = useHeroVideo();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoReady, setVideoReady] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const [poster, setPoster] = useState(heroPoster);
   // Resolved on the client: the file depends on screen size and codec support.
   const [videoSrc, setVideoSrc] = useState(pickHeroVideo);
+  // Whatever file the <picture> above actually resolved to and already has on
+  // screen, byte for byte — not a fresh guess at the right size. Read directly
+  // from the img at render time (not via state/effect) so the very first
+  // paint of the video already carries the exact, already-decoded source: no
+  // one-frame gap where a heuristic guess could show before being corrected.
+  // The picker is only a fallback for the one case where the ref genuinely
+  // isn't attached yet (shouldn't happen — the img renders unconditionally,
+  // long before the video ever does).
+  const videoPoster = imgRef.current?.currentSrc || pickHeroPosterSrc();
 
   useEffect(() => {
     if (!showVideo) return;
@@ -115,6 +125,7 @@ const HeroSection = () => {
             />
           )}
           <img
+            ref={imgRef}
             src={poster.src}
             srcSet={poster.srcSet}
             sizes="100vw"
@@ -131,21 +142,17 @@ const HeroSection = () => {
           <video
             ref={videoRef}
             src={videoSrc}
+            poster={videoPoster}
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            onCanPlay={() => setVideoReady(true)}
-            onPlaying={() => setVideoReady(true)}
             onError={() => setVideoSrc((current) =>
               current === heroVideoFallback ? current : heroVideoFallback,
             )}
             aria-hidden="true"
-            style={{ transitionDuration: '1000ms' }}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity ease-out ${
-              videoReady ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 w-full h-full object-cover"
           />
         )}
         {/* Two scrims that overlap only under the text. The old pair washed the

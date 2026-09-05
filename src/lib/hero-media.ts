@@ -88,3 +88,24 @@ export function pickHeroVideo(): string {
   return pick(set);
 }
 
+/**
+ * A single poster URL for the <video poster> attribute, chosen the same way
+ * as pickHeroVideo. This is deliberately not the responsive <picture> element
+ * (no srcset here) — it only has to be close enough that swapping to it from
+ * whichever <picture> candidate the browser chose is visually unnoticeable,
+ * since the video immediately covers it with real frames.
+ */
+export function pickHeroPosterSrc(): string {
+  if (typeof window === 'undefined') return heroPoster.src;
+
+  if (window.innerHeight > window.innerWidth && window.innerWidth <= 700) {
+    return '/assets/jw-hero-clip-portrait-608.webp';
+  }
+
+  const dpr = window.devicePixelRatio || 1;
+  const physicalWidth = window.innerWidth * dpr;
+  if (physicalWidth <= 768) return '/assets/jw-hero-clip-poster-768.webp';
+  if (physicalWidth <= 1440) return '/assets/jw-hero-clip-poster-1440.webp';
+  return '/assets/jw-hero-clip-poster-1920.webp';
+}
+
