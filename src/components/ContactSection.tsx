@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Send, Loader2 } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { trackEnquirySubmitted } from '@/lib/analytics';
 
 // Form submissions are sent to a self-hosted PHP handler (public/enquiry.php)
@@ -40,6 +40,7 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const location = useLocation();
+  const navigate = useNavigate();
   const fieldRefs = {
     name: useRef<HTMLInputElement>(null),
     email: useRef<HTMLInputElement>(null),
@@ -75,9 +76,14 @@ const ContactSection = ({ showIntro = true, flushTop = false }: { showIntro?: bo
       });
 
       if (res.ok) {
+        // Fire the conversion from here rather than from /thank-you: this branch
+        // only runs on a genuine successful submission, whereas the page would
+        // also fire on a refresh or a shared link and inflate the count.
         trackEnquirySubmitted(location.pathname);
-        void notify('success', "Thank you. We have your enquiry and will be in touch shortly.");
         setFormData({ name: '', email: '', phone: '', message: '' });
+        // The confirmation is a real URL, not a toast, so Google Ads can also
+        // count the lead with a "page visited /thank-you" goal.
+        navigate('/thank-you');
       } else {
         throw new Error('submission failed');
       }

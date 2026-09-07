@@ -2,11 +2,12 @@
  * Google Analytics 4 + Google Ads conversion tracking.
  *
  * The site had no measurement of any kind, so the Google Ads campaign could not
- * see which clicks turned into enquiries. The enquiry form resolves to an inline
- * toast rather than a /thank-you redirect, so there is no URL a conversion goal
- * could key on — the conversion has to be an event fired from the success branch
- * of the submit handler. Phone taps are the other half of the lead flow and are
- * tracked with one delegated listener rather than a handler on every tel: link.
+ * see which clicks turned into enquiries. The enquiry is counted twice over, on
+ * purpose: an event fired from the success branch of the submit handler, and the
+ * /thank-you URL that branch then navigates to, which a URL-based conversion
+ * goal can key on independently if the event tag ever breaks. Phone taps are the
+ * other half of the lead flow and are tracked with one delegated listener rather
+ * than a handler on every tel: link.
  *
  * IDs come from the environment so nothing is hardcoded and the site keeps
  * working with them unset — see .env.example. Vite inlines VITE_* at BUILD time,
@@ -73,13 +74,31 @@ export const initAnalytics = () => {
   listenForPhoneClicks();
 };
 
+let adsLandingRegistered = false;
+
 export const trackPageView = (path: string) => {
-  if (!initialised || !GA4_ID) return;
-  gtag('event', 'page_view', {
-    page_path: path,
-    page_location: window.location.href,
-    page_title: document.title,
-  });
+  if (!initialised) return;
+
+  if (GA4_ID) {
+    gtag('event', 'page_view', {
+      page_path: path,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }
+
+  // A URL-based Google Ads goal ('page visited /thank-you') can only match a URL
+  // the tag has actually reported, and a client-side navigation never reloads
+  // the document — so without this gtag would forever report the entry URL and
+  // the goal would never fire. Re-running config registers the new one.
+  // initAnalytics already registered the landing page, hence the skipped first
+  // call: counting it twice would double every URL-based conversion.
+  if (ADS_ID) {
+    if (adsLandingRegistered) {
+      gtag('config', ADS_ID, { page_path: path, page_location: window.location.href });
+    }
+    adsLandingRegistered = true;
+  }
 };
 
 /**

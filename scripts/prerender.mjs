@@ -43,7 +43,9 @@ async function collectRoutes() {
   const services = await readFile(path.join(root, 'src', 'lib', 'services.ts'), 'utf8');
   for (const [, slug] of services.matchAll(/slug: '([^']+)'/g)) routes.add(`/services/${slug}`);
 
-  for (const p of ['/about', '/our-work', '/contact', '/privacy']) routes.add(p);
+  // /thank-you is deliberately absent from the sitemap (it is noindex), so it
+  // has to be listed here or the URL would fall back to the JS-only app shell.
+  for (const p of ['/about', '/our-work', '/contact', '/privacy', '/thank-you']) routes.add(p);
   return [...routes].sort();
 }
 
