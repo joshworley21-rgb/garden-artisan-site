@@ -17,7 +17,7 @@ const About = () => (
     <PageLayout
       eyebrow="About"
       title="Trained gardener, not a mow and go"
-      intro="I'm Josh. I got into gardening at school, studied horticulture at BCA, and did an apprenticeship before starting JW Garden Services in 2017."
+      intro="I'm Josh. I got into gardening at school, trained at Bicton College, and did an apprenticeship with a landscaping firm before going self-employed in 2017."
     >
       <section className="section-padding bg-background">
         <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -25,24 +25,24 @@ const About = () => (
             <p>
               Cutting grass and looking after a garden aren't the same job. Anyone can take the
               top off a hedge. Knowing when it should be cut, and that the roses next to it want
-              pruning at a different point in the year—that's the bit you train for. It shows up the
-              following summer, in how much everything flowers.
+              pruning in late February—that's what you train for. It shows up the following summer,
+              in how much everything flowers.
             </p>
             <p>
-              I work out of Bierton, so most of the gardens I look after are ones I drive past
-              anyway. That keeps you honest. A garden ten minutes from your own front door isn't
-              one you can do a rushed job on and forget about.
+              I work out of Bierton, so most of the gardens I look after are within ten minutes of
+              home. That keeps you honest. You can't do a rushed job on a garden you drive past
+              every day.
             </p>
             <p>
-              Most people ring because the garden's got away from them a bit. I'll come and have a look,
-              ask how you actually use the space, and send over a written quote with the costs broken
-              down. No obligation. If a job needs a proper tree surgeon rather than me, I'll say
-              so.
+              Most people ring because the garden's got away from them a bit. I'll come round, have
+              a look, ask how you actually use the space, and send over a written quote with the
+              costs broken down. No obligation. If a job needs a proper tree surgeon or a
+              landscaper rather than me, I'll say so.
             </p>
             <p>
-              I'm City &amp; Guilds qualified, a member of The Gardeners Guild, and we carry
-              public liability insurance. I can send the details and risk assessments over
-              whenever you need them.
+              I'm City &amp; Guilds Level 2 qualified in horticulture, a member of The Gardeners
+              Guild, and we carry £5 million public liability insurance. I can send the
+              certificates and risk assessments over whenever you need them.
             </p>
           </div>
 
