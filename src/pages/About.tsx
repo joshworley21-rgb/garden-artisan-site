@@ -11,36 +11,36 @@ const About = () => (
   <>
     <Seo
       title="About Josh | JW Garden Services, Aylesbury"
-      description="Meet Josh Worley, BCA-trained horticulturist and founder of JW Garden Services in Bierton, Aylesbury, caring for gardens across Bucks, Beds and Herts."
+      description="Meet Josh Worley, BCA-trained horticulturist based in Bierton, Aylesbury. I look after gardens across Bucks, Beds and Herts—properly, not just a mow and go."
       path="/about"
     />
     <PageLayout
       eyebrow="About"
-      title="A trained gardener, not a mow and go"
+      title="Trained gardener, not a mow and go"
       intro="I'm Josh. I got into gardening at school, studied horticulture at BCA, and did an apprenticeship before starting JW Garden Services in 2017."
     >
       <section className="section-padding bg-background">
         <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="space-y-6 font-body text-lg text-muted-foreground leading-relaxed measure">
             <p>
-              Cutting grass and looking after a garden are not the same job. Anyone can take the
+              Cutting grass and looking after a garden aren't the same job. Anyone can take the
               top off a hedge. Knowing when it should be cut, and that the roses next to it want
-              pruning at a different point in the year, is the part you train for. It shows up the
+              pruning at a different point in the year—that's the bit you train for. It shows up the
               following summer, in how much everything flowers.
             </p>
             <p>
               I work out of Bierton, so most of the gardens I look after are ones I drive past
-              anyway. That keeps you honest. A garden ten minutes from your own front door is not
+              anyway. That keeps you honest. A garden ten minutes from your own front door isn't
               one you can do a rushed job on and forget about.
             </p>
             <p>
-              Most people ring because the garden has got away from them a bit. I come and look,
-              ask how you actually use the space, and send a written quote with the costs broken
-              down. No obligation. If a job wants a proper tree surgeon rather than me, I will say
+              Most people ring because the garden's got away from them a bit. I'll come and have a look,
+              ask how you actually use the space, and send over a written quote with the costs broken
+              down. No obligation. If a job needs a proper tree surgeon rather than me, I'll say
               so.
             </p>
             <p>
-              I am City &amp; Guilds qualified, a member of The Gardeners Guild, and we carry
+              I'm City &amp; Guilds qualified, a member of The Gardeners Guild, and we carry
               public liability insurance. I can send the details and risk assessments over
               whenever you need them.
             </p>
