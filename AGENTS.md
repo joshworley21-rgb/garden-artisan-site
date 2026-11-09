@@ -61,6 +61,25 @@ Use em-dashes sparingly, only when you'd naturally pause in conversation.
 
 If you need a list, vary the rhythm. Mix short and long items. Or just pick one strong point and explain it properly.
 
+### No Three-Step Wrap-Up Conclusions
+❌ "So there you have it—expert care, honest advice, and a tidy garden. Get in touch today and let's transform your outdoor space together."  
+❌ "In summary, we offer quality, reliability, and peace of mind."
+
+These neat three-part endings scream AI. If you've made your point, just stop.
+
+### No Diplomatic Hedging or Filler Bridges
+❌ "look no further"  
+❌ "rest assured"  
+❌ "you can count on us to"  
+❌ "we pride ourselves on"  
+❌ "committed to excellence"  
+❌ "your trusted partner"
+
+Just say the thing. No corporate padding.
+
+### Never Summarize What You Just Wrote
+If the paragraph already explained it, don't add a sentence that restates the same idea in different words. Move forward or stop.
+
 ---
 
 ## Voice & Tone
@@ -83,6 +102,15 @@ Don't make every sentence the same length. Mix short punchy statements with long
 ✅ "That keeps you honest. A garden ten minutes from your own front door isn't one you can do a rushed job on and forget about."
 
 ❌ "This keeps you honest. This ensures quality. This builds trust."
+
+### Replace Abstract Claims with Physical Trade Specifics
+❌ "We provide comprehensive garden solutions."  
+✅ "I'll rotavate the patch, lay 100mm of topsoil, and seed it in September."
+
+❌ "Our team delivers quality results."  
+✅ "The hedge gets cut twice a year—late June and early September—so it stays thick at the base."
+
+Use actual materials, depths, timings, and techniques. If you can't picture someone doing it, rewrite it.
 
 ---
 
