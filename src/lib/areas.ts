@@ -26,7 +26,7 @@ export const areas: AreaContent[] = [
     town: 'Aylesbury',
     h1: 'Gardeners in Aylesbury',
     eyebrow: 'Local to Aylesbury',
-    seoTitle: 'Gardeners in Aylesbury | Weekly Garden Maintenance',
+      seoTitle: 'Gardeners in Aylesbury | JW Garden Services',
     seoDescription:
       'Gardener near you in Aylesbury: weekly garden maintenance, landscaping and planting across Aylesbury and HP19 to HP22. Free quotes.',
     intro:
@@ -37,16 +37,16 @@ export const areas: AreaContent[] = [
       {
         heading: 'We are minutes away',
         paragraphs: [
-          'We've looked after Aylesbury gardens since 2017. Being based in Bierton on the edge of town means we can be with you in a few minutes, which is why most of our weekly customers are in Aylesbury itself. Fairford Leys, Watermead, Berryfields, Quarrendon, Elmhurst, Walton Court and Stoke Mandeville.',
+          'We\'ve looked after Aylesbury gardens since 2017. Being based in Bierton on the edge of town means we can be with you in a few minutes, which is why most of our weekly customers are in Aylesbury itself. Fairford Leys, Watermead, Berryfields, Quarrendon, Elmhurst, Walton Court and Stoke Mandeville.',
           'Being five minutes away means we can keep the same day every week, drop in for an extra visit before a party or a viewing, and turn up in the same van with the same face rather than sending whoever happens to be free.',
         ],
       },
       {
         heading: 'What Aylesbury gardens usually need',
         paragraphs: [
-          'A lot of Aylesbury homes are newer builds over on Berryfields and Kingsbrook, where the garden starts as flat turf laid over clay the builders have driven all over. Those lawns need feeding and aerating to thicken up, and the borders need the soil improving before planting's worth doing. We do both.',
+          'A lot of Aylesbury homes are newer builds over on Berryfields and Kingsbrook, where the garden starts as flat turf laid over clay the builders have driven all over. Those lawns need feeding and aerating to thicken up, and the borders need the soil improving before planting\'s worth doing. We do both.',
           'Nearer the centre, the older streets around Walton and Bedgrove have long narrow gardens with mature hedges, established shrubs and fruit trees. Most of that wants pruning at the right time of year rather than replacing.',
-          'Either way the aim's the same. A garden that always looks presentable, without you spending your weekend on it.',
+          'Either way the aim\'s the same. A garden that always looks presentable, without you spending your weekend on it.',
         ],
       },
     ],
@@ -84,7 +84,7 @@ export const areas: AreaContent[] = [
     town: 'Bierton',
     h1: 'Gardeners in Bierton',
     eyebrow: 'Our home village',
-    seoTitle: 'Gardeners in Bierton | Village Garden Maintenance',
+      seoTitle: 'Gardeners in Bierton | JW Garden Services',
     seoDescription:
       'Based in Bierton, so we are your nearest gardener for weekly maintenance, hedge cutting, patios and planting in Bierton and Broughton. Free quotes.',
     intro:
@@ -102,8 +102,8 @@ export const areas: AreaContent[] = [
       {
         heading: 'Village gardens, hedges and open boundaries',
         paragraphs: [
-          'Bierton gardens are usually bigger than town plots, often with a long boundary facing the fields, mature native hedges and old fruit trees. Hedge work's a big part of what we do here. Cut properly on a yearly cycle they stay thick at the base instead of going gappy.',
-          'There's plenty of seasonal work around the newer developments off the Aylesbury Road too, where lawns need establishing and borders need filling out with planting that copes with the wind you get on the edge of the village.',
+          'Bierton gardens are usually bigger than town plots, often with a long boundary facing the fields, mature native hedges and old fruit trees. Hedge work\'s a big part of what we do here. Cut properly on a yearly cycle they stay thick at the base instead of going gappy.',
+          'There\'s plenty of seasonal work around the newer developments off the Aylesbury Road too, where lawns need establishing and borders need filling out with planting that copes with the wind you get on the edge of the village.',
         ],
       },
     ],
@@ -120,7 +120,7 @@ export const areas: AreaContent[] = [
     faqs: [
       {
         q: 'Are you actually based in Bierton?',
-        a: 'Yes. JW Garden Services runs from Bierton, Aylesbury. It's why we can be flexible with village customers and often fit small extra jobs in at short notice.',
+        a: 'Yes. JW Garden Services runs from Bierton, Aylesbury. It\'s why we can be flexible with village customers and often fit small extra jobs in at short notice.',
       },
       {
         q: 'Do you cut long rural hedges and field boundaries?',
@@ -138,7 +138,7 @@ export const areas: AreaContent[] = [
     town: 'Wendover',
     h1: 'Gardeners in Wendover',
     eyebrow: 'Wendover & the Chilterns edge',
-    seoTitle: 'Gardeners in Wendover | Garden Maintenance',
+      seoTitle: 'Gardeners in Wendover | JW Garden Services',
     seoDescription:
       'Gardener near you in Wendover: weekly maintenance, hedge cutting, patios and planting for Wendover, Halton and Aston Clinton. Free quotes.',
     intro:
@@ -156,7 +156,7 @@ export const areas: AreaContent[] = [
       {
         heading: 'Terracing, steps and levels',
         paragraphs: [
-          'Because so many gardens here slope, a lot of our Wendover work's hard landscaping. Retaining walls, terraced beds, steps and level patios that turn an awkward bank into somewhere you can actually sit. We build them with the drainage designed in so they stay put.',
+          'Because so many gardens here slope, a lot of our Wendover work\'s hard landscaping. Retaining walls, terraced beds, steps and level patios that turn an awkward bank into somewhere you can actually sit. We build them with the drainage designed in so they stay put.',
           'We do the upkeep afterwards as well. A terraced garden looks great but needs regular attention to stay that way, and we can fit it into the weekly or fortnightly round with the rest of Wendover.',
         ],
       },
@@ -178,11 +178,11 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'What plants work on Wendover chalk soil?',
-        a: 'Chalk lovers like lavender, hellebores, box, viburnum, geraniums and ornamental grasses do far better than rhododendron or camellia. We plant to suit your soil so you're not replacing things in two years.',
+        a: 'Chalk lovers like lavender, hellebores, box, viburnum, geraniums and ornamental grasses do far better than rhododendron or camellia. We plant to suit your soil so you\'re not replacing things in two years.',
       },
       {
         q: 'Can you cut grass under trees where nothing grows?',
-        a: 'We can improve it. A shade tolerant seed mix, a slightly higher cut and some feed usually makes a real difference. Where grass'll never work, ground cover planting or a bark path often looks better anyway.',
+        a: 'We can improve it. A shade tolerant seed mix, a slightly higher cut and some feed usually makes a real difference. Where grass\'ll never work, ground cover planting or a bark path often looks better anyway.',
       },
     ],
     gallery: [images['jw-g2'], images['jw-g3'], images['jw-g8']],
@@ -192,7 +192,7 @@ export const areas: AreaContent[] = [
     town: 'Wing',
     h1: 'Gardeners in Wing',
     eyebrow: 'Wing & the Leighton Buzzard side',
-    seoTitle: 'Gardeners in Wing | Garden Maintenance & Hedges',
+      seoTitle: 'Gardeners in Wing | JW Garden Services',
     seoDescription:
       'Local gardener for Wing, Cublington and Stewkley: weekly garden maintenance, hedge cutting, lawn care, patios and planting. Free quotes.',
     intro:
@@ -245,7 +245,7 @@ export const areas: AreaContent[] = [
     town: 'Stone',
     h1: 'Gardeners in Stone',
     eyebrow: 'Stone, Bishopstone & Hartwell',
-    seoTitle: 'Gardeners in Stone, Aylesbury | Garden Maintenance',
+      seoTitle: 'Gardeners in Stone | JW Garden Services',
     seoDescription:
       'Gardener near you in Stone, Bishopstone and Hartwell: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes.',
     intro:
@@ -284,11 +284,11 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'My lawn is waterlogged every winter. Can you help?',
-        a: 'Usually. Clay lawns round Stone respond well to autumn aeration, sensible mowing heights and top dressing. Where the water's nowhere to go we'll say so and talk about drainage or planting, rather than selling you treatments that won't work.',
+        a: 'Usually. Clay lawns round Stone respond well to autumn aeration, sensible mowing heights and top dressing. Where the water\'s nowhere to go we\'ll say so and talk about drainage or planting, rather than selling you treatments that won\'t work.',
       },
       {
         q: 'Can you do a one-off tidy before we sell?',
-        a: 'Of course. Tidies before a sale are a big part of what we do locally, and there's no obligation to book anything regular afterwards.',
+        a: 'Of course. Tidies before a sale are a big part of what we do locally, and there\'s no obligation to book anything regular afterwards.',
       },
     ],
     gallery: [images['jw-g1'], images['jw-maint-2'], images['jw-g9']],
@@ -298,7 +298,7 @@ export const areas: AreaContent[] = [
     town: 'Waddesdon',
     h1: 'Gardeners in Waddesdon',
     eyebrow: 'Waddesdon & the Quainton side',
-    seoTitle: 'Gardeners in Waddesdon | Garden Maintenance',
+      seoTitle: 'Gardeners in Waddesdon | JW Garden Services',
     seoDescription:
       'Local gardener for Waddesdon, Quainton and Whitchurch: weekly garden maintenance, hedge cutting, lawns, borders and landscaping. Free quotes.',
     intro:
@@ -352,7 +352,7 @@ export const areas: AreaContent[] = [
     town: 'Haddenham',
     h1: 'Gardeners in Haddenham',
     eyebrow: 'Haddenham & Cuddington',
-    seoTitle: 'Gardeners in Haddenham | Weekly Garden Maintenance',
+      seoTitle: 'Gardeners in Haddenham | JW Garden Services',
     seoDescription:
       'Gardener near you in Haddenham, Cuddington and Long Crendon: weekly garden maintenance, hedge cutting, lawn care and planting. Free quotes.',
     intro:
@@ -363,7 +363,7 @@ export const areas: AreaContent[] = [
       {
         heading: 'Wychert walls and cottage gardens',
         paragraphs: [
-          'Haddenham's known for its wychert walls, and the gardens behind them are often older cottage plots. Mixed borders, fruit trees, gravel paths and lawns that are rarely a simple rectangle. They need someone who'll work around what's already there instead of tidying it into blandness.',
+          'Haddenham\'s known for its wychert walls, and the gardens behind them are often older cottage plots. Mixed borders, fruit trees, gravel paths and lawns that are rarely a simple rectangle. They need someone who\'ll work around what\'s already there instead of tidying it into blandness.',
           'Our regular visits here are mostly cutting, edging, weeding and dead heading through the season, then pruning and mulching in the quieter months to keep the planting healthy.',
         ],
       },
@@ -371,7 +371,7 @@ export const areas: AreaContent[] = [
         heading: 'Newer estates and bigger lawns',
         paragraphs: [
           'The newer part of the village towards the station has larger, flatter lawns and young boundary hedges. Those do best with lawn treatment through the year, and with the hedges cut properly early on so they thicken from the base.',
-          'Whichever end of Haddenham you're in, the work's the same: cutting on a schedule that suits the hedge rather than whenever it's got away from you.',
+          'Whichever end of Haddenham you\'re in, the work\'s the same: cutting on a schedule that suits the hedge rather than whenever it\'s got away from you.',
         ],
       },
     ],
@@ -406,7 +406,7 @@ export const areas: AreaContent[] = [
     town: 'Tring',
     h1: 'Gardeners in Tring',
     eyebrow: 'Tring & the Herts border',
-    seoTitle: 'Gardeners in Tring | Garden Maintenance',
+      seoTitle: 'Gardeners in Tring | JW Garden Services',
     seoDescription:
       'Gardener near you in Tring, Wilstone and Long Marston: weekly garden maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
@@ -417,8 +417,8 @@ export const areas: AreaContent[] = [
       {
         heading: 'Town gardens, and the slopes above them',
         paragraphs: [
-          'Tring gardens split into two types. In the town, the Victorian terraces and 1930s semis have long narrow plots with high boundary hedges and a lot of shade. The work there's about keeping the structure and the light rather than adding more plants.',
-          'Above the town, towards Aldbury and the Chilterns, gardens are bigger, chalkier and often sloping. That's where we do more hard landscaping. Steps, retaining walls, terraced beds and level patios that make a bank usable.',
+          'Tring gardens split into two types. In the town, the Victorian terraces and 1930s semis have long narrow plots with high boundary hedges and a lot of shade. The work there\'s about keeping the structure and the light rather than adding more plants.',
+          'Above the town, towards Aldbury and the Chilterns, gardens are bigger, chalkier and often sloping. That\'s where we do more hard landscaping. Steps, retaining walls, terraced beds and level patios that make a bank usable.',
         ],
       },
       {
@@ -442,11 +442,11 @@ export const areas: AreaContent[] = [
     faqs: [
       {
         q: 'Do you actually cover Hertfordshire?',
-        a: 'Yes. Tring and the villages around it are a regular part of our round, even though we're based in Buckinghamshire. It's a 20 minute run for us.',
+        a: 'Yes. Tring and the villages around it are a regular part of our round, even though we\'re based in Buckinghamshire. It\'s a 20 minute run for us.',
       },
       {
         q: 'Can you build a patio or steps on a sloping garden?',
-        a: 'That's one of our main landscaping jobs round Tring. We set the levels properly, build in the drainage and finish with planting so the new structure doesn't look raw.',
+        a: 'That\'s one of our main landscaping jobs round Tring. We set the levels properly, build in the drainage and finish with planting so the new structure doesn\'t look raw.',
       },
       {
         q: 'What is the best planting for chalk soil?',
@@ -460,7 +460,7 @@ export const areas: AreaContent[] = [
     town: 'Leighton Buzzard',
     h1: 'Gardeners in Leighton Buzzard',
     eyebrow: 'Leighton Buzzard & Linslade',
-    seoTitle: 'Gardeners in Leighton Buzzard | Garden Maintenance',
+      seoTitle: 'Gardeners in Leighton Buzzard | JW Garden Services',
     seoDescription:
       'Local gardener for Leighton Buzzard and Linslade: weekly garden maintenance, lawn care, hedge cutting, patios and planting. Free quotes.',
     intro:
@@ -478,7 +478,7 @@ export const areas: AreaContent[] = [
       {
         heading: 'Sandy soil, fast lawns and new build plots',
         paragraphs: [
-          'The greensand round Leighton Buzzard drains fast. That's a blessing in winter and a problem in July, when lawns brown off quickly and borders dry out. We feed lawns in autumn and mulch borders in spring, which does more than watering ever will.',
+          'The greensand round Leighton Buzzard drains fast. That\'s a blessing in winter and a problem in July, when lawns brown off quickly and borders dry out. We feed lawns in autumn and mulch borders in spring, which does more than watering ever will.',
           'On the newer estates towards Linslade and Sandhills, gardens usually start as flat turf and a fence. We help them along with lawn treatment, soil improvement and planting that fills the borders out within a couple of seasons.',
         ],
       },
@@ -499,11 +499,11 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'My lawn goes brown every summer. What helps?',
-        a: 'On sandy soil the answer's usually a higher cut, autumn feeding and leaving the clippings now and then, rather than constant watering. It builds a deeper rooted lawn that copes far better the next year.',
+        a: 'On sandy soil the answer\'s usually a higher cut, autumn feeding and leaving the clippings now and then, rather than constant watering. It builds a deeper rooted lawn that copes far better the next year.',
       },
       {
         q: 'Can you plant up a bare new-build garden?',
-        a: 'Yes, that's a common job here. We improve the soil first, then plant the borders with a mix that gives you some structure straight away and fills out over two or three seasons.',
+        a: 'Yes, that\'s a common job here. We improve the soil first, then plant the borders with a mix that gives you some structure straight away and fills out over two or three seasons.',
       },
     ],
     gallery: [images['jw-maint-4'], images['jw-g1'], images['jw-g7']],
@@ -513,7 +513,7 @@ export const areas: AreaContent[] = [
     town: 'Great Missenden',
     h1: 'Gardeners in Great Missenden',
     eyebrow: 'Great Missenden & the Misbourne valley',
-    seoTitle: 'Gardeners in Great Missenden | Garden Maintenance',
+      seoTitle: 'Gardeners in Great Missenden | JW Garden Services',
     seoDescription:
       'Gardener near you in Great Missenden, Prestwood and Little Kingshill: weekly maintenance, hedge cutting, terracing and planting. Free quotes.',
     intro:
@@ -531,8 +531,8 @@ export const areas: AreaContent[] = [
       {
         heading: 'Levels, steps and retaining structure',
         paragraphs: [
-          'Valley side plots need structure before they need planting. Retaining walls, timber or sleeper terracing, steps and a level patio turn a bank you can't use into the best part of the garden. We build them with the drainage designed in from the start.',
-          'Once the structure's in we keep it. Regular visits to look after the terraces, hedges and borders, so it still looks right in five years.',
+          'Valley side plots need structure before they need planting. Retaining walls, timber or sleeper terracing, steps and a level patio turn a bank you can\'t use into the best part of the garden. We build them with the drainage designed in from the start.',
+          'Once the structure\'s in we keep it. Regular visits to look after the terraces, hedges and borders, so it still looks right in five years.',
         ],
       },
     ],
@@ -567,7 +567,7 @@ export const areas: AreaContent[] = [
     town: 'Chesham',
     h1: 'Gardeners in Chesham',
     eyebrow: 'Chesham & the Chess valley',
-    seoTitle: 'Gardeners in Chesham | Garden Maintenance & Hedges',
+      seoTitle: 'Gardeners in Chesham | JW Garden Services',
     seoDescription:
       'Gardener near you in Chesham, Chesham Bois and Ashley Green: weekly garden maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
@@ -578,7 +578,7 @@ export const areas: AreaContent[] = [
       {
         heading: 'Steep town gardens, properly managed',
         paragraphs: [
-          'Chesham's built across a valley, so a lot of gardens rise steeply behind the house. Mowing a bank's slow and often unsafe, so we either terrace it or turn the steepest sections over to planting with a mown path through.',
+          'Chesham\'s built across a valley, so a lot of gardens rise steeply behind the house. Mowing a bank\'s slow and often unsafe, so we either terrace it or turn the steepest sections over to planting with a mown path through.',
           'The flatter sections get the same regular service as anywhere else. Cutting, edging, weeding and hedge work on a fixed weekly or fortnightly day.',
         ],
       },
@@ -611,7 +611,7 @@ export const areas: AreaContent[] = [
       },
       {
         q: 'Is there a minimum visit for Chesham?',
-        a: 'It's a longer run for us, so we usually ask for a regular booking or a job of at least half a day. Get in touch and we'll be straight with you about what works.',
+        a: 'It\'s a longer run for us, so we usually ask for a regular booking or a job of at least half a day. Get in touch and we\'ll be straight with you about what works.',
       },
     ],
     gallery: [images['jw-g9'], images['jw-g6'], images['jw-g5']],
@@ -621,7 +621,7 @@ export const areas: AreaContent[] = [
     town: 'Amersham',
     h1: 'Gardeners in Amersham',
     eyebrow: 'Amersham & Old Amersham',
-    seoTitle: 'Gardeners in Amersham | Garden Maintenance',
+      seoTitle: 'Gardeners in Amersham | JW Garden Services',
     seoDescription:
       'Gardener near you in Amersham, Old Amersham and Little Chalfont: weekly maintenance, hedge cutting, patios and planting. Free quotes.',
     intro:
@@ -632,14 +632,14 @@ export const areas: AreaContent[] = [
       {
         heading: 'Old Amersham and Amersham on the Hill',
         paragraphs: [
-          'Down in Old Amersham the gardens are older and more involved. Walled plots, mixed borders, brick paths and mature trees. The work's careful pruning, keeping the borders in order, and looking after the structure that's already there.',
+          'Down in Old Amersham the gardens are older and more involved. Walled plots, mixed borders, brick paths and mature trees. The work\'s careful pruning, keeping the borders in order, and looking after the structure that\'s already there.',
           'Up on the Hill, the 1930s and post war houses have larger, more open gardens with big lawns and substantial boundary hedges. Those suit a straightforward weekly cut and edge, with the hedge work booked in seasonally.',
         ],
       },
       {
         heading: 'Established gardens kept established',
         paragraphs: [
-          'Amersham has a lot of gardens that were planted well thirty or forty years ago and have quietly outgrown themselves. Bringing one back's usually pruning, thinning and clearing rather than starting again, and it costs a fraction of a redesign.',
+          'Amersham has a lot of gardens that were planted well thirty or forty years ago and have quietly outgrown themselves. Bringing one back\'s usually pruning, thinning and clearing rather than starting again, and it costs a fraction of a redesign.',
           'Where a garden does need reworking we do the landscaping too. Patios, paths, new borders and planting that suits the chalky Chilterns soil.',
         ],
       },
@@ -657,7 +657,7 @@ export const areas: AreaContent[] = [
     faqs: [
       {
         q: 'Can you restore an overgrown established garden?',
-        a: 'Usually yes, and it's one of my favourite jobs. We work through it in stages. Clearing first, then the structural pruning, then replanting the gaps, so the garden keeps its maturity instead of being flattened.',
+        a: 'Usually yes, and it\'s one of my favourite jobs. We work through it in stages. Clearing first, then the structural pruning, then replanting the gaps, so the garden keeps its maturity instead of being flattened.',
       },
       {
         q: 'Do you take on regular weekly visits in Amersham?',
