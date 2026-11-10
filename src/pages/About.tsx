@@ -17,7 +17,7 @@ const About = () => (
     <PageLayout
       eyebrow="About"
       title="Trained gardener, not a mow and go"
-      intro="I'm Josh. I got into gardening at school, trained at Bicton College, and did an apprenticeship with a landscaping firm before going self-employed in 2017."
+      intro="I'm Josh. I got into gardening at school, studied horticulture at BCA, and did an apprenticeship with a landscaping firm before starting JW Garden Services in 2017."
     >
       <section className="section-padding bg-background">
         <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -40,9 +40,9 @@ const About = () => (
               landscaper rather than me, I'll say so.
             </p>
             <p>
-              I'm City &amp; Guilds Level 2 qualified in horticulture, a member of The Gardeners
-              Guild, and we carry £5 million public liability insurance. I can send the
-              certificates and risk assessments over whenever you need them.
+              I'm City &amp; Guilds qualified, a member of The Gardeners Guild, and we carry
+              public liability insurance. I can send the certificates and risk assessments over
+              whenever you need them.
             </p>
           </div>
 
