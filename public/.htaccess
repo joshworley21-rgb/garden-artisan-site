@@ -10,6 +10,123 @@
   RewriteCond %{HTTP_HOST} !^jw-gardenservices\.co\.uk$ [NC]
   RewriteRule ^ https://jw-gardenservices.co.uk%{REQUEST_URI} [R=301,L]
 
+  # --- Service + location combos: 301 to the matching area page ---
+  # Flat keyword URLs (e.g. /garden-maintenance-aylesbury) and the
+  # structured form (/services/<service>/<town>) both land on the area
+  # page, which already lists every service we offer in that town.
+
+  # garden-maintenance
+  RewriteRule ^garden-maintenance-aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^garden-maintenance-bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^garden-maintenance-wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^garden-maintenance-wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^garden-maintenance-stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^garden-maintenance-waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^garden-maintenance-haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^garden-maintenance-tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^garden-maintenance-leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^garden-maintenance-great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^garden-maintenance-chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^garden-maintenance-amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # landscaping
+  RewriteRule ^landscaping-aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^landscaping-bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^landscaping-wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^landscaping-wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^landscaping-stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^landscaping-waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^landscaping-haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^landscaping-tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^landscaping-leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^landscaping-great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^landscaping-chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^landscaping-amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # garden-design
+  RewriteRule ^garden-design-aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^garden-design-bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^garden-design-wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^garden-design-wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^garden-design-stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^garden-design-waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^garden-design-haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^garden-design-tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^garden-design-leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^garden-design-great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^garden-design-chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^garden-design-amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # commercial-grounds
+  RewriteRule ^commercial-grounds-aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^commercial-grounds-bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^commercial-grounds-wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^commercial-grounds-wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^commercial-grounds-stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^commercial-grounds-waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^commercial-grounds-haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^commercial-grounds-tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^commercial-grounds-leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^commercial-grounds-great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^commercial-grounds-chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^commercial-grounds-amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # /services/garden-maintenance/<town>
+  RewriteRule ^services/garden-maintenance/aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^services/garden-maintenance/bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^services/garden-maintenance/wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^services/garden-maintenance/wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^services/garden-maintenance/stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^services/garden-maintenance/waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^services/garden-maintenance/haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^services/garden-maintenance/tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^services/garden-maintenance/leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^services/garden-maintenance/great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^services/garden-maintenance/chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^services/garden-maintenance/amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # /services/landscaping-and-patios/<town>
+  RewriteRule ^services/landscaping-and-patios/aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^services/landscaping-and-patios/amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # /services/garden-design-and-planting/<town>
+  RewriteRule ^services/garden-design-and-planting/aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^services/garden-design-and-planting/amersham/?$ /gardeners-in-amersham [R=301,L]
+
+  # /services/commercial-grounds-maintenance/<town>
+  RewriteRule ^services/commercial-grounds-maintenance/aylesbury/?$ /gardeners-in-aylesbury [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/bierton/?$ /gardeners-in-bierton [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/wendover/?$ /gardeners-in-wendover [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/wing/?$ /gardeners-in-wing [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/stone/?$ /gardeners-in-stone [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/waddesdon/?$ /gardeners-in-waddesdon [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/haddenham/?$ /gardeners-in-haddenham [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/tring/?$ /gardeners-in-tring [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/leighton-buzzard/?$ /gardeners-in-leighton-buzzard [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/great-missenden/?$ /gardeners-in-great-missenden [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/chesham/?$ /gardeners-in-chesham [R=301,L]
+  RewriteRule ^services/commercial-grounds-maintenance/amersham/?$ /gardeners-in-amersham [R=301,L]
+
   # Real files win (assets, enquiry.php, robots.txt, …)
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
