@@ -38,7 +38,7 @@ const Testimonials = () => {
     review: reviews.map((r) => ({
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },
-      datePublished: r.date,
+      ...(r.date ? { datePublished: r.date } : {}),
       reviewRating: {
         '@type': 'Rating',
         ratingValue: String(r.rating),
@@ -63,15 +63,16 @@ const Testimonials = () => {
               What customers say
             </h2>
             <p className="lg:col-span-5 font-body text-muted-foreground leading-relaxed">
-              Rated {average.toFixed(1)} out of 5 from {reviews.length} reviews.
+              Rated {average.toFixed(1)} out of 5 from {reviews.length}{' '}
+              {reviews.length === 1 ? 'review' : 'reviews'}.
             </p>
           </div>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((r) => (
+          {reviews.map((r, i) => (
             <figure
-              key={`${r.author}-${r.date}`}
+              key={`${r.author}-${i}`}
               className="flex flex-col rounded-lg border border-border/60 bg-card p-6 shadow-soft"
             >
               <Stars rating={r.rating} />
