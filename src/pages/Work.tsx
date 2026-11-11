@@ -35,7 +35,7 @@ const Work = () => (
     <PageLayout
       eyebrow="Portfolio"
       title="Our Work"
-      intro="Gardens we look after week to week, borders we have planted and structures we have built, photographed on the job rather than staged."
+      intro="Gardens we look after week to week, borders we've planted and structures we've built, photographed on the job rather than staged."
     >
       <WorkGallery />
 
@@ -46,12 +46,12 @@ const Work = () => (
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-4">
             Every garden on this page started with a look round and an honest conversation about
-            what it needed first. Sometimes that is a full redesign; more often it is a tidy-up,
+            what it needed first. Sometimes that's a full redesign, more often it's a tidy-up,
             then a regular visit to stop it getting away again.
           </p>
           <p className="font-body text-lg text-muted-foreground leading-relaxed">
-            We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what you are dealing with and we will tell you what we would do
-            about it. Quotes are free, and there is no obligation to book anything regular.
+            We cover Aylesbury and the villages around it, out into Buckinghamshire. Tell us what you're dealing with and we'll tell you what we'd do
+            about it. Quotes are free, and there's no obligation to book anything regular.
           </p>
         </div>
       </section>

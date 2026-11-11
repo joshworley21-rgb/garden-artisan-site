@@ -16,7 +16,7 @@ const NotFound = () => {
     <PageLayout
       eyebrow="404"
       title="That page has moved or never existed"
-      intro="The link you followed does not go anywhere on this site. Everything we do is one of the pages below."
+      intro="The link you followed doesn't go anywhere on this site. Everything we do is one of the pages below."
     >
       <Seo
         title="Page not found | JW Garden Services"

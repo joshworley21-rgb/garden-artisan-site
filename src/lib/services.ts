@@ -26,7 +26,7 @@ export const services: ServiceContent[] = [
     seoDescription:
       'Garden maintenance in Aylesbury and across Bucks, Beds and Herts. Weekly, fortnightly or a one-off tidy. Lawns, hedges, borders and seasonal work, free quotes.',
     intro:
-      'Garden maintenance around Aylesbury, weekly or as a one-off. We keep the lawn cut, the hedges neat and the borders weeded, so you come home to a garden that is already done.',
+      'Garden maintenance around Aylesbury, weekly or as a one-off. We keep the lawn cut, the hedges neat and the borders weeded, so you come home to a garden that\'s already done.',
     image: images['jw-maintenance'],
     imageAlt: 'Neatly maintained lawn and borders in an Aylesbury garden',
     body: [
@@ -34,23 +34,23 @@ export const services: ServiceContent[] = [
         heading: 'How often we come',
         paragraphs: [
           'Some gardens want us every week. Some every fortnight, some once a month, and some just want the place knocked back into shape and then left alone for a while. All of those are fine.',
-          'A weekly round means nothing gets out of hand. The grass is cut before it starts looking long, hedges get trimmed little and often instead of one hard cut a year, and weeds come out while they are still small. Most gardens round here want that from March to October, then fortnightly or monthly through the winter.',
-          'If fortnightly would do, we will say so. We would rather quote you for what the garden actually needs than sell you a visit you do not want.',
+          'A weekly round means nothing gets out of hand. The grass is cut before it starts looking long, hedges get trimmed little and often instead of one hard cut a year, and weeds come out while they\'re still small. Most gardens round here want that from March to October, then fortnightly or monthly through the winter.',
+          'If fortnightly would do, we\'ll say so. We would rather quote you for what the garden actually needs than sell you a visit you don\'t want.',
         ],
       },
       {
         heading: 'One-off jobs and catching up',
         paragraphs: [
-          'Plenty of gardens start as a one-off. Something that has got away from someone over a summer, a tidy before the house goes on the market, or a clear-out after a wet winter. There is no obligation to book anything regular afterwards, and if you do want us back we can sort that out once the garden is straight.',
-          'Holidays are the other one. If you are away, we can keep an eye on things, water the pots and keep the place presentable until you are home.',
-          'If we spot something worth doing, we will mention it. No pressure either way.',
+          'Plenty of gardens start as a one-off. Something that has got away from someone over a summer, a tidy before the house goes on the market, or a clear-out after a wet winter. There\'s no obligation to book anything regular afterwards, and if you do want us back we can sort that out once the garden is straight.',
+          'Holidays are the other one. If you\'re away, we can keep an eye on things, water the pots and keep the place presentable until you\'re home.',
+          'If we spot something worth doing, we\'ll mention it. No pressure either way.',
         ],
       },
       {
-        heading: 'We are gardeners, not a mow and go',
+        heading: 'We\'re gardeners, not a mow and go',
         paragraphs: [
-          'Cutting grass and looking after a garden are not the same job. I trained in horticulture at BCA and did an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
-          'We are members of The Gardeners Guild, and we turn up with our own tools, so there is nothing for you to dig out of the shed.',
+          'Cutting grass and looking after a garden aren\'t the same job. I trained in horticulture at BCA and did an apprenticeship before starting JW Garden Services in 2017, so shrubs and roses get pruned at the right time of year. That means healthier plants and a lot more flower the next summer.',
+          'We\'re members of The Gardeners Guild, and we turn up with our own tools, so there\'s nothing for you to dig out of the shed.',
         ],
       },
     ],
@@ -63,20 +63,20 @@ export const services: ServiceContent[] = [
       'Leaf clearing and winter tidies',
       'Lawn feeds to thicken the grass',
       'Overgrown gardens cleared and brought back',
-      'Holiday cover while you are away',
+      'Holiday cover while you\'re away',
     ],
     faqs: [
       {
         q: 'How often should my garden be maintained?',
-        a: 'It depends on the garden and on you. Weekly suits most, because the grass never gets long and the weeds do not get a chance. March to October is the busy stretch, then fortnightly or monthly through winter, and bigger gardens usually stay weekly all year. If fortnightly would do, we will say so.',
+        a: 'It depends on the garden and on you. Weekly suits most, because the grass never gets long and the weeds don\'t get a chance. March to October is the busy stretch, then fortnightly or monthly through winter, and bigger gardens usually stay weekly all year. If fortnightly would do, we\'ll say so.',
       },
       {
         q: 'Can you do a one-off tidy instead of a regular visit?',
-        a: 'Yes. A lot of jobs start that way, whether it is a clearance, a tidy before selling, or just getting on top of a garden that has run away with itself. Book nothing else if you do not want to.',
+        a: 'Yes. A lot of jobs start that way, whether it\'s a clearance, a tidy before selling, or just getting on top of a garden that has run away with itself. Book nothing else if you don\'t want to.',
       },
       {
         q: 'Do I need to be home for the visit?',
-        a: 'No. Most people leave a gate unlocked or a key safe and come home to a finished garden. If anything needs your say so, I will give you a ring.',
+        a: 'No. Most people leave a gate unlocked or a key safe and come home to a finished garden. If anything needs your say so, I\'ll give you a ring.',
       },
       {
         q: 'Which areas do you cover for garden maintenance?',
@@ -108,14 +108,14 @@ export const services: ServiceContent[] = [
       {
         heading: 'It is the bit underneath that matters',
         paragraphs: [
-          'A patio is only as good as what sits under it. We dig out to the right depth, put in a properly compacted sub base, then bed and point every slab. That is why paving stays flat and weed free for years instead of sinking after a couple of winters.',
+          'A patio is only as good as what sits under it. We dig out to the right depth, put in a properly compacted sub base, then bed and point every slab. That\'s why paving stays flat and weed free for years instead of sinking after a couple of winters.',
           'A new patio, some steps, a path down the garden, a fence line, or the whole thing at once. We do the lot, from the first dig to sweeping up at the end.',
         ],
       },
       {
         heading: 'We think about the planting too',
         paragraphs: [
-          'Because we are gardeners first, the hard landscaping and the planting get planned together. Borders end up the right size for what is going in them, the drainage is sorted out, and the levels work across the whole garden rather than just the patio.',
+          'Because we\'re gardeners first, the hard landscaping and the planting get planned together. Borders end up the right size for what is going in them, the drainage is sorted out, and the levels work across the whole garden rather than just the patio.',
           'Bring us your own idea, a drawing from a designer, or we can work the layout out with you stood in the garden.',
         ],
       },
@@ -137,7 +137,7 @@ export const services: ServiceContent[] = [
       },
       {
         q: 'Can you replace a patio that has sunk or cracked?',
-        a: 'Yes. Nine times out of ten it is the sub base or the drainage at fault. We lift the old surface, put right what is underneath and relay it, so it does not go the same way again.',
+        a: 'Yes. Nine times out of ten it\'s the sub base or the drainage at fault. We lift the old surface, put right what is underneath and relay it, so it doesn\'t go the same way again.',
       },
       {
         q: 'Do you provide a written quote?',
@@ -167,14 +167,14 @@ export const services: ServiceContent[] = [
         heading: 'Right plant, right place',
         paragraphs: [
           'A garden that still looks good in five years comes down to putting the right plant in the right spot. We look at your soil, which bits get sun and which stay shady, how exposed it is, and how much gardening you actually want to do. Then we pick plants that will be happy there.',
-          'That might be low maintenance evergreens with a bit of colour through the year, a cottage border that flowers from spring to autumn, or planting to bring in the bees and butterflies. We will talk it through in normal words. No Latin names unless you are interested.',
+          'That might be low maintenance evergreens with a bit of colour through the year, a cottage border that flowers from spring to autumn, or planting to bring in the bees and butterflies. We\'ll talk it through in normal words. No Latin names unless you\'re interested.',
         ],
       },
       {
         heading: 'One border or the whole garden',
         paragraphs: [
           'Plenty of people ring up about one tired border and end up redoing the lot. Either is fine by us. A border can be cleared, the soil improved, replanted and mulched in a day or two. A bigger job can be split over a season to spread the cost.',
-          'We do the regular maintenance as well, so we can keep an eye on new planting through its first couple of years. That is when it needs the watering and feeding to get properly established.',
+          'We do the regular maintenance as well, so we can keep an eye on new planting through its first couple of years. That\'s when it needs the watering and feeding to get properly established.',
         ],
       },
     ],
@@ -199,11 +199,11 @@ export const services: ServiceContent[] = [
       },
       {
         q: 'Do I need to know what I want before you visit?',
-        a: 'No. Most people just know the garden is not working for them. I come and have a look, ask how you use the space, and we go from there. If you already have a plan from a designer, we are happy to plant it up.',
+        a: 'No. Most people just know the garden isn\'t working for them. I come and have a look, ask how you use the space, and we go from there. If you already have a plan from a designer, we\'re happy to plant it up.',
       },
       {
         q: 'How much does a garden makeover cost?',
-        a: 'It depends on the size of the garden and whether there is any paving or fencing involved. I come and look, then send you a written quote. Bigger jobs can be done in stages if that is easier on the budget.',
+        a: 'It depends on the size of the garden and whether there\'s any paving or fencing involved. I come and look, then send you a written quote. Bigger jobs can be done in stages if that\'s easier on the budget.',
       },
     ],
     gallery: [
@@ -255,7 +255,7 @@ export const services: ServiceContent[] = [
     faqs: [
       {
         q: 'Do you offer contracts or pay-as-you-go?',
-        a: 'Either. Most commercial customers want a fixed schedule and a monthly invoice so they can budget, but we are happy to work as needed.',
+        a: 'Either. Most commercial customers want a fixed schedule and a monthly invoice so they can budget, but we\'re happy to work as needed.',
       },
       {
         q: 'Are you insured for commercial work?',
@@ -267,7 +267,7 @@ export const services: ServiceContent[] = [
       },
       {
         q: 'What size of site do you take on?',
-        a: 'Anything from a single office frontage up to multi building grounds. If a site is too big for us to do properly, I will tell you straight rather than take it on.',
+        a: 'Anything from a single office frontage up to multi building grounds. If a site is too big for us to do properly, I\'ll tell you straight rather than take it on.',
       },
     ],
     gallery: [images['jw-g6'], images['jw-g8'], images['jw-work-20250507_134138']],
